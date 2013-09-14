@@ -1,9 +1,10 @@
-# [Credit Tracker WordPress plugin](http://html5boilerplate.com)
+# Credit Tracker WordPress plugin
 
 Fetch (from image agencies) & process credits for the different WordPress entities
 
-* Source: [https://github.com/Labs64/credit-tracker](https://github.com/Labs64/credit-tracker)
 * Homepage: [http://www.labs64.com](http://www.labs64.com)
+* Source: [https://github.com/Labs64/credit-tracker](https://github.com/Labs64/credit-tracker)
+* Author: [Labs64](http://www.labs64.com)
 
 
 ## Features
