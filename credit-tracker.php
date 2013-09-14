@@ -1,26 +1,24 @@
 <?php
 /**
- * The WordPress Plugin Credit Tracker.
- *
- * Fetch (from image agencies) & process credits for the different WordPress entities.
+ * @wordpress-plugin
+ * Plugin Name: Credit Tracker
+ * Plugin URI:  https://github.com/Labs64/credit-tracker
+ * Description: Fetch (from image agencies) & process credits for the different WordPress entities.
+ * Author:      Labs64
+ * Author URI:  http://www.labs64.com
+ * Version:     1.0.0
+ * Text Domain: credit-tracker
+ * Domain Path: /languages
+ * License:     GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Requires at least: 3.3
+ * Tested up to: 3.6.1
  *
  * @package   Credit_Tacker
  * @author    Labs64 <info@labs64.com>
  * @license   GPL-2.0+
  * @link      http://www.labs64.com
  * @copyright 2013 Labs64
- *
- * @wordpress-plugin
- * Plugin Name: Credit Tracker
- * Plugin URI:  https://github.com/Labs64/credit-tracker
- * Description: Fetch (from image agencies) & process credits for the different WordPress entities.
- * Version:     1.0.0
- * Author:      Labs64
- * Author URI:  http://www.labs64.com
- * Text Domain: credit-tracker
- * License:     GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Domain Path: /languages
  */
 
 // If this file is called directly, abort.

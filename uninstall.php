@@ -2,11 +2,11 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   Credit_Tacker
+ * @author    Labs64 <info@labs64.com>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2013 Your Name or Company Name
+ * @link      http://www.labs64.com
+ * @copyright 2013 Labs64
  */
 
 // If uninstall, not called from WordPress, then exit

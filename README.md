@@ -1,10 +1,13 @@
 # Credit Tracker WordPress plugin
 
-Fetch (from image agencies) & process credits for the different WordPress entities
+Credit Tracker plugin allows to create media credits tables and adds a few additional fields not provided by Media Library.
+Media credits data can be fetched from different image agencies and shown in required format.
 
-* Homepage: [http://www.labs64.com](http://www.labs64.com)
-* Source: [https://github.com/Labs64/credit-tracker](https://github.com/Labs64/credit-tracker)
-* Author: [Labs64](http://www.labs64.com)
+The plugin adds the following fields to all images in WordPress Media Library:
+* Owner/Author
+* Publisher
+* Ident-Nr.
+* Licence
 
 
 ## Features
@@ -27,3 +30,8 @@ Choose one of the following options:
 ## Contributing
 
 Anyone and everyone is welcome to contribute. Dozens of developers have helped make the Credit Tracker what it is today.
+
+
+* Author: [Labs64](http://www.labs64.com)
+* Homepage: [http://www.labs64.com](http://www.labs64.com)
+* Source: [https://github.com/Labs64/credit-tracker](https://github.com/Labs64/credit-tracker)

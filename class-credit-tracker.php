@@ -9,12 +9,6 @@
  * @copyright 2013 Labs64
  */
 
-/**
- * Plugin class.
- *
- * @package credit-tracker
- * @author  Labs64 <info@labs64.com>
- */
 class Credit_Tacker
 {
 
@@ -37,7 +31,7 @@ class Credit_Tacker
      *
      * @var      string
      */
-    protected $plugin_slug = 'plugin-name';
+    protected $plugin_slug = 'credit-tracker';
 
     /**
      * Instance of this class.
@@ -72,11 +66,11 @@ class Credit_Tacker
         add_action('wpmu_new_blog', array($this, 'activate_new_site'));
 
         // Add the options page and menu item.
-        // add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
+        add_action('admin_menu', array($this, 'add_plugin_admin_menu'));
 
         // Add an action link pointing to the options page.
-        // $plugin_basename = plugin_basename( plugin_dir_path( __FILE__ ) . 'credit-tracker.php' );
-        // add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
+        $plugin_basename = plugin_basename(plugin_dir_path(__FILE__) . 'credit-tracker.php');
+        add_filter('plugin_action_links_' . $plugin_basename, array($this, 'add_action_links'));
 
         // Load admin style sheet and JavaScript.
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_styles'));
@@ -307,18 +301,9 @@ class Credit_Tacker
      */
     public function add_plugin_admin_menu()
     {
-
-        /*
-         * TODO:
-         *
-         * Change 'Page Title' to the title of your plugin admin page
-         * Change 'Menu Text' to the text for menu item for the plugin settings page
-         * Change 'manage_options' to the capability you see fit (http://codex.wordpress.org/Roles_and_Capabilities)
-         * Change 'plugin-name' to the name of your plugin
-         */
-        $this->plugin_screen_hook_suffix = add_plugins_page(
-            __('Page Title', $this->plugin_slug),
-            __('Menu Text', $this->plugin_slug),
+        $this->plugin_screen_hook_suffix = add_options_page(
+            __('Credit Tracker', $this->plugin_slug),
+            __('Credit Tracker', $this->plugin_slug),
             'manage_options',
             $this->plugin_slug,
             array($this, 'display_plugin_admin_page')
@@ -343,10 +328,9 @@ class Credit_Tacker
      */
     public function add_action_links($links)
     {
-
         return array_merge(
             array(
-                'settings' => '<a href="' . admin_url('plugins.php?page=plugin-name') . '">' . __('Settings', $this->plugin_slug) . '</a>'
+                'settings' => '<a href="' . admin_url('options-general.php?page=credit-tracker') . '">' . __('Settings', $this->plugin_slug) . '</a>'
             ),
             $links
         );
