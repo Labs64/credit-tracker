@@ -1,41 +1,37 @@
 <?php
 /**
- * The WordPress Plugin Boilerplate.
+ * The WordPress Plugin Credit Tracker.
  *
- * A foundation off of which to build well-documented WordPress plugins that also follow
- * WordPress coding standards and PHP best practices.
+ * Fetch (from image agencies) & process credits for the different WordPress entities.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   Credit_Tacker
+ * @author    Labs64 <info@labs64.com>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2013 Your Name or Company Name
+ * @link      http://www.labs64.com
+ * @copyright 2013 Labs64
  *
  * @wordpress-plugin
- * Plugin Name: TODO
- * Plugin URI:  TODO
- * Description: TODO
+ * Plugin Name: Credit Tracker
+ * Plugin URI:  https://github.com/Labs64/credit-tracker
+ * Description: Fetch (from image agencies) & process credits for the different WordPress entities.
  * Version:     1.0.0
- * Author:      TODO
- * Author URI:  TODO
- * Text Domain: plugin-name-locale
+ * Author:      Labs64
+ * Author URI:  http://www.labs64.com
+ * Text Domain: credit-tracker
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path: /languages
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if (!defined('WPINC')) {
+    die;
 }
 
-// TODO: replace `class-credit-tracker.php` with the name of the actual plugin's class file
-require_once( plugin_dir_path( __FILE__ ) . 'class-credit-tracker.php' );
+require_once(plugin_dir_path(__FILE__) . 'class-credit-tracker.php');
 
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
-// TODO: replace Plugin_Name with the name of the plugin defined in `class-credit-tracker.php`
-register_activation_hook( __FILE__, array( 'Plugin_Name', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'Plugin_Name', 'deactivate' ) );
+register_activation_hook(__FILE__, array('Credit_Tacker', 'activate'));
+register_deactivation_hook(__FILE__, array('Credit_Tacker', 'deactivate'));
 
-// TODO: replace Plugin_Name with the name of the plugin defined in `class-credit-tracker.php`
-add_action( 'plugins_loaded', array( 'Plugin_Name', 'get_instance' ) );
+add_action('plugins_loaded', array('Credit_Tacker', 'get_instance'));
