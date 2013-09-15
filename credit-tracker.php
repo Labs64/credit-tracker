@@ -14,7 +14,7 @@
  * Requires at least: 3.3
  * Tested up to: 3.6.1
  *
- * @package   Credit_Tacker
+ * @package   Credit_Tracker
  * @author    Labs64 <info@labs64.com>
  * @license   GPL-2.0+
  * @link      http://www.labs64.com
@@ -29,7 +29,7 @@ if (!defined('WPINC')) {
 require_once(plugin_dir_path(__FILE__) . 'class-credit-tracker.php');
 
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
-register_activation_hook(__FILE__, array('Credit_Tacker', 'activate'));
-register_deactivation_hook(__FILE__, array('Credit_Tacker', 'deactivate'));
+register_activation_hook(__FILE__, array('Credit_Tracker', 'activate'));
+register_deactivation_hook(__FILE__, array('Credit_Tracker', 'deactivate'));
 
-add_action('plugins_loaded', array('Credit_Tacker', 'get_instance'));
+add_action('plugins_loaded', array('Credit_Tracker', 'get_instance'));

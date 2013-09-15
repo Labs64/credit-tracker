@@ -2,7 +2,7 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @package   Credit_Tacker
+ * @package   Credit_Tracker
  * @author    Labs64 <info@labs64.com>
  * @license   GPL-2.0+
  * @link      http://www.labs64.com
@@ -10,8 +10,8 @@
  */
 
 // If uninstall, not called from WordPress, then exit
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-	exit;
+if (!defined('WP_UNINSTALL_PLUGIN')) {
+    exit;
 }
 
-// TODO: Define uninstall functionality here
+delete_option('credit_tracker_options');

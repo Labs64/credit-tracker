@@ -1,15 +1,15 @@
 <?php
 /**
- * Plugin Name.
+ * Plugin class.
  *
- * @package   Credit_Tacker
+ * @package   Credit_Tracker
  * @author    Labs64 <info@labs64.com>
  * @license   GPL-2.0+
  * @link      http://www.labs64.com
  * @copyright 2013 Labs64
  */
 
-class Credit_Tacker
+class Credit_Tracker
 {
 
     /**
@@ -58,6 +58,7 @@ class Credit_Tacker
      */
     private function __construct()
     {
+        require_once(plugin_dir_path(__FILE__) . 'options-credit-tracker.php');
 
         // Load plugin text domain
         add_action('init', array($this, 'load_plugin_textdomain'));
@@ -80,11 +81,9 @@ class Credit_Tacker
         add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
 
-
         // Define custom functionality. Read more about actions and filters: http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
-        add_action('TODO', array($this, 'action_method_name'));
-        add_filter('TODO', array($this, 'filter_method_name'));
-
+        add_filter('attachment_fields_to_edit', array($this, 'get_attachment_fields'));
+        add_filter('attachment_fields_to_save', array($this, 'save_attachment_fields'));
     }
 
     /**
@@ -96,7 +95,6 @@ class Credit_Tacker
      */
     public static function get_instance()
     {
-
         // If the single instance hasn't been set, set it now.
         if (null == self::$instance) {
             self::$instance = new self;
@@ -168,8 +166,9 @@ class Credit_Tacker
      */
     public function activate_new_site($blog_id)
     {
-        if (1 !== did_action('wpmu_new_blog'))
+        if (1 !== did_action('wpmu_new_blog')) {
             return;
+        }
 
         switch_to_blog($blog_id);
         self::single_activate();
@@ -224,7 +223,6 @@ class Credit_Tacker
      */
     public function load_plugin_textdomain()
     {
-
         $domain = $this->plugin_slug;
         $locale = apply_filters('plugin_locale', get_locale(), $domain);
 
@@ -241,7 +239,6 @@ class Credit_Tacker
      */
     public function enqueue_admin_styles()
     {
-
         if (!isset($this->plugin_screen_hook_suffix)) {
             return;
         }
@@ -262,7 +259,6 @@ class Credit_Tacker
      */
     public function enqueue_admin_scripts()
     {
-
         if (!isset($this->plugin_screen_hook_suffix)) {
             return;
         }
@@ -306,19 +302,9 @@ class Credit_Tacker
             __('Credit Tracker', $this->plugin_slug),
             'manage_options',
             $this->plugin_slug,
-            array($this, 'display_plugin_admin_page')
+            'credit_tracker_options_page'
         );
 
-    }
-
-    /**
-     * Render the settings page for this plugin.
-     *
-     * @since    1.0.0
-     */
-    public function display_plugin_admin_page()
-    {
-        include_once('views/admin.php');
     }
 
     /**
@@ -334,35 +320,82 @@ class Credit_Tacker
             ),
             $links
         );
-
     }
 
-    /**
-     * NOTE:  Actions are points in the execution of a page or process
-     *        lifecycle that WordPress fires.
-     *
-     *        WordPress Actions: http://codex.wordpress.org/Plugin_API#Actions
-     *        Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
-     *
-     * @since    1.0.0
-     */
-    public function action_method_name()
+    public function get_attachment_fields($form_fields, $post)
     {
-        // TODO: Define your action hook callback here
+        $options = credit_tracker_get_plugin_options();
+
+        if (!$options['author']['hide']) {
+            $lbAuthor = $options['author']['lbl'];
+            if (empty($lbAuthor)) {
+                $lbAuthor = __('Author', $this->plugin_slug);
+            }
+
+            $author = get_post_meta($post->ID, '_credit_tracker_author', true);
+            $form_fields['credit_tracker_author']['tr'] = '<tr><td colspan="2" style="width:800px;"><p>
+                <label for="credit_tracker_author"><strong>' . $lbAuthor . '</strong></label><br>
+                <input type="text" value="' . $author . '" id="attachments-' . $post->ID . '-credit_tracker_author" name="attachments[' . $post->ID . '][credit_tracker_author]"  class="widefat" />
+                </p></td></tr>';
+        }
+
+        if (!$options['publisher']['hide']) {
+            $lbPublisher = $options['publisher']['lbl'];
+            if (empty($lbPublisher)) {
+                $lbPublisher = __('Publisher', $this->plugin_slug);
+            }
+
+            $publisher = get_post_meta($post->ID, '_credit_tracker_publisher', true);
+            $form_fields['credit_tracker_publisher']['tr'] = '<tr><td colspan="2" style="width:800px;"><p>
+            <label for="credit_tracker_publisher"><strong>' . $lbPublisher . '</strong></label><br>
+            <input type="text" value="' . $publisher . '" id="attachments-' . $post->ID . '-credit_tracker_publisher" name="attachments[' . $post->ID . '][credit_tracker_publisher]"  class="widefat" />
+            </p></td></tr>';
+        }
+
+        if (!$options['ident_nr']['hide']) {
+            $lbIdentNr = $options['ident_nr']['lbl'];
+            if (empty($lbIdentNr)) {
+                $lbIdentNr = __('Ident-Nr.', $this->plugin_slug);
+            }
+
+            $ident_nr = get_post_meta($post->ID, '_credit_tracker_ident_nr', true);
+            $form_fields['credit_tracker_ident_nr']['tr'] = '<tr><td colspan="2" style="width:800px;"><p>
+                <label for="credit_tracker_ident_nr"><strong>' . $lbIdentNr . '</strong></label><br>
+                <input type="text" value="' . $ident_nr . '" id="attachments-' . $post->ID . '-credit_tracker_ident_nr" name="attachments[' . $post->ID . '][credit_tracker_ident_nr]"  class="widefat" />
+                </p></td></tr>';
+        }
+
+        if (!$options['license']['hide']) {
+            $lbLicense = $options['license']['lbl'];
+            if (empty($lbLicense)) {
+                $lbLicense = __('License', $this->plugin_slug);
+            }
+
+            $set = get_post_meta($post->ID, '_credit_tracker_license', true);
+            $form_fields['credit_tracker_license']['tr'] = '<tr><td colspan="2" style="width:800px;"><p>
+                <label for="credit_tracker_license"><strong>' . $lbLicense . '</strong></label><br>
+                <input type="text" value="' . $set . '" id="attachments-' . $post->ID . '-credit_tracker_license" name="attachments[' . $post->ID . '][credit_tracker_license]"  class="widefat" />
+                </p></td></tr>';
+        }
+
+        return $form_fields;
     }
 
-    /**
-     * NOTE:  Filters are points of execution in which WordPress modifies data
-     *        before saving it or sending it to the browser.
-     *
-     *        WordPress Filters: http://codex.wordpress.org/Plugin_API#Filters
-     *        Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
-     *
-     * @since    1.0.0
-     */
-    public function filter_method_name()
+    public function save_attachment_fields($post, $attachment)
     {
-        // TODO: Define your filter hook callback here
+        if (isset($attachment['credit_tracker_author'])) {
+            update_post_meta($post['ID'], '_credit_tracker_author', $attachment['credit_tracker_author']);
+        }
+        if (isset($attachment['credit_tracker_publisher'])) {
+            update_post_meta($post['ID'], '_credit_tracker_publisher', $attachment['credit_tracker_publisher']);
+        }
+        if (isset($attachment['credit_tracker_ident_nr'])) {
+            update_post_meta($post['ID'], '_credit_tracker_ident_nr', $attachment['credit_tracker_ident_nr']);
+        }
+        if (isset($attachment['credit_tracker_license'])) {
+            update_post_meta($post['ID'], '_credit_tracker_license', $attachment['credit_tracker_license']);
+        }
+        return $post;
     }
 
 }

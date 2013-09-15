@@ -1,1 +1,6 @@
 /* This stylesheet is used to style the admin option form of the plugin. */
+
+p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}

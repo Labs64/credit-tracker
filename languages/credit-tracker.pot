@@ -1,11 +1,11 @@
 # Copyright (C) 2013 Labs64
-# This file is distributed under the same license as the Credit_Tacker package.
+# This file is distributed under the same license as the Credit_Tracker package.
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/credit-tracker\n"
-"POT-Creation-Date: 2013-09-15 01:21+0100\n"
-"PO-Revision-Date: 2013-09-15 01:22+0100\n"
+"POT-Creation-Date: 2013-09-15 21:51+0100\n"
+"PO-Revision-Date: 2013-09-15 21:51+0100\n"
 "Last-Translator: Labs64 <info@labs64.com>\n"
 "Language-Team: Labs64 <info@labs64.com >\n"
 "MIME-Version: 1.0\n"
@@ -19,10 +19,55 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: class-credit-tracker.php:305 class-credit-tracker.php:306
+#: class-credit-tracker.php:301 class-credit-tracker.php:302
+#: options-credit-tracker.php:113
 msgid "Credit Tracker"
 msgstr ""
 
-#: class-credit-tracker.php:333
+#: class-credit-tracker.php:319
 msgid "Settings"
+msgstr ""
+
+#: class-credit-tracker.php:332 options-credit-tracker.php:124
+msgid "Author"
+msgstr ""
+
+#: class-credit-tracker.php:345 options-credit-tracker.php:125
+msgid "Publisher"
+msgstr ""
+
+#: class-credit-tracker.php:358 options-credit-tracker.php:126
+msgid "Ident-Nr."
+msgstr ""
+
+#: class-credit-tracker.php:371 options-credit-tracker.php:127
+msgid "License"
+msgstr ""
+
+#: options-credit-tracker.php:16
+msgid "You do not have sufficient permissions to edit this site."
+msgstr ""
+
+#: options-credit-tracker.php:86 options-credit-tracker.php:105
+msgid "Options saved."
+msgstr ""
+
+#: options-credit-tracker.php:114
+msgid "Custom options. You can hide fields or customize field labels."
+msgstr ""
+
+#: options-credit-tracker.php:128
+msgid "Label"
+msgstr ""
+
+#: options-credit-tracker.php:129
+msgid "Hide"
+msgstr ""
+
+#: options-credit-tracker.php:154
+msgid "Update Options"
+msgstr ""
+
+#: options-credit-tracker.php:163
+msgid "Reset Options"
 msgstr ""

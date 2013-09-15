@@ -7,7 +7,7 @@ The plugin adds the following fields to all images in WordPress Media Library:
 * Owner/Author
 * Publisher
 * Ident-Nr.
-* Licence
+* License
 
 
 ## Features
