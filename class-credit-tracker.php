@@ -82,8 +82,11 @@ class Credit_Tracker
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
 
         // Define custom functionality. Read more about actions and filters: http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
-        add_filter('attachment_fields_to_edit', array($this, 'get_attachment_fields'));
-        add_filter('attachment_fields_to_save', array($this, 'save_attachment_fields'));
+        add_filter('attachment_fields_to_edit', array($this, 'get_attachment_fields'), null, 2);
+        add_filter('attachment_fields_to_save', array($this, 'save_attachment_fields'), null, 2);
+
+        add_filter('manage_media_columns', array($this, 'credit_tracker_attachment_columns'), null, 2);
+        add_action('manage_media_custom_column', array($this, 'credit_tracker_attachment_show_column'), null, 2);
     }
 
     /**
@@ -324,78 +327,86 @@ class Credit_Tracker
 
     public function get_attachment_fields($form_fields, $post)
     {
-        $options = credit_tracker_get_plugin_options();
+        $form_fields["credit-tracker-author"] = array(
+            "label" => __('Author', $this->plugin_slug),
+            "input" => "text",
+            "value" => get_post_meta($post->ID, "credit-tracker-author", true),
+            "helps" => __("Media author/owner", $this->plugin_slug),
+        );
 
-        if (!$options['author']['hide']) {
-            $lbAuthor = $options['author']['lbl'];
-            if (empty($lbAuthor)) {
-                $lbAuthor = __('Author', $this->plugin_slug);
-            }
+        $form_fields["credit-tracker-publisher"] = array(
+            "label" => __('Publisher', $this->plugin_slug),
+            "input" => "text",
+            "value" => get_post_meta($post->ID, "credit-tracker-publisher", true),
+            "helps" => __("Media publisher (e.g. image agency)", $this->plugin_slug),
+        );
 
-            $author = get_post_meta($post->ID, '_credit_tracker_author', true);
-            $form_fields['credit_tracker_author']['tr'] = '<tr><td colspan="2" style="width:800px;"><p>
-                <label for="credit_tracker_author"><strong>' . $lbAuthor . '</strong></label><br>
-                <input type="text" value="' . $author . '" id="attachments-' . $post->ID . '-credit_tracker_author" name="attachments[' . $post->ID . '][credit_tracker_author]"  class="widefat" />
-                </p></td></tr>';
-        }
+        $form_fields["credit-tracker-ident_nr"] = array(
+            "label" => __('Ident-Nr.', $this->plugin_slug),
+            "input" => "text",
+            "value" => get_post_meta($post->ID, "credit-tracker-ident_nr", true),
+            "helps" => __("Media external number", $this->plugin_slug),
+        );
 
-        if (!$options['publisher']['hide']) {
-            $lbPublisher = $options['publisher']['lbl'];
-            if (empty($lbPublisher)) {
-                $lbPublisher = __('Publisher', $this->plugin_slug);
-            }
-
-            $publisher = get_post_meta($post->ID, '_credit_tracker_publisher', true);
-            $form_fields['credit_tracker_publisher']['tr'] = '<tr><td colspan="2" style="width:800px;"><p>
-            <label for="credit_tracker_publisher"><strong>' . $lbPublisher . '</strong></label><br>
-            <input type="text" value="' . $publisher . '" id="attachments-' . $post->ID . '-credit_tracker_publisher" name="attachments[' . $post->ID . '][credit_tracker_publisher]"  class="widefat" />
-            </p></td></tr>';
-        }
-
-        if (!$options['ident_nr']['hide']) {
-            $lbIdentNr = $options['ident_nr']['lbl'];
-            if (empty($lbIdentNr)) {
-                $lbIdentNr = __('Ident-Nr.', $this->plugin_slug);
-            }
-
-            $ident_nr = get_post_meta($post->ID, '_credit_tracker_ident_nr', true);
-            $form_fields['credit_tracker_ident_nr']['tr'] = '<tr><td colspan="2" style="width:800px;"><p>
-                <label for="credit_tracker_ident_nr"><strong>' . $lbIdentNr . '</strong></label><br>
-                <input type="text" value="' . $ident_nr . '" id="attachments-' . $post->ID . '-credit_tracker_ident_nr" name="attachments[' . $post->ID . '][credit_tracker_ident_nr]"  class="widefat" />
-                </p></td></tr>';
-        }
-
-        if (!$options['license']['hide']) {
-            $lbLicense = $options['license']['lbl'];
-            if (empty($lbLicense)) {
-                $lbLicense = __('License', $this->plugin_slug);
-            }
-
-            $set = get_post_meta($post->ID, '_credit_tracker_license', true);
-            $form_fields['credit_tracker_license']['tr'] = '<tr><td colspan="2" style="width:800px;"><p>
-                <label for="credit_tracker_license"><strong>' . $lbLicense . '</strong></label><br>
-                <input type="text" value="' . $set . '" id="attachments-' . $post->ID . '-credit_tracker_license" name="attachments[' . $post->ID . '][credit_tracker_license]"  class="widefat" />
-                </p></td></tr>';
-        }
+        $form_fields["credit-tracker-license"] = array(
+            "label" => __('License', $this->plugin_slug),
+            "input" => "text",
+            "value" => get_post_meta($post->ID, "credit-tracker-license", true),
+            "helps" => __("Media license", $this->plugin_slug),
+        );
 
         return $form_fields;
     }
 
     public function save_attachment_fields($post, $attachment)
     {
-        if (isset($attachment['credit_tracker_author'])) {
-            update_post_meta($post['ID'], '_credit_tracker_author', $attachment['credit_tracker_author']);
+        if (isset($attachment['credit-tracker-author'])) {
+            update_post_meta($post['ID'], 'credit-tracker-author', $attachment['credit-tracker-author']);
+        } else {
+            delete_post_meta($post['ID'], 'credit-tracker-author');
         }
-        if (isset($attachment['credit_tracker_publisher'])) {
-            update_post_meta($post['ID'], '_credit_tracker_publisher', $attachment['credit_tracker_publisher']);
+
+        if (isset($attachment['credit-tracker-publisher'])) {
+            update_post_meta($post['ID'], 'credit-tracker-publisher', $attachment['credit-tracker-publisher']);
+        } else {
+            delete_post_meta($post['ID'], 'credit-tracker-publisher');
         }
-        if (isset($attachment['credit_tracker_ident_nr'])) {
-            update_post_meta($post['ID'], '_credit_tracker_ident_nr', $attachment['credit_tracker_ident_nr']);
+
+        if (isset($attachment['credit-tracker-ident_nr'])) {
+            update_post_meta($post['ID'], 'credit-tracker-ident_nr', $attachment['credit-tracker-ident_nr']);
+        } else {
+            delete_post_meta($post['ID'], 'credit-tracker-ident_nr');
         }
-        if (isset($attachment['credit_tracker_license'])) {
-            update_post_meta($post['ID'], '_credit_tracker_license', $attachment['credit_tracker_license']);
+
+        if (isset($attachment['credit-tracker-license'])) {
+            update_post_meta($post['ID'], 'credit-tracker-license', $attachment['credit-tracker-license']);
+        } else {
+            delete_post_meta($post['ID'], 'credit-tracker-license');
         }
+
         return $post;
+    }
+
+    function credit_tracker_attachment_columns($columns)
+    {
+        $columns['credit-tracker-author'] = __('Author', $this->plugin_slug);
+        $columns['credit-tracker-publisher'] = __('Publisher', $this->plugin_slug);
+        return $columns;
+    }
+
+    function credit_tracker_attachment_show_column($name)
+    {
+        global $post;
+        switch ($name) {
+            case 'credit-tracker-author':
+                $value = get_post_meta($post->ID, "credit-tracker-author", true);
+                echo $value;
+                break;
+            case 'credit-tracker-publisher':
+                $value = get_post_meta($post->ID, "credit-tracker-publisher", true);
+                echo $value;
+                break;
+        }
     }
 
 }
