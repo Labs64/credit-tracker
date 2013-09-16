@@ -43,15 +43,6 @@ class Credit_Tracker
     protected static $instance = null;
 
     /**
-     * Slug of the plugin screen.
-     *
-     * @since    1.0.0
-     *
-     * @var      string
-     */
-    protected $plugin_screen_hook_suffix = null;
-
-    /**
      * Initialize the plugin by setting localization, filters, and administration functions.
      *
      * @since     1.0.0
@@ -66,10 +57,6 @@ class Credit_Tracker
         // Activate plugin when new blog is added
         add_action('wpmu_new_blog', array($this, 'activate_new_site'));
 
-        // Load admin style sheet and JavaScript.
-        add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_styles'));
-        add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
-
         // Load public-facing style sheet and JavaScript.
         add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
@@ -80,6 +67,9 @@ class Credit_Tracker
 
         add_filter('manage_media_columns', array($this, 'credit_tracker_attachment_columns'), null, 2);
         add_action('manage_media_custom_column', array($this, 'credit_tracker_attachment_show_column'), null, 2);
+
+        // Add shortcodes
+        add_shortcode('credits', 'credits_shortcode');
     }
 
     /**
@@ -227,46 +217,6 @@ class Credit_Tracker
     }
 
     /**
-     * Register and enqueue admin-specific style sheet.
-     *
-     * @since     1.0.0
-     *
-     * @return    null    Return early if no settings page is registered.
-     */
-    public function enqueue_admin_styles()
-    {
-        if (!isset($this->plugin_screen_hook_suffix)) {
-            return;
-        }
-
-        $screen = get_current_screen();
-        if ($screen->id == $this->plugin_screen_hook_suffix) {
-            wp_enqueue_style($this->plugin_slug . '-admin-styles', plugins_url('css/admin.css', __FILE__), array(), self::VERSION);
-        }
-
-    }
-
-    /**
-     * Register and enqueue admin-specific JavaScript.
-     *
-     * @since     1.0.0
-     *
-     * @return    null    Return early if no settings page is registered.
-     */
-    public function enqueue_admin_scripts()
-    {
-        if (!isset($this->plugin_screen_hook_suffix)) {
-            return;
-        }
-
-        $screen = get_current_screen();
-        if ($screen->id == $this->plugin_screen_hook_suffix) {
-            wp_enqueue_script($this->plugin_slug . '-admin-script', plugins_url('js/admin.js', __FILE__), array('jquery'), self::VERSION);
-        }
-
-    }
-
-    /**
      * Register and enqueue public-facing style sheet.
      *
      * @since    1.0.0
@@ -381,6 +331,19 @@ class Credit_Tracker
                 echo $value;
                 break;
         }
+    }
+
+    function credits_shortcode($atts)
+    {
+        extract(shortcode_atts(
+                array(
+                    'id' => '',
+                    'foo' => 'bar',
+                ), $atts)
+        );
+
+        // Code
+        return "credits shortcode";
     }
 
 }

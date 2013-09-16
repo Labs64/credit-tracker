@@ -12,11 +12,39 @@
 class Credit_Tracker_Options
 {
     /**
+     * Plugin version, used for cache-busting of style and script file references.
+     *
+     * @since   1.0.0
+     *
+     * @var     string
+     */
+    const VERSION = '1.0.0';
+
+    /**
      * Holds the values to be used in the fields callbacks
      */
     private $options;
 
+    /**
+     * Unique identifier for your plugin.
+     *
+     * Use this value (not the variable name) as the text domain when internationalizing strings of text. It should
+     * match the Text Domain file header in the main plugin file.
+     *
+     * @since    1.0.0
+     *
+     * @var      string
+     */
     protected $plugin_slug = 'credit-tracker';
+
+    /**
+     * Slug of the plugin screen.
+     *
+     * @since    1.0.0
+     *
+     * @var      string
+     */
+    protected $plugin_screen_hook_suffix = null;
 
     /**
      * Start up
@@ -30,6 +58,10 @@ class Credit_Tracker_Options
         // Add an action link pointing to the options page.
         $plugin_basename = plugin_basename(plugin_dir_path(__FILE__) . 'credit-tracker.php');
         add_filter('plugin_action_links_' . $plugin_basename, array($this, 'add_action_links'));
+
+        // Load admin style sheet and JavaScript.
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_styles'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
     }
 
     /**
@@ -53,13 +85,53 @@ class Credit_Tracker_Options
     public function add_plugin_page()
     {
         // This page will be under "Settings"
-        add_options_page(
+        $this->plugin_screen_hook_suffix = add_options_page(
             __('Credit Tracker', $this->plugin_slug),
             __('Credit Tracker', $this->plugin_slug),
             'manage_options',
             $this->plugin_slug,
             array($this, 'create_admin_page')
         );
+    }
+
+    /**
+     * Register and enqueue admin-specific style sheet.
+     *
+     * @since     1.0.0
+     *
+     * @return    null    Return early if no settings page is registered.
+     */
+    public function enqueue_admin_styles()
+    {
+        if (!isset($this->plugin_screen_hook_suffix)) {
+            return;
+        }
+
+        $screen = get_current_screen();
+        if ($screen->id == $this->plugin_screen_hook_suffix) {
+            wp_enqueue_style($this->plugin_slug . '-admin-styles', plugins_url('css/admin.css', __FILE__), array(), self::VERSION);
+        }
+
+    }
+
+    /**
+     * Register and enqueue admin-specific JavaScript.
+     *
+     * @since     1.0.0
+     *
+     * @return    null    Return early if no settings page is registered.
+     */
+    public function enqueue_admin_scripts()
+    {
+        if (!isset($this->plugin_screen_hook_suffix)) {
+            return;
+        }
+
+        $screen = get_current_screen();
+        if ($screen->id == $this->plugin_screen_hook_suffix) {
+            wp_enqueue_script($this->plugin_slug . '-admin-script', plugins_url('js/admin.js', __FILE__), array('jquery'), self::VERSION);
+        }
+
     }
 
     /**
