@@ -11,7 +11,7 @@
  * Domain Path: /languages
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Requires at least: 3.3
+ * Requires at least: 3.5.1
  * Tested up to: 3.6.1
  *
  * @package   Credit_Tracker

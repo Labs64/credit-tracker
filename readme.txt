@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: labs64
 Tags: credit, credits, legal, copyright, owner, author, media library, media, image, custom fields, fotolia
-Requires at least: 3.3
+Requires at least: 3.5.1
 Tested up to: 3.6.1
 Stable tag: 1.0.0
 License: GPL-2.0+

@@ -58,20 +58,13 @@ class Credit_Tracker
      */
     private function __construct()
     {
-        require_once(plugin_dir_path(__FILE__) . 'options-credit-tracker.php');
+        require_once(plugin_dir_path(__FILE__) . 'options.php');
 
         // Load plugin text domain
         add_action('init', array($this, 'load_plugin_textdomain'));
 
         // Activate plugin when new blog is added
         add_action('wpmu_new_blog', array($this, 'activate_new_site'));
-
-        // Add the options page and menu item.
-        add_action('admin_menu', array($this, 'add_plugin_admin_menu'));
-
-        // Add an action link pointing to the options page.
-        $plugin_basename = plugin_basename(plugin_dir_path(__FILE__) . 'credit-tracker.php');
-        add_filter('plugin_action_links_' . $plugin_basename, array($this, 'add_action_links'));
 
         // Load admin style sheet and JavaScript.
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_styles'));
@@ -293,40 +286,22 @@ class Credit_Tracker
         wp_enqueue_script($this->plugin_slug . '-plugin-script', plugins_url('js/public.js', __FILE__), array('jquery'), self::VERSION);
     }
 
-    /**
-     * Register the administration menu for this plugin into the WordPress Dashboard menu.
-     *
-     * @since    1.0.0
-     */
-    public function add_plugin_admin_menu()
-    {
-        $this->plugin_screen_hook_suffix = add_options_page(
-            __('Credit Tracker', $this->plugin_slug),
-            __('Credit Tracker', $this->plugin_slug),
-            'manage_options',
-            $this->plugin_slug,
-            'credit_tracker_options_page'
-        );
-
-    }
-
-    /**
-     * Add settings action link to the plugins page.
-     *
-     * @since    1.0.0
-     */
-    public function add_action_links($links)
-    {
-        return array_merge(
-            array(
-                'settings' => '<a href="' . admin_url('options-general.php?page=credit-tracker') . '">' . __('Settings', $this->plugin_slug) . '</a>'
-            ),
-            $links
-        );
-    }
-
     public function get_attachment_fields($form_fields, $post)
     {
+        $form_fields["credit-tracker-ident_nr"] = array(
+            "label" => __('Ident-Nr.', $this->plugin_slug),
+            "input" => "text",
+            "value" => get_post_meta($post->ID, "credit-tracker-ident_nr", true),
+            "helps" => __("The original object number at the source", $this->plugin_slug),
+        );
+
+        $form_fields["credit-tracker-source"] = array(
+            "label" => __('Source', $this->plugin_slug),
+            "input" => "text",
+            "value" => get_post_meta($post->ID, "credit-tracker-source", true),
+            "helps" => __("Source where to locate the original", $this->plugin_slug),
+        );
+
         $form_fields["credit-tracker-author"] = array(
             "label" => __('Author', $this->plugin_slug),
             "input" => "text",
@@ -341,13 +316,6 @@ class Credit_Tracker
             "helps" => __("Media publisher (e.g. image agency)", $this->plugin_slug),
         );
 
-        $form_fields["credit-tracker-ident_nr"] = array(
-            "label" => __('Ident-Nr.', $this->plugin_slug),
-            "input" => "text",
-            "value" => get_post_meta($post->ID, "credit-tracker-ident_nr", true),
-            "helps" => __("Media external number", $this->plugin_slug),
-        );
-
         $form_fields["credit-tracker-license"] = array(
             "label" => __('License', $this->plugin_slug),
             "input" => "text",
@@ -360,6 +328,18 @@ class Credit_Tracker
 
     public function save_attachment_fields($post, $attachment)
     {
+        if (isset($attachment['credit-tracker-ident_nr'])) {
+            update_post_meta($post['ID'], 'credit-tracker-ident_nr', $attachment['credit-tracker-ident_nr']);
+        } else {
+            delete_post_meta($post['ID'], 'credit-tracker-ident_nr');
+        }
+
+        if (isset($attachment['credit-tracker-source'])) {
+            update_post_meta($post['ID'], 'credit-tracker-source', $attachment['credit-tracker-source']);
+        } else {
+            delete_post_meta($post['ID'], 'credit-tracker-source');
+        }
+
         if (isset($attachment['credit-tracker-author'])) {
             update_post_meta($post['ID'], 'credit-tracker-author', $attachment['credit-tracker-author']);
         } else {
@@ -370,12 +350,6 @@ class Credit_Tracker
             update_post_meta($post['ID'], 'credit-tracker-publisher', $attachment['credit-tracker-publisher']);
         } else {
             delete_post_meta($post['ID'], 'credit-tracker-publisher');
-        }
-
-        if (isset($attachment['credit-tracker-ident_nr'])) {
-            update_post_meta($post['ID'], 'credit-tracker-ident_nr', $attachment['credit-tracker-ident_nr']);
-        } else {
-            delete_post_meta($post['ID'], 'credit-tracker-ident_nr');
         }
 
         if (isset($attachment['credit-tracker-license'])) {
