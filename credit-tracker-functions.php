@@ -39,7 +39,6 @@ function get_images($attr)
 
     $items = array();
     $item = array();
-    $imgSrc = '';
 
     // get all attachements
     $attachments = get_posts($args);

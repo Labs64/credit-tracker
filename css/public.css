@@ -1,1 +1,41 @@
 /* This stylesheet is used to style the public view of the plugin. */
+
+/** Classic Style */
+table.credit-tracker-default {
+    border-collapse: collapse;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    color: #333;
+}
+
+table.credit-tracker-default thead tr th {
+    text-transform: uppercase;
+    background: #e2e2e2;
+}
+
+table.credit-tracker-default tfoot tr th, table.credit-tracker-default tfoot tr td {
+    text-transform: uppercase;
+    color: #000;
+    font-weight: bold;
+}
+
+table.credit-tracker-default tfoot tr th {
+    width: 20%;
+}
+
+table.credit-tracker-default tfoot tr td {
+    width: 80%;
+}
+
+table.credit-tracker-default td, table.credit-tracker-default th {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+    line-height: 1.8em;
+    vertical-align: top;
+    width: 20%;
+}
+
+table.credit-tracker-default tr.odd th, table.credit-tracker-default tr.odd td {
+    background: #efefef;
+}
