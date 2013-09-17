@@ -67,9 +67,6 @@ class Credit_Tracker
 
         add_filter('manage_media_columns', array($this, 'credit_tracker_attachment_columns'), null, 2);
         add_action('manage_media_custom_column', array($this, 'credit_tracker_attachment_show_column'), null, 2);
-
-        // Add shortcodes
-        add_shortcode('credits', 'credits_shortcode');
     }
 
     /**
@@ -331,19 +328,6 @@ class Credit_Tracker
                 echo $value;
                 break;
         }
-    }
-
-    function credits_shortcode($atts)
-    {
-        extract(shortcode_atts(
-                array(
-                    'id' => '',
-                    'foo' => 'bar',
-                ), $atts)
-        );
-
-        // Code
-        return "credits shortcode";
     }
 
 }

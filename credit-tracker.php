@@ -26,7 +26,8 @@ if (!defined('WPINC')) {
     die;
 }
 
-require_once(plugin_dir_path(__FILE__) . 'class-credit-tracker.php');
+require_once(plugin_dir_path(__FILE__) . 'credit-tracker-class.php');
+require_once(plugin_dir_path(__FILE__) . 'credit-tracker-shortcodes.php');
 
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
 register_activation_hook(__FILE__, array('Credit_Tracker', 'activate'));
