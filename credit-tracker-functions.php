@@ -50,6 +50,7 @@ function get_images($attr)
     foreach ($attachments as $attachment) {
         $imgSrc = wp_get_attachment_image_src($attachment->ID, $size, false);
         if (!empty($imgSrc)) {
+            $item['ID'] = $attachment->ID;
             $item['url'] = $imgSrc[0];
             $item['width'] = $imgSrc[1];
             $item['height'] = $imgSrc[2];
@@ -62,7 +63,6 @@ function get_images($attr)
             $item['author'] = wptexturize(get_post_meta($attachment->ID, 'credit-tracker-author', true));
             $item['publisher'] = wptexturize(get_post_meta($attachment->ID, 'credit-tracker-publisher', true));
             $item['license'] = wptexturize(get_post_meta($attachment->ID, 'credit-tracker-license', true));
-            $item['imgID'] = $attachment->ID;
 
             $items[] = $item;
         }
