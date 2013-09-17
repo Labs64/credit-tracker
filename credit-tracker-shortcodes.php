@@ -11,10 +11,10 @@
 
 
 // add shortcodes
-add_shortcode('credit_tracker_list', 'credit_tracker_list_shortcode');
+add_shortcode('credit_tracker_table', 'credit_tracker_table_shortcode');
 
 
-function credit_tracker_list_shortcode($atts)
+function credit_tracker_table_shortcode($atts)
 {
     extract(shortcode_atts(
             array(
@@ -23,7 +23,7 @@ function credit_tracker_list_shortcode($atts)
             ), $atts)
     );
 
-    return "<a href='#' id='credit-tracker-list'>{$id}</a>";
+    return "<a href='#' id='credit-tracker-table'>{$id}</a>";
 }
 
 ?>
