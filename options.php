@@ -173,26 +173,28 @@ class Credit_Tracker_Options
         );
 
         add_settings_section(
-            'setting_section_id', // ID
+            'setting_section_1', // ID
             __('Credit Tracker Settings', $this->plugin_slug), // Title
             array($this, 'print_section_info'), // Callback
             $this->plugin_slug // Page
         );
 
+        /*
         add_settings_field(
             'id_number', // ID
             __('Number', $this->plugin_slug), // Title
             array($this, 'id_number_callback'), // Callback
             $this->plugin_slug, // Page
-            'setting_section_id' // Section           
+            'setting_section_1' // Section
         );
+        */
 
         add_settings_field(
             'copyright',
-            __('Copyright format', $this->plugin_slug),
+            __('Copyright Format', $this->plugin_slug),
             array($this, 'copyright_callback'),
             $this->plugin_slug,
-            'setting_section_id'
+            'setting_section_1'
         );
     }
 
@@ -203,11 +205,16 @@ class Credit_Tracker_Options
      */
     public function sanitize($input)
     {
+        /*
         if (!is_numeric($input['id_number']))
             $input['id_number'] = '';
+        */
 
-        if (!empty($input['copyright']))
+        if (empty($input['copyright'])) {
+            $input['copyright'] = '&copy; %author% - %publisher%';
+        } else {
             $input['copyright'] = sanitize_text_field($input['copyright']);
+        }
 
         return $input;
     }
