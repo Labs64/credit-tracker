@@ -6,7 +6,7 @@
  * Description: Fetch (from image agencies) & process credits for the different WordPress entities.
  * Author:      Labs64
  * Author URI:  http://www.labs64.com
- * Version:     1.0.0
+ * Version:     0.9.0
  * Text Domain: credit-tracker
  * Domain Path: /languages
  * License:     GPL-2.0+

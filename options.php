@@ -14,11 +14,9 @@ class Credit_Tracker_Options
     /**
      * Plugin version, used for cache-busting of style and script file references.
      *
-     * @since   1.0.0
-     *
      * @var     string
      */
-    const VERSION = '1.0.0';
+    const VERSION = '0.9.0';
 
     /**
      * Holds the values to be used in the fields callbacks
@@ -31,16 +29,12 @@ class Credit_Tracker_Options
      * Use this value (not the variable name) as the text domain when internationalizing strings of text. It should
      * match the Text Domain file header in the main plugin file.
      *
-     * @since    1.0.0
-     *
      * @var      string
      */
     protected $plugin_slug = 'credit-tracker';
 
     /**
      * Slug of the plugin screen.
-     *
-     * @since    1.0.0
      *
      * @var      string
      */
@@ -66,8 +60,6 @@ class Credit_Tracker_Options
 
     /**
      * Add settings action link to the plugins page.
-     *
-     * @since    1.0.0
      */
     public function add_action_links($links)
     {
@@ -97,8 +89,6 @@ class Credit_Tracker_Options
     /**
      * Register and enqueue admin-specific style sheet.
      *
-     * @since     1.0.0
-     *
      * @return    null    Return early if no settings page is registered.
      */
     public function enqueue_admin_styles()
@@ -116,8 +106,6 @@ class Credit_Tracker_Options
 
     /**
      * Register and enqueue admin-specific JavaScript.
-     *
-     * @since     1.0.0
      *
      * @return    null    Return early if no settings page is registered.
      */

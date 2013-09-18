@@ -15,19 +15,15 @@ class Credit_Tracker
     /**
      * Plugin version, used for cache-busting of style and script file references.
      *
-     * @since   1.0.0
-     *
      * @var     string
      */
-    const VERSION = '1.0.0';
+    const VERSION = '0.9.0';
 
     /**
      * Unique identifier for your plugin.
      *
      * Use this value (not the variable name) as the text domain when internationalizing strings of text. It should
      * match the Text Domain file header in the main plugin file.
-     *
-     * @since    1.0.0
      *
      * @var      string
      */
@@ -36,16 +32,12 @@ class Credit_Tracker
     /**
      * Instance of this class.
      *
-     * @since    1.0.0
-     *
      * @var      object
      */
     protected static $instance = null;
 
     /**
      * Initialize the plugin by setting localization, filters, and administration functions.
-     *
-     * @since     1.0.0
      */
     private function __construct()
     {
@@ -72,8 +64,6 @@ class Credit_Tracker
     /**
      * Return an instance of this class.
      *
-     * @since     1.0.0
-     *
      * @return    object    A single instance of this class.
      */
     public static function get_instance()
@@ -88,8 +78,6 @@ class Credit_Tracker
 
     /**
      * Fired when the plugin is activated.
-     *
-     * @since    1.0.0
      *
      * @param    boolean $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
      */
@@ -116,8 +104,6 @@ class Credit_Tracker
     /**
      * Fired when the plugin is deactivated.
      *
-     * @since    1.0.0
-     *
      * @param    boolean $network_wide    True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is disabled or plugin is deactivated on an individual blog.
      */
     public static function deactivate($network_wide)
@@ -143,8 +129,6 @@ class Credit_Tracker
     /**
      * Fired when a new site is activated with a WPMU environment.
      *
-     * @since    1.0.0
-     *
      * @param    int $blog_id ID of the new blog.
      */
     public function activate_new_site($blog_id)
@@ -164,8 +148,6 @@ class Credit_Tracker
      * - not spam
      * - not deleted
      *
-     * @since    1.0.0
-     *
      * @return    array|false    The blog ids, false if no matches.
      */
     private static function get_blog_ids()
@@ -181,8 +163,6 @@ class Credit_Tracker
 
     /**
      * Fired for each blog when the plugin is activated.
-     *
-     * @since    1.0.0
      */
     private static function single_activate()
     {
@@ -191,8 +171,6 @@ class Credit_Tracker
 
     /**
      * Fired for each blog when the plugin is deactivated.
-     *
-     * @since    1.0.0
      */
     private static function single_deactivate()
     {
@@ -201,8 +179,6 @@ class Credit_Tracker
 
     /**
      * Load the plugin text domain for translation.
-     *
-     * @since    1.0.0
      */
     public function load_plugin_textdomain()
     {
@@ -215,8 +191,6 @@ class Credit_Tracker
 
     /**
      * Register and enqueue public-facing style sheet.
-     *
-     * @since    1.0.0
      */
     public function enqueue_styles()
     {
@@ -225,8 +199,6 @@ class Credit_Tracker
 
     /**
      * Register and enqueues public-facing JavaScript files.
-     *
-     * @since    1.0.0
      */
     public function enqueue_scripts()
     {

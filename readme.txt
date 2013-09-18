@@ -3,7 +3,7 @@ Contributors: labs64
 Tags: credit, credits, legal, copyright, owner, author, media library, media, image, attachment, custom fields, fotolia
 Requires at least: 3.5.1
 Tested up to: 3.6.1
-Stable tag: 1.0.0
+Stable tag: 0.9.0
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,7 +33,7 @@ Features:
 
 == Changelog ==
 
-= 1.0.0 =
+= 0.9.0 =
 * Initial version
 
 == Translations ==
