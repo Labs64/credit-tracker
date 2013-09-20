@@ -24,8 +24,6 @@ class Credit_Tracker
      */
     private function __construct()
     {
-        require_once(plugin_dir_path(__FILE__) . 'options.php');
-
         // Load plugin text domain
         add_action('init', array($this, 'load_plugin_textdomain'));
 
@@ -165,7 +163,7 @@ class Credit_Tracker
      */
     public function load_plugin_textdomain()
     {
-        $domain = SLUG;
+        $domain = CT_SLUG;
         $locale = apply_filters('plugin_locale', get_locale(), $domain);
 
         load_textdomain($domain, trailingslashit(WP_LANG_DIR) . $domain . '/' . $domain . '-' . $locale . '.mo');
@@ -177,7 +175,7 @@ class Credit_Tracker
      */
     public function enqueue_styles()
     {
-        wp_enqueue_style(SLUG . '-plugin-styles', plugins_url('css/public.css', __FILE__), array(), VERSION);
+        wp_enqueue_style(CT_SLUG . '-plugin-styles', plugins_url('css/public.css', __FILE__), array(), CT_VERSION);
     }
 
     /**
@@ -185,44 +183,44 @@ class Credit_Tracker
      */
     public function enqueue_scripts()
     {
-        wp_enqueue_script(SLUG . '-plugin-script', plugins_url('js/public.js', __FILE__), array('jquery'), VERSION);
+        wp_enqueue_script(CT_SLUG . '-plugin-script', plugins_url('js/public.js', __FILE__), array('jquery'), CT_VERSION);
     }
 
     public function get_attachment_fields($form_fields, $post)
     {
         $form_fields["credit-tracker-ident_nr"] = array(
-            "label" => __('Ident-Nr.', SLUG),
+            "label" => __('Ident-Nr.', CT_SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-ident_nr", true),
-            "helps" => __("The original object number at the source", SLUG),
+            "helps" => __("The original object number at the source", CT_SLUG),
         );
 
         $form_fields["credit-tracker-source"] = array(
-            "label" => __('Source', SLUG),
+            "label" => __('Source', CT_SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-source", true),
-            "helps" => __("Source where to locate the original", SLUG),
+            "helps" => __("Source where to locate the original", CT_SLUG),
         );
 
         $form_fields["credit-tracker-author"] = array(
-            "label" => __('Author', SLUG),
+            "label" => __('Author', CT_SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-author", true),
-            "helps" => __("Media author/owner", SLUG),
+            "helps" => __("Media author/owner", CT_SLUG),
         );
 
         $form_fields["credit-tracker-publisher"] = array(
-            "label" => __('Publisher', SLUG),
+            "label" => __('Publisher', CT_SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-publisher", true),
-            "helps" => __("Media publisher (e.g. image agency)", SLUG),
+            "helps" => __("Media publisher (e.g. image agency)", CT_SLUG),
         );
 
         $form_fields["credit-tracker-license"] = array(
-            "label" => __('License', SLUG),
+            "label" => __('License', CT_SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-license", true),
-            "helps" => __("Media license", SLUG),
+            "helps" => __("Media license", CT_SLUG),
         );
 
         return $form_fields;
@@ -265,8 +263,8 @@ class Credit_Tracker
 
     function credit_tracker_attachment_columns($columns)
     {
-        $columns['credit-tracker-author'] = __('Author', SLUG);
-        $columns['credit-tracker-publisher'] = __('Publisher', SLUG);
+        $columns['credit-tracker-author'] = __('Author', CT_SLUG);
+        $columns['credit-tracker-publisher'] = __('Publisher', CT_SLUG);
         return $columns;
     }
 

@@ -49,7 +49,7 @@ class Credit_Tracker_Options
     {
         return array_merge(
             array(
-                'settings' => '<a href="' . admin_url('options-general.php?page=credit-tracker') . '">' . __('Settings', SLUG) . '</a>'
+                'settings' => '<a href="' . admin_url('options-general.php?page=credit-tracker') . '">' . __('Settings', CT_SLUG) . '</a>'
             ),
             $links
         );
@@ -62,10 +62,10 @@ class Credit_Tracker_Options
     {
         // This page will be under "Settings"
         $this->plugin_screen_hook_suffix = add_options_page(
-            __('Credit Tracker', SLUG),
-            __('Credit Tracker', SLUG),
+            __('Credit Tracker', CT_SLUG),
+            __('Credit Tracker', CT_SLUG),
             'manage_options',
-            SLUG,
+            CT_SLUG,
             array($this, 'create_admin_page')
         );
     }
@@ -83,7 +83,7 @@ class Credit_Tracker_Options
 
         $screen = get_current_screen();
         if ($screen->id == $this->plugin_screen_hook_suffix) {
-            wp_enqueue_style(SLUG . '-admin-styles', plugins_url('css/admin.css', __FILE__), array(), VERSION);
+            wp_enqueue_style(CT_SLUG . '-admin-styles', plugins_url('css/admin.css', __FILE__), array(), CT_VERSION);
         }
 
     }
@@ -101,7 +101,7 @@ class Credit_Tracker_Options
 
         $screen = get_current_screen();
         if ($screen->id == $this->plugin_screen_hook_suffix) {
-            wp_enqueue_script(SLUG . '-admin-script', plugins_url('js/admin.js', __FILE__), array('jquery'), VERSION);
+            wp_enqueue_script(CT_SLUG . '-admin-script', plugins_url('js/admin.js', __FILE__), array('jquery'), CT_VERSION);
         }
 
     }
@@ -112,30 +112,30 @@ class Credit_Tracker_Options
     public function create_admin_page()
     {
         // Set class property
-        $this->options = get_option('credit_tracker_option_name');
+        $this->options = get_options();
         ?>
         <div class="wrap">
             <a href="http://www.labs64.com" target="_blank" class="icon-labs64 icon32"></a>
 
-            <h2><?php _e('Credit Tracker by Labs64', SLUG); ?></h2>
+            <h2><?php _e('Credit Tracker by Labs64', CT_SLUG); ?></h2>
 
             <form method="post" action="options.php">
                 <?php
                 // This prints out all hidden setting fields
-                settings_fields('credit_tracker_option_group');
-                do_settings_sections(SLUG);
+                settings_fields('CT_OPTIONS_GROUP');
+                do_settings_sections(CT_SLUG);
                 submit_button();
                 ?>
             </form>
 
-            <h3><?php _e('Feedback', SLUG); ?></h3>
+            <h3><?php _e('Feedback', CT_SLUG); ?></h3>
 
-            <p><?php _e('Did you find a bug? Have an idea for a plugin? Please help us improve this plugin', SLUG); ?>
+            <p><?php _e('Did you find a bug? Have an idea for a plugin? Please help us improve this plugin', CT_SLUG); ?>
                 :</p>
             <ul>
                 <li>
                     <a href="https://github.com/Labs64/credit-tracker/issues"
-                       target="_blank"><?php _e('Report a bug, or suggest an improvement', SLUG); ?></a>
+                       target="_blank"><?php _e('Report a bug, or suggest an improvement', CT_SLUG); ?></a>
                 </li>
                 <li><a href="http://www.facebook.com/labs64" target="_blank"><?php _e('Like us on Facebook'); ?></a>
                 </li>
@@ -151,34 +151,34 @@ class Credit_Tracker_Options
     public function page_init()
     {
         register_setting(
-            'credit_tracker_option_group', // Option group
-            'credit_tracker_option_name', // Option name
+            'CT_OPTIONS_GROUP', // Option group
+            'CT_OPTIONS', // Option name
             array($this, 'sanitize') // Sanitize
         );
 
         add_settings_section(
-            'setting_section_1', // ID
-            __('Credit Tracker Settings', SLUG), // Title
+            'CT_COMMON_SETTINGS', // ID
+            __('Credit Tracker Settings', CT_SLUG), // Title
             array($this, 'print_section_info'), // Callback
-            SLUG // Page
+            CT_SLUG // Page
         );
 
         /*
         add_settings_field(
-            'id_number', // ID
+            'ct_id_number', // ID
             __('Number', SLUG), // Title
-            array($this, 'id_number_callback'), // Callback
+            array($this, 'ct_id_number_callback'), // Callback
             SLUG, // Page
-            'setting_section_1' // Section
+            'CT_COMMON_SETTINGS' // Section
         );
         */
 
         add_settings_field(
-            'copyright',
-            __('Copyright Format', SLUG),
-            array($this, 'copyright_callback'),
-            SLUG,
-            'setting_section_1'
+            'ct_copyright_format',
+            __('Copyright Format', CT_SLUG),
+            array($this, 'ct_copyright_format_callback'),
+            CT_SLUG,
+            'CT_COMMON_SETTINGS'
         );
     }
 
@@ -190,14 +190,14 @@ class Credit_Tracker_Options
     public function sanitize($input)
     {
         /*
-        if (!is_numeric($input['id_number']))
-            $input['id_number'] = '';
+        if (!is_numeric($input['ct_id_number']))
+            $input['ct_id_number'] = '';
         */
 
-        if (empty($input['copyright'])) {
-            $input['copyright'] = '&copy; %author%';
+        if (empty($input['ct_copyright_format'])) {
+            $input['ct_copyright_format'] = '&copy; %author%';
         } else {
-            $input['copyright'] = sanitize_text_field($input['copyright']);
+            $input['ct_copyright_format'] = sanitize_text_field($input['ct_copyright_format']);
         }
 
         return $input;
@@ -208,31 +208,60 @@ class Credit_Tracker_Options
      */
     public function print_section_info()
     {
-        print __('Enter your settings below:', SLUG);
+        print __('Enter your settings below:', CT_SLUG);
     }
 
     /**
      * Get the settings option array and print one of its values
      */
-    public function id_number_callback()
+    public function ct_id_number_callback()
     {
         printf(
-            '<input type="text" id="id_number" name="credit_tracker_option_name[id_number]" value="%s" />',
-            esc_attr($this->options['id_number'])
+            '<input type="text" id="ct_id_number" name="CT_OPTIONS[ct_id_number]" value="%s" />',
+            esc_attr($this->options['ct_id_number'])
         );
     }
 
     /**
      * Get the settings option array and print one of its values
      */
-    public function copyright_callback()
+    public function ct_copyright_format_callback()
     {
         printf(
-            '<input type="text" id="copyright" name="credit_tracker_option_name[copyright]" value="%s" />',
-            esc_attr($this->options['copyright'])
+            '<input type="text" id="ct_copyright_format" name="CT_OPTIONS[ct_copyright_format]" value="%s" />',
+            esc_attr($this->options['ct_copyright_format'])
         );
     }
+
+    /**
+     * Returns default options.
+     * If you override the options here, be careful to use escape characters!
+     */
+    function get_default_options()
+    {
+        $default_options = array(
+            'ct_copyright_format' => '&copy; %author%'
+        );
+        return $default_options;
+    }
+
+    /**
+     * Retrieves (and sanitises) options
+     */
+    function get_options()
+    {
+        $options = get_default_options();
+        $stored_options = get_option(CT_OPTIONS);
+        if (!empty($stored_options)) {
+            sanitize($stored_options);
+            $options = wp_parse_args($stored_options, $options);
+        }
+        update_option(CT_OPTIONS, $options);
+        return $options;
+    }
+
 }
 
-if (is_admin())
+if (is_admin()) {
     $credit_tracker_options_page = new Credit_Tracker_Options();
+}

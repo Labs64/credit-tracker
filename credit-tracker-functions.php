@@ -1,5 +1,13 @@
 <?php
 /**
+ * @package   Credit_Tracker
+ * @author    Labs64 <info@labs64.com>
+ * @license   GPL-2.0+
+ * @link      http://www.labs64.com
+ * @copyright 2013 Labs64
+ */
+
+/**
  * Returns array of images with attributes.
  *
  * Sample input parameters:
@@ -8,14 +16,7 @@
  *         'include'      => '121,122,123',   // image id or comma delimited list of image id's
  *         'numberposts'  => -1               // max quantity of records to return; default = -1 (all)
  *     );
- *
- * @package   Credit_Tracker
- * @author    Labs64 <info@labs64.com>
- * @license   GPL-2.0+
- * @link      http://www.labs64.com
- * @copyright 2013 Labs64
  */
-
 function get_images($attr)
 {
     $defaults = array(
@@ -68,4 +69,26 @@ function get_images($attr)
     }
 
     return $items;
+}
+
+/**
+ * Prints a combobox based on options and selected=match value
+ *
+ * Parameters:
+ * $options = array of options (suggest using helper functions)
+ * $selected = which of those options should be selected (allows just one; is case sensitive)
+ *
+ * Outputs (based on array ( $key => $value ):
+ * <option value=$value>$key</option>
+ * <option value=$value selected="selected">$key</option>
+ */
+function print_combobox_options($options, $selected)
+{
+    foreach ($options as $key => $value) {
+        echo '<option value="' . $value . '"';
+        if ($value == $selected) {
+            echo ' selected="selected"';
+        }
+        echo '>' . $key . '</option>';
+    }
 }

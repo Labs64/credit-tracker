@@ -10,8 +10,6 @@
  */
 
 
-require_once(plugin_dir_path(__FILE__) . 'credit-tracker-functions.php');
-
 // add shortcodes
 add_shortcode('credit_tracker_table', 'credit_tracker_table_shortcode');
 
@@ -38,15 +36,15 @@ function credit_tracker_table_shortcode($atts)
 
     $ret = '<table class="credit-tracker-' . $style . '"><thead>';
     $ret .= '<th class="credit-tracker-column">' . '&nbsp;' . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('Ident-Nr.', SLUG) . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('Author', SLUG) . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('Publisher', SLUG) . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('Copyright', SLUG) . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('License', SLUG) . '</th>';
+    $ret .= '<th class="credit-tracker-column">' . __('Ident-Nr.', CT_SLUG) . '</th>';
+    $ret .= '<th class="credit-tracker-column">' . __('Author', CT_SLUG) . '</th>';
+    $ret .= '<th class="credit-tracker-column">' . __('Publisher', CT_SLUG) . '</th>';
+    $ret .= '<th class="credit-tracker-column">' . __('Copyright', CT_SLUG) . '</th>';
+    $ret .= '<th class="credit-tracker-column">' . __('License', CT_SLUG) . '</th>';
     $ret .= '</thead><tbody>';
 
     if (empty($images)) {
-        $ret .= '<tr class="credit-tracker-row"><td colspan="6" class="credit-tracker-column-empty">' . __('No images found', SLUG) . '</td></tr>';
+        $ret .= '<tr class="credit-tracker-row"><td colspan="6" class="credit-tracker-column-empty">' . __('No images found', CT_SLUG) . '</td></tr>';
     }
 
     foreach ($images as $image) {
