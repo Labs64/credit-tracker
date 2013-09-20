@@ -13,23 +13,6 @@ class Credit_Tracker
 {
 
     /**
-     * Plugin version, used for cache-busting of style and script file references.
-     *
-     * @var     string
-     */
-    const VERSION = '0.9.0';
-
-    /**
-     * Unique identifier for your plugin.
-     *
-     * Use this value (not the variable name) as the text domain when internationalizing strings of text. It should
-     * match the Text Domain file header in the main plugin file.
-     *
-     * @var      string
-     */
-    protected $plugin_slug = 'credit-tracker';
-
-    /**
      * Instance of this class.
      *
      * @var      object
@@ -182,7 +165,7 @@ class Credit_Tracker
      */
     public function load_plugin_textdomain()
     {
-        $domain = $this->plugin_slug;
+        $domain = SLUG;
         $locale = apply_filters('plugin_locale', get_locale(), $domain);
 
         load_textdomain($domain, trailingslashit(WP_LANG_DIR) . $domain . '/' . $domain . '-' . $locale . '.mo');
@@ -194,7 +177,7 @@ class Credit_Tracker
      */
     public function enqueue_styles()
     {
-        wp_enqueue_style($this->plugin_slug . '-plugin-styles', plugins_url('css/public.css', __FILE__), array(), self::VERSION);
+        wp_enqueue_style(SLUG . '-plugin-styles', plugins_url('css/public.css', __FILE__), array(), VERSION);
     }
 
     /**
@@ -202,44 +185,44 @@ class Credit_Tracker
      */
     public function enqueue_scripts()
     {
-        wp_enqueue_script($this->plugin_slug . '-plugin-script', plugins_url('js/public.js', __FILE__), array('jquery'), self::VERSION);
+        wp_enqueue_script(SLUG . '-plugin-script', plugins_url('js/public.js', __FILE__), array('jquery'), VERSION);
     }
 
     public function get_attachment_fields($form_fields, $post)
     {
         $form_fields["credit-tracker-ident_nr"] = array(
-            "label" => __('Ident-Nr.', $this->plugin_slug),
+            "label" => __('Ident-Nr.', SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-ident_nr", true),
-            "helps" => __("The original object number at the source", $this->plugin_slug),
+            "helps" => __("The original object number at the source", SLUG),
         );
 
         $form_fields["credit-tracker-source"] = array(
-            "label" => __('Source', $this->plugin_slug),
+            "label" => __('Source', SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-source", true),
-            "helps" => __("Source where to locate the original", $this->plugin_slug),
+            "helps" => __("Source where to locate the original", SLUG),
         );
 
         $form_fields["credit-tracker-author"] = array(
-            "label" => __('Author', $this->plugin_slug),
+            "label" => __('Author', SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-author", true),
-            "helps" => __("Media author/owner", $this->plugin_slug),
+            "helps" => __("Media author/owner", SLUG),
         );
 
         $form_fields["credit-tracker-publisher"] = array(
-            "label" => __('Publisher', $this->plugin_slug),
+            "label" => __('Publisher', SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-publisher", true),
-            "helps" => __("Media publisher (e.g. image agency)", $this->plugin_slug),
+            "helps" => __("Media publisher (e.g. image agency)", SLUG),
         );
 
         $form_fields["credit-tracker-license"] = array(
-            "label" => __('License', $this->plugin_slug),
+            "label" => __('License', SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-license", true),
-            "helps" => __("Media license", $this->plugin_slug),
+            "helps" => __("Media license", SLUG),
         );
 
         return $form_fields;
@@ -282,8 +265,8 @@ class Credit_Tracker
 
     function credit_tracker_attachment_columns($columns)
     {
-        $columns['credit-tracker-author'] = __('Author', $this->plugin_slug);
-        $columns['credit-tracker-publisher'] = __('Publisher', $this->plugin_slug);
+        $columns['credit-tracker-author'] = __('Author', SLUG);
+        $columns['credit-tracker-publisher'] = __('Publisher', SLUG);
         return $columns;
     }
 

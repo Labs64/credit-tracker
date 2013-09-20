@@ -37,16 +37,16 @@ function credit_tracker_table_shortcode($atts)
     $images = get_images($request);
 
     $ret = '<table class="credit-tracker-' . $style . '"><thead>';
-    $ret .= '<th class="credit-tracker-column">' . __('Thumbnail', 'credit-tracker') . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('Ident-Nr.', 'credit-tracker') . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('Author', 'credit-tracker') . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('Publisher', 'credit-tracker') . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('Copyright', 'credit-tracker') . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('License', 'credit-tracker') . '</th>';
+    $ret .= '<th class="credit-tracker-column">' . '&nbsp;' . '</th>';
+    $ret .= '<th class="credit-tracker-column">' . __('Ident-Nr.', SLUG) . '</th>';
+    $ret .= '<th class="credit-tracker-column">' . __('Author', SLUG) . '</th>';
+    $ret .= '<th class="credit-tracker-column">' . __('Publisher', SLUG) . '</th>';
+    $ret .= '<th class="credit-tracker-column">' . __('Copyright', SLUG) . '</th>';
+    $ret .= '<th class="credit-tracker-column">' . __('License', SLUG) . '</th>';
     $ret .= '</thead><tbody>';
 
     if (empty($images)) {
-        $ret .= '<tr class="credit-tracker-row"><td colspan="6" class="credit-tracker-column-empty">' . __('No images found', 'credit-tracker') . '</td></tr>';
+        $ret .= '<tr class="credit-tracker-row"><td colspan="6" class="credit-tracker-column-empty">' . __('No images found', SLUG) . '</td></tr>';
     }
 
     foreach ($images as $image) {

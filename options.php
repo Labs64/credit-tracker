@@ -11,27 +11,11 @@
 
 class Credit_Tracker_Options
 {
-    /**
-     * Plugin version, used for cache-busting of style and script file references.
-     *
-     * @var     string
-     */
-    const VERSION = '0.9.0';
 
     /**
      * Holds the values to be used in the fields callbacks
      */
     private $options;
-
-    /**
-     * Unique identifier for your plugin.
-     *
-     * Use this value (not the variable name) as the text domain when internationalizing strings of text. It should
-     * match the Text Domain file header in the main plugin file.
-     *
-     * @var      string
-     */
-    protected $plugin_slug = 'credit-tracker';
 
     /**
      * Slug of the plugin screen.
@@ -65,7 +49,7 @@ class Credit_Tracker_Options
     {
         return array_merge(
             array(
-                'settings' => '<a href="' . admin_url('options-general.php?page=credit-tracker') . '">' . __('Settings', $this->plugin_slug) . '</a>'
+                'settings' => '<a href="' . admin_url('options-general.php?page=credit-tracker') . '">' . __('Settings', SLUG) . '</a>'
             ),
             $links
         );
@@ -78,10 +62,10 @@ class Credit_Tracker_Options
     {
         // This page will be under "Settings"
         $this->plugin_screen_hook_suffix = add_options_page(
-            __('Credit Tracker', $this->plugin_slug),
-            __('Credit Tracker', $this->plugin_slug),
+            __('Credit Tracker', SLUG),
+            __('Credit Tracker', SLUG),
             'manage_options',
-            $this->plugin_slug,
+            SLUG,
             array($this, 'create_admin_page')
         );
     }
@@ -99,7 +83,7 @@ class Credit_Tracker_Options
 
         $screen = get_current_screen();
         if ($screen->id == $this->plugin_screen_hook_suffix) {
-            wp_enqueue_style($this->plugin_slug . '-admin-styles', plugins_url('css/admin.css', __FILE__), array(), self::VERSION);
+            wp_enqueue_style(SLUG . '-admin-styles', plugins_url('css/admin.css', __FILE__), array(), VERSION);
         }
 
     }
@@ -117,7 +101,7 @@ class Credit_Tracker_Options
 
         $screen = get_current_screen();
         if ($screen->id == $this->plugin_screen_hook_suffix) {
-            wp_enqueue_script($this->plugin_slug . '-admin-script', plugins_url('js/admin.js', __FILE__), array('jquery'), self::VERSION);
+            wp_enqueue_script(SLUG . '-admin-script', plugins_url('js/admin.js', __FILE__), array('jquery'), VERSION);
         }
 
     }
@@ -133,25 +117,25 @@ class Credit_Tracker_Options
         <div class="wrap">
             <a href="http://www.labs64.com" target="_blank" class="icon-labs64 icon32"></a>
 
-            <h2><?php _e('Credit Tracker by Labs64', $this->plugin_slug); ?></h2>
+            <h2><?php _e('Credit Tracker by Labs64', SLUG); ?></h2>
 
             <form method="post" action="options.php">
                 <?php
                 // This prints out all hidden setting fields
                 settings_fields('credit_tracker_option_group');
-                do_settings_sections($this->plugin_slug);
+                do_settings_sections(SLUG);
                 submit_button();
                 ?>
             </form>
 
-            <h3><?php _e('Feedback', 'credit-tracker'); ?></h3>
+            <h3><?php _e('Feedback', SLUG); ?></h3>
 
-            <p><?php _e('Did you find a bug? Have an idea for a plugin? Please help us improve this plugin', 'credit-tracker'); ?>
+            <p><?php _e('Did you find a bug? Have an idea for a plugin? Please help us improve this plugin', SLUG); ?>
                 :</p>
             <ul>
                 <li>
                     <a href="https://github.com/Labs64/credit-tracker/issues"
-                       target="_blank"><?php _e('Report a bug, or suggest an improvement', 'credit-tracker'); ?></a>
+                       target="_blank"><?php _e('Report a bug, or suggest an improvement', SLUG); ?></a>
                 </li>
                 <li><a href="http://www.facebook.com/labs64" target="_blank"><?php _e('Like us on Facebook'); ?></a>
                 </li>
@@ -174,26 +158,26 @@ class Credit_Tracker_Options
 
         add_settings_section(
             'setting_section_1', // ID
-            __('Credit Tracker Settings', $this->plugin_slug), // Title
+            __('Credit Tracker Settings', SLUG), // Title
             array($this, 'print_section_info'), // Callback
-            $this->plugin_slug // Page
+            SLUG // Page
         );
 
         /*
         add_settings_field(
             'id_number', // ID
-            __('Number', $this->plugin_slug), // Title
+            __('Number', SLUG), // Title
             array($this, 'id_number_callback'), // Callback
-            $this->plugin_slug, // Page
+            SLUG, // Page
             'setting_section_1' // Section
         );
         */
 
         add_settings_field(
             'copyright',
-            __('Copyright Format', $this->plugin_slug),
+            __('Copyright Format', SLUG),
             array($this, 'copyright_callback'),
-            $this->plugin_slug,
+            SLUG,
             'setting_section_1'
         );
     }
@@ -211,7 +195,7 @@ class Credit_Tracker_Options
         */
 
         if (empty($input['copyright'])) {
-            $input['copyright'] = '&copy; %author% - %publisher%';
+            $input['copyright'] = '&copy; %author%';
         } else {
             $input['copyright'] = sanitize_text_field($input['copyright']);
         }
@@ -224,7 +208,7 @@ class Credit_Tracker_Options
      */
     public function print_section_info()
     {
-        print __('Enter your settings below:', $this->plugin_slug);
+        print __('Enter your settings below:', SLUG);
     }
 
     /**

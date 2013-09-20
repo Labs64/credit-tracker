@@ -26,6 +26,21 @@ if (!defined('WPINC')) {
     die;
 }
 
+
+/**
+ * Plugin version, used for cache-busting of style and script file references.
+ */
+define('VERSION', '0.9.0');
+
+/**
+ * Unique identifier for your plugin.
+ *
+ * Use this value (not the variable name) as the text domain when internationalizing strings of text. It should
+ * match the Text Domain file header in the main plugin file.
+ */
+define('SLUG', 'credit-tracker');
+
+
 require_once(plugin_dir_path(__FILE__) . 'credit-tracker-class.php');
 require_once(plugin_dir_path(__FILE__) . 'credit-tracker-shortcodes.php');
 
