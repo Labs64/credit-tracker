@@ -165,7 +165,7 @@ function page_init()
 
     add_settings_field(
         'ct_copyright_format',
-        __('Copyright Format', CT_SLUG),
+        __('Copyright format', CT_SLUG),
         'ct_text_field_callback',
         CT_SLUG,
         'CT_COMMON_SETTINGS',
@@ -187,7 +187,9 @@ function sanitize($input)
         $input['ct_id_number'] = '';
     */
 
-    if (!empty($input['ct_copyright_format'])) {
+    if (empty($input['ct_copyright_format'])) {
+        add_settings_error(CT_OPTIONS, 'empty-copyright-format', 'Please specify copyright format.');
+    } else {
         $input['ct_copyright_format'] = sanitize_text_field($input['ct_copyright_format']);
     }
 
