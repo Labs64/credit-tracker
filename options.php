@@ -188,7 +188,9 @@ function sanitize($input)
     */
 
     if (empty($input['ct_copyright_format'])) {
-        add_settings_error(CT_OPTIONS, 'empty-copyright-format', 'Please specify copyright format.');
+        if (is_admin()) {
+            add_settings_error(CT_OPTIONS, 'empty-copyright-format', 'Please specify copyright format.');
+        }
     } else {
         $input['ct_copyright_format'] = sanitize_text_field($input['ct_copyright_format']);
     }
