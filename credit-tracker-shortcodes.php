@@ -34,13 +34,17 @@ function credit_tracker_table_shortcode($atts)
     );
     $images = get_images($request);
 
+
+    $ct_copyright_format = get_single_option('ct_copyright_format');
+
+
     $ret = '<table class="credit-tracker-' . $style . '"><thead>';
-    $ret .= '<th class="credit-tracker-column">' . '&nbsp;' . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('Ident-Nr.', CT_SLUG) . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('Author', CT_SLUG) . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('Publisher', CT_SLUG) . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('Copyright', CT_SLUG) . '</th>';
-    $ret .= '<th class="credit-tracker-column">' . __('License', CT_SLUG) . '</th>';
+    $ret .= '<th>' . '&nbsp;' . '</th>';
+    $ret .= '<th>' . __('Ident-Nr.', CT_SLUG) . '</th>';
+    $ret .= '<th>' . __('Author', CT_SLUG) . '</th>';
+    $ret .= '<th>' . __('Publisher', CT_SLUG) . '</th>';
+    $ret .= '<th>' . __('Copyright', CT_SLUG) . '</th>';
+    $ret .= '<th>' . __('License', CT_SLUG) . '</th>';
     $ret .= '</thead><tbody>';
 
     if (empty($images)) {
@@ -49,13 +53,13 @@ function credit_tracker_table_shortcode($atts)
 
     foreach ($images as $image) {
         if (!empty($image['author']) && !empty($image['publisher'])) {
-            $ret .= '<tr class="credit-tracker-row">';
-            $ret .= '<td class="credit-tracker-column">' . '<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-thumbnail" alt="' . $image['alt'] . '">' . '</td>';
-            $ret .= '<td class="credit-tracker-column">' . $image['ident_nr'] . '</td>';
-            $ret .= '<td class="credit-tracker-column">' . $image['author'] . '</td>';
-            $ret .= '<td class="credit-tracker-column">' . $image['publisher'] . '</td>';
-            $ret .= '<td class="credit-tracker-column">' . '&copy;&nbsp;' . $image['author'] . ' - ' . $image['publisher'] . '</td>';
-            $ret .= '<td class="credit-tracker-column">' . $image['license'] . '</td>';
+            $ret .= '<tr>';
+            $ret .= '<td>' . '<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-thumbnail" alt="' . $image['alt'] . '">' . '</td>';
+            $ret .= '<td>' . $image['ident_nr'] . '</td>';
+            $ret .= '<td>' . $image['author'] . '</td>';
+            $ret .= '<td>' . $image['publisher'] . '</td>';
+            $ret .= '<td>' . process_item_copyright($image, $ct_copyright_format) . '</td>';
+            $ret .= '<td>' . $image['license'] . '</td>';
             $ret .= '</tr>';
         }
     }

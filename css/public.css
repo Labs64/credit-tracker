@@ -39,3 +39,7 @@ table.credit-tracker-default td, table.credit-tracker-default th {
 table.credit-tracker-default tr.odd th, table.credit-tracker-default tr.odd td {
     background: #efefef;
 }
+
+table.credit-tracker-default tbody td:nth-child(1) {
+    text-align: center;
+}

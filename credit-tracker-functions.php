@@ -72,6 +72,23 @@ function get_images($attr)
 }
 
 /**
+ * Returns copyright string formatted according to the given format.
+ */
+function process_item_copyright($item, $string)
+{
+    $string = str_replace("%ident_nr%", $item['ident_nr'], $string);
+    $string = str_replace("%source%", $item['source'], $string);
+    $string = str_replace("%author%", $item['author'], $string);
+    $string = str_replace("%publisher%", $item['publisher'], $string);
+    $string = str_replace("%license%", $item['license'], $string);
+
+    $string = str_replace("%title%", $item['title'], $string);
+    $string = str_replace("%caption%", $item['caption'], $string);
+
+    return $string;
+}
+
+/**
  * Prints a combobox based on options and selected=match value
  *
  * Parameters:
