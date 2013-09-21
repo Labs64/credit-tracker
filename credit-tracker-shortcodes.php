@@ -34,10 +34,6 @@ function credit_tracker_table_shortcode($atts)
     );
     $images = get_images($request);
 
-
-    $ct_copyright_format = get_single_option('ct_copyright_format');
-
-
     $ret = '<table class="credit-tracker-' . $style . '"><thead>';
     $ret .= '<th>' . '&nbsp;' . '</th>';
     $ret .= '<th>' . __('Ident-Nr.', CT_SLUG) . '</th>';
@@ -50,6 +46,8 @@ function credit_tracker_table_shortcode($atts)
     if (empty($images)) {
         $ret .= '<tr class="credit-tracker-row"><td colspan="6" class="credit-tracker-column-empty">' . __('No images found', CT_SLUG) . '</td></tr>';
     }
+
+    $ct_copyright_format = get_single_option('ct_copyright_format');
 
     foreach ($images as $image) {
         if (!empty($image['author']) && !empty($image['publisher'])) {

@@ -9,24 +9,23 @@
  * @copyright 2013 Labs64
  */
 
+
 define('CT_OPTIONS', 'CT_OPTIONS');
 
-/**
- * Slug of the plugin screen.
- */
-$plugin_screen_hook_suffix = null;
 
-// Add the options page and menu item.
-add_action('admin_menu', 'add_plugin_page');
-add_action('admin_init', 'page_init');
+if (is_admin()) {
+    // Add the options page and menu item.
+    add_action('admin_menu', 'add_plugin_page');
+    add_action('admin_init', 'page_init');
 
-// Add an action link pointing to the options page.
-$plugin_basename = plugin_basename(plugin_dir_path(__FILE__) . 'credit-tracker.php');
-add_filter('plugin_action_links_' . $plugin_basename, 'add_action_links');
+    // Add an action link pointing to the options page.
+    $plugin_basename = plugin_basename(plugin_dir_path(__FILE__) . 'credit-tracker.php');
+    add_filter('plugin_action_links_' . $plugin_basename, 'add_action_links');
 
-// Load admin style sheet and JavaScript.
-add_action('admin_enqueue_scripts', 'enqueue_admin_styles');
-add_action('admin_enqueue_scripts', 'enqueue_admin_scripts');
+    // Load admin style sheet and JavaScript.
+    add_action('admin_enqueue_scripts', 'enqueue_admin_styles');
+    add_action('admin_enqueue_scripts', 'enqueue_admin_scripts');
+}
 
 /**
  * Add settings action link to the plugins page.
@@ -46,7 +45,7 @@ function add_action_links($links)
  */
 function add_plugin_page()
 {
-    // This page will be under "Settings"
+    global $plugin_screen_hook_suffix;
     $plugin_screen_hook_suffix = add_options_page(
         __('Credit Tracker', CT_SLUG),
         __('Credit Tracker', CT_SLUG),
@@ -63,6 +62,8 @@ function add_plugin_page()
  */
 function enqueue_admin_styles()
 {
+    global $plugin_screen_hook_suffix;
+
     if (!isset($plugin_screen_hook_suffix)) {
         return;
     }
@@ -81,6 +82,8 @@ function enqueue_admin_styles()
  */
 function enqueue_admin_scripts()
 {
+    global $plugin_screen_hook_suffix;
+
     if (!isset($plugin_screen_hook_suffix)) {
         return;
     }
@@ -151,18 +154,24 @@ function page_init()
     add_settings_field(
         'ct_id_number', // ID
         __('Number', SLUG), // Title
-        'ct_id_number_callback', // Callback
+        'ct_text_field_callback', // Callback
         SLUG, // Page
-        'CT_COMMON_SETTINGS' // Section
+        'CT_COMMON_SETTINGS',
+        array(
+            'id' => 'ct_id_number',
+        )
     );
     */
 
     add_settings_field(
         'ct_copyright_format',
         __('Copyright Format', CT_SLUG),
-        'ct_copyright_format_callback',
+        'ct_text_field_callback',
         CT_SLUG,
-        'CT_COMMON_SETTINGS'
+        'CT_COMMON_SETTINGS',
+        array(
+            'id' => 'ct_copyright_format',
+        )
     );
 }
 
@@ -195,18 +204,11 @@ function print_common_section_info()
 
 /**
  */
-function ct_id_number_callback()
+function ct_text_field_callback($args)
 {
-    $option = get_single_option('ct_id_number');
-    echo "<input type='text' id='ct_id_number' name='CT_OPTIONS[ct_id_number]' value='$option' />";
-}
-
-/**
- */
-function ct_copyright_format_callback()
-{
-    $option = get_single_option('ct_copyright_format');
-    echo "<input type='text' id='ct_copyright_format' name='CT_OPTIONS[ct_copyright_format]' value='$option' />";
+    $id = $args['id'];
+    $value = get_single_option($id);
+    echo "<input type='text' id='$id' name='CT_OPTIONS[$id]' value='$value' />";
 }
 
 /**
