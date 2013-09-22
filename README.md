@@ -34,6 +34,8 @@ Choose one of the following options:
 Anyone and everyone is welcome to contribute. Dozens of developers have helped make the Credit Tracker what it is today.
 
 
+## Related Links
+
 * Author: [Labs64](http://www.labs64.com)
 * Homepage: [www.labs64.com](http://www.labs64.com)
 * Source: [https://github.com/Labs64/credit-tracker](https://github.com/Labs64/credit-tracker)

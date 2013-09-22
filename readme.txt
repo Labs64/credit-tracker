@@ -26,18 +26,26 @@ The plugin adds the following fields to all images in WordPress Media Library:
 * "credit_tracker_table" shortcode to construct a nicely-styled 'Image Credits' table
 * Fully customisable to look just like your own website's style: customise the colours, styles and fonts
 
-= Working Examples =
-
-
 == Installation ==
 
 1. Upload the 'credit-tracker' folder to the '/wp-content/plugins/' directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Go to "Settings / Credit Tracker" to add custom options (optional)
 
+== Frequently Asked Questions ==
+
+= How do I include a Credit Tracker on my page? =
+
+`[credit_tracker_table id="11,22,33" size="thumbnail|medium|large|full"]`
+
+* id (optional) - specify the attachment ID (one or more). The default behavior, if no ID is specified, is to display all images containing author info.
+* size (optional) - specify the image size to use for the thumbnail display. Valid values include "thumbnail", "medium", "large", "full". The default value is "thumbnail".
+
 == Screenshots ==
 
-1. Admin panel
+1. Credit Tracker settings
+2. Edit Media view
+3. Shortcode 'credit_tracker_table'
 
 == Changelog ==
 
