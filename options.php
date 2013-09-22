@@ -159,6 +159,7 @@ function page_init()
         'CT_COMMON_SETTINGS',
         array(
             'id' => 'ct_id_number',
+            'description' => '',
         )
     );
     */
@@ -171,6 +172,7 @@ function page_init()
         'CT_COMMON_SETTINGS',
         array(
             'id' => 'ct_copyright_format',
+            'description' => __('%ident_nr%, %source%, %author%, %publisher%, %license% can be used as placeholders', CT_SLUG),
         )
     );
 }
@@ -211,8 +213,10 @@ function print_common_section_info()
 function ct_text_field_callback($args)
 {
     $id = $args['id'];
+    $description = $args['description'];
     $value = get_single_option($id);
-    echo "<input type='text' id='$id' name='CT_OPTIONS[$id]' value='$value' />";
+    echo "<input type='text' id='$id' name='CT_OPTIONS[$id]' value='$value' class='regular-text' />";
+    echo "<p class='description'>$description</p>";
 }
 
 /**
