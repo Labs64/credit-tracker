@@ -14,8 +14,8 @@ The plugin adds the following fields to all images in WordPress Media Library:
 ## Features
 
 * Append credits to the media library elements
-* Fully customisable to look just like your own website's style: customise the colours, styles and fonts
 * "credit_tracker_table" shortcode to construct a nicely-styled 'Image Credits' table
+* Fully customisable to look just like your own website's style: customise the colours, styles and fonts
 
 
 ## Documentation

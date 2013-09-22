@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/credit-tracker\n"
-"POT-Creation-Date: 2013-09-21 20:52+0100\n"
-"PO-Revision-Date: 2013-09-21 20:54+0100\n"
+"POT-Creation-Date: 2013-09-22 10:26+0100\n"
+"PO-Revision-Date: 2013-09-22 10:27+0100\n"
 "Last-Translator: Labs64 <info@labs64.com>\n"
 "Language-Team: Labs64 <info@labs64.com >\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"Language: en_US\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: credit-tracker-class.php:192 credit-tracker-shortcodes.php:39
@@ -107,10 +108,16 @@ msgstr ""
 msgid "Credit Tracker Settings"
 msgstr ""
 
-#: options.php:168
+#: options.php:169
 msgid "Copyright format"
 msgstr "Copyright format"
 
-#: options.php:204
+#: options.php:175
+msgid ""
+"%ident_nr%, %source%, %author%, %publisher%, %license% can be used as "
+"placeholders"
+msgstr ""
+
+#: options.php:208
 msgid "Enter your settings below:"
 msgstr ""
