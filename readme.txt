@@ -44,7 +44,8 @@ The plugin adds the following fields to all images in WordPress Media Library:
 == Screenshots ==
 
 1. Credit Tracker settings
-2. Edit Media view
+2. Edit Media Library entry
+2. Media Library view
 3. Shortcode 'credit_tracker_table'
 
 == Changelog ==
