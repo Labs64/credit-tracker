@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Credit_Tracker package.
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.9.0\n"
+"Project-Id-Version: 0.9.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/credit-tracker\n"
 "POT-Creation-Date: 2013-09-22 10:26+0100\n"
 "PO-Revision-Date: 2013-09-22 10:27+0100\n"
