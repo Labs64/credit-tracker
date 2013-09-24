@@ -101,7 +101,7 @@ function enqueue_admin_scripts()
 function create_admin_page()
 {
     ?>
-    <div class="wrap">
+    <div class="wrap" xmlns="http://www.w3.org/1999/html">
         <a href="http://www.labs64.com" target="_blank" class="icon-labs64 icon32"></a>
 
         <h2><?php _e('Credit Tracker by Labs64', CT_SLUG); ?></h2>
@@ -114,21 +114,83 @@ function create_admin_page()
             submit_button();
             ?>
         </form>
-
-        <h3><?php _e('Feedback', CT_SLUG); ?></h3>
-
-        <p><?php _e('Did you find a bug? Have an idea for a plugin? Please help us improve this plugin', CT_SLUG); ?>
-            :</p>
-        <ul>
-            <li>
-                <a href="https://github.com/Labs64/credit-tracker/issues"
-                   target="_blank"><?php _e('Report a bug, or suggest an improvement', CT_SLUG); ?></a>
-            </li>
-            <li><a href="http://www.facebook.com/labs64" target="_blank"><?php _e('Like us on Facebook'); ?></a>
-            </li>
-            <li><a href="http://www.labs64.com/blog" target="_blank"><?php _e('Read Labs64 Blog'); ?></a></li>
-        </ul>
+        <hr/>
+        <?php
+        print_reference_section();
+        print_feedback_section();
+        ?>
     </div>
+<?php
+}
+
+/**
+ * Print the Section info text
+ */
+function print_common_section_info()
+{
+    print __('Enter your settings below:', CT_SLUG);
+}
+
+/**
+ * Print the feedback section
+ */
+function print_feedback_section()
+{
+    ?>
+    <h3><?php _e('Feedback', CT_SLUG); ?></h3>
+
+    <p><?php _e('Did you find a bug? Have an idea for a plugin? Please help us improve this plugin', CT_SLUG); ?>:</p>
+    <ul>
+        <li>
+            <a href="https://github.com/Labs64/credit-tracker/issues"
+               target="_blank"><?php _e('Report a bug, or suggest an improvement', CT_SLUG); ?></a>
+        </li>
+        <li><a href="http://www.facebook.com/labs64" target="_blank"><?php _e('Like us on Facebook'); ?></a>
+        </li>
+        <li><a href="http://www.labs64.com/blog" target="_blank"><?php _e('Read Labs64 Blog'); ?></a></li>
+    </ul>
+<?php
+}
+
+/**
+ * Print the reference section
+ */
+function print_reference_section()
+{
+    ?>
+    <h3><?php _e('Shortcodes Reference', CT_SLUG); ?></h3>
+    <table class="form-table">
+        <tbody>
+        <tr valign="top">
+            <th scope="row">
+                [credit_tracker_table]
+            </th>
+            <td>
+                <p>Generate 'Image Credits' table.</p>
+
+                <p>Attributes:</p>
+
+                <p>&nbsp;&nbsp;<strong>id</strong> <i>(optional)</i> - specify the attachment ID (one or more). The
+                    default behavior, if no ID is specified, is to display all images containing author info.</p>
+
+                <p>&nbsp;&nbsp;<strong>size</strong> <i>(optional)</i> - specify the image size to use for the thumbnail
+                    display. Valid values include "thumbnail", "medium", "large", "full". The default value is
+                    "thumbnail".</p>
+
+                <p><strong>Examples:</strong></p>
+
+                <p><code>[credit_tracker_table]</code></p>
+
+                <p>Generate table for all images with non-empty attribute 'author' and small (thumbnail) preview
+                    image</p>
+
+                <p><code>[credit_tracker_table id="11,22,33" size="medium"]</code></p>
+
+                <p>Generate table for with image ids (11, 22 and 33) and medium preview image</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 <?php
 }
 
@@ -201,14 +263,6 @@ function sanitize($input)
 }
 
 /**
- * Print the Section text
- */
-function print_common_section_info()
-{
-    print __('Enter your settings below:', CT_SLUG);
-}
-
-/**
  */
 function ct_text_field_callback($args)
 {
@@ -262,7 +316,11 @@ function ct_get_sources_array()
 {
     $sources = Array(
         'Custom' => 'custom',
-        'Fotolia' => 'Fotolia'
+        'Fotolia' => 'Fotolia',
+        'iStockphoto' => 'iStockphoto',
+        'Shutterstock' => 'Shutterstock',
+        'Corbis Images' => 'Corbis_Images',
+        'Getty Images' => 'Getty_Images'
     );
     return $sources;
 }

@@ -11,6 +11,8 @@ A simple way to show credits for the images used on your website.
 
 == Description ==
 
+The effective use of stock images and photography on your website and blog can have a massive impact on the legal requirements regarding proper credit of the author.
+
 Credit Tracker plugin allows to create media credits tables and adds a few additional fields not provided by Media Library. Media credits data can be fetched from different image agencies and shown in required format.
 
 The plugin adds the following fields to all images in WordPress Media Library:
@@ -52,7 +54,7 @@ The plugin adds the following fields to all images in WordPress Media Library:
 
 = 0.9.1 =
 * German translation
-*
+* Add reference section
 
 = 0.9.0 =
 * Initial version
