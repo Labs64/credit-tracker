@@ -189,17 +189,20 @@ class Credit_Tracker
     public function get_attachment_fields($form_fields, $post)
     {
         $form_fields["credit-tracker-ident_nr"] = array(
-            "label" => __('Ident-Nr.', CT_SLUG),
+            "label" => __('Ident-Nr . ', CT_SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-ident_nr", true),
             "helps" => __("The original object number at the source", CT_SLUG),
         );
 
+        $selected_source = get_post_meta($post->ID, "credit-tracker-source", true);
+
         $form_fields["credit-tracker-source"] = array(
             "label" => __('Source', CT_SLUG),
-            "input" => "text",
-            "value" => get_post_meta($post->ID, "credit-tracker-source", true),
-            "helps" => __("Source where to locate the original", CT_SLUG),
+            "input" => "html",
+            "value" => $selected_source,
+            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . get_combobox_options(ct_get_sources_array(), $selected_source) . "</select>",
+            "helps" => __("Source where to locate the original media", CT_SLUG),
         );
 
         $form_fields["credit-tracker-author"] = array(

@@ -96,16 +96,18 @@ function process_item_copyright($item, $string)
  * $selected = which of those options should be selected (allows just one; is case sensitive)
  *
  * Outputs (based on array ( $key => $value ):
- * <option value=$value>$key</option>
- * <option value=$value selected="selected">$key</option>
+ * <option value=$key>$value</option>
+ * <option value=$key selected="selected">$value</option>
  */
-function print_combobox_options($options, $selected)
+function get_combobox_options($options, $selected)
 {
+    $ret = '';
     foreach ($options as $key => $value) {
-        echo '<option value="' . $value . '"';
-        if ($value == $selected) {
-            echo ' selected="selected"';
+        $ret .= '<option value="' . $key . '"';
+        if ($key == $selected) {
+            $ret .= ' selected="selected"';
         }
-        echo '>' . $key . '</option>';
+        $ret .= '>' . $value . '</option>';
     }
+    return $ret;
 }
