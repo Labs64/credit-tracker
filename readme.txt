@@ -3,7 +3,7 @@ Contributors: labs64
 Tags: credit, credits, legal, copyright, owner, author, media library, media, image, royalty-free, RF, stock, attachment, custom fields, fotolia, bildnachweis, impressum, imprint
 Requires at least: 3.5.1
 Tested up to: 3.6.1
-Stable tag: 0.9.1
+Stable tag: 0.9.2
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,9 @@ The plugin adds the following fields to all images in WordPress Media Library:
 3. Shortcode 'credit_tracker_table'
 
 == Changelog ==
+
+= 0.9.2 =
+* TODO
 
 = 0.9.1 =
 * Add reference section
