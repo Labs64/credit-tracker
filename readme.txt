@@ -53,7 +53,6 @@ The plugin adds the following fields to all images in WordPress Media Library:
 == Changelog ==
 
 = 0.9.1 =
-* German translation
 * Add reference section
 
 = 0.9.0 =
