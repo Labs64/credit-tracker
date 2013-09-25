@@ -53,7 +53,7 @@ The plugin adds the following fields to all images in WordPress Media Library:
 == Changelog ==
 
 = 0.9.2 =
-* TODO
+* Use dropdown for source field
 
 = 0.9.1 =
 * Add reference section
