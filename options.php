@@ -320,6 +320,20 @@ function ct_get_sources_array()
         'iStockphoto' => 'iStockphoto',
         'Shutterstock' => 'Shutterstock',
         'Corbis Images' => 'Corbis_Images',
+        '123RF' => '123RF',
+        'Alamy' => 'Alamy',
+        'BigStock' => 'BigStock',
+        'Can Stock Photo' => 'Can_Stock_Photo',
+        'Depositphotos' => 'Depositphotos',
+        'Foap' => 'Foap',
+        'FotoSearch' => 'FotoSearch',
+        'iStock' => 'iStock',
+        'Photos.com' => 'Photos.com',
+        'ThinkStock' => 'ThinkStock',
+        'CartoonStock' => 'CartoonStock',
+        'Veer.com' => 'Veer.com',
+        'Graphic Leftovers' => 'Graphic_Leftovers',
+        'Illustration Web' => 'Illustration_Web',
         'Getty Images' => 'Getty_Images'
     );
     return $sources;
