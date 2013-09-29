@@ -5,10 +5,10 @@ msgstr ""
 "Project-Id-Version: 0.9.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/credit-tracker\n"
 "POT-Creation-Date: 2013-09-28 09:17+0100\n"
-"PO-Revision-Date: 2013-09-28 09:19+0100\n"
+"PO-Revision-Date: 2013-09-28 09:18+0100\n"
 "Last-Translator: Labs64 <info@labs64.com>\n"
 "Language-Team: Labs64 <info@labs64.com >\n"
-"Language: en_US\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,7 +48,7 @@ msgstr ""
 #: credit-tracker-class.php:216 credit-tracker-class.php:270
 #: credit-tracker-shortcodes.php:41
 msgid "Publisher"
-msgstr ""
+msgstr "Паблишер"
 
 #: credit-tracker-class.php:219
 msgid "Media publisher (e.g. image agency)"
@@ -68,7 +68,7 @@ msgstr ""
 
 #: credit-tracker-shortcodes.php:42
 msgid "Copyright"
-msgstr ""
+msgstr "Copyright"
 
 #: credit-tracker-shortcodes.php:47
 msgid "No images found"
@@ -122,7 +122,7 @@ msgstr ""
 
 #: options.php:231
 msgid "Copyright format"
-msgstr ""
+msgstr "Copyright формат"
 
 #: options.php:237
 msgid ""

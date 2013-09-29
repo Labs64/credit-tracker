@@ -14,4 +14,4 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
     exit;
 }
 
-delete_option('credit_tracker_options');
+delete_option('CT_OPTIONS');

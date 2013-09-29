@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: labs64
-Tags: credit, credits, legal, copyright, owner, author, media library, media, image, royalty-free, RF, stock, attachment, custom fields, fotolia, bildnachweis, impressum, imprint
+Tags: plugin, shortcode, credit, credits, legal, copyright, owner, author, media library, media, image, images, photo, photos, royalty-free, RF, stock, attachment, custom fields, fotolia, bildnachweis, impressum, imprint
 Requires at least: 3.5.1
 Tested up to: 3.6.1
 Stable tag: 0.9.2

@@ -34,7 +34,7 @@ function credit_tracker_table_shortcode($atts)
     );
     $images = get_images($request);
 
-    $ret = '<table class="credit-tracker-' . $style . '"><thead>';
+    $ret = '<table id="credit-tracker-table" class="credit-tracker-' . $style . '"><thead>';
     $ret .= '<th>' . '&nbsp;' . '</th>';
     $ret .= '<th>' . __('Ident-Nr.', CT_SLUG) . '</th>';
     $ret .= '<th>' . __('Author', CT_SLUG) . '</th>';
