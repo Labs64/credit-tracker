@@ -46,12 +46,12 @@ table.credit-tracker-default tbody td:nth-child(1) {
 
 /* Style: default - END */
 
-/* Style: rounded */
-table.credit-tracker-rounded {
+/* Style: mercury */
+table.credit-tracker-mercury {
     overflow: hidden;
     border: 1px solid #d3d3d3;
     background: #fefefe;
-    width: 70%;
+    width: 100%;
     margin: 5% auto 0;
     -moz-border-radius: 5px; /* FF1+ */
     -webkit-border-radius: 5px; /* Saf3-4 */
@@ -60,67 +60,171 @@ table.credit-tracker-rounded {
     -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
-table.credit-tracker-rounded th, td {
-    padding: 18px 28px 18px;
+table.credit-tracker-mercury th, td {
+    padding: 10px 10px 10px;
     text-align: center;
 }
 
-table.credit-tracker-rounded th {
-    padding-top: 22px;
+table.credit-tracker-mercury th {
+    padding-top: 10px;
     text-shadow: 1px 1px 1px #fff;
     background: #e8eaeb;
 }
 
-table.credit-tracker-rounded td {
+table.credit-tracker-mercury td {
     border-top: 1px solid #e0e0e0;
     border-right: 1px solid #e0e0e0;
 }
 
-table.credit-tracker-rounded tr.odd-row td {
+table.credit-tracker-mercury tr.odd-row td {
     background: #f6f6f6;
 }
 
-table.credit-tracker-rounded td.first, th.first {
-    text-align: left
+table.credit-tracker-mercury tbody td:nth-child(1) {
+    text-align: center;
 }
 
-table.credit-tracker-rounded td.last {
+table.credit-tracker-mercury td.last {
     border-right: none;
 }
 
-table.credit-tracker-rounded td {
+table.credit-tracker-mercury td {
     background: -moz-linear-gradient(100% 25% 90deg, #fefefe, #f9f9f9);
     background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f9f9f9), to(#fefefe));
 }
 
-table.credit-tracker-rounded tr.odd-row td {
+table.credit-tracker-mercury tr.odd-row td {
     background: -moz-linear-gradient(100% 25% 90deg, #f6f6f6, #f1f1f1);
     background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f1f1f1), to(#f6f6f6));
 }
 
-table.credit-tracker-rounded th {
+table.credit-tracker-mercury th {
     background: -moz-linear-gradient(100% 20% 90deg, #e8eaeb, #ededed);
     background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed), to(#e8eaeb));
 }
 
-table.credit-tracker-rounded tr:first-child th.first {
+table.credit-tracker-mercury tr:first-child th.first {
     -moz-border-radius-topleft: 5px;
     -webkit-border-top-left-radius: 5px; /* Saf3-4 */
 }
 
-table.credit-tracker-rounded tr:first-child th.last {
+table.credit-tracker-mercury tr:first-child th.last {
     -moz-border-radius-topright: 5px;
     -webkit-border-top-right-radius: 5px; /* Saf3-4 */
 }
 
-table.credit-tracker-rounded tr:last-child td.first {
+table.credit-tracker-mercury tr:last-child td.first {
     -moz-border-radius-bottomleft: 5px;
     -webkit-border-bottom-left-radius: 5px; /* Saf3-4 */
 }
 
-table.credit-tracker-rounded tr:last-child td.last {
+table.credit-tracker-mercury tr:last-child td.last {
     -moz-border-radius-bottomright: 5px;
     -webkit-border-bottom-right-radius: 5px; /* Saf3-4 */
 }
 
-/* Style: rounded - END */
+/* Style: mercury - END */
+
+/* Style: mars */
+table.credit-tracker-mars {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+table.credit-tracker-mars tr:last-child td:last-child {
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+table.credit-tracker-mars tr:first-child td:first-child {
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+table.credit-tracker-mars tr:first-child td:last-child {
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+table.credit-tracker-mars tr:last-child td:first-child {
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+table.credit-tracker-mars tbody td:nth-child(1) {
+    text-align: center;
+}
+
+table.credit-tracker-mars tr:hover td {
+
+}
+
+table.credit-tracker-mars tr:nth-child(odd) {
+    background-color: #efc8b3;
+}
+
+table.credit-tracker-mars tr:nth-child(even) {
+    background-color: #efe7e3;
+}
+
+table.credit-tracker-mars td {
+    vertical-align: middle;
+    border: 1px solid #5f5f5f;
+    border-width: 0px 1px 1px 0px;
+    text-align: left;
+    padding: 10px;
+    font-weight: normal;
+    color: #000000;
+}
+
+table.credit-tracker-mars tr:last-child td {
+    border-width: 0px 1px 0px 0px;
+}
+
+table.credit-tracker-mars tr td:last-child {
+    border-width: 0px 0px 1px 0px;
+}
+
+table.credit-tracker-mars tr:last-child td:last-child {
+    border-width: 0px 0px 0px 0px;
+}
+
+table.credit-tracker-mars thead th {
+    background: -o-linear-gradient(bottom, #f08b53 5%, #e14817 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f08b53), color-stop(1, #e14817));
+    background: -moz-linear-gradient(center top, #f08b53 5%, #e14817 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f08b53", endColorstr="#e14817");
+    background: -o-linear-gradient(top, #f08b53, e14817);
+
+    background-color: #f08b53;
+    border: 0px solid #5f5f5f;
+    text-align: center;
+    border-width: 0px 0px 1px 1px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+table.credit-tracker-mars thead:hover th {
+    background: -o-linear-gradient(bottom, #f08b53 5%, #e14817 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f08b53), color-stop(1, #e14817));
+    background: -moz-linear-gradient(center top, #f08b53 5%, #e14817 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f08b53", endColorstr="#e14817");
+    background: -o-linear-gradient(top, #f08b53, e14817);
+
+    background-color: #f08b53;
+}
+
+table.credit-tracker-mars thead th:first-child {
+    border-width: 0px 0px 1px 0px;
+}
+
+table.credit-tracker-mars thead th:last-child {
+    border-width: 0px 0px 1px 1px;
+}
+
+/* Style: mars - END */

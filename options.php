@@ -177,6 +177,9 @@ function print_reference_section()
                     display. Valid values include "thumbnail", "medium", "large", "full". The default value is
                     "thumbnail".</p>
 
+                <p>&nbsp;&nbsp;<strong>style</strong> <i>(optional)</i> - specify the table CSS style. Valid values
+                    include "default", "mercury", "mars". The default value is "default".</p>
+
                 <p><strong>Examples:</strong></p>
 
                 <p><code>[credit_tracker_table]</code></p>
@@ -184,9 +187,10 @@ function print_reference_section()
                 <p>Generate table for all images with non-empty attribute 'author' and small (thumbnail) preview
                     image</p>
 
-                <p><code>[credit_tracker_table id="11,22,33" size="medium"]</code></p>
+                <p><code>[credit_tracker_table id="11,22,33" size="medium" style="mercury"]</code></p>
 
-                <p>Generate table for with image ids (11, 22 and 33) and medium preview image</p>
+                <p>Generate table for with image ids (11, 22 and 33) and medium preview image. Table will be styled with
+                    "mercury" CSS style</p>
             </td>
         </tr>
         </tbody>
