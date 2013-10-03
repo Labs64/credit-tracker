@@ -238,7 +238,20 @@ function page_init()
         'CT_COMMON_SETTINGS',
         array(
             'id' => 'ct_copyright_format',
-            'description' => __('%ident_nr%, %source%, %author%, %publisher%, %license% can be used as placeholders', CT_SLUG),
+            'description' => __('Default copyright format<br/>Allowed placeholders: %ident_nr%, %source%, %author%, %publisher%, %license%', CT_SLUG),
+        )
+    );
+
+    add_settings_field(
+        'ct_override_caption_shortcode',
+        __('Override shortcodes', CT_SLUG),
+        'ct_checkbox_field_callback',
+        CT_SLUG,
+        'CT_COMMON_SETTINGS',
+        array(
+            'id' => 'ct_override_caption_shortcode',
+            'caption' => __('Override WordPress [caption] shortcode', CT_SLUG),
+            'description' => __('Replaces output of standard WordPress [caption] shortcode with improved version (add Image Microdata and Image Credit)', CT_SLUG),
         )
     );
 }
@@ -277,6 +290,16 @@ function ct_text_field_callback($args)
     echo "<p class='description'>$description</p>";
 }
 
+function ct_checkbox_field_callback($args)
+{
+    $id = $args['id'];
+    $caption = $args['caption'];
+    $description = $args['description'];
+    $value = get_single_option($id);
+    echo "<input type='checkbox' id='$id' name='CT_OPTIONS[$id]' value='1' class='code' " . checked(1, $value, false) . " /> $caption";
+    echo "<p class='description'>$description</p>";
+}
+
 /**
  * Returns default options.
  * If you override the options here, be careful to use escape characters!
@@ -284,7 +307,8 @@ function ct_text_field_callback($args)
 function get_default_options()
 {
     $default_options = array(
-        'ct_copyright_format' => '&copy; %author%'
+        'ct_copyright_format' => '&copy; %author%',
+        'ct_override_caption_shortcode' => '0'
     );
     return $default_options;
 }

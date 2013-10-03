@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/credit-tracker\n"
-"POT-Creation-Date: 2013-09-28 09:17+0100\n"
-"PO-Revision-Date: 2013-09-28 09:18+0100\n"
+"POT-Creation-Date: 2013-10-04 01:18+0100\n"
+"PO-Revision-Date: 2013-10-04 01:18+0100\n"
 "Last-Translator: Labs64 <info@labs64.com>\n"
 "Language-Team: Labs64 <info@labs64.com >\n"
 "Language: ru_RU\n"
@@ -116,20 +116,34 @@ msgstr ""
 msgid "Shortcodes Reference"
 msgstr ""
 
-#: options.php:210
+#: options.php:214
 msgid "Credit Tracker Settings"
 msgstr ""
 
-#: options.php:231
+#: options.php:235
 msgid "Copyright format"
 msgstr "Copyright формат"
 
-#: options.php:237
+#: options.php:241
 msgid ""
-"%ident_nr%, %source%, %author%, %publisher%, %license% can be used as "
-"placeholders"
+"Default copyright format<br/>Allowed placeholders: %ident_nr%, %source%, "
+"%author%, %publisher%, %license%"
 msgstr ""
 
-#: options.php:318
+#: options.php:247
+msgid "Override shortcodes"
+msgstr ""
+
+#: options.php:253
+msgid "Override WordPress [caption] shortcode"
+msgstr ""
+
+#: options.php:254
+msgid ""
+"Replaces output of standard WordPress [caption] shortcode with improved "
+"version (add Image Microdata and Image Credit)"
+msgstr ""
+
+#: options.php:346
 msgid "Custom"
 msgstr ""

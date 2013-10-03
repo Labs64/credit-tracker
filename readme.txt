@@ -54,6 +54,7 @@ The plugin adds the following fields to all images in WordPress Media Library:
 == Changelog ==
 
 = 0.9.2 =
+* Override WordPress [caption] shortcode
 * Use dropdown for source field
 * Add new table CSS style (mercury) for 'credit_tracker_table'
 * Add new table CSS style (mars) for 'credit_tracker_table'
