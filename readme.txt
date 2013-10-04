@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: labs64
-Tags: plugin, shortcode, credit, credits, legal, copyright, owner, author, media library, media, image, images, photo, photos, royalty-free, RF, stock, attachment, custom fields, fotolia, bildnachweis, impressum, imprint
+Tags: plugin, shortcode, credit, credits, legal, copyright, owner, author, media library, media, image, images, photo, photos, royalty-free, RF, stock, attachment, custom fields, fotolia, bildnachweis, impressum, imprint, microdata
 Requires at least: 3.5.1
 Tested up to: 3.6.1
 Stable tag: 0.9.3
@@ -24,15 +24,19 @@ The plugin adds the following fields to all images in WordPress Media Library:
 * License
 
 = Features =
+
 * Append credits to the media library elements
+* Configurable copyright format string
 * "credit_tracker_table" shortcode to construct a nicely-styled 'Image Credits' table
 * Fully customisable to look just like your own website's style: customise the colours, styles and fonts
+* Ability to override standard WordPress shortcode [caption]
+* Add microdata to the images
 
 == Installation ==
 
 1. Upload the 'credit-tracker' folder to the '/wp-content/plugins/' directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Go to "Settings / Credit Tracker" to add custom options (optional)
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Go to "Settings / Credit Tracker" to add custom options (optional)
 
 == Frequently Asked Questions ==
 
@@ -48,8 +52,9 @@ The plugin adds the following fields to all images in WordPress Media Library:
 
 1. Credit Tracker settings
 2. Edit Media Library entry
-2. Media Library view
-3. Shortcode 'credit_tracker_table'
+3. Media Library view
+4. 'credit_tracker_table' shortcode
+5. Overriden caption shortcode
 
 == Changelog ==
 
