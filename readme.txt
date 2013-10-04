@@ -3,7 +3,7 @@ Contributors: labs64
 Tags: plugin, shortcode, credit, credits, legal, copyright, owner, author, media library, media, image, images, photo, photos, royalty-free, RF, stock, attachment, custom fields, fotolia, bildnachweis, impressum, imprint
 Requires at least: 3.5.1
 Tested up to: 3.6.1
-Stable tag: 0.9.2
+Stable tag: 0.9.3
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,7 +38,7 @@ The plugin adds the following fields to all images in WordPress Media Library:
 
 = How do I include a Credit Tracker on my page? =
 
-`[credit_tracker_table id="11,22,33" size="thumbnail|medium|large|full"]`
+`[credit_tracker_table id="11,22,33" size="thumbnail|medium|large|full" style="mercury"]`
 
 * id (optional) - specify the attachment ID (one or more). The default behavior, if no ID is specified, is to display all images containing author info.
 * size (optional) - specify the image size to use for the thumbnail display. Valid values include "thumbnail", "medium", "large", "full". The default value is "thumbnail".
@@ -52,6 +52,9 @@ The plugin adds the following fields to all images in WordPress Media Library:
 3. Shortcode 'credit_tracker_table'
 
 == Changelog ==
+
+= 0.9.3 =
+* TODO...
 
 = 0.9.2 =
 * Override WordPress [caption] shortcode
