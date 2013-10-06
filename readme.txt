@@ -51,13 +51,13 @@ Developers can checkout and contribute to the source code on the [Credit Tracker
 * WordPress 3.5 or greater
 * PHP version 5.2.4 or greater
 
-**Via Upload (FTP, SCP etc.)**
+= via Upload (FTP, SCP etc.) =
 
 1. Upload the extracted archive folder 'credit-tracker' to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. *(optional)* Go to "Settings / Credit Tracker" to adjust settings
 
-**Via WordPress Admin**
+= via WordPress Admin =
 
 1. Go to "Plugins / Add New"
 2. Search for `Credit Tracker`
@@ -115,6 +115,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 
 == Changelog ==
 
+= 0.9.4 =
+* TODO...
+
 = 0.9.3 =
 * Update plugin information
 
@@ -140,5 +143,7 @@ Listed here are credits and special thanks to some of you who have helped us out
 
 = Translations =
 * English - default, always included
+* German - credit goes to [Alexey Averikhin](http://www.labs64.de)
+* Russian - credit goes to [Konstantin Korotkov](http://netlicensing.labs64.com)
 
 *NOTE:* Please [contribute](https://github.com/Labs64/credit-tracker/tree/master/languages "contribute your language") your language to the plugin to make it even more useful.
