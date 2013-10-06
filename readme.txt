@@ -116,7 +116,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 0.9.3 =
-* TODO...
+* Update plugin information
 
 = 0.9.2 =
 * Override WordPress [caption] shortcode
@@ -140,7 +140,5 @@ Listed here are credits and special thanks to some of you who have helped us out
 
 = Translations =
 * English - default, always included
-* German - credit goes to [Alexey Averikhin](http://www.labs64.de)
-* Russian - credit goes to [Konstantin Korotkov](http://netlicensing.labs64.com)
 
 *NOTE:* Please [contribute](https://github.com/Labs64/credit-tracker/tree/master/languages "contribute your language") your language to the plugin to make it even more useful.
