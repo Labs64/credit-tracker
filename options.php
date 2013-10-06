@@ -338,19 +338,57 @@ function get_single_option($name)
 }
 
 /**
- * Returns available source names
+ * Returns available sources meta
  */
 function ct_get_sources_array()
 {
     $sources = array(
-        'custom' => __('Custom', CT_SLUG),
-        'Fotolia' => 'Fotolia',
-        'iStockphoto' => 'iStockphoto',
-        'Shutterstock' => 'Shutterstock',
-        'Corbis_Images' => 'Corbis Images',
-        'Getty_Images' => 'Getty Images'
+        'custom' => array(
+            'caption' => __('Custom', CT_SLUG),
+            'copyright' => '',
+            'retriever' => ''
+        ),
+        'Fotolia' => array(
+            'caption' => 'Fotolia',
+            'copyright' => 'get_fotolia_copyright',
+            'retriever' => 'get_fotolia_metadata'
+        ),
+        'iStockphoto' => array(
+            'caption' => 'iStockphoto',
+            'copyright' => '',
+            'retriever' => ''
+        ),
+        'Shutterstock' => array(
+            'caption' => 'Shutterstock',
+            'copyright' => '',
+            'retriever' => ''
+        ),
+        'Corbis_Images' => array(
+            'caption' => 'Corbis Images',
+            'copyright' => '',
+            'retriever' => ''
+        ),
+        'Getty_Images' => array(
+            'caption' => 'Getty Images',
+            'copyright' => '',
+            'retriever' => ''
+        )
     );
     return $sources;
+}
+
+/**
+ * Returns available sources meta
+ */
+function ct_get_sources_names_array()
+{
+    $names = array();
+
+    foreach (ct_get_sources_array() as $k => $v) {
+        $names[$k] = $v['caption'];
+    }
+
+    return $names;
 }
 
 ?>

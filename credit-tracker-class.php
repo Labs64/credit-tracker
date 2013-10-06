@@ -201,7 +201,7 @@ class Credit_Tracker
             "label" => __('Source', CT_SLUG),
             "input" => "html",
             "value" => $selected_source,
-            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . get_combobox_options(ct_get_sources_array(), $selected_source) . "</select>",
+            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . get_combobox_options(ct_get_sources_names_array(), $selected_source) . "</select>",
             "helps" => __("Source where to locate the original media", CT_SLUG),
         );
 
