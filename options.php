@@ -25,6 +25,9 @@ if (is_admin()) {
     // Load admin style sheet and JavaScript.
     add_action('admin_enqueue_scripts', 'enqueue_admin_styles');
     add_action('admin_enqueue_scripts', 'enqueue_admin_scripts');
+
+    // Get media data callback registration
+    add_action('wp_ajax_get_media_data', 'get_media_data_callback');
 }
 
 /**
@@ -389,6 +392,25 @@ function ct_get_sources_names_array()
     }
 
     return $names;
+}
+
+/**
+ * Media data callback
+ */
+function get_media_data_callback()
+{
+    // TODO: retrieve media data by source and ident_nr
+    $mediadata = array(
+        'source' => $_POST['source'],
+        'ident_nr' => $_POST['ident_nr'],
+        'author' => 'DUMMY-author-TODO',
+        'publisher' => 'DUMMY-publisher-TODO',
+        'license' => 'DUMMY-license-TODO'
+    );
+
+    echo json_encode($mediadata);
+
+    die(); // this is required to return a proper result
 }
 
 ?>

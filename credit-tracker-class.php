@@ -40,6 +40,8 @@ class Credit_Tracker
 
         add_filter('manage_media_columns', array($this, 'credit_tracker_attachment_columns'), null, 2);
         add_action('manage_media_custom_column', array($this, 'credit_tracker_attachment_show_column'), null, 2);
+
+        add_action('admin_footer', array($this, 'get_media_data_javascript'));
     }
 
     /**
@@ -205,6 +207,11 @@ class Credit_Tracker
             "helps" => __("Source where to locate the original media", CT_SLUG),
         );
 
+        $form_fields["credit-tracker-mediadata-action"] = array(
+            "input" => "html",
+            "html" => "<a id='mediadata' href='javascript:void(0);'>" . __("GET MEDIA DATA >>>", CT_SLUG) . "</a><br/><br/>",
+        );
+
         $form_fields["credit-tracker-author"] = array(
             "label" => __('Author', CT_SLUG),
             "input" => "text",
@@ -284,6 +291,32 @@ class Credit_Tracker
                 echo $value;
                 break;
         }
+    }
+
+
+    function get_media_data_javascript()
+    {
+        ?>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $("#mediadata").click(function () {
+                    var data = {
+                        action: 'get_media_data',
+                        source: $("[id$=credit-tracker-source]").val(),
+                        ident_nr: $("[id$=credit-tracker-ident_nr]").val()
+                    };
+
+                    $.post(ajaxurl, data, function (response) {
+                        // alert('Got this from the server: ' + response);
+                        var mediadata = jQuery.parseJSON(response);
+                        $("[id$=credit-tracker-author]").val(mediadata.author);
+                        $("[id$=credit-tracker-publisher]").val(mediadata.publisher);
+                        $("[id$=credit-tracker-license]").val(mediadata.license);
+                    });
+                });
+            });
+        </script>
+    <?php
     }
 
 }
