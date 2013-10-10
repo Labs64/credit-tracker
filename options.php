@@ -340,6 +340,63 @@ function get_single_option($name)
     return esc_attr($options[$name]);
 }
 
+
+/**
+ * Returns available sources meta
+ */
+function ct_get_sources_names_array()
+{
+    $names = array();
+
+    foreach (ct_get_sources_array() as $k => $v) {
+        $names[$k] = $v['caption'];
+    }
+
+    return $names;
+}
+
+/**
+ * Returns source copyright format
+ */
+function ct_get_source_copyright($source)
+{
+    $sources = ct_get_sources_array();
+    if (isset($sources[$source]) && !empty($sources[$source]['copyright'])) {
+        return call_user_func($sources[$source]['copyright']);
+    }
+}
+
+/**
+ * Returns source metadata
+ */
+function ct_get_source_metadata($source, $number)
+{
+    $sources = ct_get_sources_array();
+    if (isset($sources[$source]) && !empty($sources[$source]['retriever'])) {
+        return call_user_func($sources[$source]['retriever'], $number);
+    }
+}
+
+/**
+ * Media data callback
+ */
+function get_media_data_callback()
+{
+    $item = ct_get_source_metadata($_POST['source'], $_POST['ident_nr']);
+
+    $mediadata = array(
+        'source' => $_POST['source'],
+        'ident_nr' => $_POST['ident_nr'],
+        'author' => $item['author'],
+        'publisher' => $item['publisher'],
+        'license' => $item['license']
+    );
+
+    echo json_encode($mediadata);
+
+    die(); // this is required to return a proper result
+}
+
 /**
  * Returns available sources meta
  */
@@ -358,59 +415,94 @@ function ct_get_sources_array()
         ),
         'iStockphoto' => array(
             'caption' => 'iStockphoto',
-            'copyright' => '',
+            'copyright' => 'get_istockphoto_copyright',
             'retriever' => ''
         ),
         'Shutterstock' => array(
             'caption' => 'Shutterstock',
-            'copyright' => '',
+            'copyright' => 'get_shutterstock_copyright',
             'retriever' => ''
         ),
         'Corbis_Images' => array(
             'caption' => 'Corbis Images',
-            'copyright' => '',
+            'copyright' => 'get_corbis_images_copyright',
             'retriever' => ''
         ),
         'Getty_Images' => array(
             'caption' => 'Getty Images',
-            'copyright' => '',
-            'retriever' => ''
+            'copyright' => 'get_getty_images_copyright',
+            'retriever' => 'get_getty_images_metadata'
         )
     );
     return $sources;
 }
 
 /**
- * Returns available sources meta
+ * Fotolia: copyright
  */
-function ct_get_sources_names_array()
+function get_fotolia_copyright()
 {
-    $names = array();
-
-    foreach (ct_get_sources_array() as $k => $v) {
-        $names[$k] = $v['caption'];
-    }
-
-    return $names;
+    return '&copy; %author% / Fotolia';
 }
 
 /**
- * Media data callback
+ * Fotolia: metadata
  */
-function get_media_data_callback()
+function get_fotolia_metadata($number)
 {
-    // TODO: retrieve media data by source and ident_nr
-    $mediadata = array(
-        'source' => $_POST['source'],
-        'ident_nr' => $_POST['ident_nr'],
-        'author' => 'DUMMY-author-TODO',
-        'publisher' => 'DUMMY-publisher-TODO',
-        'license' => 'DUMMY-license-TODO'
-    );
+    $item = array();
 
-    echo json_encode($mediadata);
+    $item['author'] = 'TODO-Fotolia-author__' . $number;
+    $item['publisher'] = 'TODO-Fotolia-publisher';
+    $item['license'] = 'TODO-Fotolia-license';
 
-    die(); // this is required to return a proper result
+    return $item;
+}
+
+/**
+ * iStockphoto: copyright
+ */
+function get_istockphoto_copyright()
+{
+    return '&copy;iStockphoto.com/%author%';
+}
+
+/**
+ * Shutterstock: copyright
+ */
+function get_shutterstock_copyright()
+{
+    return '&copy; %author%';
+}
+
+/**
+ * Corbis Images: copyright
+ */
+function get_corbis_images_copyright()
+{
+    return '&copy; %author%/Corbis';
+}
+
+/**
+ * Getty Images: copyright
+ */
+function get_getty_images_copyright()
+{
+    return '&copy; %author% / Getty Images';
+}
+
+/**
+ * Getty Images: metadata
+ */
+function get_getty_images_metadata($number)
+{
+    $item = array();
+
+    $item['author'] = 'TODO-Getty_Images-author__' . $number;
+    $item['publisher'] = 'TODO-Getty_Images-publisher';
+    $item['license'] = 'TODO-Getty_Images-license';
+
+    return $item;
 }
 
 ?>

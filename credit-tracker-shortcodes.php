@@ -47,10 +47,13 @@ function credit_tracker_table_shortcode($atts)
         $ret .= '<tr class="credit-tracker-row"><td colspan="6" class="credit-tracker-column-empty">' . __('No images found', CT_SLUG) . '</td></tr>';
     }
 
-    $ct_copyright_format = get_single_option('ct_copyright_format');
-
     foreach ($images as $image) {
         if (!empty($image['author'])) {
+            $ct_copyright_format = ct_get_source_copyright($image['source']);
+            if (empty($ct_copyright_format)) {
+                $ct_copyright_format = get_single_option('ct_copyright_format');
+            }
+
             $ret .= '<tr>';
             $ret .= '<td>' . '<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-thumbnail" alt="' . $image['alt'] . '">' . '</td>';
             $ret .= '<td>' . $image['ident_nr'] . '</td>';
@@ -107,7 +110,10 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
         }
         $image = reset($images);
 
-        $ct_copyright_format = get_single_option('ct_copyright_format');
+        $ct_copyright_format = ct_get_source_copyright($image['source']);
+        if (empty($ct_copyright_format)) {
+            $ct_copyright_format = get_single_option('ct_copyright_format');
+        }
 
         $content = str_replace('<img', '<img itemprop="contentUrl"', $content);
 

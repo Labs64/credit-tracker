@@ -116,7 +116,10 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 0.9.4 =
-* TODO...
+* Add 'Get Media Data' button at media library
+* Use stock agency credit format for shortcodes
+* Added credit formats for: Fotolia, iStockphoto, Shutterstock, Corbis_Images, Getty_Images
+* Parse Fotolia media data
 
 = 0.9.3 =
 * Update plugin information

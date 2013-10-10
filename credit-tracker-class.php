@@ -42,6 +42,7 @@ class Credit_Tracker
         add_action('manage_media_custom_column', array($this, 'credit_tracker_attachment_show_column'), null, 2);
 
         add_action('admin_footer', array($this, 'get_media_data_javascript'));
+        add_action('admin_footer', array($this, 'get_media_data_style'));
     }
 
     /**
@@ -209,7 +210,7 @@ class Credit_Tracker
 
         $form_fields["credit-tracker-mediadata-action"] = array(
             "input" => "html",
-            "html" => "<a id='mediadata' href='javascript:void(0);'>" . __("GET MEDIA DATA >>>", CT_SLUG) . "</a><br/><br/>",
+            "html" => "<a id='mediadata' href='javascript:void(0);'>" . __("GET MEDIA DATA", CT_SLUG) . "</a><br/><br/>",
         );
 
         $form_fields["credit-tracker-author"] = array(
@@ -293,7 +294,6 @@ class Credit_Tracker
         }
     }
 
-
     function get_media_data_javascript()
     {
         ?>
@@ -316,6 +316,24 @@ class Credit_Tracker
                 });
             });
         </script>
+    <?php
+    }
+
+    function get_media_data_style()
+    {
+        ?>
+        <style type="text/css">
+            #mediadata {
+                text-decoration: none;
+                background-color: #EEEEEE;
+                color: #333333;
+                padding: 5px 10px 5px 10px;
+                border-top: 1px solid #CCCCCC;
+                border-right: 1px solid #333333;
+                border-bottom: 1px solid #333333;
+                border-left: 1px solid #CCCCCC;
+            }
+        </style>
     <?php
     }
 
