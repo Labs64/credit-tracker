@@ -208,9 +208,10 @@ class Credit_Tracker
             "helps" => __("Source where to locate the original media", CT_SLUG),
         );
 
+        $ct_retriever_enabled = get_single_option('ct_feature_enabled_retriever');
         $form_fields["credit-tracker-mediadata-action"] = array(
             "input" => "html",
-            "html" => "<a id='mediadata' href='javascript:void(0);'>" . __("GET MEDIA DATA", CT_SLUG) . "</a><br/><br/>",
+            "html" => "<a id='mediadata" . $ct_retriever_enabled . "' class='mediadata' href='javascript:void(0);'>" . __("GET MEDIA DATA", CT_SLUG) . "</a><br/><br/>",
         );
 
         $form_fields["credit-tracker-author"] = array(
@@ -299,7 +300,7 @@ class Credit_Tracker
         ?>
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
-                $("#mediadata").click(function () {
+                $("#mediadata1").click(function () {
                     var data = {
                         action: 'get_media_data',
                         source: $("[id$=credit-tracker-source]").val(),
@@ -323,7 +324,18 @@ class Credit_Tracker
     {
         ?>
         <style type="text/css">
-            #mediadata {
+            #mediadata0 {
+                text-decoration: none;
+                background-color: #EEEEEE;
+                color: grey;
+                padding: 5px 10px 5px 10px;
+                border-top: 1px solid #CCCCCC;
+                border-right: 1px solid #333333;
+                border-bottom: 1px solid #333333;
+                border-left: 1px solid #CCCCCC;
+            }
+
+            #mediadata1 {
                 text-decoration: none;
                 background-color: #EEEEEE;
                 color: #333333;

@@ -120,6 +120,10 @@ function create_admin_page()
         <hr/>
         <?php
         print_reference_section();
+        ?>
+    </div>
+    <div class="info_menu">
+        <?php
         print_feedback_section();
         ?>
     </div>
@@ -310,6 +314,7 @@ function ct_checkbox_field_callback($args)
 function get_default_options()
 {
     $default_options = array(
+        'ct_feature_enabled_retriever' => '0',
         'ct_copyright_format' => '&copy; %author%',
         'ct_override_caption_shortcode' => '0'
     );

@@ -10,3 +10,16 @@ p {
     width: 32px;
     height: 32px;
 }
+
+.wrap {
+    float: left;
+    width: 75%;
+}
+
+.info_menu {
+    float: left;
+    width: 22%;
+    background-color: #efefef;
+    padding: 5px 10px 5px 10px;
+    margin-top: 40px;
+}
