@@ -27,6 +27,7 @@ if (is_admin()) {
     add_action('admin_enqueue_scripts', 'enqueue_admin_scripts');
 
     // Get media data callback registration
+    add_action('wp_ajax_validate', 'validate_callback');
     add_action('wp_ajax_get_media_data', 'get_media_data_callback');
 }
 
@@ -73,7 +74,7 @@ function enqueue_admin_styles()
 
     $screen = get_current_screen();
     if ($screen->id == $plugin_screen_hook_suffix) {
-        wp_enqueue_style(CT_SLUG . '-admin-styles', plugins_url('css/admin.css', __FILE__), array(), CT_VERSION);
+        wp_enqueue_style(CT_SLUG . '-admin-styles', plugins_url('css/ct-admin.css', __FILE__), array(), CT_VERSION);
     }
 
 }
@@ -93,7 +94,7 @@ function enqueue_admin_scripts()
 
     $screen = get_current_screen();
     if ($screen->id == $plugin_screen_hook_suffix) {
-        wp_enqueue_script(CT_SLUG . '-admin-script', plugins_url('js/admin.js', __FILE__), array('jquery'), CT_VERSION);
+        wp_enqueue_script(CT_SLUG . '-admin-script', plugins_url('js/ct-admin.js', __FILE__), array('jquery'), CT_VERSION);
     }
 
 }
@@ -124,10 +125,34 @@ function create_admin_page()
     </div>
     <div class="info_menu">
         <?php
+        print_validation_section();
+        print_divider();
         print_feedback_section();
         ?>
     </div>
 <?php
+}
+
+/**
+ * Print sections divider
+ */
+function print_divider()
+{
+    ?>
+    <hr/>
+<?php
+}
+
+/**
+ * Print the Section info text
+ */
+function print_on_off($opt)
+{
+    if ($opt == '1') {
+        print __("<span class='label-on'>ON</span>", CT_SLUG);
+    } else {
+        print __("<span class='label-off'>OFF</span>", CT_SLUG);
+    }
 }
 
 /**
@@ -136,6 +161,30 @@ function create_admin_page()
 function print_common_section_info()
 {
     print __('Enter your settings below:', CT_SLUG);
+}
+
+/**
+ * Print the validation section
+ */
+function print_validation_section()
+{
+    $ct_feature_enabled_retriever = get_single_option('ct_feature_enabled_retriever');
+
+    ?>
+    <h3><?php _e('Features', CT_SLUG); ?></h3>
+    <p><?php _e('Available plugin features', CT_SLUG); ?>:</p>
+
+    <ul>
+        <li>&nbsp;<?php _e('Image data retriever'); ?> - <?php print_on_off($ct_feature_enabled_retriever); ?></li>
+    </ul>
+
+    <button id="validate" type="button""><?php _e('Validate'); ?></button>
+    <br/>
+    <div style="font-style: italic; color: rgb(102, 102, 102); font-size: smaller;"><p>Powered by <a
+                href="http://netlicensing.labs64.com"
+                target="_blank">NetLicensing</a></p>
+    </div>
+<?php
 }
 
 /**
@@ -383,6 +432,28 @@ function ct_get_source_metadata($source, $number)
 }
 
 /**
+ * Validate allowed features against Labs64 Netlicensing
+ */
+function validate_callback()
+{
+    $options = get_options();
+
+    $opt = $options['ct_feature_enabled_retriever'];
+    if ($opt == '0') {
+        $opt = '1';
+    } else {
+        $opt = '0';
+    }
+    $options['ct_feature_enabled_retriever'] = $opt;
+
+    update_option(CT_OPTIONS, $options);
+
+    echo get_site_url() . '; ct_feature_enabled_retriever = ' . get_single_option('ct_feature_enabled_retriever');
+
+    die(); // this is required to return a proper result
+}
+
+/**
  * Media data callback
  */
 function get_media_data_callback()
@@ -447,7 +518,7 @@ function ct_get_sources_array()
  */
 function get_fotolia_copyright()
 {
-    return '&copy; %author% / Fotolia';
+    return '&copy; %author% - Fotolia.com';
 }
 
 /**

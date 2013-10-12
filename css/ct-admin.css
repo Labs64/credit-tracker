@@ -16,6 +16,14 @@ p {
     width: 75%;
 }
 
+.label-on {
+    color: green;
+}
+
+.label-off {
+    color: red;
+}
+
 .info_menu {
     float: left;
     width: 22%;

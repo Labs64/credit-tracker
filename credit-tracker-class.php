@@ -178,7 +178,7 @@ class Credit_Tracker
      */
     public function enqueue_styles()
     {
-        wp_enqueue_style(CT_SLUG . '-plugin-styles', plugins_url('css/public.css', __FILE__), array(), CT_VERSION);
+        wp_enqueue_style(CT_SLUG . '-plugin-styles', plugins_url('css/ct-public.css', __FILE__), array(), CT_VERSION);
     }
 
     /**
@@ -186,11 +186,14 @@ class Credit_Tracker
      */
     public function enqueue_scripts()
     {
-        wp_enqueue_script(CT_SLUG . '-plugin-script', plugins_url('js/public.js', __FILE__), array('jquery'), CT_VERSION);
+        wp_enqueue_script(CT_SLUG . '-plugin-script', plugins_url('js/ct-public.js', __FILE__), array('jquery'), CT_VERSION);
     }
 
     public function get_attachment_fields($form_fields, $post)
     {
+        $selected_source = get_post_meta($post->ID, "credit-tracker-source", true);
+        $ct_retriever_enabled = get_single_option('ct_feature_enabled_retriever');
+
         $form_fields["credit-tracker-ident_nr"] = array(
             "label" => __('Ident-Nr . ', CT_SLUG),
             "input" => "text",
@@ -198,20 +201,20 @@ class Credit_Tracker
             "helps" => __("The original object number at the source", CT_SLUG),
         );
 
-        $selected_source = get_post_meta($post->ID, "credit-tracker-source", true);
+        if ($ct_retriever_enabled == '1') {
+            $btn_state = '';
+            $link_activate = "";
+        } else {
+            $btn_state = 'disabled';
+            $link_activate = "<a href='" . admin_url('options-general.php?page=credit-tracker') . "'>" . __("activate", CT_SLUG) . "</a>";
+        }
 
         $form_fields["credit-tracker-source"] = array(
             "label" => __('Source', CT_SLUG),
             "input" => "html",
             "value" => $selected_source,
-            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . get_combobox_options(ct_get_sources_names_array(), $selected_source) . "</select>",
+            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . get_combobox_options(ct_get_sources_names_array(), $selected_source) . "</select>&nbsp;&nbsp;<button id='mediadata' type='button' " . $btn_state . ">" . __("GET MEDIA DATA", CT_SLUG) . "</button>" . "&nbsp;" . $link_activate,
             "helps" => __("Source where to locate the original media", CT_SLUG),
-        );
-
-        $ct_retriever_enabled = get_single_option('ct_feature_enabled_retriever');
-        $form_fields["credit-tracker-mediadata-action"] = array(
-            "input" => "html",
-            "html" => "<a id='mediadata" . $ct_retriever_enabled . "' class='mediadata' href='javascript:void(0);'>" . __("GET MEDIA DATA", CT_SLUG) . "</a><br/><br/>",
         );
 
         $form_fields["credit-tracker-author"] = array(
@@ -300,7 +303,7 @@ class Credit_Tracker
         ?>
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
-                $("#mediadata1").click(function () {
+                $("#mediadata").click(function () {
                     var data = {
                         action: 'get_media_data',
                         source: $("[id$=credit-tracker-source]").val(),
@@ -324,27 +327,6 @@ class Credit_Tracker
     {
         ?>
         <style type="text/css">
-            #mediadata0 {
-                text-decoration: none;
-                background-color: #EEEEEE;
-                color: grey;
-                padding: 5px 10px 5px 10px;
-                border-top: 1px solid #CCCCCC;
-                border-right: 1px solid #333333;
-                border-bottom: 1px solid #333333;
-                border-left: 1px solid #CCCCCC;
-            }
-
-            #mediadata1 {
-                text-decoration: none;
-                background-color: #EEEEEE;
-                color: #333333;
-                padding: 5px 10px 5px 10px;
-                border-top: 1px solid #CCCCCC;
-                border-right: 1px solid #333333;
-                border-bottom: 1px solid #333333;
-                border-left: 1px solid #CCCCCC;
-            }
         </style>
     <?php
     }
