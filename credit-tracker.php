@@ -46,6 +46,10 @@ require_once(plugin_dir_path(__FILE__) . 'credit-tracker-shortcodes.php');
 require_once(plugin_dir_path(__FILE__) . 'credit-tracker-functions.php');
 require_once(plugin_dir_path(__FILE__) . 'options.php');
 
+require_once(plugin_dir_path(__FILE__) . '/php/netlicensing/netlicensing.php');
+require_once(plugin_dir_path(__FILE__) . '/php/curl/curl.php');
+require_once(plugin_dir_path(__FILE__) . '/php/curl/curl_response.php');
+
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
 register_activation_hook(__FILE__, array('Credit_Tracker', 'activate'));
 register_deactivation_hook(__FILE__, array('Credit_Tracker', 'deactivate'));

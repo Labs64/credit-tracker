@@ -192,7 +192,7 @@ class Credit_Tracker
     public function get_attachment_fields($form_fields, $post)
     {
         $selected_source = get_post_meta($post->ID, "credit-tracker-source", true);
-        $ct_retriever_enabled = get_single_option('ct_feature_enabled_retriever');
+        $ct_retriever_enabled = get_single_option('ct_feature_retriever');
 
         $form_fields["credit-tracker-ident_nr"] = array(
             "label" => __('Ident-Nr . ', CT_SLUG),

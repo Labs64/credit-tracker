@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: labs64
-Tags: plugin, shortcode, credit, credits, legal, copyright, owner, author, media library, media, image, images, photo, photos, royalty-free, RF, stock, attachment, custom fields, fotolia, bildnachweis, impressum, imprint, microdata
+Tags: plugin, shortcode, credit, credits, legal, copyright, owner, author, media library, media, image, images, photo, photos, royalty-free, RF, stock, attachment, custom fields, fotolia, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 3.5.1
 Tested up to: 3.6.1
 Stable tag: 0.9.3
@@ -116,6 +116,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 0.9.4 =
+* Integrate NetLicensing to validate activated plugin features
 * Add 'Get Media Data' button at media library
 * Use stock agency credit format for shortcodes
 * Added credit formats for: Fotolia, iStockphoto, Shutterstock, Corbis_Images, Getty_Images
