@@ -3,7 +3,7 @@
  * @wordpress-plugin
  * Plugin Name: Credit Tracker
  * Plugin URI:  https://github.com/Labs64/credit-tracker
- * Description: Fetch (from image agencies) & process credits for the different WordPress entities.
+ * Description: A simple way to show credits for the images used on your website.
  * Author:      Labs64
  * Author URI:  http://www.labs64.com
  * Version:     0.9.4

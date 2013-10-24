@@ -449,8 +449,8 @@ function ct_get_source_metadata($source, $number)
 function validate_callback()
 {
     // validate features
-    $nlic = new NetLicensing();
-    $res = $nlic->validate(strip_url(get_site_url()), 'CT');
+    //$nlic = new NetLicensing();
+    //$res = $nlic->validate(strip_url(get_site_url()), 'CT');
 
     // TODO: process NetLicensing response
 

@@ -1,9 +1,9 @@
 === Plugin Name ===
 Contributors: labs64
-Tags: plugin, shortcode, credit, credits, legal, copyright, owner, author, media library, media, image, images, photo, photos, royalty-free, RF, stock, attachment, custom fields, fotolia, bildnachweis, impressum, imprint, microdata, NetLicensing
+Tags: plugin, shortcode, credit, credits, attribution, legal, copyright, owner, author, media library, media, image, images, photo, photos, license, royalty-free, RF, Creative Commons, CC, stock, attachment, custom fields, fotolia, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 3.5.1
 Tested up to: 3.6.1
-Stable tag: 0.9.3
+Stable tag: 0.9.4
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,11 +11,15 @@ A simple way to show credits for the images used on your website.
 
 == Description ==
 
-The effective use of stock images and photography on your website and blog can have a massive impact on the legal requirements regarding proper providing attribution credits to photographers and image creators.
+The effective use of stock images and photography on your website and blog can have a massive impact on the number of visits which your site receives, and the positive response which visitors have to your sites content. Whilst a great deal of high quality images are available for free in the public domain, to really make your site stand out you’ll want to use images which are supplied by a top quality photographer or company.
 
-Credit Tracker plugin allows to create media credits tables and adds a few additional fields not provided by Media Library. Media credits data can be fetched from different image agencies and shown in required format.
+However, the inclusion of images which are not in the public domain means that you must provide proper attribution credits to the photographers and image creators.
 
-The plugin adds the following fields to all images in WordPress Media Library:
+The Credit Tracker plugin allows you to create Media Credits Tables, meaning you can easily track which images on your site require accreditation. It also adds a few additional fields to the Media Library which are not included in the original installation. The function of these fields is to help you fetch the credit information from different image agencies and then show it in the required format.
+
+The Plugin is designed to be easy-to-use and to fit easily and neatly within the current design of your website with fully customisable colours, fonts and styles. For the more confident designer you can also override the standard Wordpress Shortcode.
+
+This plugin adds the following fields to all images in WordPress Media Library:
 
 * Ident-Nr.
 * Source
@@ -25,7 +29,7 @@ The plugin adds the following fields to all images in WordPress Media Library:
 
 = Features =
 
-* Append credits to the media library elements
+* Append credits to the Media Library elements
 * Configurable copyright format string
 * "credit_tracker_table" shortcode to construct a nicely-styled 'Image Credits' table
 * Fully customisable to look just like your own website's style: customise the colours, styles and fonts
@@ -44,7 +48,11 @@ Developers can checkout and contribute to the source code on the [Credit Tracker
 
 == Installation ==
 
-*NOTE:* If you’d like to try this plugin for yourself, please make sure that you use a staging site first. This will allow you to properly test plugin to make sure that it can “get along” well with other plugins that you already have installed. Install plugin on a live site only when you have properly tested and analyzed this plugin.
+*NOTE:* We really hope that you find our plugin useful and that it helps you to manage the use of images and relevant accreditation on your website, however, as this plugin makes a number of changes to the structure of the Media Library and other aspects of the base Wordpress code we would recommend that you install in on a test site before going live.
+
+This is only so that you can make sure that the plugin does not have an adverse effect on the custom code which you may have added to the site or any other plugins which you currently use, and vice versa.
+
+We also recommend that you do not test this plugin at the same time as making any other changes to your site. This is because otherwise it is easy to become confused about where a problem is emanating from. Although with smaller plugins and changes you can normally batch test, when a plugin makes such big changes to certain aspects of your sites functionality, solo testing is highly recommended.
 
 = Minimum Requirements =
 
@@ -55,72 +63,74 @@ Developers can checkout and contribute to the source code on the [Credit Tracker
 
 1. Upload the extracted archive folder 'credit-tracker' to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. *(optional)* Go to "Settings / Credit Tracker" to adjust settings
+3. *(optional)* Go to "Settings > Credit Tracker" to adjust settings
 
 = via WordPress Admin =
 
-1. Go to "Plugins / Add New"
+1. Go to "Plugins > Add New"
 2. Search for `Credit Tracker`
 3. Install the plugin called `Credit Tracker` and activate it
-4. Go to "Settings / Credit Tracker" to adjust settings (optional)
+4. Go to "Settings > Credit Tracker" to adjust settings (optional)
 
 == Frequently Asked Questions ==
 
-= Where can I find the settings to adjust the plugin work after activation? =
+= How do I adjust the Plugin Settings? =
 
-Go to "Settings / Credit Tracker" to adjust plugin settings.
+Once you have activated the plugin you can tinker with the settings to your heart’s content. If you head to "Settings > Credit Tracker" and you can adjust all settings from there.
 
 = How do I include a Credit Tracker on my page? =
 
+If you want to show the Credit Tracker on a specific page or set of pages on your website then you can use the code below (provided that the plugin has already been installed and activated). The appearance of the Credit Tracker table can be fully customized by making a few simple changes to the embed code, the details of which are listed below. Inclusion of the table is of course entirely optional, have a play with the different sizes and styles to see what works for your site.
+
 `[credit_tracker_table id="11,22,33" size="thumbnail|medium|large|full" style="mercury"]`
 
-* **id** *(optional)* - specify the attachment ID (one or more). The default behavior, if no ID is specified, is to display all images containing author info.
-* **size** *(optional)* - specify the image size to use for the thumbnail display. Valid values include "thumbnail", "medium", "large", "full". The default value is "thumbnail".
-* **style** *(optional)* - specify the table style. Valid values include "default", "mercury", "mars". The default value is "default".
+* **id** *(optional)* - specify which images you want to list in the table (one or more). If no ID is specified, the default display is to show all images containing author info.
+* **size** *(optional)* - specify the image size to use for the thumbnail display within the credit tracker table. The choice of sizes includes "thumbnail", "medium", "large" and "full". The default value is "thumbnail".
+* **style** *(optional)* - Specify the table style to suite your website. Valid values include "default", "mercury", "mars". If no value is set, the "default" style will be used.
 
-= Do I always have to update 'credit_tracker_table' if I added/modified a media library entry? =
-No, if you add/edit/delete a media library entry, your 'credit_tracker_table' is automatically regenerated.
+= Do I have to manually update the Credit Tracker Table if I add/modify a media library entry? =
+
+Nope! If you add/edit/delete a media library entry, your 'credit_tracker_table' is automatically updated to reflect any changes you have made. Obviously, if the new entry is not already included in the images you want to list, it will not appear until you set the code to apply this change.
 
 = Will Credit Tracker work with my theme? =
 
-Yes. Credit Tracker will work with any theme, but may require some styling to make it match nicely.
+Yes. Credit Tracker is designed to work with any theme, but it may require some styling to make it match the rest of the theme and achieve that seamless integration.
 
 = Does this plugin work with BuddyPress (bbPress)? =
 
-Yes.
+Yep, it does.
 
 = Which WordPress versions are supported? =
 
-To use all features in the plugin, a minimum of version WordPress 3.5 with PHP 5.2.4 is required.
+In order to get the most out of the plugin and use all of its features, you will need to be using WordPress 3.5 with PHP 5.2.4 as a minimum. Updates will continue to be released for the plugin as the main WordPress CMS is updated.
 
-= Where can I request new features and extensions? =
+= Can I request new features and extensions to be included in future releases of the plugin? =
 
-You can vote on and request new features and extensions in our [Credit Tracker Issue Tracker](https://github.com/Labs64/credit-tracker/issues)
+We always welcome your feedback and would love to know what you would like to see done next with the plugin and what features you would like integrated. You can vote on and request new features and extensions in our [Credit Tracker Issue Tracker](https://github.com/Labs64/credit-tracker/issues)
 
 = Where can I report bugs? =
 
-Bugs can be reported on the [Credit Tracker Issue Tracker](https://github.com/Labs64/credit-tracker/issues).
+If you have discovered a bug, we want to know so that we can get it fixed as soon as possible! We always work to make sure that the plugin is working fully prior to releasing an update but sometimes problems do arise. All bugs and issues can be reported on the [Credit Tracker Issue Tracker](https://github.com/Labs64/credit-tracker/issues).
 
-= Credit Tracker is awesome! Can I contribute? =
+= I love Credit Tracker, it’s awesome! Can I contribute? =
 
-Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit-tracker) :)
+Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit-tracker) :) You can also leave us a nice review on the WordPress site to let others know what you think of the plugin!
 
 == Screenshots ==
 
-1. Credit Tracker settings
-2. Edit Media Library entry
-3. Media Library view
-4. 'credit_tracker_table' shortcode
-5. Overriden caption shortcode
+1. Adjust Credit Tracker Settings from within the WordPress CMS
+2. Credit Tracker Integration within the WordPress Media Library
+3. Media Library Overview with Credit Tracker Details
+4. Example layouts and styles for the Credit Tracker Table when integrated within the main site via ShortCode
+5. Custom Image Caption Shortcode to reflect Credit Information
 
 == Changelog ==
 
 = 0.9.4 =
-* Integrate NetLicensing to validate activated plugin features
+* Activated plugin features box
 * Add 'Get Media Data' button at media library
 * Use stock agency credit format for shortcodes
 * Added credit formats for: Fotolia, iStockphoto, Shutterstock, Corbis_Images, Getty_Images
-* Parse Fotolia media data
 
 = 0.9.3 =
 * Update plugin information
