@@ -1,10 +1,14 @@
 # Credit Tracker WordPress plugin
 
-The effective use of stock images and photography on your website and blog can have a massive impact on the legal requirements regarding proper providing attribution credits to photographers and image creators.
+The effective use of stock images and photography on your website and blog can have a massive impact on the number of visits which your site receives, and the positive response which visitors have to your sites content. Whilst a great deal of high quality images are available for free in the public domain, to really make your site stand out you’ll want to use images which are supplied by a top quality photographer or company.
 
-Credit Tracker plugin allows to create media credits tables and adds a few additional fields not provided by Media Library. Media credits data can be fetched from different image agencies and shown in required format.
+However, the inclusion of images which are not in the public domain means that you must provide proper attribution credits to the photographers and image creators.
 
-The plugin adds the following fields to all images in WordPress Media Library:
+The Credit Tracker plugin allows you to create Media Credits Tables, meaning you can easily track which images on your site require accreditation. It also adds a few additional fields to the Media Library which are not included in the original installation. The function of these fields is to help you fetch the credit information from different image agencies and then show it in the required format.
+
+The Plugin is designed to be easy-to-use and to fit easily and neatly within the current design of your website with fully customisable colours, fonts and styles. For the more confident designer you can also override the standard WordPress Shortcode.
+
+This plugin adds the following fields to all images in WordPress Media Library:
 * Ident-Nr.
 * Source
 * Owner/Author
@@ -14,7 +18,7 @@ The plugin adds the following fields to all images in WordPress Media Library:
 
 ## Features
 
-* Append credits to the media library elements
+* Append credits to the Media Library elements
 * Configurable copyright format string
 * "credit_tracker_table" shortcode to construct a nicely-styled 'Image Credits' table
 * Fully customisable to look just like your own website's style: customise the colours, styles and fonts
