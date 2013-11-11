@@ -114,6 +114,7 @@ function create_admin_page()
             <?php
             // This prints out all hidden setting fields
             settings_fields('CT_OPTIONS_GROUP');
+            settings_fields_hidden();
             do_settings_sections(CT_SLUG);
             submit_button();
             ?>
@@ -336,6 +337,21 @@ function sanitize($input)
     }
 
     return $input;
+}
+
+/**
+ */
+function settings_fields_hidden()
+{
+    print_settings_field_hidden('ct_feature_retriever');
+}
+
+/**
+ */
+function print_settings_field_hidden($id)
+{
+    $value = get_single_option($id);
+    echo "<input type='hidden' id='$id' name='CT_OPTIONS[$id]' value='$value' />";
 }
 
 /**

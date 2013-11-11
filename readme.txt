@@ -126,8 +126,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 0.9.5 =
-* Integrate NetLicensing to validate activated plugin features
-* Parse Fotolia media data
+* Fix reset validation after plugin option save
 
 = 0.9.4 =
 * Activated plugin features box
@@ -160,7 +159,5 @@ Listed here are credits and special thanks to some of you who have helped us out
 
 = Translations =
 * English - default, always included
-* German - credit goes to [Alexey Averikhin](http://www.labs64.de)
-* Russian - credit goes to [Konstantin Korotkov](http://netlicensing.labs64.com)
 
 *NOTE:* Please [contribute](https://github.com/Labs64/credit-tracker/tree/master/languages "contribute your language") your language to the plugin to make it even more useful.
