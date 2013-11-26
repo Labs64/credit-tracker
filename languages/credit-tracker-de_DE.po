@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.6\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/credit-tracker\n"
-"POT-Creation-Date: 2013-10-04 02:06+0100\n"
-"PO-Revision-Date: 2013-10-04 02:06+0100\n"
+"POT-Creation-Date: 2013-11-25 00:25+0100\n"
+"PO-Revision-Date: 2013-11-25 00:25+0100\n"
 "Last-Translator: Labs64 <info@labs64.com>\n"
 "Language-Team: Labs64 <info@labs64.com >\n"
 "Language: de_DE\n"
@@ -20,27 +20,35 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: credit-tracker-class.php:192
+#: credit-tracker-class.php:198
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-class.php:192
 msgid "Ident-Nr . "
 msgstr ""
 
-#: credit-tracker-class.php:195
+#: credit-tracker-class.php:201
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-class.php:195
 msgid "The original object number at the source"
 msgstr ""
 
-#: credit-tracker-class.php:201
+#: credit-tracker-class.php:209
+msgid "activate"
+msgstr ""
+
+#: credit-tracker-class.php:213
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-class.php:201
 msgid "Source"
 msgstr ""
 
-#: credit-tracker-class.php:205
+#: credit-tracker-class.php:216
+msgid "GET MEDIA DATA"
+msgstr ""
+
+#: credit-tracker-class.php:217
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-class.php:205
 msgid "Source where to locate the original media"
 msgstr ""
 
-#: credit-tracker-class.php:209 credit-tracker-class.php:269
+#: credit-tracker-class.php:221 credit-tracker-class.php:281
 #: credit-tracker-shortcodes.php:40
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-class.php:209
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-class.php:269
@@ -48,12 +56,12 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: credit-tracker-class.php:212
+#: credit-tracker-class.php:224
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-class.php:212
 msgid "Media author/owner"
 msgstr ""
 
-#: credit-tracker-class.php:216 credit-tracker-class.php:270
+#: credit-tracker-class.php:228 credit-tracker-class.php:282
 #: credit-tracker-shortcodes.php:41
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-class.php:216
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-class.php:270
@@ -61,18 +69,18 @@ msgstr ""
 msgid "Publisher"
 msgstr ""
 
-#: credit-tracker-class.php:219
+#: credit-tracker-class.php:231
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-class.php:219
 msgid "Media publisher (e.g. image agency)"
 msgstr ""
 
-#: credit-tracker-class.php:223 credit-tracker-shortcodes.php:43
+#: credit-tracker-class.php:235 credit-tracker-shortcodes.php:43
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-class.php:223
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-shortcodes.php:43
 msgid "License"
 msgstr ""
 
-#: credit-tracker-class.php:226
+#: credit-tracker-class.php:238
 #: ~/work/tmp/credit-tracker/trunk/credit-tracker-class.php:226
 msgid "Media license"
 msgstr ""
@@ -92,78 +100,94 @@ msgstr ""
 msgid "No images found"
 msgstr ""
 
-#: options.php:37 ~/work/tmp/credit-tracker/trunk/options.php:37
+#: options.php:41 ~/work/tmp/credit-tracker/trunk/options.php:37
 msgid "Settings"
 msgstr ""
 
-#: options.php:50 options.php:51
+#: options.php:54 options.php:55
 #: ~/work/tmp/credit-tracker/trunk/options.php:50
 #: ~/work/tmp/credit-tracker/trunk/options.php:51
 msgid "Credit Tracker"
 msgstr ""
 
-#: options.php:107 ~/work/tmp/credit-tracker/trunk/options.php:107
+#: options.php:111 ~/work/tmp/credit-tracker/trunk/options.php:107
 msgid "Credit Tracker by Labs64"
 msgstr ""
 
-#: options.php:131 ~/work/tmp/credit-tracker/trunk/options.php:131
+#: options.php:164 ~/work/tmp/credit-tracker/trunk/options.php:131
 msgid "Enter your settings below:"
 msgstr ""
 
-#: options.php:140 ~/work/tmp/credit-tracker/trunk/options.php:140
+#: options.php:173
+msgid "Image data retriever"
+msgstr ""
+
+#: options.php:199
+msgid "Features"
+msgstr ""
+
+#: options.php:200
+msgid "Available plugin features"
+msgstr ""
+
+#: options.php:204
+msgid "Validate"
+msgstr ""
+
+#: options.php:219 ~/work/tmp/credit-tracker/trunk/options.php:140
 msgid "Feedback"
 msgstr ""
 
-#: options.php:142 ~/work/tmp/credit-tracker/trunk/options.php:142
+#: options.php:221 ~/work/tmp/credit-tracker/trunk/options.php:142
 msgid ""
 "Did you find a bug? Have an idea for a plugin? Please help us improve this "
 "plugin"
 msgstr ""
 
-#: options.php:146 ~/work/tmp/credit-tracker/trunk/options.php:146
+#: options.php:225 ~/work/tmp/credit-tracker/trunk/options.php:146
 msgid "Report a bug, or suggest an improvement"
 msgstr ""
 
-#: options.php:148 ~/work/tmp/credit-tracker/trunk/options.php:148
+#: options.php:227 ~/work/tmp/credit-tracker/trunk/options.php:148
 msgid "Like us on Facebook"
 msgstr ""
 
-#: options.php:150 ~/work/tmp/credit-tracker/trunk/options.php:150
+#: options.php:229 ~/work/tmp/credit-tracker/trunk/options.php:150
 msgid "Read Labs64 Blog"
 msgstr ""
 
-#: options.php:161 ~/work/tmp/credit-tracker/trunk/options.php:161
+#: options.php:240 ~/work/tmp/credit-tracker/trunk/options.php:161
 msgid "Shortcodes Reference"
 msgstr ""
 
-#: options.php:214 ~/work/tmp/credit-tracker/trunk/options.php:214
+#: options.php:293 ~/work/tmp/credit-tracker/trunk/options.php:214
 msgid "Credit Tracker Settings"
 msgstr ""
 
-#: options.php:235 ~/work/tmp/credit-tracker/trunk/options.php:235
+#: options.php:300 ~/work/tmp/credit-tracker/trunk/options.php:235
 msgid "Copyright format"
 msgstr ""
 
-#: options.php:241 ~/work/tmp/credit-tracker/trunk/options.php:241
+#: options.php:306 ~/work/tmp/credit-tracker/trunk/options.php:241
 msgid ""
 "Default copyright format<br/>Allowed placeholders: %ident_nr%, %source%, "
 "%author%, %publisher%, %license%"
 msgstr ""
 
-#: options.php:247 ~/work/tmp/credit-tracker/trunk/options.php:247
+#: options.php:312 ~/work/tmp/credit-tracker/trunk/options.php:247
 msgid "Override shortcodes"
 msgstr ""
 
-#: options.php:253 ~/work/tmp/credit-tracker/trunk/options.php:253
+#: options.php:318 ~/work/tmp/credit-tracker/trunk/options.php:253
 msgid "Override WordPress [caption] shortcode"
 msgstr ""
 
-#: options.php:254 ~/work/tmp/credit-tracker/trunk/options.php:254
+#: options.php:319 ~/work/tmp/credit-tracker/trunk/options.php:254
 msgid ""
 "Replaces output of standard WordPress [caption] shortcode with improved "
 "version (add Image Microdata and Image Credit)"
 msgstr ""
 
-#: options.php:346 ~/work/tmp/credit-tracker/trunk/options.php:346
+#: options.php:512 ~/work/tmp/credit-tracker/trunk/options.php:346
 msgid "Custom"
 msgstr ""

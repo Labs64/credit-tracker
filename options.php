@@ -150,9 +150,9 @@ function print_divider()
 function get_on_off($opt)
 {
     if ($opt == '1') {
-        return __("<span class='label-on'>ON</span>", CT_SLUG);
+        return "<span class='label-on'>ON</span>";
     } else {
-        return __("<span class='label-off'>OFF</span>", CT_SLUG);
+        return "<span class='label-off'>OFF</span>";
     }
 }
 
@@ -170,7 +170,7 @@ function print_common_section_info()
 function ct_get_features_array()
 {
     $features = array(
-        'ct_feature_retriever' => __('Image data retriever', CT_SLUG)
+        'ct_feature_retriever' => __('Image data retriever (Free)', CT_SLUG)
     );
     return $features;
 }
@@ -466,7 +466,7 @@ function validate_callback()
 {
     // validate features
     $nlic = new NetLicensing();
-    $res = $nlic->validate(strip_url(get_site_url()), 'CT');
+    $res = $nlic->validate('CT', strip_url(get_site_url(), 1000), urlencode(get_site_url()));
 
     // TODO: process NetLicensing response
 

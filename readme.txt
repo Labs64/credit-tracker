@@ -127,7 +127,6 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 
 = 0.9.6 =
 * Integrate NetLicensing to validate activated plugin features
-* Parse Fotolia media data
 
 = 0.9.5 =
 * Fix reset validation after plugin option save
