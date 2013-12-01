@@ -20,6 +20,7 @@ The Credit Tracker plugin allows you to create Media Credits Tables, meaning you
 The Plugin is designed to be easy-to-use and to fit easily and neatly within the current design of your website with fully customisable colours, fonts and styles. For the more confident designer you can also override the standard Wordpress Shortcode.
 
 This plugin adds the following fields to all images in WordPress Media Library:
+
 * Ident-Nr.
 * Source
 * Owner/Author
