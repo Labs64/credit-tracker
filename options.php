@@ -11,6 +11,7 @@
 
 
 define('CT_OPTIONS', 'CT_OPTIONS');
+define('API_KEY', 'bd58df75-36be-44e2-811b-063fd3957182');
 
 
 if (is_admin()) {
@@ -465,7 +466,7 @@ function ct_get_source_metadata($source, $number)
 function validate_callback()
 {
     // validate features
-    $nlic = new NetLicensing();
+    $nlic = new NetLicensing(API_KEY);
     $res = $nlic->validate('CT', strip_url(get_site_url(), 1000), urlencode(get_site_url()));
 
     // TODO: process NetLicensing response

@@ -10,9 +10,24 @@ class NetLicensing
 {
 
     const NLIC_BASE_URL = 'https://netlicensing.labs64.com/core/v2/rest';
-    const API_KEY = 'bd58df75-36be-44e2-811b-063fd3957182';
 
     private $curl = null;
+
+    public $apiKey;
+
+    /**
+     * Initializes a NetLicensing object
+     **/
+    function __construct($apiKey)
+    {
+        $this->apiKey = $apiKey;
+
+        $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'NetLicensing/PHP ' . PHP_VERSION . ' (http://netlicensing.labs64.com)';
+
+        $this->curl = new Curl();
+        $this->curl->headers['Accept'] = 'application/json';
+        $this->curl->user_agent = $user_agent;
+    }
 
     /**
      * Validates active licenses of the licensee
@@ -29,22 +44,14 @@ class NetLicensing
         if (empty($licenseeName)) {
             $licenseeName = $licenseeNumber;
         }
-        $url = self::NLIC_BASE_URL . '/licensee/' . $licenseeNumber . '/validate?productNumber=' . $productNumber . '&name=' . $licenseeName . '&apiKey=' . self::API_KEY;
+        $url = self::NLIC_BASE_URL . '/licensee/' . $licenseeNumber . '/validate?productNumber=' . $productNumber . '&name=' . $licenseeName;
+        if (!empty($this->apiKey)) {
+            $url .= '&apiKey=' . $this->apiKey;
+        }
+
         $response = $this->curl->get($url, $vars = array());
 
         return $response->body;
-    }
-
-    /**
-     * Initializes a NetLicensing object
-     **/
-    function __construct()
-    {
-        $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'NetLicensing/PHP ' . PHP_VERSION . ' (http://netlicensing.labs64.com)';
-
-        $this->curl = new Curl();
-        $this->curl->headers['Accept'] = 'application/json';
-        $this->curl->user_agent = $user_agent;
     }
 
 }
