@@ -9,6 +9,12 @@ p {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QkPFwUYQHUOkAAAAbZJREFUWMPtl80rRFEYh59z7pl8K+OrIQsSKTZkQVkrlpRESlJSsrGytfEPWFlYiZolJQtZsRJZ2CkfmTJoyCjXzL1zLMZHY7pyuVK67+6ec9+3p3vf93d+R5x2V+iEDQhcRcp8pG5lj0B1AydDrVjXEdyGEqASNoSjFsolgGVaTJhJgsDmjcV91HKVr4H2YolCvJC4BEAIxEuO8Y18nS6B5I/DB/AB1Je7VmvHZ62z99ODIrwBqGxsoql3AJ2y34XItsgrrQSgY3yaxEM8I+cucsbB6hLSMH4OEKytp3VkynG/pX8sa+1ib4f95UXwAuDtU5sxksfrCOlcVJY0YITave8BAB2PYG5NIVSu4zuB5tHfA0g3lgHC+ERgpa8DPsA/leJXzdWpBMKWzlOgrd8DECV1FPRtgHAGEAUh7wFeDxURKMSo6friz5XeAVweHbI9PwM69bZmJ5N0Ts6SXxZid2GOp/vbjJz4VRSplDcAsfMzYudLH1yxSdvwBPllIY7WwsQvs235Z2eGP4Y+gA+QMYZap62EO1X+6JLd3w0BVI6EwSrXxghtKopyAwD0lCtsvlFDwzOb9YklvzGQAQAAAABJRU5ErkJggg==');
     width: 32px;
     height: 32px;
+    float: left;
+    margin: 8px 8px 0px 0px;
+}
+
+.icon32 {
+    display: block;
 }
 
 .wrap {
@@ -26,7 +32,7 @@ p {
 
 .info_menu {
     float: left;
-    width: 22%;
+    width: 20%;
     background-color: #efefef;
     padding: 5px 10px 5px 10px;
     margin-top: 40px;
