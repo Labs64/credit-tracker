@@ -548,7 +548,7 @@ function ct_get_sources_array()
  */
 function get_fotolia_copyright()
 {
-    return '&copy; %author% - Fotolia.com';
+    return Fotolia::COPYRIGHT;
 }
 
 /**
@@ -556,13 +556,8 @@ function get_fotolia_copyright()
  */
 function get_fotolia_metadata($number)
 {
-    $item = array();
-
-    $item['author'] = 'TODO-Fotolia-author__' . $number;
-    $item['publisher'] = 'TODO-Fotolia-publisher';
-    $item['license'] = 'TODO-Fotolia-license';
-
-    return $item;
+    $parser = new Fotolia();
+    return $parser->execute($number);
 }
 
 /**

@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: labs64
-Tags: plugin, shortcode, credit, credits, attribution, legal, copyright, owner, author, media library, media, image, images, photo, photos, license, royalty-free, RF, Creative Commons, CC, stock, attachment, custom fields, fotolia, bildnachweis, impressum, imprint, microdata, NetLicensing
+Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, fotolia, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 3.5.1
 Tested up to: 3.8
 Stable tag: 0.9.8

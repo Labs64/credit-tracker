@@ -40,15 +40,18 @@ define('CT_VERSION', '0.9.8');
  */
 define('CT_SLUG', 'credit-tracker');
 
-
+// main
 require_once(plugin_dir_path(__FILE__) . 'credit-tracker-class.php');
 require_once(plugin_dir_path(__FILE__) . 'credit-tracker-shortcodes.php');
 require_once(plugin_dir_path(__FILE__) . 'credit-tracker-functions.php');
 require_once(plugin_dir_path(__FILE__) . 'options.php');
-
+// util
 require_once(plugin_dir_path(__FILE__) . '/php/netlicensing/netlicensing.php');
 require_once(plugin_dir_path(__FILE__) . '/php/curl/curl.php');
 require_once(plugin_dir_path(__FILE__) . '/php/curl/curl_response.php');
+// parser
+require_once(plugin_dir_path(__FILE__) . '/php/parser/parser.php');
+require_once(plugin_dir_path(__FILE__) . '/php/parser/fotolia.php');
 
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
 register_activation_hook(__FILE__, array('Credit_Tracker', 'activate'));
