@@ -195,7 +195,7 @@ class Credit_Tracker
         $ct_retriever_enabled = get_single_option('ct_feature_retriever');
 
         $form_fields["credit-tracker-ident_nr"] = array(
-            "label" => __('Ident-Nr . ', CT_SLUG),
+            "label" => __('Ident-Nr.', CT_SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-ident_nr", true),
             "helps" => __("The original object number at the source", CT_SLUG),
@@ -278,8 +278,9 @@ class Credit_Tracker
 
     function credit_tracker_attachment_columns($columns)
     {
+        $columns['credit-tracker-ident_nr'] = __('Ident-Nr.', CT_SLUG);
+        $columns['credit-tracker-source'] = __('Source', CT_SLUG);
         $columns['credit-tracker-author'] = __('Author', CT_SLUG);
-        $columns['credit-tracker-publisher'] = __('Publisher', CT_SLUG);
         return $columns;
     }
 
@@ -287,12 +288,16 @@ class Credit_Tracker
     {
         global $post;
         switch ($name) {
-            case 'credit-tracker-author':
-                $value = get_post_meta($post->ID, "credit-tracker-author", true);
+            case 'credit-tracker-ident_nr':
+                $value = get_post_meta($post->ID, "credit-tracker-ident_nr", true);
                 echo $value;
                 break;
-            case 'credit-tracker-publisher':
-                $value = get_post_meta($post->ID, "credit-tracker-publisher", true);
+            case 'credit-tracker-source':
+                $value = get_post_meta($post->ID, "credit-tracker-source", true);
+                echo $value;
+                break;
+            case 'credit-tracker-author':
+                $value = get_post_meta($post->ID, "credit-tracker-author", true);
                 echo $value;
                 break;
         }

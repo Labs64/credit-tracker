@@ -522,7 +522,7 @@ function ct_get_sources_array()
         'iStockphoto' => array(
             'caption' => 'iStockphoto',
             'copyright' => 'get_istockphoto_copyright',
-            'retriever' => ''
+            'retriever' => 'get_istockphoto_metadata'
         ),
         'Shutterstock' => array(
             'caption' => 'Shutterstock',
@@ -565,7 +565,16 @@ function get_fotolia_metadata($number)
  */
 function get_istockphoto_copyright()
 {
-    return '&copy;iStockphoto.com/%author%';
+    return IStockphoto::COPYRIGHT;
+}
+
+/**
+ * iStockphoto: metadata
+ */
+function get_istockphoto_metadata($number)
+{
+    $parser = new IStockphoto();
+    return $parser->execute($number);
 }
 
 /**
@@ -599,9 +608,9 @@ function get_getty_images_metadata($number)
 {
     $item = array();
 
-    $item['author'] = 'TODO-Getty_Images-author__' . $number;
-    $item['publisher'] = 'TODO-Getty_Images-publisher';
-    $item['license'] = 'TODO-Getty_Images-license';
+    $item['author'] = '' . $number;
+    $item['publisher'] = 'Getty Images';
+    $item['license'] = 'Royalty-free';
 
     return $item;
 }

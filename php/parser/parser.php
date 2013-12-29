@@ -16,7 +16,7 @@ abstract class Parser
     }
 
     /**
-     * Execute parser on the selected agency and returns a object containing parsing result.
+     * Execute parser on the selected agency and returns an array containing parsing result.
      *
      * @param string $number
      * @return agency parsing result
@@ -27,6 +27,16 @@ abstract class Parser
     }
 
     /**
+     * Returns array of media attributes.
+     * Sample result attributes:
+     *     $res = array(
+     *         'ident_nr'       => '',
+     *         'source'         => '',
+     *         'author'         => '',
+     *         'publisher'      => '',
+     *         'license'        => ''
+     *     );
+     *
      * This method should be overridden by every implementing class.
      *
      * @param string $number
@@ -35,7 +45,7 @@ abstract class Parser
     protected function parse($number)
     {
         $item = array();
-        $item['number'] = $number;
+        $item['ident_nr'] = $number;
         return $item;
     }
 
