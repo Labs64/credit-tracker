@@ -60,7 +60,7 @@ table.credit-tracker-mercury {
     -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
-table.credit-tracker-mercury th, td {
+table.credit-tracker-mercury th, table.credit-tracker-mercury td {
     padding: 10px 10px 10px;
     text-align: center;
 }
