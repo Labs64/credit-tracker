@@ -127,11 +127,11 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 0.9.9 =
-* *TODO*
+* Enable Pixelio
 
 = 0.9.8 =
 * Change default fields set at Media Library to Ident-Nr., Source, Author
-* Enable Fotolia parser
+* Enable Fotolia
 
 = 0.9.7 =
 * Test and approve plugin for WordPress 3.8

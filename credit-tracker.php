@@ -53,6 +53,7 @@ require_once(plugin_dir_path(__FILE__) . '/php/curl/curl_response.php');
 require_once(plugin_dir_path(__FILE__) . '/php/parser/parser.php');
 require_once(plugin_dir_path(__FILE__) . '/php/parser/fotolia.php');
 require_once(plugin_dir_path(__FILE__) . '/php/parser/istockphoto.php');
+require_once(plugin_dir_path(__FILE__) . '/php/parser/pixelio.php');
 
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
 register_activation_hook(__FILE__, array('Credit_Tracker', 'activate'));

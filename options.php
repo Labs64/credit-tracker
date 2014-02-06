@@ -538,6 +538,11 @@ function ct_get_sources_array()
             'caption' => 'Getty Images',
             'copyright' => 'get_getty_images_copyright',
             'retriever' => 'get_getty_images_metadata'
+        ),
+        'pixelio' => array(
+            'caption' => 'Pixelio',
+            'copyright' => 'get_pixelio_copyright',
+            'retriever' => 'get_pixelio_metadata'
         )
     );
     return $sources;
@@ -613,6 +618,23 @@ function get_getty_images_metadata($number)
     $item['license'] = 'Royalty-free';
 
     return $item;
+}
+
+/**
+ * Pixelio: copyright
+ */
+function get_pixelio_copyright()
+{
+    return Pixelio::COPYRIGHT;
+}
+
+/**
+ * Pixelio: metadata
+ */
+function get_pixelio_metadata($number)
+{
+    $parser = new Pixelio();
+    return $parser->execute($number);
 }
 
 ?>
