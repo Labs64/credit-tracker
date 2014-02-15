@@ -1,0 +1,238 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Credit Tracker v0.9.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-02-15 15:09:38+0000\n"
+"Last-Translator: lilian <contact@lilianricaud.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: credit-tracker-class.php:198
+#: credit-tracker-class.php:281
+#: credit-tracker-shortcodes.php:39
+#@ credit-tracker
+msgid "Ident-Nr."
+msgstr ""
+
+#: credit-tracker-class.php:201
+#@ credit-tracker
+msgid "The original object number at the source"
+msgstr "Numero original de l'objet a la source"
+
+#: credit-tracker-class.php:209
+#@ credit-tracker
+msgid "activate"
+msgstr "Activer"
+
+#: credit-tracker-class.php:213
+#: credit-tracker-class.php:282
+#@ credit-tracker
+msgid "Source"
+msgstr "Source"
+
+#: credit-tracker-class.php:216
+#@ credit-tracker
+msgid "GET MEDIA DATA"
+msgstr "Obtenir les donnees du media"
+
+#: credit-tracker-class.php:217
+#@ credit-tracker
+msgid "Source where to locate the original media"
+msgstr "Source o√π trouver le media d'origine"
+
+#: credit-tracker-class.php:221
+#: credit-tracker-class.php:283
+#: credit-tracker-shortcodes.php:40
+#@ credit-tracker
+msgid "Author"
+msgstr "Auteur"
+
+#: credit-tracker-class.php:224
+#@ credit-tracker
+msgid "Media author/owner"
+msgstr "Auteur/Proprietaire du media"
+
+#: credit-tracker-class.php:228
+#: credit-tracker-shortcodes.php:41
+#@ credit-tracker
+msgid "Publisher"
+msgstr "Publie par"
+
+#: credit-tracker-class.php:231
+#@ credit-tracker
+msgid "Media publisher (e.g. image agency)"
+msgstr "Publie par (ex: agence media)"
+
+#: credit-tracker-class.php:235
+#: credit-tracker-shortcodes.php:43
+#@ credit-tracker
+msgid "License"
+msgstr "Licence"
+
+#: credit-tracker-class.php:238
+#@ credit-tracker
+msgid "Media license"
+msgstr "Licence du media"
+
+#: credit-tracker-shortcodes.php:42
+#@ credit-tracker
+msgid "Copyright"
+msgstr "Copyright"
+
+#: credit-tracker-shortcodes.php:47
+#@ credit-tracker
+msgid "No images found"
+msgstr "Pas d'images trouvees"
+
+#. translators: plugin header field 'Name'
+#: credit-tracker.php:0
+#: options.php:55
+#: options.php:56
+#@ credit-tracker
+msgid "Credit Tracker"
+msgstr "Credit Tracker"
+
+#. translators: plugin header field 'PluginURI'
+#: credit-tracker.php:0
+#@ credit-tracker
+msgid "https://github.com/Labs64/credit-tracker"
+msgstr "https://github.com/Labs64/credit-tracker"
+
+#. translators: plugin header field 'Description'
+#: credit-tracker.php:0
+#@ credit-tracker
+msgid "A simple way to show credits for the images used on your website."
+msgstr "Une fa√ßon simple de crediter les auteurs de images utilisees sur votre site."
+
+#. translators: plugin header field 'Author'
+#: credit-tracker.php:0
+#@ credit-tracker
+msgid "Labs64"
+msgstr ""
+
+#. translators: plugin header field 'AuthorURI'
+#: credit-tracker.php:0
+#@ credit-tracker
+msgid "http://www.labs64.com"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: credit-tracker.php:0
+#@ credit-tracker
+msgid "0.9.9"
+msgstr ""
+
+#: options.php:42
+#@ credit-tracker
+msgid "Settings"
+msgstr "Reglages"
+
+#: options.php:112
+#@ credit-tracker
+msgid "Credit Tracker by Labs64"
+msgstr "Credit Tracker par Labs64"
+
+#: options.php:165
+#@ credit-tracker
+msgid "Enter your settings below:"
+msgstr "Entrez vos reglages ci-dessous:"
+
+#: options.php:174
+#@ credit-tracker
+msgid "Image data retriever (Free)"
+msgstr "Retrouver les donnees de l'image (gratuit)"
+
+#: options.php:200
+#@ credit-tracker
+msgid "Features"
+msgstr "Fonctionnalites"
+
+#: options.php:201
+#@ credit-tracker
+msgid "Available plugin features"
+msgstr "Fonctionnalites disponibles"
+
+#: options.php:205
+#@ default
+msgid "Validate"
+msgstr ""
+
+#: options.php:220
+#@ credit-tracker
+msgid "Feedback"
+msgstr ""
+
+#: options.php:222
+#@ credit-tracker
+msgid "Did you find a bug? Have an idea for a plugin? Please help us improve this plugin"
+msgstr "Avez vous trouve un bug ? Avez vous une idee pour le plugin ? Merci de nous aider a ameliorer ce plugin"
+
+#: options.php:226
+#@ credit-tracker
+msgid "Report a bug, or suggest an improvement"
+msgstr "Rapporter un probleme ou suggerer une amelioration"
+
+#: options.php:228
+#@ default
+msgid "Like us on Facebook"
+msgstr ""
+
+#: options.php:230
+#@ default
+msgid "Read Labs64 Blog"
+msgstr ""
+
+#: options.php:241
+#@ credit-tracker
+msgid "Shortcodes Reference"
+msgstr "Reference Shortcodes"
+
+#: options.php:294
+#@ credit-tracker
+msgid "Credit Tracker Settings"
+msgstr "Reglages Credit Tracker"
+
+#: options.php:301
+#@ credit-tracker
+msgid "Copyright format"
+msgstr "Format Copyright"
+
+#: options.php:307
+#, php-format
+#@ credit-tracker
+msgid "Default copyright format<br/>Allowed placeholders: %ident_nr%, %source%, %author%, %publisher%, %license%"
+msgstr "format Copyright par defaut <br/>Autoriser champs: %ident_nr%, %source%, %author%, %publisher%, %license%"
+
+#: options.php:313
+#@ credit-tracker
+msgid "Override shortcodes"
+msgstr "Courtcircuiter les shortcodes"
+
+#: options.php:319
+#@ credit-tracker
+msgid "Override WordPress [caption] shortcode"
+msgstr "Courtcircuiter les shortcode [caption] Wordpress"
+
+#: options.php:320
+#@ credit-tracker
+msgid "Replaces output of standard WordPress [caption] shortcode with improved version (add Image Microdata and Image Credit)"
+msgstr "Remplacer l'affichage standard du shortcode [caption]  de WordPress avec une version amelioree (ajoute les Microdonnees de l'image et le Credit)"
+
+#: options.php:513
+#@ credit-tracker
+msgid "Custom"
+msgstr "Personnalisation"
+
