@@ -36,6 +36,10 @@ This plugin adds the following fields to all images in WordPress Media Library:
 * Ability to override standard WordPress shortcode [caption]
 * Add microdata to the images
 
+= Showcase =
+
+* [Media Credits page at labs64.com](http://www.labs64.com/legal/media-credits/ "Media Credits")
+
 = Get Involved =
 
 Developers can checkout and contribute to the source code on the [Credit Tracker GitHub Repository](https://github.com/Labs64/credit-tracker).
@@ -127,7 +131,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 0.9.10 =
-* *TODO*
+* French translation by Lilian Ricaud
 
 = 0.9.9 =
 * Enable Pixelio
@@ -176,5 +180,6 @@ Listed here are credits and special thanks to some of you who have helped us out
 
 = Translations =
 * English - default, always included
+* French - by [Lilian Ricaud](http://www.lilianricaud.com "Lilian Ricaud")
 
 *NOTE:* Please [contribute](https://github.com/Labs64/credit-tracker/tree/master/languages "contribute your language") your language to the plugin to make it even more useful.
