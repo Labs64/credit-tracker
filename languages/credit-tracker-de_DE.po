@@ -31,11 +31,11 @@ msgstr ""
 
 #: credit-tracker-class.php:209
 msgid "activate"
-msgstr ""
+msgstr "aktivieren"
 
 #: credit-tracker-class.php:213 credit-tracker-class.php:282
 msgid "Source"
-msgstr ""
+msgstr "Quelle"
 
 #: credit-tracker-class.php:216
 msgid "GET MEDIA DATA"
@@ -43,56 +43,56 @@ msgstr ""
 
 #: credit-tracker-class.php:217
 msgid "Source where to locate the original media"
-msgstr ""
+msgstr "Quelle der originalen Medien-Datei"
 
 #: credit-tracker-class.php:221 credit-tracker-class.php:283
 #: credit-tracker-shortcodes.php:40
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: credit-tracker-class.php:224
 msgid "Media author/owner"
-msgstr ""
+msgstr "Medien-Autor/Eigentümer"
 
 #: credit-tracker-class.php:228 credit-tracker-shortcodes.php:41
 msgid "Publisher"
-msgstr ""
+msgstr "Verleger"
 
 #: credit-tracker-class.php:231
 msgid "Media publisher (e.g. image agency)"
-msgstr ""
+msgstr "Medium-Herausgeber ( z.B. Bilder-Agentur )"
 
 #: credit-tracker-class.php:235 credit-tracker-shortcodes.php:43
 msgid "License"
-msgstr ""
+msgstr "Lizenz"
 
 #: credit-tracker-class.php:238
 msgid "Media license"
-msgstr ""
+msgstr "Medien-Lizenz"
 
 #: credit-tracker-shortcodes.php:42
 msgid "Copyright"
-msgstr ""
+msgstr "Copyright"
 
 #: credit-tracker-shortcodes.php:47
 msgid "No images found"
-msgstr ""
+msgstr "keine Bilder gefunden"
 
 #: options.php:42
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: options.php:55 options.php:56
 msgid "Credit Tracker"
-msgstr ""
+msgstr "Credit Tracker"
 
 #: options.php:112
 msgid "Credit Tracker by Labs64"
-msgstr ""
+msgstr "Credit Tracker by Labs64"
 
 #: options.php:165
 msgid "Enter your settings below:"
-msgstr ""
+msgstr "Geben Sie Ihre Einstellungen unten ein:"
 
 #: options.php:174
 msgid "Image data retriever (Free)"
@@ -100,41 +100,41 @@ msgstr ""
 
 #: options.php:200
 msgid "Features"
-msgstr ""
+msgstr "Merkmale"
 
 #: options.php:201
 msgid "Available plugin features"
-msgstr ""
+msgstr "Verfügbare Plugin Merkmale"
 
 #: options.php:205
 msgid "Validate"
-msgstr ""
+msgstr "Validieren"
 
 #: options.php:220
 msgid "Feedback"
-msgstr ""
+msgstr "Feedback"
 
 #: options.php:222
 msgid ""
 "Did you find a bug? Have an idea for a plugin? Please help us improve this "
 "plugin"
-msgstr ""
+msgstr "Haben Sie einen Fehler gefunden, oder eine Idee für ein Plugin? Helfen Sie uns bitte bei der Verbesserung."
 
 #: options.php:226
 msgid "Report a bug, or suggest an improvement"
-msgstr ""
+msgstr "Melden Sie einen Fehler, oder schlagen Sie eine Verbesserung vor"
 
 #: options.php:228
 msgid "Like us on Facebook"
-msgstr ""
+msgstr "Empfehle uns auf Facebook"
 
 #: options.php:230
 msgid "Read Labs64 Blog"
-msgstr ""
+msgstr "Labs64 Blog lesen"
 
 #: options.php:241
 msgid "Shortcodes Reference"
-msgstr ""
+msgstr "Shortcodes Referenz"
 
 #: options.php:294
 msgid "Credit Tracker Settings"
@@ -142,7 +142,7 @@ msgstr ""
 
 #: options.php:301
 msgid "Copyright format"
-msgstr ""
+msgstr "Copyright Format"
 
 #: options.php:307
 msgid ""
@@ -152,11 +152,11 @@ msgstr ""
 
 #: options.php:313
 msgid "Override shortcodes"
-msgstr ""
+msgstr "Shortcodes überladen"
 
 #: options.php:319
 msgid "Override WordPress [caption] shortcode"
-msgstr ""
+msgstr "WordPress Shortcode [caption] überladen"
 
 #: options.php:320
 msgid ""
