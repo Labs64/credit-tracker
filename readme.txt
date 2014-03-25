@@ -131,7 +131,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 0.9.11 =
-* *TODO*
+* German translation by Michail Preissnerov
 
 = 0.9.10 =
 * French translation by Lilian Ricaud

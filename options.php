@@ -205,7 +205,7 @@ function print_features_section()
     <button id="validate" type="button""><?php _e('Validate'); ?></button>
     <br/>
     <div style="font-style: italic; color: rgb(102, 102, 102); font-size: smaller;"><p>Powered by <a
-                href="http://netlicensing.labs64.com"
+                href="http://www.labs64.com/netlicensing"
                 target="_blank">NetLicensing</a></p>
     </div>
 <?php
