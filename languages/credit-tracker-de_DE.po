@@ -23,11 +23,11 @@ msgstr ""
 #: credit-tracker-class.php:198 credit-tracker-class.php:281
 #: credit-tracker-shortcodes.php:39
 msgid "Ident-Nr."
-msgstr ""
+msgstr "Id-Nr."
 
 #: credit-tracker-class.php:201
 msgid "The original object number at the source"
-msgstr ""
+msgstr "Original Objekt-Nummer"
 
 #: credit-tracker-class.php:209
 msgid "activate"
@@ -39,7 +39,7 @@ msgstr "Quelle"
 
 #: credit-tracker-class.php:216
 msgid "GET MEDIA DATA"
-msgstr ""
+msgstr "MEDIADATEN HOLEN"
 
 #: credit-tracker-class.php:217
 msgid "Source where to locate the original media"
@@ -96,7 +96,7 @@ msgstr "Geben Sie Ihre Einstellungen unten ein:"
 
 #: options.php:174
 msgid "Image data retriever (Free)"
-msgstr ""
+msgstr "Image data retriever (Frei)"
 
 #: options.php:200
 msgid "Features"
@@ -138,7 +138,7 @@ msgstr "Shortcodes Referenz"
 
 #: options.php:294
 msgid "Credit Tracker Settings"
-msgstr ""
+msgstr "Credit Tracker Einstellungen"
 
 #: options.php:301
 msgid "Copyright format"
@@ -149,6 +149,8 @@ msgid ""
 "Default copyright format<br/>Allowed placeholders: %ident_nr%, %source%, "
 "%author%, %publisher%, %license%"
 msgstr ""
+"Standard Urheber Format <br/>Erlaubte Platzhalter: %ident_nr%, %source%, "
+"%author%, %publisher%, %license%"
 
 #: options.php:313
 msgid "Override shortcodes"
@@ -163,7 +165,9 @@ msgid ""
 "Replaces output of standard WordPress [caption] shortcode with improved "
 "version (add Image Microdata and Image Credit)"
 msgstr ""
+"Ersetzt Ausgabe von standard WordPress Shortcode [caption] "
+"mit verbesserter Version (Bild Microdata und Urheberinfo)"
 
 #: options.php:513
 msgid "Custom"
-msgstr ""
+msgstr "Benutzerdefiniert"
