@@ -184,5 +184,6 @@ Listed here are credits and special thanks to some of you who have helped us out
 = Translations =
 * English - default, always included
 * French - by [Lilian Ricaud](http://www.lilianricaud.com "Lilian Ricaud")
+* German - by Michail Preissnerov
 
 *NOTE:* Please [contribute](https://github.com/Labs64/credit-tracker/tree/master/languages "contribute your language") your language to the plugin to make it even more useful.
