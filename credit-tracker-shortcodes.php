@@ -26,6 +26,8 @@ function credit_tracker_table_shortcode($atts)
 
     if (is_numeric($size)) {
         $size = array($size, $size);
+    } else if (stripos($size, 'x') !== false) {
+        $size = explode('x', $size);
     }
 
     $request = array(

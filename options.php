@@ -11,7 +11,7 @@
 
 
 define('CT_OPTIONS', 'CT_OPTIONS');
-define('API_KEY', 'bd58df75-36be-44e2-811b-063fd3957182');
+define('API_KEY', '31c7bc4e-90ff-44fb-9f07-b88eb06ed9dc');
 
 
 if (is_admin()) {
@@ -254,8 +254,8 @@ function print_reference_section()
                     default behavior, if no ID is specified, is to display all images containing author info.</p>
 
                 <p>&nbsp;&nbsp;<strong>size</strong> <i>(optional)</i> - specify the image size to use for the thumbnail
-                    display. Valid values include "thumbnail", "medium", "large", "full". The default value is
-                    "thumbnail".</p>
+                    display. Valid values include "thumbnail", "medium", "large", "full" or numeric values (e.g. "50" or "100x50").
+                    The default value is "thumbnail".</p>
 
                 <p>&nbsp;&nbsp;<strong>style</strong> <i>(optional)</i> - specify the table CSS style. Valid values
                     include "default", "mercury", "mars". The default value is "default".</p>
