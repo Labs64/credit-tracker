@@ -37,3 +37,7 @@ p {
     padding: 5px 10px 5px 10px;
     margin-top: 40px;
 }
+
+.compat-attachment-fields .label {
+    vertical-align: top;
+}

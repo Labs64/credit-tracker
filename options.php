@@ -158,11 +158,18 @@ function get_on_off($opt)
 }
 
 /**
- * Print the Section info text
+ * Print the Common-Section info text
  */
 function print_common_section_info()
 {
-    print __('Enter your settings below:', CT_SLUG);
+}
+
+/**
+ * Print the Retriever-Section info text
+ */
+function print_retriever_section_info()
+{
+    print __('Some Image Data Retriever needs additional configuration', CT_SLUG);
 }
 
 /**
@@ -296,6 +303,13 @@ function page_init()
         CT_SLUG // Page
     );
 
+    add_settings_section(
+        'CT_RETRIEVER_SETTINGS', // ID
+        __('Retriever Settings', CT_SLUG), // Title
+        'print_retriever_section_info', // Callback
+        CT_SLUG // Page
+    );
+
     add_settings_field(
         'ct_copyright_format',
         __('Copyright format', CT_SLUG),
@@ -320,6 +334,18 @@ function page_init()
             'description' => __('Replaces output of standard WordPress [caption] shortcode with improved version (add Image Microdata and Image Credit)', CT_SLUG),
         )
     );
+
+    add_settings_field(
+        'ct_auth_flickr_apikey',
+        __('Flickr api_key', CT_SLUG),
+        'ct_text_field_callback',
+        CT_SLUG,
+        'CT_RETRIEVER_SETTINGS',
+        array(
+            'id' => 'ct_auth_flickr_apikey',
+            'description' => __('To use the Flickr data retriever you need to have an Flickr API application key.' . ' <a href="https://www.flickr.com/services/api/misc.api_keys.html" target="_blank">See here</a>' . ' for more details.', CT_SLUG),
+        )
+    );
 }
 
 /**
@@ -336,6 +362,8 @@ function sanitize($input)
     } else {
         $input['ct_copyright_format'] = sanitize_text_field($input['ct_copyright_format']);
     }
+
+    $input['ct_auth_flickr_apikey'] = sanitize_text_field($input['ct_auth_flickr_apikey']);
 
     return $input;
 }
@@ -385,6 +413,7 @@ function get_default_options()
     $default_options = array(
         'ct_feature_retriever' => '0',
         'ct_copyright_format' => '&copy; %author%',
+        'ct_auth_flickr_apikey' => '',
         'ct_override_caption_shortcode' => '0'
     );
     return $default_options;
@@ -527,12 +556,12 @@ function ct_get_sources_array()
         'Shutterstock' => array(
             'caption' => 'Shutterstock',
             'copyright' => 'get_shutterstock_copyright',
-            'retriever' => ''
+            'retriever' => 'get_shutterstock_metadata'
         ),
         'Corbis_Images' => array(
             'caption' => 'Corbis Images',
             'copyright' => 'get_corbis_images_copyright',
-            'retriever' => ''
+            'retriever' => 'get_corbis_images_metadata'
         ),
         'Getty_Images' => array(
             'caption' => 'Getty Images',
@@ -543,6 +572,11 @@ function ct_get_sources_array()
             'caption' => 'Pixelio',
             'copyright' => 'get_pixelio_copyright',
             'retriever' => 'get_pixelio_metadata'
+        ),
+        'flickr' => array(
+            'caption' => 'Flickr',
+            'copyright' => 'get_flickr_copyright',
+            'retriever' => 'get_flickr_metadata'
         )
     );
     return $sources;
@@ -591,11 +625,39 @@ function get_shutterstock_copyright()
 }
 
 /**
+ * Shutterstock: metadata
+ */
+function get_shutterstock_metadata($number)
+{
+    $item = array();
+
+    $item['author'] = '...not implemented yet...';
+    $item['publisher'] = 'Shutterstock';
+    $item['license'] = 'Royalty-free';
+
+    return $item;
+}
+
+/**
  * Corbis Images: copyright
  */
 function get_corbis_images_copyright()
 {
     return '&copy; %author%/Corbis';
+}
+
+/**
+ * Corbis Images: metadata
+ */
+function get_corbis_images_metadata($number)
+{
+    $item = array();
+
+    $item['author'] = '...not implemented yet...';
+    $item['publisher'] = 'Corbis Images';
+    $item['license'] = 'Royalty-free';
+
+    return $item;
 }
 
 /**
@@ -613,7 +675,7 @@ function get_getty_images_metadata($number)
 {
     $item = array();
 
-    $item['author'] = '' . $number;
+    $item['author'] = '...not implemented yet...';
     $item['publisher'] = 'Getty Images';
     $item['license'] = 'Royalty-free';
 
@@ -634,6 +696,23 @@ function get_pixelio_copyright()
 function get_pixelio_metadata($number)
 {
     $parser = new Pixelio();
+    return $parser->execute($number);
+}
+
+/**
+ * Flickr: copyright
+ */
+function get_flickr_copyright()
+{
+    return Flickr::COPYRIGHT;
+}
+
+/**
+ * Flickr: metadata
+ */
+function get_flickr_metadata($number)
+{
+    $parser = new Flickr(get_single_option('ct_auth_flickr_apikey'));
     return $parser->execute($number);
 }
 
