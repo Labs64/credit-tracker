@@ -468,6 +468,19 @@ function ct_get_sources_names_array()
 }
 
 /**
+ * Returns source caption
+ */
+function ct_get_source_caption($source)
+{
+    $sources = ct_get_sources_array();
+    if (isset($sources[$source]) && !empty($sources[$source]['caption'])) {
+        return $sources[$source]['caption'];
+    } else {
+        return $source;
+    }
+}
+
+/**
  * Returns source copyright format
  */
 function ct_get_source_copyright($source)

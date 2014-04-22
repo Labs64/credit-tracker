@@ -131,9 +131,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 0.9.14 =
-* ...
+* Fixed [bug](http://wordpress.org/support/topic/error-after-updating-to-0913) introduced with v0.9.13
 
-= 0.9.13 =
+= 0.9.13 (not-stable) =
 * Test and approve plugin for WordPress 3.9
 * Enable Flickr
 
