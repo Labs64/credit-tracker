@@ -41,9 +41,13 @@ class NetLicensing
         if (empty($licenseeName)) {
             $licenseeName = $licenseeNumber;
         }
-        $url = self::NLIC_BASE_URL . '/licensee/' . $licenseeNumber . '/validate?productNumber=' . $productNumber . '&name=' . $licenseeName;
+        $params = array(
+            'productNumber' => $productNumber,
+            'name' => $licenseeName,
+        );
+        $url = self::NLIC_BASE_URL . '/licensee/' . $licenseeNumber . '/validate';
 
-        $response = $this->curl->get($url, $vars = array());
+        $response = $this->curl->get($url, $params);
 
         return $response->body;
     }
