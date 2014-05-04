@@ -34,7 +34,8 @@ abstract class Parser
      *         'source'         => '',
      *         'author'         => '',
      *         'publisher'      => '',
-     *         'license'        => ''
+     *         'license'        => '',
+     *         'link'           => ''
      *     );
      *
      * This method should be overridden by every implementing class.

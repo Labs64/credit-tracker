@@ -63,6 +63,7 @@ function get_images($attr)
             $item['author'] = wptexturize(get_post_meta($attachment->ID, 'credit-tracker-author', true));
             $item['publisher'] = wptexturize(get_post_meta($attachment->ID, 'credit-tracker-publisher', true));
             $item['license'] = wptexturize(get_post_meta($attachment->ID, 'credit-tracker-license', true));
+            $item['link'] = wptexturize(get_post_meta($attachment->ID, 'credit-tracker-link', true));
 
             $items[] = $item;
         }
@@ -81,6 +82,7 @@ function process_item_copyright($item, $string)
     $string = str_replace("%author%", $item['author'], $string);
     $string = str_replace("%publisher%", $item['publisher'], $string);
     $string = str_replace("%license%", $item['license'], $string);
+    $string = str_replace("%link%", $item['link'], $string);
 
     $string = str_replace("%title%", $item['title'], $string);
     $string = str_replace("%caption%", $item['caption'], $string);

@@ -238,6 +238,13 @@ class Credit_Tracker
             "helps" => __("Media license", CT_SLUG),
         );
 
+        $form_fields["credit-tracker-link"] = array(
+            "label" => __('Link', CT_SLUG),
+            "input" => "text",
+            "value" => get_post_meta($post->ID, "credit-tracker-link", true),
+            "helps" => __("Media link", CT_SLUG),
+        );
+
         return $form_fields;
     }
 
@@ -271,6 +278,12 @@ class Credit_Tracker
             update_post_meta($post['ID'], 'credit-tracker-license', $attachment['credit-tracker-license']);
         } else {
             delete_post_meta($post['ID'], 'credit-tracker-license');
+        }
+
+        if (isset($attachment['credit-tracker-link'])) {
+            update_post_meta($post['ID'], 'credit-tracker-link', $attachment['credit-tracker-link']);
+        } else {
+            delete_post_meta($post['ID'], 'credit-tracker-link');
         }
 
         return $post;
@@ -321,6 +334,7 @@ class Credit_Tracker
                         $("[id$=credit-tracker-author]").val(mediadata.author);
                         $("[id$=credit-tracker-publisher]").val(mediadata.publisher);
                         $("[id$=credit-tracker-license]").val(mediadata.license);
+                        $("[id$=credit-tracker-link]").val(mediadata.link);
                     });
                 });
             });

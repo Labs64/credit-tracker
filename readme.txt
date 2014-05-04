@@ -26,9 +26,11 @@ This plugin adds the following fields to all images in WordPress Media Library:
 * Owner/Author
 * Publisher
 * License
+* Link
 
 = Features =
 
+* Retrieve Media information from the different stock agencies (Flickr, Fotolia, iStockphoto etc.)
 * Append credits to the Media Library elements
 * Configurable copyright format string
 * "credit_tracker_table" shortcode to construct a nicely-styled 'Image Credits' table
@@ -42,7 +44,7 @@ This plugin adds the following fields to all images in WordPress Media Library:
 
 = Get Involved =
 
-Developers can checkout and contribute to the source code on the [Credit Tracker GitHub Repository](https://github.com/Labs64/credit-tracker).
+Developers can checkout and contribute to the source code on the Credit Tracker's [GitHub Repository](https://github.com/Labs64/credit-tracker).
 
 = Related Links =
 
@@ -89,7 +91,7 @@ If you want to show the Credit Tracker on a specific page or set of pages on you
 `[credit_tracker_table id="11,22,33" size="thumbnail|medium|large|full" style="mercury"]`
 
 * **id** *(optional)* - specify which images you want to list in the table (one or more). If no ID is specified, the default display is to show all images containing author info.
-* **size** *(optional)* - specify the image size to use for the thumbnail display within the credit tracker table. The choice of sizes includes "thumbnail", "medium", "large" and "full". The default value is "thumbnail".
+* **size** *(optional)* - specify the image size to use for the thumbnail display within the credit tracker table. The choice of sizes includes "thumbnail", "medium", "large", "full" or numeric values (e.g. "50" or "100x50"). The default value is "thumbnail".
 * **style** *(optional)* - Specify the table style to suite your website. Valid values include "default", "mercury", "mars". If no value is set, the "default" style will be used.
 
 = Do I have to manually update the Credit Tracker Table if I add/modify a media library entry? =
@@ -110,11 +112,11 @@ In order to get the most out of the plugin and use all of its features, you will
 
 = Can I request new features and extensions to be included in future releases of the plugin? =
 
-We always welcome your feedback and would love to know what you would like to see done next with the plugin and what features you would like integrated. You can vote on and request new features and extensions in our [Credit Tracker Issue Tracker](https://github.com/Labs64/credit-tracker/issues)
+We always welcome your feedback and would love to know what you would like to see done next with the plugin and what features you would like integrated. You can vote on and request new features and extensions in our Credit Tracker's [Issue Tracker](https://github.com/Labs64/credit-tracker/issues)
 
 = Where can I report bugs? =
 
-If you have discovered a bug, we want to know so that we can get it fixed as soon as possible! We always work to make sure that the plugin is working fully prior to releasing an update but sometimes problems do arise. All bugs and issues can be reported on the [Credit Tracker Issue Tracker](https://github.com/Labs64/credit-tracker/issues).
+If you have discovered a bug, we want to know so that we can get it fixed as soon as possible! We always work to make sure that the plugin is working fully prior to releasing an update but sometimes problems do arise. All bugs and issues can be reported on the Credit Tracker's [Issue Tracker](https://github.com/Labs64/credit-tracker/issues).
 
 = I love Credit Tracker, it’s awesome! Can I contribute? =
 
@@ -131,7 +133,8 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 0.9.15 =
-* ...
+* Introduce additional *Link* attribute
+* Allow HTML usage at 'Copyright format' (e.g. &copy; <a href="%link%" target="__blank">%author%</a> - %caption%)
 
 = 0.9.14 =
 * Fixed [bug](http://wordpress.org/support/topic/error-after-updating-to-0913) introduced with v0.9.13

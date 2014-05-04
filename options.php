@@ -318,7 +318,7 @@ function page_init()
         'CT_COMMON_SETTINGS',
         array(
             'id' => 'ct_copyright_format',
-            'description' => __('Default copyright format<br/>Allowed placeholders: %ident_nr%, %source%, %author%, %publisher%, %license%', CT_SLUG),
+            'description' => __('Default copyright format (HTML allowed)<br/>Allowed placeholders: %ident_nr%, %source%, %author%, %publisher%, %license%, %link%<br/>...as well as standard attributes: %title%, %caption%', CT_SLUG),
         )
     );
 
@@ -360,7 +360,7 @@ function sanitize($input)
             add_settings_error(CT_OPTIONS, 'empty-copyright-format', 'Please specify copyright format.');
         }
     } else {
-        $input['ct_copyright_format'] = sanitize_text_field($input['ct_copyright_format']);
+        $input['ct_copyright_format'] = $input['ct_copyright_format'];
     }
 
     $input['ct_auth_flickr_apikey'] = sanitize_text_field($input['ct_auth_flickr_apikey']);
@@ -440,7 +440,7 @@ function get_options()
 function get_single_option($name)
 {
     $options = get_options();
-    return esc_attr($options[$name]);
+    return $options[$name];
 }
 
 /**
@@ -518,6 +518,7 @@ function validate_callback()
 
     // prepare return values
     $licenses = array(
+        'netlicensing_response' => $res,
         'ct_feature_retriever' => get_single_option('ct_feature_retriever')
     );
     echo json_encode($licenses);
@@ -537,7 +538,8 @@ function get_media_data_callback()
         'ident_nr' => $_POST['ident_nr'],
         'author' => $item['author'],
         'publisher' => $item['publisher'],
-        'license' => $item['license']
+        'license' => $item['license'],
+        'link' => $item['link']
     );
 
     echo json_encode($mediadata);
