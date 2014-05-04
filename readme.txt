@@ -94,6 +94,12 @@ If you want to show the Credit Tracker on a specific page or set of pages on you
 * **size** *(optional)* - specify the image size to use for the thumbnail display within the credit tracker table. The choice of sizes includes "thumbnail", "medium", "large", "full" or numeric values (e.g. "50" or "100x50"). The default value is "thumbnail".
 * **style** *(optional)* - Specify the table style to suite your website. Valid values include "default", "mercury", "mars". If no value is set, the "default" style will be used.
 
+= How do I use both standard caption and media credit? =
+
+By using an overridden version of the caption shortcode, you have also access to the standard media attributes 'title' and 'caption'. So you can simply add these to the 'Copyright format' definition, e.g.:
+
+`&copy; <a href="%link%" target="__blank">%author%</a> - %caption%`
+
 = Do I have to manually update the Credit Tracker Table if I add/modify a media library entry? =
 
 Nope! If you add/edit/delete a media library entry, your 'credit_tracker_table' is automatically updated to reflect any changes you have made. Obviously, if the new entry is not already included in the images you want to list, it will not appear until you set the code to apply this change.
@@ -135,6 +141,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 = 0.9.15 =
 * Introduce additional *Link* attribute
 * Allow HTML usage at 'Copyright format' (e.g. &copy; <a href="%link%" target="__blank">%author%</a> - %caption%)
+* Use standard attributes 'title', 'caption' at 'Copyright format'
 
 = 0.9.14 =
 * Fixed [bug](http://wordpress.org/support/topic/error-after-updating-to-0913) introduced with v0.9.13
