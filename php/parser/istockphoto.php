@@ -20,12 +20,14 @@ class IStockphoto extends Parser
 
     protected function parse($number)
     {
+        $url = self::BASE_URL . $number;
+
         $item = parent::parse($number);
         $item['source'] = 'iStockphoto';
         $item['publisher'] = 'iStockphoto';
         $item['license'] = 'Royalty-free';
+        $item['link'] = $url;
 
-        $url = self::BASE_URL . $number;
         $doc = new DOMDocument();
         $html = @$doc->loadHTMLFile($url);
         if ($html) {

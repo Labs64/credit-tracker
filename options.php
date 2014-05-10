@@ -592,6 +592,11 @@ function ct_get_sources_array()
             'caption' => 'Flickr',
             'copyright' => 'get_flickr_copyright',
             'retriever' => 'get_flickr_metadata'
+        ),
+        'freeimages' => array(
+            'caption' => 'Freeimages',
+            'copyright' => 'get_freeimages_copyright',
+            'retriever' => 'get_freeimages_metadata'
         )
     );
     return $sources;
@@ -728,6 +733,23 @@ function get_flickr_copyright()
 function get_flickr_metadata($number)
 {
     $parser = new Flickr(get_single_option('ct_auth_flickr_apikey'));
+    return $parser->execute($number);
+}
+
+/**
+ * Freeimages: copyright
+ */
+function get_freeimages_copyright()
+{
+    return Freeimages::COPYRIGHT;
+}
+
+/**
+ * Freeimages: metadata
+ */
+function get_freeimages_metadata($number)
+{
+    $parser = new Freeimages();
     return $parser->execute($number);
 }
 

@@ -36,6 +36,9 @@ class Flickr extends Parser
             $username = $photosGetInfo_resp['photo']['owner']['username'];
             $item['author'] = (empty($realname)) ? $username : $realname;
 
+            // TODO: parse photo.urls.url
+            $item['link'] = '';
+
             $license_id = $photosGetInfo_resp['photo']['license'];
             $photosLicensesGetInfo_resp = $this->photosLicensesGetInfo();
             $lic_array = $this->findLicensesById($license_id, $photosLicensesGetInfo_resp['licenses']['license']);

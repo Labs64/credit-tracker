@@ -139,7 +139,8 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 0.9.16 =
-* TODO: ...
+* Use original photo URIs for the *Link* attribute
+* Enable Freeimages
 
 = 0.9.15 =
 * Introduce additional *Link* attribute
