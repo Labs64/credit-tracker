@@ -18,7 +18,7 @@ class NetLicensing
      **/
     function __construct($apiKey)
     {
-        $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'NetLicensing/PHP ' . PHP_VERSION . ' (http://netlicensing.labs64.com)';
+        $user_agent = 'NetLicensing/PHP ' . PHP_VERSION . ' (http://netlicensing.labs64.com)' . '; ' . $_SERVER['HTTP_USER_AGENT'];
 
         $this->curl = new Curl();
         $this->curl->headers['Authorization'] = 'Basic ' . base64_encode("apiKey:" . $apiKey);
