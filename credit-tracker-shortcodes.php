@@ -80,6 +80,7 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
                 'align' => 'aligncenter',
                 'width' => '',
                 'caption' => '',
+                'text' => '',
                 'type' => 'caption'
             ), $attr)
     );
@@ -116,12 +117,18 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
         if (empty($ct_copyright_format)) {
             $ct_copyright_format = get_single_option('ct_copyright_format');
         }
+        // override image caption via 'text' attribute
+        if (!empty($text)) {
+            $image['caption'] = $text;
+        }
+        $ct_copyright = process_item_copyright($image, $ct_copyright_format);
+
 
         $content = str_replace('<img', '<img itemprop="contentUrl"', $content);
 
         $ret = '<div id="' . $id_orig . '" class="wp-caption ' . esc_attr($align) . '" itemscope itemtype="http://schema.org/ImageObject" style="width: ' . (0 + (int)$width) . 'px">';
         $ret .= do_shortcode($content);
-        $ret .= '<p class="wp-caption-text" itemprop="copyrightHolder">' . process_item_copyright($image, $ct_copyright_format) . '</p>';
+        $ret .= '<p class="wp-caption-text" itemprop="copyrightHolder">' . $ct_copyright . '</p>';
         $ret .= '<meta itemprop="name" content="' . $image['title'] . '">';
         $ret .= '<meta itemprop="caption" content="' . $image['caption'] . '">';
         $ret .= '<meta itemprop="author" content="' . $image['author'] . '">';

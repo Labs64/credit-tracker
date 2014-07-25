@@ -250,6 +250,29 @@ function print_reference_section()
         <tbody>
         <tr valign="top">
             <th scope="row">
+                [caption]
+            </th>
+            <td>
+                <p>Override WordPress [caption] shortcode.</p>
+
+                <p>Attributes:</p>
+
+                <p>&nbsp;&nbsp;<strong>text</strong> <i>(optional)</i> - custom attribute to override standard media caption. The
+                    default behavior, if not specified standard media caption will be used.</p>
+
+                <p><strong>Examples:</strong></p>
+
+                <p><code>[caption]...[/caption]</code></p>
+
+                <p>Override [caption] shortcode</p>
+
+                <p><code>[caption text="image caption"]...[/caption]</code></p>
+
+                <p>Override [caption] shortcode and use <i>text</i> instead of the standard media property</p>
+            </td>
+        </tr>
+        <tr valign="top">
+            <th scope="row">
                 [credit_tracker_table]
             </th>
             <td>

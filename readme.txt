@@ -141,6 +141,8 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 = 0.9.16 =
 * Use original photo URIs for the *Link* attribute
 * Enable Freeimages
+* Add WordPress [caption] shortcode to the 'Shortcodes Reference' section
+* Introduce 'text' attribute to the [caption] shortcode; usage - [caption text="image caption"]...[/caption]
 
 = 0.9.15 =
 * Introduce additional *Link* attribute
