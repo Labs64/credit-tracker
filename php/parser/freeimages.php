@@ -33,8 +33,7 @@ class Freeimages extends Parser
         if ($html) {
             $xpath = new DOMXPath($doc);
 
-            // TODO: revisit xpath string (sample: http://www.freeimages.com/photo/1443266 )
-            $tags = $xpath->query("//tr/td[contains(., 'Uploaded by:')]/following::td[1]/a");
+            $tags = $xpath->query("//tr/td[contains(., 'Uploaded by')]/a");
             if (!is_null($tags) && $tags->length > 0) {
                 $item['author'] = $tags->item(0)->textContent;
             }
