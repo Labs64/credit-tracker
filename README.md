@@ -1,5 +1,9 @@
 # Credit Tracker WordPress plugin
 
+![Credit Tracker Banner](https://raw.githubusercontent.com/Labs64/credit-tracker/master/assets/banner-772x250.png)
+
+---
+
 The effective use of stock images and photography on your website and blog can have a massive impact on the number of visits which your site receives, and the positive response which visitors have to your sites content. Whilst a great deal of high quality images are available for free in the public domain, to really make your site stand out you’ll want to use images which are supplied by a top quality photographer or company.
 
 However, the inclusion of images which are not in the public domain means that you must provide proper attribution credits to the photographers and image creators.
