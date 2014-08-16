@@ -11,31 +11,31 @@
 
 
 define('CT_OPTIONS', 'CT_OPTIONS');
-define('API_KEY', '31c7bc4e-90ff-44fb-9f07-b88eb06ed9dc');
+define('CT_API_KEY', '31c7bc4e-90ff-44fb-9f07-b88eb06ed9dc');
 
 
 if (is_admin()) {
     // Add the options page and menu item.
-    add_action('admin_menu', 'add_plugin_page');
-    add_action('admin_init', 'page_init');
+    add_action('admin_menu', 'ct_add_plugin_page');
+    add_action('admin_init', 'ct_page_init');
 
     // Add an action link pointing to the options page.
     $plugin_basename = plugin_basename(plugin_dir_path(__FILE__) . 'credit-tracker.php');
-    add_filter('plugin_action_links_' . $plugin_basename, 'add_action_links');
+    add_filter('plugin_action_links_' . $plugin_basename, 'ct_add_action_links');
 
     // Load admin style sheet and JavaScript.
-    add_action('admin_enqueue_scripts', 'enqueue_admin_styles');
-    add_action('admin_enqueue_scripts', 'enqueue_admin_scripts');
+    add_action('admin_enqueue_scripts', 'ct_enqueue_admin_styles');
+    add_action('admin_enqueue_scripts', 'ct_enqueue_admin_scripts');
 
     // Get media data callback registration
-    add_action('wp_ajax_validate', 'validate_callback');
-    add_action('wp_ajax_get_media_data', 'get_media_data_callback');
+    add_action('wp_ajax_validate', 'ct_validate_callback');
+    add_action('wp_ajax_get_media_data', 'ct_get_media_data_callback');
 }
 
 /**
  * Add settings action link to the plugins page.
  */
-function add_action_links($links)
+function ct_add_action_links($links)
 {
     return array_merge(
         array(
@@ -48,7 +48,7 @@ function add_action_links($links)
 /**
  * Add options page
  */
-function add_plugin_page()
+function ct_add_plugin_page()
 {
     global $plugin_screen_hook_suffix;
     $plugin_screen_hook_suffix = add_options_page(
@@ -56,7 +56,7 @@ function add_plugin_page()
         __('Credit Tracker', CT_SLUG),
         'manage_options',
         CT_SLUG,
-        'create_admin_page'
+        'ct_create_admin_page'
     );
 }
 
@@ -65,7 +65,7 @@ function add_plugin_page()
  *
  * @return    null    Return early if no settings page is registered.
  */
-function enqueue_admin_styles()
+function ct_enqueue_admin_styles()
 {
     global $plugin_screen_hook_suffix;
 
@@ -85,7 +85,7 @@ function enqueue_admin_styles()
  *
  * @return    null    Return early if no settings page is registered.
  */
-function enqueue_admin_scripts()
+function ct_enqueue_admin_scripts()
 {
     global $plugin_screen_hook_suffix;
 
@@ -103,7 +103,7 @@ function enqueue_admin_scripts()
 /**
  * Options page callback
  */
-function create_admin_page()
+function ct_create_admin_page()
 {
     ?>
     <div class="wrap" xmlns="http://www.w3.org/1999/html">
@@ -115,21 +115,21 @@ function create_admin_page()
             <?php
             // This prints out all hidden setting fields
             settings_fields('CT_OPTIONS_GROUP');
-            settings_fields_hidden();
+            ct_settings_fields_hidden();
             do_settings_sections(CT_SLUG);
             submit_button();
             ?>
         </form>
         <hr/>
         <?php
-        print_reference_section();
+        ct_print_reference_section();
         ?>
     </div>
     <div class="info_menu">
         <?php
-        print_features_section();
-        print_divider();
-        print_feedback_section();
+        ct_print_features_section();
+        ct_print_divider();
+        ct_print_feedback_section();
         ?>
     </div>
 <?php
@@ -138,7 +138,7 @@ function create_admin_page()
 /**
  * Print sections divider
  */
-function print_divider()
+function ct_print_divider()
 {
     ?>
     <hr/>
@@ -148,7 +148,7 @@ function print_divider()
 /**
  * Print the Section info text
  */
-function get_on_off($opt)
+function ct_get_on_off($opt)
 {
     if ($opt == '1') {
         return "<span class='label-on'>ON</span>";
@@ -160,14 +160,14 @@ function get_on_off($opt)
 /**
  * Print the Common-Section info text
  */
-function print_common_section_info()
+function ct_print_common_section_info()
 {
 }
 
 /**
  * Print the Retriever-Section info text
  */
-function print_retriever_section_info()
+function ct_print_retriever_section_info()
 {
     print __('Some Image Data Retriever needs additional configuration', CT_SLUG);
 }
@@ -186,11 +186,11 @@ function ct_get_features_array()
 /**
  * Get features list.
  */
-function print_features_list($features)
+function ct_print_features_list($features)
 {
     $ret = '<ul id="ct_features">';
     foreach ($features as $key => $value) {
-        $ret .= '<li id="' . $key . '">&nbsp;' . $value . ' - ' . get_on_off(get_single_option($key)) . '</li>';
+        $ret .= '<li id="' . $key . '">&nbsp;' . $value . ' - ' . ct_get_on_off(ct_get_single_option($key)) . '</li>';
     }
     $ret .= '</ul>';
     print $ret;
@@ -199,15 +199,15 @@ function print_features_list($features)
 /**
  * Print the features section
  */
-function print_features_section()
+function ct_print_features_section()
 {
-    $ct_feature_retriever = get_single_option('ct_feature_retriever');
+    $ct_feature_retriever = ct_get_single_option('ct_feature_retriever');
 
     ?>
     <h3><?php _e('Features', CT_SLUG); ?></h3>
     <p><?php _e('Available plugin features', CT_SLUG); ?>:</p>
 
-    <?php print_features_list(ct_get_features_array()); ?>
+    <?php ct_print_features_list(ct_get_features_array()); ?>
 
     <button id="validate" type="button""><?php _e('Validate'); ?></button>
     <br/>
@@ -221,7 +221,7 @@ function print_features_section()
 /**
  * Print the feedback section
  */
-function print_feedback_section()
+function ct_print_feedback_section()
 {
     ?>
     <h3><?php _e('Feedback', CT_SLUG); ?></h3>
@@ -242,7 +242,7 @@ function print_feedback_section()
 /**
  * Print the reference section
  */
-function print_reference_section()
+function ct_print_reference_section()
 {
     ?>
     <h3><?php _e('Shortcodes Reference', CT_SLUG); ?></h3>
@@ -311,25 +311,25 @@ function print_reference_section()
 /**
  * Register and add settings
  */
-function page_init()
+function ct_page_init()
 {
     register_setting(
         'CT_OPTIONS_GROUP', // Option group
         CT_OPTIONS, // Option name
-        'sanitize' // Sanitize
+        'ct_sanitize' // Sanitize
     );
 
     add_settings_section(
         'CT_COMMON_SETTINGS', // ID
         __('Credit Tracker Settings', CT_SLUG), // Title
-        'print_common_section_info', // Callback
+        'ct_print_common_section_info', // Callback
         CT_SLUG // Page
     );
 
     add_settings_section(
         'CT_RETRIEVER_SETTINGS', // ID
         __('Retriever Settings', CT_SLUG), // Title
-        'print_retriever_section_info', // Callback
+        'ct_print_retriever_section_info', // Callback
         CT_SLUG // Page
     );
 
@@ -376,7 +376,7 @@ function page_init()
  *
  * @param array $input Contains all settings fields as array keys
  */
-function sanitize($input)
+function ct_sanitize($input)
 {
     if (empty($input['ct_copyright_format'])) {
         if (is_admin()) {
@@ -393,16 +393,16 @@ function sanitize($input)
 
 /**
  */
-function settings_fields_hidden()
+function ct_settings_fields_hidden()
 {
-    print_settings_field_hidden('ct_feature_retriever');
+    ct_print_settings_field_hidden('ct_feature_retriever');
 }
 
 /**
  */
-function print_settings_field_hidden($id)
+function ct_print_settings_field_hidden($id)
 {
-    $value = get_single_option($id);
+    $value = ct_get_single_option($id);
     echo "<input type='hidden' id='$id' name='CT_OPTIONS[$id]' value='$value' />";
 }
 
@@ -412,7 +412,7 @@ function ct_text_field_callback($args)
 {
     $id = $args['id'];
     $description = $args['description'];
-    $value = get_single_option($id);
+    $value = ct_get_single_option($id);
     echo "<input type='text' id='$id' name='CT_OPTIONS[$id]' value='$value' class='regular-text' />";
     echo "<p class='description'>$description</p>";
 }
@@ -422,7 +422,7 @@ function ct_checkbox_field_callback($args)
     $id = $args['id'];
     $caption = $args['caption'];
     $description = $args['description'];
-    $value = get_single_option($id);
+    $value = ct_get_single_option($id);
     echo "<input type='checkbox' id='$id' name='CT_OPTIONS[$id]' value='1' class='code' " . checked(1, $value, false) . " /> $caption";
     echo "<p class='description'>$description</p>";
 }
@@ -431,7 +431,7 @@ function ct_checkbox_field_callback($args)
  * Returns default options.
  * If you override the options here, be careful to use escape characters!
  */
-function get_default_options()
+function ct_get_default_options()
 {
     $default_options = array(
         'ct_feature_retriever' => '0',
@@ -445,12 +445,12 @@ function get_default_options()
 /**
  * Retrieves (and sanitises) options
  */
-function get_options()
+function ct_get_options()
 {
-    $options = get_default_options();
+    $options = ct_get_default_options();
     $stored_options = get_option(CT_OPTIONS);
     if (!empty($stored_options)) {
-        sanitize($stored_options);
+        ct_sanitize($stored_options);
         $options = wp_parse_args($stored_options, $options);
     }
     update_option(CT_OPTIONS, $options);
@@ -460,18 +460,18 @@ function get_options()
 /**
  * Retrieves single option
  */
-function get_single_option($name)
+function ct_get_single_option($name)
 {
-    $options = get_options();
+    $options = ct_get_options();
     return $options[$name];
 }
 
 /**
  * Set single option value
  */
-function set_single_option($name, $value)
+function ct_set_single_option($name, $value)
 {
-    $options = get_options();
+    $options = ct_get_options();
     $options[$name] = $value;
     update_option(CT_OPTIONS, $options);
 }
@@ -528,21 +528,21 @@ function ct_get_source_metadata($source, $number)
 /**
  * Validate allowed features against Labs64 Netlicensing
  */
-function validate_callback()
+function ct_validate_callback()
 {
     // validate features
-    $nlic = new NetLicensing(API_KEY);
-    $res = $nlic->validate('CT', strip_url(get_site_url(), 1000), urlencode(get_site_url()));
+    $nlic = new NetLicensing(CT_API_KEY);
+    $res = $nlic->validate('CT', ct_strip_url(get_site_url(), 1000), urlencode(get_site_url()));
 
-    // TODO: process NetLicensing response
+    // NOTE: no NetLicensing response processing at the moment necessary; only product usage tracking functionality
 
     // update options
-    set_single_option('ct_feature_retriever', '1');
+    ct_set_single_option('ct_feature_retriever', '1');
 
     // prepare return values
     $licenses = array(
         'netlicensing_response' => $res,
-        'ct_feature_retriever' => get_single_option('ct_feature_retriever')
+        'ct_feature_retriever' => ct_get_single_option('ct_feature_retriever')
     );
     echo json_encode($licenses);
 
@@ -552,7 +552,7 @@ function validate_callback()
 /**
  * Media data callback
  */
-function get_media_data_callback()
+function ct_get_media_data_callback()
 {
     $item = ct_get_source_metadata($_POST['source'], $_POST['ident_nr']);
 
@@ -583,43 +583,43 @@ function ct_get_sources_array()
         ),
         'Fotolia' => array(
             'caption' => 'Fotolia',
-            'copyright' => 'get_fotolia_copyright',
-            'retriever' => 'get_fotolia_metadata'
+            'copyright' => 'ct_get_fotolia_copyright',
+            'retriever' => 'ct_get_fotolia_metadata'
         ),
         'iStockphoto' => array(
             'caption' => 'iStockphoto',
-            'copyright' => 'get_istockphoto_copyright',
-            'retriever' => 'get_istockphoto_metadata'
+            'copyright' => 'ct_get_istockphoto_copyright',
+            'retriever' => 'ct_get_istockphoto_metadata'
         ),
         'Shutterstock' => array(
             'caption' => 'Shutterstock',
-            'copyright' => 'get_shutterstock_copyright',
-            'retriever' => 'get_shutterstock_metadata'
+            'copyright' => 'ct_get_shutterstock_copyright',
+            'retriever' => 'ct_get_shutterstock_metadata'
         ),
         'Corbis_Images' => array(
             'caption' => 'Corbis Images',
-            'copyright' => 'get_corbis_images_copyright',
-            'retriever' => 'get_corbis_images_metadata'
+            'copyright' => 'ct_get_corbis_images_copyright',
+            'retriever' => 'ct_get_corbis_images_metadata'
         ),
         'Getty_Images' => array(
             'caption' => 'Getty Images',
-            'copyright' => 'get_getty_images_copyright',
-            'retriever' => 'get_getty_images_metadata'
+            'copyright' => 'ct_get_getty_images_copyright',
+            'retriever' => 'ct_get_getty_images_metadata'
         ),
         'pixelio' => array(
             'caption' => 'Pixelio',
-            'copyright' => 'get_pixelio_copyright',
-            'retriever' => 'get_pixelio_metadata'
+            'copyright' => 'ct_get_pixelio_copyright',
+            'retriever' => 'ct_get_pixelio_metadata'
         ),
         'flickr' => array(
             'caption' => 'Flickr',
-            'copyright' => 'get_flickr_copyright',
-            'retriever' => 'get_flickr_metadata'
+            'copyright' => 'ct_get_flickr_copyright',
+            'retriever' => 'ct_get_flickr_metadata'
         ),
         'freeimages' => array(
             'caption' => 'Freeimages',
-            'copyright' => 'get_freeimages_copyright',
-            'retriever' => 'get_freeimages_metadata'
+            'copyright' => 'ct_get_freeimages_copyright',
+            'retriever' => 'ct_get_freeimages_metadata'
         )
     );
     return $sources;
@@ -628,41 +628,41 @@ function ct_get_sources_array()
 /**
  * Fotolia: copyright
  */
-function get_fotolia_copyright()
+function ct_get_fotolia_copyright()
 {
-    return Fotolia::COPYRIGHT;
+    return CTFotolia::COPYRIGHT;
 }
 
 /**
  * Fotolia: metadata
  */
-function get_fotolia_metadata($number)
+function ct_get_fotolia_metadata($number)
 {
-    $parser = new Fotolia();
+    $parser = new CTFotolia();
     return $parser->execute($number);
 }
 
 /**
  * iStockphoto: copyright
  */
-function get_istockphoto_copyright()
+function ct_get_istockphoto_copyright()
 {
-    return IStockphoto::COPYRIGHT;
+    return CTIStockphoto::COPYRIGHT;
 }
 
 /**
  * iStockphoto: metadata
  */
-function get_istockphoto_metadata($number)
+function ct_get_istockphoto_metadata($number)
 {
-    $parser = new IStockphoto();
+    $parser = new CTIStockphoto();
     return $parser->execute($number);
 }
 
 /**
  * Shutterstock: copyright
  */
-function get_shutterstock_copyright()
+function ct_get_shutterstock_copyright()
 {
     return '&copy; %author%';
 }
@@ -670,7 +670,7 @@ function get_shutterstock_copyright()
 /**
  * Shutterstock: metadata
  */
-function get_shutterstock_metadata($number)
+function ct_get_shutterstock_metadata($number)
 {
     $item = array();
 
@@ -684,7 +684,7 @@ function get_shutterstock_metadata($number)
 /**
  * Corbis Images: copyright
  */
-function get_corbis_images_copyright()
+function ct_get_corbis_images_copyright()
 {
     return '&copy; %author%/Corbis';
 }
@@ -692,7 +692,7 @@ function get_corbis_images_copyright()
 /**
  * Corbis Images: metadata
  */
-function get_corbis_images_metadata($number)
+function ct_get_corbis_images_metadata($number)
 {
     $item = array();
 
@@ -706,7 +706,7 @@ function get_corbis_images_metadata($number)
 /**
  * Getty Images: copyright
  */
-function get_getty_images_copyright()
+function ct_get_getty_images_copyright()
 {
     return '&copy; %author% / Getty Images';
 }
@@ -714,7 +714,7 @@ function get_getty_images_copyright()
 /**
  * Getty Images: metadata
  */
-function get_getty_images_metadata($number)
+function ct_get_getty_images_metadata($number)
 {
     $item = array();
 
@@ -728,51 +728,51 @@ function get_getty_images_metadata($number)
 /**
  * Pixelio: copyright
  */
-function get_pixelio_copyright()
+function ct_get_pixelio_copyright()
 {
-    return Pixelio::COPYRIGHT;
+    return CTPixelio::COPYRIGHT;
 }
 
 /**
  * Pixelio: metadata
  */
-function get_pixelio_metadata($number)
+function ct_get_pixelio_metadata($number)
 {
-    $parser = new Pixelio();
+    $parser = new CTPixelio();
     return $parser->execute($number);
 }
 
 /**
  * Flickr: copyright
  */
-function get_flickr_copyright()
+function ct_get_flickr_copyright()
 {
-    return Flickr::COPYRIGHT;
+    return CTFlickr::COPYRIGHT;
 }
 
 /**
  * Flickr: metadata
  */
-function get_flickr_metadata($number)
+function ct_get_flickr_metadata($number)
 {
-    $parser = new Flickr(get_single_option('ct_auth_flickr_apikey'));
+    $parser = new CTFlickr(ct_get_single_option('ct_auth_flickr_apikey'));
     return $parser->execute($number);
 }
 
 /**
  * Freeimages: copyright
  */
-function get_freeimages_copyright()
+function ct_get_freeimages_copyright()
 {
-    return Freeimages::COPYRIGHT;
+    return CTFreeimages::COPYRIGHT;
 }
 
 /**
  * Freeimages: metadata
  */
-function get_freeimages_metadata($number)
+function ct_get_freeimages_metadata($number)
 {
-    $parser = new Freeimages();
+    $parser = new CTFreeimages();
     return $parser->execute($number);
 }
 

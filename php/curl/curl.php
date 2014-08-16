@@ -8,6 +8,8 @@
  * @package curl
  * @author Sean Huber <shuber@huberry.com>
 **/
+if (!class_exists('Curl')) {
+
 class Curl {
     
     /**
@@ -252,5 +254,7 @@ class Curl {
             curl_setopt($this->request, constant('CURLOPT_'.str_replace('CURLOPT_', '', strtoupper($option))), $value);
         }
     }
+
+}
 
 }

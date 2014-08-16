@@ -6,7 +6,7 @@
  * @package parser
  * @author Labs64 <info@labs64.com>
  **/
-class Fotolia extends Parser
+class CTFotolia extends CTParser
 {
 
     const COPYRIGHT = '&copy; %author% - Fotolia.com';

@@ -7,6 +7,8 @@
  * @package curl
  * @author Sean Huber <shuber@huberry.com>
 **/
+if (!class_exists('CurlResponse')) {
+
 class CurlResponse {
     
     /**
@@ -75,4 +77,6 @@ class CurlResponse {
         return $this->body;
     }
     
+}
+
 }

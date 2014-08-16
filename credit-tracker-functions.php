@@ -17,7 +17,7 @@
  *         'numberposts'  => -1               // max quantity of records to return; default = -1 (all)
  *     );
  */
-function get_images($attr)
+function ct_get_images($attr)
 {
     $defaults = array(
         'size' => 'thumbnail',
@@ -75,7 +75,7 @@ function get_images($attr)
 /**
  * Returns copyright string formatted according to the given format.
  */
-function process_item_copyright($item, $string)
+function ct_process_item_copyright($item, $string)
 {
     $string = str_replace("%ident_nr%", $item['ident_nr'], $string);
     $string = str_replace("%source%", $item['source'], $string);
@@ -101,7 +101,7 @@ function process_item_copyright($item, $string)
  * <option value=$key>$value</option>
  * <option value=$key selected="selected">$value</option>
  */
-function get_combobox_options($options, $selected)
+function ct_get_combobox_options($options, $selected)
 {
     $ret = '';
     foreach ($options as $key => $value) {
@@ -120,7 +120,7 @@ function get_combobox_options($options, $selected)
  * @param string $url
  * @return string
  */
-function strip_url($url, $len = 20)
+function ct_strip_url($url, $len = 20)
 {
     $short_url = str_replace(array('http://', 'https://', 'www.'), '', $url);
     $short_url = preg_replace('/[^a-zA-Z0-9_-]/', '', $short_url);

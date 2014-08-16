@@ -150,7 +150,7 @@ class Credit_Tracker
      */
     private static function single_activate()
     {
-        // TODO: Define activation functionality here
+        // activation functionality
     }
 
     /**
@@ -158,7 +158,7 @@ class Credit_Tracker
      */
     private static function single_deactivate()
     {
-        // TODO: Define deactivation functionality here
+        // deactivation functionality
     }
 
     /**
@@ -192,7 +192,7 @@ class Credit_Tracker
     public function get_attachment_fields($form_fields, $post)
     {
         $selected_source = get_post_meta($post->ID, "credit-tracker-source", true);
-        $ct_retriever_enabled = get_single_option('ct_feature_retriever');
+        $ct_retriever_enabled = ct_get_single_option('ct_feature_retriever');
 
         $form_fields["credit-tracker-ident_nr"] = array(
             "label" => __('Ident-Nr.', CT_SLUG),
@@ -213,7 +213,7 @@ class Credit_Tracker
             "label" => __('Source', CT_SLUG),
             "input" => "html",
             "value" => $selected_source,
-            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . get_combobox_options(ct_get_sources_names_array(), $selected_source) . "</select>&nbsp;&nbsp;<button id='mediadata' type='button' " . $btn_state . ">" . __("GET MEDIA DATA", CT_SLUG) . "</button>" . "&nbsp;" . $link_activate,
+            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . ct_get_combobox_options(ct_get_sources_names_array(), $selected_source) . "</select>&nbsp;&nbsp;<button id='mediadata' type='button' " . $btn_state . ">" . __("GET MEDIA DATA", CT_SLUG) . "</button>" . "&nbsp;" . $link_activate,
             "helps" => __("Source where to locate the original media", CT_SLUG),
         );
 

@@ -6,7 +6,7 @@
  * @package parser
  * @author Labs64 <info@labs64.com>
  **/
-abstract class Parser
+abstract class CTParser
 {
     protected $curl = null;
 

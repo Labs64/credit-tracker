@@ -6,7 +6,7 @@
  * @package parser
  * @author Labs64 <info@labs64.com>
  **/
-class Pixelio extends Parser
+class CTPixelio extends CTParser
 {
 
     const COPYRIGHT = '&copy; %author% / <a href="http://www.pixelio.de" target="_blank">PIXELIO</a>';

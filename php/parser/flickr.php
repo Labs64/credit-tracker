@@ -6,7 +6,7 @@
  * @package parser
  * @author Labs64 <info@labs64.com>
  **/
-class Flickr extends Parser
+class CTFlickr extends CTParser
 {
 
     const COPYRIGHT = '&copy; %author% - Flickr.com';

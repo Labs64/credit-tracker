@@ -6,7 +6,7 @@
  * @package parser
  * @author Labs64 <info@labs64.com>
  **/
-class Freeimages extends Parser
+class CTFreeimages extends CTParser
 {
 
     const COPYRIGHT = '&copy; %author% / <a href="http://www.freeimages.com" target="_blank">freeimages.com</a>';

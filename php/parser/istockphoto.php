@@ -6,7 +6,7 @@
  * @package parser
  * @author Labs64 <info@labs64.com>
  **/
-class IStockphoto extends Parser
+class CTIStockphoto extends CTParser
 {
 
     const COPYRIGHT = '&copy;iStockphoto.com/%author%';

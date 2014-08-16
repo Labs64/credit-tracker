@@ -34,7 +34,7 @@ function credit_tracker_table_shortcode($atts)
         'size' => $size,
         'include' => $id
     );
-    $images = get_images($request);
+    $images = ct_get_images($request);
 
     $ret = '<table id="credit-tracker-table" class="credit-tracker-' . $style . '"><thead>';
     $ret .= '<th>' . '&nbsp;' . '</th>';
@@ -53,7 +53,7 @@ function credit_tracker_table_shortcode($atts)
         if (!empty($image['author'])) {
             $ct_copyright_format = ct_get_source_copyright($image['source']);
             if (empty($ct_copyright_format)) {
-                $ct_copyright_format = get_single_option('ct_copyright_format');
+                $ct_copyright_format = ct_get_single_option('ct_copyright_format');
             }
 
             $ret .= '<tr>';
@@ -61,7 +61,7 @@ function credit_tracker_table_shortcode($atts)
             $ret .= '<td>' . $image['ident_nr'] . '</td>';
             $ret .= '<td>' . $image['author'] . '</td>';
             $ret .= '<td>' . $image['publisher'] . '</td>';
-            $ret .= '<td>' . process_item_copyright($image, $ct_copyright_format) . '</td>';
+            $ret .= '<td>' . ct_process_item_copyright($image, $ct_copyright_format) . '</td>';
             $ret .= '<td>' . $image['license'] . '</td>';
             $ret .= '</tr>';
         }
@@ -85,7 +85,7 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
             ), $attr)
     );
 
-    $ct_override_caption_shortcode = get_single_option('ct_override_caption_shortcode');
+    $ct_override_caption_shortcode = ct_get_single_option('ct_override_caption_shortcode');
     if ((bool)$ct_override_caption_shortcode) {
         if (1 > (int)$width) {
             return $val;
@@ -107,7 +107,7 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
             'size' => 'thumbnail',
             'include' => $id
         );
-        $images = get_images($request);
+        $images = ct_get_images($request);
         if (empty($images)) {
             return $val;
         }
@@ -115,13 +115,13 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
 
         $ct_copyright_format = ct_get_source_copyright($image['source']);
         if (empty($ct_copyright_format)) {
-            $ct_copyright_format = get_single_option('ct_copyright_format');
+            $ct_copyright_format = ct_get_single_option('ct_copyright_format');
         }
         // override image caption via 'text' attribute
         if (!empty($text)) {
             $image['caption'] = $text;
         }
-        $ct_copyright = process_item_copyright($image, $ct_copyright_format);
+        $ct_copyright = ct_process_item_copyright($image, $ct_copyright_format);
 
 
         $content = str_replace('<img', '<img itemprop="contentUrl"', $content);
