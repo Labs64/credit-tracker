@@ -141,6 +141,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 = 0.9.17 =
 * Test and approve plugin for WordPress 3.9.2
 * Stability: use CT scope
+* Fix Flickr *Link* attribute capture
 
 = 0.9.16 =
 * Enable Freeimages

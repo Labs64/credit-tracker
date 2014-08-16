@@ -36,8 +36,11 @@ class CTFlickr extends CTParser
             $username = $photosGetInfo_resp['photo']['owner']['username'];
             $item['author'] = (empty($realname)) ? $username : $realname;
 
-            // TODO: parse photo.urls.url
+            // parse photo.urls.url
             $item['link'] = '';
+            if (!empty($photosGetInfo_resp['photo']['urls']['url'])) {
+                $item['link'] = $photosGetInfo_resp['photo']['urls']['url'][0]['_content'];
+            }
 
             $license_id = $photosGetInfo_resp['photo']['license'];
             $photosLicensesGetInfo_resp = $this->photosLicensesGetInfo();
