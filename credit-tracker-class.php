@@ -40,9 +40,6 @@ class Credit_Tracker
 
         add_filter('manage_media_columns', array($this, 'credit_tracker_attachment_columns'), null, 2);
         add_action('manage_media_custom_column', array($this, 'credit_tracker_attachment_show_column'), null, 2);
-
-        add_action('admin_footer', array($this, 'get_media_data_javascript'));
-        add_action('admin_footer', array($this, 'get_media_data_style'));
     }
 
     /**
@@ -213,7 +210,7 @@ class Credit_Tracker
             "label" => __('Source', CT_SLUG),
             "input" => "html",
             "value" => $selected_source,
-            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . ct_get_combobox_options(ct_get_sources_names_array(), $selected_source) . "</select>&nbsp;&nbsp;<button id='mediadata' type='button' " . $btn_state . ">" . __("GET MEDIA DATA", CT_SLUG) . "</button>" . "&nbsp;" . $link_activate,
+            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . ct_get_combobox_options(ct_get_sources_names_array(), $selected_source) . "</select>&nbsp;&nbsp;<button id='ct-mediadata' type='button' " . $btn_state . ">" . __("GET MEDIA DATA", CT_SLUG) . "</button>" . "&nbsp;" . $link_activate,
             "helps" => __("Source where to locate the original media", CT_SLUG),
         );
 
@@ -314,40 +311,6 @@ class Credit_Tracker
                 echo $value;
                 break;
         }
-    }
-
-    function get_media_data_javascript()
-    {
-        ?>
-        <script type="text/javascript">
-            jQuery(document).ready(function ($) {
-                $("#mediadata").click(function () {
-                    var data = {
-                        action: 'get_media_data',
-                        source: $("[id$=credit-tracker-source]").val(),
-                        ident_nr: $("[id$=credit-tracker-ident_nr]").val()
-                    };
-
-                    $.post(ajaxurl, data, function (response) {
-                        // alert('Got this from the server: ' + response);
-                        var mediadata = jQuery.parseJSON(response);
-                        $("[id$=credit-tracker-author]").val(mediadata.author);
-                        $("[id$=credit-tracker-publisher]").val(mediadata.publisher);
-                        $("[id$=credit-tracker-license]").val(mediadata.license);
-                        $("[id$=credit-tracker-link]").val(mediadata.link);
-                    });
-                });
-            });
-        </script>
-    <?php
-    }
-
-    function get_media_data_style()
-    {
-        ?>
-        <style type="text/css">
-        </style>
-    <?php
     }
 
 }

@@ -94,7 +94,7 @@ function ct_enqueue_admin_scripts()
     }
 
     $screen = get_current_screen();
-    if ($screen->id == $plugin_screen_hook_suffix) {
+    if (in_array($screen->id, [$plugin_screen_hook_suffix, 'attachment', 'upload'])) {
         wp_enqueue_script(CT_SLUG . '-admin-script', plugins_url('js/ct-admin.js', __FILE__), array('jquery'), CT_VERSION);
     }
 
@@ -209,7 +209,7 @@ function ct_print_features_section()
 
     <?php ct_print_features_list(ct_get_features_array()); ?>
 
-    <button id="validate" type="button""><?php _e('Validate'); ?></button>
+    <button id="ct-validate" type="button""><?php _e('Validate'); ?></button>
     <br/>
     <div style="font-style: italic; color: rgb(102, 102, 102); font-size: smaller;"><p>Powered by <a
                 href="http://www.labs64.com/netlicensing"

@@ -8,6 +8,22 @@
  */
 
 /**
+ * Write DEBUG log.
+ */
+if (!function_exists('ct_write_log')) {
+    function ct_write_log($log)
+    {
+        if (true === WP_DEBUG) {
+            if (is_array($log) || is_object($log)) {
+                error_log(print_r($log, true));
+            } else {
+                error_log($log);
+            }
+        }
+    }
+}
+
+/**
  * Returns array of images with attributes.
  *
  * Sample input parameters:
