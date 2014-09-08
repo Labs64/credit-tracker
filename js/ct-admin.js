@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
         };
 
         $.post(ajaxurl, data, function (response) {
-            alert('Got this from the server: ' + response);
+            //alert('Got this from the server: ' + response);
             var features = jQuery.parseJSON(response);
             $.each(features, function (key, value) {
                 var featText = 'OFF';
@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
         };
 
         $.post(ajaxurl, data, function (response) {
-            alert('Got this from the server: ' + response);
+            //alert('Got this from the server: ' + response);
             var mediadata = jQuery.parseJSON(response);
             $("[id$=credit-tracker-author]").val(mediadata.author);
             $("[id$=credit-tracker-publisher]").val(mediadata.publisher);
