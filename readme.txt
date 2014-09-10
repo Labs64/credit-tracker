@@ -139,7 +139,8 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.0.1 =
-* TODO
+* Fixed [Syntax error in latest version #5](https://github.com/Labs64/credit-tracker/issues/5) issue (PHP 5.3.10)
+* Prevent showing 'Get Media Data' button on unsupported pages/screens
 
 = 1.0.0 =
 * Change major version number

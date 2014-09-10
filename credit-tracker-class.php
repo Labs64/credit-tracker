@@ -206,11 +206,20 @@ class Credit_Tracker
             $link_activate = "<a href='" . admin_url('options-general.php?page=credit-tracker') . "'>" . __("activate", CT_SLUG) . "</a>";
         }
 
+        // Note: only attachment (media edit) page is enabled at the moment for the media data retrieval
+        $screen = get_current_screen();
+        $ct_btn_allowed_screens = array("attachment");
+        if (isset($screen) && in_array($screen->id, $ct_btn_allowed_screens)) {
+            $btn_retriever_code = "&nbsp;&nbsp;<button id='ct-mediadata' type='button' " . $btn_state . ">" . __("GET MEDIA DATA", CT_SLUG) . "</button>" . "&nbsp;" . $link_activate;
+        } else {
+            $btn_retriever_code = '';
+        }
+
         $form_fields["credit-tracker-source"] = array(
             "label" => __('Source', CT_SLUG),
             "input" => "html",
             "value" => $selected_source,
-            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . ct_get_combobox_options(ct_get_sources_names_array(), $selected_source) . "</select>&nbsp;&nbsp;<button id='ct-mediadata' type='button' " . $btn_state . ">" . __("GET MEDIA DATA", CT_SLUG) . "</button>" . "&nbsp;" . $link_activate,
+            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . ct_get_combobox_options(ct_get_sources_names_array(), $selected_source) . "</select>" . $btn_retriever_code,
             "helps" => __("Source where to locate the original media", CT_SLUG),
         );
 
