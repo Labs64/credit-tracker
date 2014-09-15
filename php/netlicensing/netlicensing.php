@@ -45,7 +45,7 @@ if (!class_exists('NetLicensing')) {
             }
             $params = array(
                 'productNumber' => $productNumber,
-                'name' => $licenseeName,
+                'licenseeName' => $licenseeName,
             );
             $url = self::NLIC_BASE_URL . '/licensee/' . $licenseeNumber . '/validate';
 
