@@ -563,7 +563,7 @@ function ct_get_media_data_callback()
     $mediadata = array(
         'source' => $_POST['source'],
         'ident_nr' => $_POST['ident_nr'],
-        'author' => $item['author'],
+        'author' => isset($item['author']) ? $item['author'] : '',
         'publisher' => $item['publisher'],
         'license' => $item['license'],
         'link' => $item['link']
