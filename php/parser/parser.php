@@ -8,13 +8,6 @@
  **/
 abstract class CTParser
 {
-    protected $curl = null;
-
-    function __construct()
-    {
-        $this->curl = new Curl();
-    }
-
     /**
      * Execute parser on the selected agency and returns an array containing parsing result.
      *
@@ -48,6 +41,26 @@ abstract class CTParser
         $item = array();
         $item['ident_nr'] = $number;
         return $item;
+    }
+
+    /**
+     * Wrapper around WP_HTTP object to allow simple get requests
+     *
+     * @param string $url
+     * @param array|string $vars 
+     * @return array ['headers','body','response','cookies']
+     */
+    protected function curl($url, $vars = array()){
+
+        // Build GET string
+        if (!empty($vars)) {
+            $url .= (stripos($url, '?') !== false) ? '&' : '?';
+            $url .= (is_string($vars)) ? $vars : http_build_query($vars, '', '&');
+        }
+
+        // Get contents via wordpress's http class
+        $http = new WP_Http;
+        return $http->request($url);
     }
 
 }

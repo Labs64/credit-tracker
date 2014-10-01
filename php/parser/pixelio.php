@@ -13,11 +13,6 @@ class CTPixelio extends CTParser
 
     const BASE_URL = 'http://www.pixelio.de/media/';
 
-    function __construct()
-    {
-        parent::__construct();
-    }
-
     protected function parse($number)
     {
         $url = self::BASE_URL . $number;
@@ -29,7 +24,7 @@ class CTPixelio extends CTParser
         $item['link'] = $url;
 
         $doc = new DOMDocument();
-        $html = @$doc->loadHTMLFile($url);
+        $html = @$doc->loadHTML($this->curl($url));
         if ($html) {
             $xpath = new DOMXPath($doc);
 

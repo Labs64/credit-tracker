@@ -17,8 +17,6 @@ class CTFlickr extends CTParser
 
     function __construct($apiKey)
     {
-        parent::__construct();
-
         $this->apiKey = $apiKey;
     }
 
@@ -69,8 +67,8 @@ class CTFlickr extends CTParser
             'photo_id' => $number,
             'format' => 'php_serial',
         );
-        $response = $this->curl->get(self::BASE_URL, $params);
-        return unserialize($response->body);
+        $response = $this->curl(self::BASE_URL, $params);
+        return unserialize($response['body']);
     }
 
     private function photosLicensesGetInfo()
@@ -80,8 +78,8 @@ class CTFlickr extends CTParser
             'api_key' => $this->apiKey,
             'format' => 'php_serial',
         );
-        $response = $this->curl->get(self::BASE_URL, $params);
-        return unserialize($response->body);
+        $response = $this->curl(self::BASE_URL, $params);
+        return unserialize($response['body']);
     }
 
     private function findLicensesById($id, $licenses = array())
@@ -92,5 +90,4 @@ class CTFlickr extends CTParser
             }
         }
     }
-
 }
