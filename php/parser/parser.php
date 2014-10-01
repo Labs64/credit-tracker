@@ -59,8 +59,7 @@ abstract class CTParser
         }
 
         // Get contents via wordpress's http class
-        $http = new WP_Http;
-        return $http->request($url);
+        return wp_remote_get($url);
     }
 
 }
