@@ -41,3 +41,7 @@ p {
 .compat-attachment-fields .label {
     vertical-align: top;
 }
+.compat-attachment-fields .field input {
+    box-sizing: border-box;
+}
+
