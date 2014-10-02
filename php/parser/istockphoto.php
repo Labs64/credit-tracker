@@ -24,7 +24,8 @@ class CTIStockphoto extends CTParser
         $item['link'] = $url;
 
         $doc = new DOMDocument();
-        $html = @$doc->loadHTML($this->curl($url));
+        $response = $this->curl($url);
+        $html = @$doc->loadHTML($response['body']);
         if ($html) {
             $xpath = new DOMXPath($doc);
 
