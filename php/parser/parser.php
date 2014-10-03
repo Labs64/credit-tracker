@@ -47,10 +47,11 @@ abstract class CTParser
      * Wrapper around WP_HTTP object to allow simple get requests
      *
      * @param string $url
-     * @param array|string $vars 
+     * @param array|string $vars
      * @return array ['headers','body','response','cookies']
      */
-    protected function curl($url, $vars = array()){
+    protected function curl($url, $vars = array())
+    {
 
         // Build GET string
         if (!empty($vars)) {
