@@ -68,7 +68,7 @@ class CTFlickr extends CTParser
             'format' => 'php_serial',
         );
         $response = $this->curl(self::BASE_URL, $params);
-        return unserialize($response['body']);
+        return unserialize(wp_remote_retrieve_body($response));
     }
 
     private function photosLicensesGetInfo()
@@ -79,7 +79,7 @@ class CTFlickr extends CTParser
             'format' => 'php_serial',
         );
         $response = $this->curl(self::BASE_URL, $params);
-        return unserialize($response['body']);
+        return unserialize(wp_remote_retrieve_body($response));
     }
 
     private function findLicensesById($id, $licenses = array())

@@ -25,7 +25,7 @@ class CTPixelio extends CTParser
 
         $doc = new DOMDocument();
         $response = $this->curl($url);
-        $html = @$doc->loadHTML($response['body']);
+        $html = @$doc->loadHTML(wp_remote_retrieve_body($response));
         if ($html) {
             $xpath = new DOMXPath($doc);
 
