@@ -4,12 +4,12 @@
 
 ---
 
-[![Stories in Ready](https://badge.waffle.io/labs64/credit-tracker.svg?label=ready&title=Ready)](http://waffle.io/labs64/credit-tracker)
 [![WordPress tested](http://img.shields.io/wordpress/v/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
 [![WordPress Plugin version](http://img.shields.io/wordpress/plugin/v/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
 [![WordPress Plugin Downloads](http://img.shields.io/wordpress/plugin/dt/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
 [![WordPress Plugin Rating](http://img.shields.io/wordpress/plugin/r/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
-[![License](http://img.shields.io/badge/license-GPLv3-red.svg?style=flat-square)](http://opensource.org/licenses/GPL-3.0)
+[![License](http://img.shields.io/badge/license-GPLv2-red.svg?style=flat-square)](http://opensource.org/licenses/GPL-3.0)
+[![Stories in Ready](https://badge.waffle.io/labs64/credit-tracker.svg?label=ready&title=Ready)](http://waffle.io/labs64/credit-tracker)
 
 ---
 
