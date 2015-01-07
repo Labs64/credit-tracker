@@ -4,6 +4,15 @@
 
 ---
 
+[![Stories in Ready](https://badge.waffle.io/labs64/credit-tracker.svg?label=ready&title=Ready)](http://waffle.io/labs64/credit-tracker)
+[![WordPress tested](http://img.shields.io/wordpress/v/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
+[![WordPress Plugin version](http://img.shields.io/wordpress/plugin/v/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
+[![WordPress Plugin Downloads](http://img.shields.io/wordpress/plugin/dt/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
+[![WordPress Plugin Rating](http://img.shields.io/wordpress/plugin/r/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
+[![License](http://img.shields.io/badge/license-GPLv3-red.svg?style=flat-square)](http://opensource.org/licenses/GPL-3.0)
+
+---
+
 The effective use of stock images and photography on your website and blog can have a massive impact on the number of visits which your site receives, and the positive response which visitors have to your sites content. Whilst a great deal of high quality images are available for free in the public domain, to really make your site stand out you’ll want to use images which are supplied by a top quality photographer or company.
 
 However, the inclusion of images which are not in the public domain means that you must provide proper attribution credits to the photographers and image creators.
@@ -50,7 +59,3 @@ Anyone and everyone is welcome to contribute. Dozens of developers have helped m
 * WordPress plugin page: [http://wordpress.org/plugins/credit-tracker/](http://wordpress.org/plugins/credit-tracker/)
 * Source: [https://github.com/Labs64/credit-tracker](https://github.com/Labs64/credit-tracker)
 * Author: [Labs64](http://www.labs64.com)
-
----
-
-[![Stories in Ready](https://badge.waffle.io/labs64/credit-tracker.svg?label=ready&title=Ready)](http://waffle.io/labs64/credit-tracker)
