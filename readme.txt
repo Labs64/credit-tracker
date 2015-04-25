@@ -140,6 +140,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 
 = 1.0.3 =
 * Fixed [Wordpress 'caption' shortcode rendering problem #10](https://github.com/Labs64/credit-tracker/issues/10) issue
+* Test and approve plugin for WordPress 4.2
 
 = 1.0.2 =
 * Update credit parsers to use Wordpress HTTP API [#6](https://github.com/Labs64/credit-tracker/pull/6) by [Carl](https://github.com/thybag)
