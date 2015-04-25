@@ -3,7 +3,7 @@ Contributors: labs64
 Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 3.5.1
 Tested up to: 4.2
-Stable tag: 1.1.0
+Stable tag: 1.0.3
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,11 +138,11 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 
 == Changelog ==
 
-= 1.1.0 =
-* TODO
+= 1.0.3 =
+* Fixed [Wordpress 'caption' shortcode rendering problem #10](https://github.com/Labs64/credit-tracker/issues/10) issue
 
 = 1.0.2 =
-* Update credit parsers to use Wordpress's HTTP API [#6](https://github.com/Labs64/credit-tracker/pull/6) by [Carl](https://github.com/thybag)
+* Update credit parsers to use Wordpress HTTP API [#6](https://github.com/Labs64/credit-tracker/pull/6) by [Carl](https://github.com/thybag)
 
 = 1.0.1 =
 * Fixed [Syntax error in latest version #5](https://github.com/Labs64/credit-tracker/issues/5) issue (PHP 5.3.10)
