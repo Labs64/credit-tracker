@@ -87,9 +87,6 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
 
     $ct_override_caption_shortcode = ct_get_single_option('ct_override_caption_shortcode');
     if ((bool)$ct_override_caption_shortcode) {
-        if (1 > (int)$width) {
-            return $val;
-        }
 
         $id_orig = $id;
         if ($id) {
@@ -126,7 +123,12 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
 
         $content = str_replace('<img', '<img itemprop="contentUrl"', $content);
 
-        $ret = '<div id="' . $id_orig . '" class="wp-caption ' . esc_attr($align) . '" itemscope itemtype="http://schema.org/ImageObject" style="width: ' . (0 + (int)$width) . 'px">';
+        $style = '';
+        if ((int)$width > 0) {
+            $style = 'style="width: ' . (int)$width . 'px"';
+        }
+
+        $ret = '<div id="' . $id_orig . '" class="wp-caption ' . esc_attr($align) . '" itemscope itemtype="http://schema.org/ImageObject" ' . $style . '>';
         $ret .= do_shortcode($content);
         $ret .= '<p class="wp-caption-text" itemprop="copyrightHolder">' . $ct_copyright . '</p>';
         $ret .= '<meta itemprop="name" content="' . $image['title'] . '">';

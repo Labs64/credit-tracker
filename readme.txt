@@ -2,7 +2,7 @@
 Contributors: labs64
 Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 3.5.1
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: 1.1.0
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

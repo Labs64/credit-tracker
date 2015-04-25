@@ -9,6 +9,8 @@
 
 /**
  * Write DEBUG log.
+ *
+ * See also: https://codex.wordpress.org/Debugging_in_WordPress
  */
 if (!function_exists('ct_write_log')) {
     function ct_write_log($log)

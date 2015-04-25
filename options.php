@@ -257,17 +257,21 @@ function ct_print_reference_section()
 
                 <p>Attributes:</p>
 
+                <p>&nbsp;&nbsp;<strong>id</strong> <i>(mandatory)</i> - Attachment ID.</p>
+
+                <p>&nbsp;&nbsp;<strong>width</strong> <i>(optional)</i> - Caption area width in pixels.</p>
+
                 <p>&nbsp;&nbsp;<strong>text</strong> <i>(optional)</i> - custom attribute to override standard media
                     caption. The
                     default behavior, if not specified standard media caption will be used.</p>
 
                 <p><strong>Examples:</strong></p>
 
-                <p><code>[caption]...[/caption]</code></p>
+                <p><code>[caption id="attachment_11" width="222"]...[/caption]</code></p>
 
                 <p>Override [caption] shortcode</p>
 
-                <p><code>[caption text="image caption"]...[/caption]</code></p>
+                <p><code>[caption id="22" text="image caption"]...[/caption]</code></p>
 
                 <p>Override [caption] shortcode and use <i>text</i> instead of the standard media property</p>
             </td>
@@ -281,15 +285,15 @@ function ct_print_reference_section()
 
                 <p>Attributes:</p>
 
-                <p>&nbsp;&nbsp;<strong>id</strong> <i>(optional)</i> - specify the attachment ID (one or more). The
+                <p>&nbsp;&nbsp;<strong>id</strong> <i>(optional)</i> - Attachment ID (one or more). The
                     default behavior, if no ID is specified, is to display all images containing author info.</p>
 
-                <p>&nbsp;&nbsp;<strong>size</strong> <i>(optional)</i> - specify the image size to use for the thumbnail
+                <p>&nbsp;&nbsp;<strong>size</strong> <i>(optional)</i> - Image size to use for the thumbnail
                     display. Valid values include "thumbnail", "medium", "large", "full" or numeric values (e.g. "50" or
                     "100x50").
                     The default value is "thumbnail".</p>
 
-                <p>&nbsp;&nbsp;<strong>style</strong> <i>(optional)</i> - specify the table CSS style. Valid values
+                <p>&nbsp;&nbsp;<strong>style</strong> <i>(optional)</i> - Table CSS style. Valid values
                     include "default", "mercury", "mars". The default value is "default".</p>
 
                 <p><strong>Examples:</strong></p>
