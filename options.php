@@ -672,7 +672,7 @@ function ct_get_istockphoto_metadata($number)
  */
 function ct_get_shutterstock_copyright()
 {
-    return '&copy; %author%';
+    return CTShutterstock::COPYRIGHT;
 }
 
 /**
@@ -680,13 +680,8 @@ function ct_get_shutterstock_copyright()
  */
 function ct_get_shutterstock_metadata($number)
 {
-    $item = array();
-
-    $item['author'] = '...not implemented yet...';
-    $item['publisher'] = 'Shutterstock';
-    $item['license'] = 'Royalty-free';
-
-    return $item;
+    $parser = new CTShutterstock();
+    return $parser->execute($number);
 }
 
 /**

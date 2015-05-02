@@ -139,7 +139,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.1.0 =
-* TODO
+* Enable Shutterstock parser [#11](https://github.com/Labs64/credit-tracker/pull/11)
 
 = 1.0.3 =
 * Fixed [Wordpress 'caption' shortcode rendering problem #10](https://github.com/Labs64/credit-tracker/issues/10) issue
@@ -162,7 +162,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 * Fix Flickr *Link* attribute capture
 
 = 0.9.16 =
-* Enable Freeimages
+* Enable Freeimages parser
 * Use original photo URIs for the *Link* attribute
 * Add WordPress [caption] shortcode to the 'Shortcodes Reference' section
 * Introduce 'text' attribute to the [caption] shortcode; usage - [caption text="image caption"]...[/caption]
@@ -177,7 +177,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 
 = 0.9.13 (not-stable) =
 * Test and approve plugin for WordPress 3.9
-* Enable Flickr
+* Enable Flickr parser
 
 = 0.9.12 =
 * Add custom sizes at the credit table
@@ -190,11 +190,11 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 * French translation by Lilian Ricaud
 
 = 0.9.9 =
-* Enable Pixelio
+* Enable Pixelio parser
 
 = 0.9.8 =
 * Change default fields set at Media Library to Ident-Nr., Source, Author
-* Enable Fotolia
+* Enable Fotolia parser
 
 = 0.9.7 =
 * Test and approve plugin for WordPress 3.8
