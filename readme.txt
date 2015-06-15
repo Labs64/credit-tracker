@@ -2,7 +2,7 @@
 Contributors: labs64
 Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 3.5.1
-Tested up to: 4.2
+Tested up to: 4.2.2
 Stable tag: 1.1.1
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -139,7 +139,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.1.1 =
-* TODO
+* Fix 'caption' shortcode rendering issue [#11](https://github.com/Labs64/credit-tracker/issues/10)
 
 = 1.1.0 =
 * Enable Shutterstock parser [#11](https://github.com/Labs64/credit-tracker/pull/11)

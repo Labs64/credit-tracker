@@ -118,8 +118,7 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
         if (!empty($text)) {
             $image['caption'] = $text;
         }
-        $ct_copyright = ct_process_item_copyright($image, $ct_copyright_format);
-
+        $ct_copyright = htmlspecialchars_decode(ct_process_item_copyright($image, $ct_copyright_format));
 
         $content = str_replace('<img', '<img itemprop="contentUrl"', $content);
 
