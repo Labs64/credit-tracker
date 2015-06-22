@@ -173,6 +173,14 @@ function ct_print_retriever_section_info()
 }
 
 /**
+ * Print the Table-Setting-Section info text
+ */
+function ct_print_table_settings_section_info()
+{
+    print __('Opportunity to enable/disable [credit_tracker_table] columns', CT_SLUG);
+}
+
+/**
  * Returns available plugin features
  */
 function ct_get_features_array()
@@ -339,6 +347,13 @@ function ct_page_init()
         CT_SLUG // Page
     );
 
+    add_settings_section(
+        'CT_TABLE_SETTINGS', // ID
+        __('Table Settings', CT_SLUG), // Title
+        'ct_print_table_settings_section_info', // Callback
+        CT_SLUG // Page
+    );
+
     add_settings_field(
         'ct_copyright_format',
         __('Copyright format', CT_SLUG),
@@ -364,6 +379,66 @@ function ct_page_init()
         )
     );
 
+    add_settings_field(
+        'ct_intentnr_column_remove',
+        __('Ident-Nr', CT_SLUG),
+        'ct_checkbox_field_callback',
+        CT_SLUG,
+        'CT_TABLE_SETTINGS',
+        array(
+            'id' => 'ct_intentnr_column_remove',
+            'caption'=>__('Remove Ident-Nr column', CT_SLUG),
+        )
+    );
+
+    add_settings_field(
+        'ct_author_column_remove',
+        __('Author', CT_SLUG),
+        'ct_checkbox_field_callback',
+        CT_SLUG,
+        'CT_TABLE_SETTINGS',
+        array(
+            'id' => 'ct_author_column_remove',
+            'caption'=>__('Remove Auther column', CT_SLUG),
+        )
+    );
+
+    add_settings_field(
+        'ct_publisher_column_remove',
+        __('Publisher', CT_SLUG),
+        'ct_checkbox_field_callback',
+        CT_SLUG,
+        'CT_TABLE_SETTINGS',
+        array(
+            'id' => 'ct_publisher_column_remove',
+            'caption'=>__('Remove Publisher column', CT_SLUG),
+        )
+    );
+
+    add_settings_field(
+        'ct_copyright_column_remove',
+        __('Copyright', CT_SLUG),
+        'ct_checkbox_field_callback',
+        CT_SLUG,
+        'CT_TABLE_SETTINGS',
+        array(
+            'id' => 'ct_copyright_column_remove',
+            'caption'=>__('Remove Copyright column', CT_SLUG),
+        )
+    );
+
+    add_settings_field(
+        'ct_license_column_remove',
+        __('License', CT_SLUG),
+        'ct_checkbox_field_callback',
+        CT_SLUG,
+        'CT_TABLE_SETTINGS',
+        array(
+            'id' => 'ct_license_column_remove',
+            'caption'=>__('Remove License column', CT_SLUG),
+        )
+    );
+    
     add_settings_field(
         'ct_auth_flickr_apikey',
         __('Flickr api_key', CT_SLUG),
@@ -445,7 +520,8 @@ function ct_get_default_options()
         'ct_feature_retriever' => '0',
         'ct_copyright_format' => '&copy; %author%',
         'ct_auth_flickr_apikey' => '',
-        'ct_override_caption_shortcode' => '0'
+        'ct_override_caption_shortcode' => '0',
+        'ct_remove_identnr_column' => '0'
     );
     return $default_options;
 }

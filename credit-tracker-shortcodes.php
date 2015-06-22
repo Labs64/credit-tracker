@@ -36,8 +36,13 @@ function credit_tracker_table_shortcode($atts)
     );
     $images = ct_get_images($request);
 
+    $ct_intentnr_column_remove = ct_get_single_option('ct_intentnr_column_remove');
+
     $ret = '<table id="credit-tracker-table" class="credit-tracker-' . $style . '"><thead>';
     $ret .= '<th>' . '&nbsp;' . '</th>';
+    if(!isset($ct_intentnr_column_remove)){
+    $ret .= '<th>' . __('not set', CT_SLUG) . '</th>';    
+    }
     $ret .= '<th>' . __('Ident-Nr.', CT_SLUG) . '</th>';
     $ret .= '<th>' . __('Author', CT_SLUG) . '</th>';
     $ret .= '<th>' . __('Publisher', CT_SLUG) . '</th>';
