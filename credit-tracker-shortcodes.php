@@ -37,17 +37,28 @@ function credit_tracker_table_shortcode($atts)
     $images = ct_get_images($request);
 
     $ct_intentnr_column_remove = ct_get_single_option('ct_intentnr_column_remove');
+    $ct_author_column_remove = ct_get_single_option('ct_author_column_remove');
+    $ct_publisher_column_remove = ct_get_single_option('ct_publisher_column_remove');
+    $ct_copyright_column_remove = ct_get_single_option('ct_copyright_column_remove');
+    $ct_license_column_remove = ct_get_single_option('ct_license_column_remove');
 
     $ret = '<table id="credit-tracker-table" class="credit-tracker-' . $style . '"><thead>';
     $ret .= '<th>' . '&nbsp;' . '</th>';
-    if(!isset($ct_intentnr_column_remove)){
-    $ret .= '<th>' . __('not set', CT_SLUG) . '</th>';    
-    }
+    if(!$ct_intentnr_column_remove){
     $ret .= '<th>' . __('Ident-Nr.', CT_SLUG) . '</th>';
+    }
+    if(!$ct_identnr_column_remove){
     $ret .= '<th>' . __('Author', CT_SLUG) . '</th>';
+    }
+    if(!$ct_publisher_column_remove){
     $ret .= '<th>' . __('Publisher', CT_SLUG) . '</th>';
+    }
+    if(!$ct_copyright_column_remove){
     $ret .= '<th>' . __('Copyright', CT_SLUG) . '</th>';
+    }
+    if(!$ct_license_column_remove){
     $ret .= '<th>' . __('License', CT_SLUG) . '</th>';
+    }
     $ret .= '</thead><tbody>';
 
     if (empty($images)) {
@@ -63,11 +74,21 @@ function credit_tracker_table_shortcode($atts)
 
             $ret .= '<tr>';
             $ret .= '<td>' . '<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-thumbnail" alt="' . $image['alt'] . '">' . '</td>';
+            if(!$ct_intentnr_column_remove){
             $ret .= '<td>' . $image['ident_nr'] . '</td>';
+            }
+            if(!$ct_author_column_remove){
             $ret .= '<td>' . $image['author'] . '</td>';
+            }
+            if(!$ct_publisher_column_remove){
             $ret .= '<td>' . $image['publisher'] . '</td>';
+            }
+            if(!$ct_copyright_column_remove){
             $ret .= '<td>' . ct_process_item_copyright($image, $ct_copyright_format) . '</td>';
+            }
+            if(!$ct_license_column_remove){
             $ret .= '<td>' . $image['license'] . '</td>';
+            }
             $ret .= '</tr>';
         }
     }

@@ -399,7 +399,7 @@ function ct_page_init()
         'CT_TABLE_SETTINGS',
         array(
             'id' => 'ct_author_column_remove',
-            'caption'=>__('Remove Auther column', CT_SLUG),
+            'caption'=>__('Remove Author column', CT_SLUG),
         )
     );
 
