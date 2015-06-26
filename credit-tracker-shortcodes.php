@@ -21,11 +21,11 @@ function credit_tracker_table_shortcode($atts)
                 'id' => '',
                 'size' => 'thumbnail',
                 'style' => 'default',
-                'ident_nr' => '',
-                'author' => '',
-                'publisher' => '',
-                'copyright' => '',
-                'license' => '',
+                'ident_nr' => '1',
+                'author' => '1',
+                'publisher' => '1',
+                'copyright' => '1',
+                'license' => '1',
             ), $atts)
     );
 
@@ -38,19 +38,26 @@ function credit_tracker_table_shortcode($atts)
     $request = array(
         'size' => $size,
         'include' => $id,
-        'include' => $ident_nr
     );
     $images = ct_get_images($request);
 
     $ret = '<table id="credit-tracker-table" class="credit-tracker-' . $style . '"><thead>';
     $ret .= '<th>' . '&nbsp;' . '</th>';
-    
+    if((bool)$ident_nr) {
     $ret .= '<th>' . __('Ident-Nr.', CT_SLUG) . '</th>';
+    }
+    if((bool)$author) {
     $ret .= '<th>' . __('Author', CT_SLUG) . '</th>';
-    
+    }
+    if((bool)$publisher) {
     $ret .= '<th>' . __('Publisher', CT_SLUG) . '</th>';
+    }
+    if((bool)$copyright) {
     $ret .= '<th>' . __('Copyright', CT_SLUG) . '</th>';
+    }
+    if((bool)$license) {
     $ret .= '<th>' . __('License', CT_SLUG) . '</th>';
+    }
     $ret .= '</thead><tbody>';
 
     if (empty($images)) {
@@ -66,11 +73,21 @@ function credit_tracker_table_shortcode($atts)
 
             $ret .= '<tr>';
             $ret .= '<td>' . '<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-thumbnail" alt="' . $image['alt'] . '">' . '</td>';
+            if((bool)$ident_nr) {
             $ret .= '<td>' . $image['ident_nr'] . '</td>';
+            }
+            if((bool)$author) {
             $ret .= '<td>' . $image['author'] . '</td>';
+            }
+            if((bool)$publisher) {
             $ret .= '<td>' . $image['publisher'] . '</td>';
+            }
+            if((bool)$copyright) {
             $ret .= '<td>' . ct_process_item_copyright($image, $ct_copyright_format) . '</td>';
+            }
+            if((bool)$license) {
             $ret .= '<td>' . $image['license'] . '</td>';
+            }
             $ret .= '</tr>';
         }
     }
