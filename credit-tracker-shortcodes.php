@@ -21,7 +21,7 @@ function credit_tracker_table_shortcode($atts)
                 'id' => '',
                 'size' => 'thumbnail',
                 'style' => 'default',
-                'include_columns' => array('ident_nr, author, publisher, copyright, license', '')
+                'include_columns' => 'ident_nr,author,publisher,copyright,license'
             ), $atts)
     );
 
@@ -31,9 +31,7 @@ function credit_tracker_table_shortcode($atts)
         $size = explode('x', $size);
     }
 
-    $columns = explode(",", implode($include_columns), 5);
-
-    print_r(array_values($columns));
+        $columns = explode(",", $include_columns);
 
     $request = array(
         'size' => $size,
@@ -43,11 +41,21 @@ function credit_tracker_table_shortcode($atts)
 
     $ret = '<table id="credit-tracker-table" class="credit-tracker-' . $style . '"><thead>';
     $ret .= '<th>' . '&nbsp;' . '</th>';
+    if(isset($columns[0])){
     $ret .= '<th>' . __($columns[0], CT_SLUG) . '</th>';
+    }
+    if(isset($columns[1])){
     $ret .= '<th>' . __($columns[1], CT_SLUG) . '</th>';
+    }
+    if(isset($columns[2])){
     $ret .= '<th>' . __($columns[2], CT_SLUG) . '</th>';
+    }
+    if(isset($columns[3])){
     $ret .= '<th>' . __($columns[3], CT_SLUG) . '</th>';
+    }
+    if(isset($columns[4])){
     $ret .= '<th>' . __($columns[4], CT_SLUG) . '</th>';
+    }
     $ret .= '</thead><tbody>';
 
     if (empty($images)) {
@@ -63,11 +71,21 @@ function credit_tracker_table_shortcode($atts)
 
             $ret .= '<tr>';
             $ret .= '<td>' . '<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-thumbnail" alt="' . $image['alt'] . '">' . '</td>';
-            $ret .= '<td>' . $image['ident_nr'] . '</td>';
-            $ret .= '<td>' . $image['author'] . '</td>';
-            $ret .= '<td>' . $image['publisher'] . '</td>';
+            if(isset($columns[0])){
+            $ret .= '<td>' . $image[$columns[0]] . '</td>';
+            }
+            if(isset($columns[1])){
+            $ret .= '<td>' . $image[$columns[1]] . '</td>';
+            }
+            if(isset($columns[2])){
+            $ret .= '<td>' . $image[$columns[2]] . '</td>';
+            }
+            if(isset($columns[3])){
             $ret .= '<td>' . ct_process_item_copyright($image, $ct_copyright_format) . '</td>';
-            $ret .= '<td>' . $image['license'] . '</td>';
+            }
+            if(isset($columns[4])){
+            $ret .= '<td>' . $image[$columns[4]] . '</td>';
+            }
             $ret .= '</tr>';
         }
     }
