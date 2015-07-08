@@ -33,9 +33,6 @@ function credit_tracker_table_shortcode($atts)
 
     $columns = explode(",", $include_columns);
 
-    print_r(array_values($columns));
-
-
     $request = array(
         'size' => $size,
         'include' => $id,
