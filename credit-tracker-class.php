@@ -207,6 +207,7 @@ class Credit_Tracker
         }
 
         // Note: only attachment (media edit) page is enabled at the moment for the media data retrieval
+        // Note 2: attachments available for all screens i.e. Media edit, Set Featured Image and Insert Media
         $screen = get_current_screen();
 
         $btn_retriever_code = "&nbsp;&nbsp;<button id='ct-mediadata' type='button' " . $btn_state . ">" . __("GET MEDIA DATA", CT_SLUG) . "</button>" . "&nbsp;" . $link_activate;
