@@ -265,12 +265,14 @@ function credittracker_print_reference_section()
                     caption. The
                     default behavior, if not specified standard media caption will be used.</p>
                 <br/>
+
                 <p><strong>Examples:</strong></p>
 
                 <p><code>[caption id="attachment_11" width="222"]...[/caption]</code></p>
 
                 <p>Override [caption] shortcode</p>
                 <br/>
+
                 <p><code>[caption id="22" text="image caption"]...[/caption]</code></p>
 
                 <p>Override [caption] shortcode and use <i>text</i> instead of the standard media property</p>
@@ -300,6 +302,7 @@ function credittracker_print_reference_section()
                     Valid values include "ident_nr", "author", "publisher", "copyright", "license".
                     The default value is "" - show all columns in the default order.</p>
                 <br/>
+
                 <p><strong>Examples:</strong></p>
 
                 <p><code>[credit_tracker_table]</code></p>
@@ -307,11 +310,13 @@ function credittracker_print_reference_section()
                 <p>Generate table for all images with non-empty attribute 'author' and small (thumbnail) preview
                     image</p>
                 <br/>
+
                 <p><code>[credit_tracker_table id="11,22,33" size="medium" style="mercury"]</code></p>
 
                 <p>Generate table for with image ids (11, 22 and 33) and medium preview image. Table will be styled with
                     "mercury" CSS style</p>
                 <br/>
+
                 <p><code>[credit_tracker_table include_columns="ident_nr,copyright,license,author,publisher"]</code></p>
 
                 <p>Generate table with the specified columns only and defined columns order</p>

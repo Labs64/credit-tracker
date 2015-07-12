@@ -16,16 +16,25 @@ add_filter('img_caption_shortcode', 'credit_tracker_caption_shortcode_filter', 1
 
 function credit_tracker_table_shortcode($atts)
 {
+    $columns_set_i18n = array(
+        'ident_nr' => __('Ident-Nr.', CREDITTRACKER_SLUG),
+        'author' => __('Author', CREDITTRACKER_SLUG),
+        'publisher' => __('Publisher', CREDITTRACKER_SLUG),
+        'copyright' => __('Copyright', CREDITTRACKER_SLUG),
+        'license' => __('License', CREDITTRACKER_SLUG)
+    );
+    $columns_set = implode(",", array_keys($columns_set_i18n));
+
     extract(shortcode_atts(
             array(
                 'id' => '',
                 'size' => 'thumbnail',
                 'style' => 'default',
-                'include_columns' => 'ident_nr,author,publisher,copyright,license'
+                'include_columns' => $columns_set
             ), $atts)
     );
     if (empty($include_columns)) {
-        $include_columns = "ident_nr,author,publisher,copyright,license";
+        $include_columns = $columns_set;
     }
     $columns = explode(",", $include_columns);
     foreach ($columns as $key => $value) {
@@ -49,7 +58,11 @@ function credit_tracker_table_shortcode($atts)
 
     foreach ($columns as $column) {
         if (!empty($column)) {
-            $ret .= '<th>' . __($column, CREDITTRACKER_SLUG) . '</th>';
+            $column_name = __($columns_set_i18n[$column], CREDITTRACKER_SLUG);
+            if (empty($column_name)) {
+                $column_name = $column;
+            }
+            $ret .= '<th>' . $column_name . '</th>';
         }
     }
     $ret .= '</thead><tbody>';
