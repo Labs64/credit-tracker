@@ -24,14 +24,19 @@ function credit_tracker_table_shortcode($atts)
                 'include_columns' => 'ident_nr,author,publisher,copyright,license'
             ), $atts)
     );
+    if (empty($include_columns)) {
+        $include_columns = "ident_nr,author,publisher,copyright,license";
+    }
+    $columns = explode(",", $include_columns);
+    foreach ($columns as $key => $value) {
+        $columns[$key] = trim($columns[$key]);
+    }
 
     if (is_numeric($size)) {
         $size = array($size, $size);
     } else if (stripos($size, 'x') !== false) {
         $size = explode('x', $size);
     }
-
-    $columns = explode(",", $include_columns);
 
     $request = array(
         'size' => $size,
@@ -41,20 +46,11 @@ function credit_tracker_table_shortcode($atts)
 
     $ret = '<table id="credit-tracker-table" class="credit-tracker-' . $style . '"><thead>';
     $ret .= '<th>' . '&nbsp;' . '</th>';
-    if(isset($columns[0])){
-        $ret .= '<th>' . __($columns[0], CREDITTRACKER_SLUG) . '</th>';
-    }
-    if(isset($columns[1])){
-        $ret .= '<th>' . __($columns[1], CREDITTRACKER_SLUG) . '</th>';
-    }
-    if(isset($columns[2])){
-        $ret .= '<th>' . __($columns[2], CREDITTRACKER_SLUG) . '</th>';
-    }
-    if(isset($columns[3])){
-        $ret .= '<th>' . __($columns[3], CREDITTRACKER_SLUG) . '</th>';
-    }
-    if(isset($columns[4])){
-        $ret .= '<th>' . __($columns[4], CREDITTRACKER_SLUG) . '</th>';
+
+    foreach ($columns as $column) {
+        if (!empty($column)) {
+            $ret .= '<th>' . __($column, CREDITTRACKER_SLUG) . '</th>';
+        }
     }
     $ret .= '</thead><tbody>';
 
@@ -68,33 +64,16 @@ function credit_tracker_table_shortcode($atts)
             if (empty($ct_copyright_format)) {
                 $ct_copyright_format = credittracker_get_single_option('ct_copyright_format');
             }
-
             $ret .= '<tr>';
             $ret .= '<td>' . '<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-thumbnail" alt="' . $image['alt'] . '">' . '</td>';
-            if(isset($columns[0]) !== null && $columns !='copyright'){
-                $ret .= '<td>' . $image[(string)$columns[0]] . '</td>';
-            } else if(isset($columns[0])){
-                $ret .= '<td>' . credittracker_process_item_copyright($image, $ct_copyright_format) . '</td>';
-            }
-            if(isset($columns[1]) && $columns[1] != 'copyright'){
-                $ret .= '<td>' . $image[(string)$columns[1]] . '</td>';
-            }else if(isset($columns[1])){
-                $ret .= '<td>' . credittracker_process_item_copyright($image, $ct_copyright_format) . '</td>';
-            }
-            if(isset($columns[2]) && $columns[2] != 'copyright'){
-                $ret .= '<td>' . $image[(string)$columns[2]] . '</td>';
-            } else if(isset($columns[2])){
-                $ret .= '<td>' . credittracker_process_item_copyright($image, $ct_copyright_format) . '</td>';
-            }
-            if(isset($columns[3]) && $columns[3] != 'copyright'){
-                $ret .= '<td>' . $image[(string)$columns[3]] . '</td>';
-            } else if(isset($columns[3])){
-                $ret .= '<td>' . credittracker_process_item_copyright($image, $ct_copyright_format) . '</td>';
-            }
-            if(isset($columns[4]) && $columns[4] != 'copyright'){
-                $ret .= '<td>' . $image[(string)$columns[4]] . '</td>';
-            } else if(isset($columns[4])){
-                $ret .= '<td>' . credittracker_process_item_copyright($image, $ct_copyright_format) . '</td>';
+            foreach ($columns as $column) {
+                if (!empty($column)) {
+                    if ($column != 'copyright') {
+                        $ret .= '<td>' . $image[(string)$column] . '</td>';
+                    } else {
+                        $ret .= '<td>' . credittracker_process_item_copyright($image, $ct_copyright_format) . '</td>';
+                    }
+                }
             }
             $ret .= '</tr>';
         }
@@ -160,7 +139,7 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
             $style = 'style="width: ' . (int)$width . 'px"';
         }
 
-        $ret = '<div id="' . $id_orig . '" class="wp-caption ' . esc_attr($align) . '" itemscope itemtype="http://schema.org/ImageObject" ' . $style . '>';
+        $ret = '<div id="' . $id_orig . '" class="wp-caption credit-tracker-caption ' . esc_attr($align) . '" itemscope itemtype="http://schema.org/ImageObject" ' . $style . '>';
         $ret .= do_shortcode($content);
         $ret .= '<p class="wp-caption-text" itemprop="copyrightHolder">' . $ct_copyright . '</p>';
         $ret .= '<meta itemprop="name" content="' . $image['title'] . '">';
