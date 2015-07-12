@@ -10,36 +10,36 @@
  */
 
 
-define('CT_OPTIONS', 'CT_OPTIONS');
-define('CT_API_KEY', '31c7bc4e-90ff-44fb-9f07-b88eb06ed9dc');
+define('CREDITTRACKER_OPTIONS', 'CT_OPTIONS');
+define('CREDITTRACKER_API_KEY', '31c7bc4e-90ff-44fb-9f07-b88eb06ed9dc');
 
 
 if (is_admin()) {
     // Add the options page and menu item.
-    add_action('admin_menu', 'ct_add_plugin_page');
-    add_action('admin_init', 'ct_page_init');
+    add_action('admin_menu', 'credittracker_add_plugin_page');
+    add_action('admin_init', 'credittracker_page_init');
 
     // Add an action link pointing to the options page.
     $plugin_basename = plugin_basename(plugin_dir_path(__FILE__) . 'credit-tracker.php');
-    add_filter('plugin_action_links_' . $plugin_basename, 'ct_add_action_links');
+    add_filter('plugin_action_links_' . $plugin_basename, 'credittracker_add_action_links');
 
     // Load admin style sheet and JavaScript.
-    add_action('admin_enqueue_scripts', 'ct_enqueue_admin_styles');
-    add_action('admin_enqueue_scripts', 'ct_enqueue_admin_scripts');
+    add_action('admin_enqueue_scripts', 'credittracker_enqueue_admin_styles');
+    add_action('admin_enqueue_scripts', 'credittracker_enqueue_admin_scripts');
 
     // Get media data callback registration
-    add_action('wp_ajax_validate', 'ct_validate_callback');
-    add_action('wp_ajax_get_media_data', 'ct_get_media_data_callback');
+    add_action('wp_ajax_validate', 'credittracker_validate_callback');
+    add_action('wp_ajax_get_media_data', 'credittracker_get_media_data_callback');
 }
 
 /**
  * Add settings action link to the plugins page.
  */
-function ct_add_action_links($links)
+function credittracker_add_action_links($links)
 {
     return array_merge(
         array(
-            'settings' => '<a href="' . admin_url('options-general.php?page=credit-tracker') . '">' . __('Settings', CT_SLUG) . '</a>'
+            'settings' => '<a href="' . admin_url('options-general.php?page=credit-tracker') . '">' . __('Settings', CREDITTRACKER_SLUG) . '</a>'
         ),
         $links
     );
@@ -48,15 +48,15 @@ function ct_add_action_links($links)
 /**
  * Add options page
  */
-function ct_add_plugin_page()
+function credittracker_add_plugin_page()
 {
     global $plugin_screen_hook_suffix;
     $plugin_screen_hook_suffix = add_options_page(
-        __('Credit Tracker', CT_SLUG),
-        __('Credit Tracker', CT_SLUG),
+        __('Credit Tracker', CREDITTRACKER_SLUG),
+        __('Credit Tracker', CREDITTRACKER_SLUG),
         'manage_options',
-        CT_SLUG,
-        'ct_create_admin_page'
+        CREDITTRACKER_SLUG,
+        'credittracker_create_admin_page'
     );
 }
 
@@ -65,7 +65,7 @@ function ct_add_plugin_page()
  *
  * @return    null    Return early if no settings page is registered.
  */
-function ct_enqueue_admin_styles()
+function credittracker_enqueue_admin_styles()
 {
     global $plugin_screen_hook_suffix;
 
@@ -76,7 +76,7 @@ function ct_enqueue_admin_styles()
     $screen = get_current_screen();
     $ct_allowed_screens = array($plugin_screen_hook_suffix, "attachment", "upload");
     if (isset($screen) && in_array($screen->id, $ct_allowed_screens)) {
-        wp_enqueue_style(CT_SLUG . '-admin-styles', plugins_url('css/ct-admin.css', __FILE__), array(), CT_VERSION);
+        wp_enqueue_style(CREDITTRACKER_SLUG . '-admin-styles', plugins_url('css/ct-admin.css', __FILE__), array(), CREDITTRACKER_VERSION);
     }
 }
 
@@ -85,7 +85,7 @@ function ct_enqueue_admin_styles()
  *
  * @return    null    Return early if no settings page is registered.
  */
-function ct_enqueue_admin_scripts()
+function credittracker_enqueue_admin_scripts()
 {
     global $plugin_screen_hook_suffix;
 
@@ -96,40 +96,40 @@ function ct_enqueue_admin_scripts()
     $screen = get_current_screen();
     $ct_allowed_screens = array($plugin_screen_hook_suffix, "attachment", "upload");
     if (isset($screen) && in_array($screen->id, $ct_allowed_screens)) {
-        wp_enqueue_script(CT_SLUG . '-admin-script', plugins_url('js/ct-admin.js', __FILE__), array('jquery'), CT_VERSION);
+        wp_enqueue_script(CREDITTRACKER_SLUG . '-admin-script', plugins_url('js/ct-admin.js', __FILE__), array('jquery'), CREDITTRACKER_VERSION);
     }
 }
 
 /**
  * Options page callback
  */
-function ct_create_admin_page()
+function credittracker_create_admin_page()
 {
     ?>
     <div class="wrap" xmlns="http://www.w3.org/1999/html">
         <a href="http://www.labs64.com" target="_blank" class="icon-labs64 icon32"></a>
 
-        <h2><?php _e('Credit Tracker by Labs64', CT_SLUG); ?></h2>
+        <h2><?php _e('Credit Tracker by Labs64', CREDITTRACKER_SLUG); ?></h2>
 
         <form method="post" action="options.php">
             <?php
             // This prints out all hidden setting fields
-            settings_fields('CT_OPTIONS_GROUP');
-            ct_settings_fields_hidden();
-            do_settings_sections(CT_SLUG);
+            settings_fields('CREDITTRACKER_OPTIONS_GROUP');
+            credittracker_settings_fields_hidden();
+            do_settings_sections(CREDITTRACKER_SLUG);
             submit_button();
             ?>
         </form>
         <hr/>
         <?php
-        ct_print_reference_section();
+        credittracker_print_reference_section();
         ?>
     </div>
     <div class="info_menu">
         <?php
-        ct_print_features_section();
-        ct_print_divider();
-        ct_print_feedback_section();
+        credittracker_print_features_section();
+        credittracker_print_divider();
+        credittracker_print_feedback_section();
         ?>
     </div>
 <?php
@@ -138,7 +138,7 @@ function ct_create_admin_page()
 /**
  * Print sections divider
  */
-function ct_print_divider()
+function credittracker_print_divider()
 {
     ?>
     <hr/>
@@ -148,7 +148,7 @@ function ct_print_divider()
 /**
  * Print the Section info text
  */
-function ct_get_on_off($opt)
+function credittracker_get_on_off($opt)
 {
     if ($opt == '1') {
         return "<span class='label-on'>ON</span>";
@@ -160,25 +160,25 @@ function ct_get_on_off($opt)
 /**
  * Print the Common-Section info text
  */
-function ct_print_common_section_info()
+function credittracker_print_common_section_info()
 {
 }
 
 /**
  * Print the Retriever-Section info text
  */
-function ct_print_retriever_section_info()
+function credittracker_print_retriever_section_info()
 {
-    print __('Some Image Data Retriever needs additional configuration', CT_SLUG);
+    print __('Some Image Data Retriever needs additional configuration', CREDITTRACKER_SLUG);
 }
 
 /**
  * Returns available plugin features
  */
-function ct_get_features_array()
+function credittracker_get_features_array()
 {
     $features = array(
-        'ct_feature_retriever' => __('Image data retriever (Free)', CT_SLUG)
+        'ct_feature_retriever' => __('Image data retriever (Free)', CREDITTRACKER_SLUG)
     );
     return $features;
 }
@@ -186,11 +186,11 @@ function ct_get_features_array()
 /**
  * Get features list.
  */
-function ct_print_features_list($features)
+function credittracker_print_features_list($features)
 {
-    $ret = '<ul id="ct_features">';
+    $ret = '<ul id="credittracker_features">';
     foreach ($features as $key => $value) {
-        $ret .= '<li id="' . $key . '">&nbsp;' . $value . ' - ' . ct_get_on_off(ct_get_single_option($key)) . '</li>';
+        $ret .= '<li id="' . $key . '">&nbsp;' . $value . ' - ' . credittracker_get_on_off(credittracker_get_single_option($key)) . '</li>';
     }
     $ret .= '</ul>';
     print $ret;
@@ -199,15 +199,15 @@ function ct_print_features_list($features)
 /**
  * Print the features section
  */
-function ct_print_features_section()
+function credittracker_print_features_section()
 {
-    $ct_feature_retriever = ct_get_single_option('ct_feature_retriever');
+    $ct_feature_retriever = credittracker_get_single_option('ct_feature_retriever');
 
     ?>
-    <h3><?php _e('Features', CT_SLUG); ?></h3>
-    <p><?php _e('Available plugin features', CT_SLUG); ?>:</p>
+    <h3><?php _e('Features', CREDITTRACKER_SLUG); ?></h3>
+    <p><?php _e('Available plugin features', CREDITTRACKER_SLUG); ?>:</p>
 
-    <?php ct_print_features_list(ct_get_features_array()); ?>
+    <?php credittracker_print_features_list(credittracker_get_features_array()); ?>
 
     <button id="ct-validate" type="button""><?php _e('Validate'); ?></button>
     <br/>
@@ -221,16 +221,16 @@ function ct_print_features_section()
 /**
  * Print the feedback section
  */
-function ct_print_feedback_section()
+function credittracker_print_feedback_section()
 {
     ?>
-    <h3><?php _e('Feedback', CT_SLUG); ?></h3>
+    <h3><?php _e('Feedback', CREDITTRACKER_SLUG); ?></h3>
 
-    <p><?php _e('Did you find a bug? Have an idea for a plugin? Please help us improve this plugin', CT_SLUG); ?>:</p>
+    <p><?php _e('Did you find a bug? Have an idea for a plugin? Please help us improve this plugin', CREDITTRACKER_SLUG); ?>:</p>
     <ul>
         <li>
             <a href="https://github.com/Labs64/credit-tracker/issues"
-               target="_blank"><?php _e('Report a bug, or suggest an improvement', CT_SLUG); ?></a>
+               target="_blank"><?php _e('Report a bug, or suggest an improvement', CREDITTRACKER_SLUG); ?></a>
         </li>
         <li><a href="http://www.facebook.com/labs64" target="_blank"><?php _e('Like us on Facebook'); ?></a>
         </li>
@@ -242,10 +242,10 @@ function ct_print_feedback_section()
 /**
  * Print the reference section
  */
-function ct_print_reference_section()
+function credittracker_print_reference_section()
 {
     ?>
-    <h3><?php _e('Shortcodes Reference', CT_SLUG); ?></h3>
+    <h3><?php _e('Shortcodes Reference', CREDITTRACKER_SLUG); ?></h3>
     <table class="form-table">
         <tbody>
         <tr valign="top">
@@ -255,7 +255,7 @@ function ct_print_reference_section()
             <td>
                 <p>Override WordPress [caption] shortcode.</p>
 
-                <p>Attributes:</p>
+                <p><strong>Attributes:</strong></p>
 
                 <p>&nbsp;&nbsp;<strong>id</strong> <i>(mandatory)</i> - Attachment ID.</p>
 
@@ -264,13 +264,13 @@ function ct_print_reference_section()
                 <p>&nbsp;&nbsp;<strong>text</strong> <i>(optional)</i> - custom attribute to override standard media
                     caption. The
                     default behavior, if not specified standard media caption will be used.</p>
-
+                <br/>
                 <p><strong>Examples:</strong></p>
 
                 <p><code>[caption id="attachment_11" width="222"]...[/caption]</code></p>
 
                 <p>Override [caption] shortcode</p>
-
+                <br/>
                 <p><code>[caption id="22" text="image caption"]...[/caption]</code></p>
 
                 <p>Override [caption] shortcode and use <i>text</i> instead of the standard media property</p>
@@ -283,7 +283,7 @@ function ct_print_reference_section()
             <td>
                 <p>Generate 'Image Credits' table.</p>
 
-                <p>Attributes:</p>
+                <p><strong>Attributes:</strong></p>
 
                 <p>&nbsp;&nbsp;<strong>id</strong> <i>(optional)</i> - Attachment ID (one or more). The
                     default behavior, if no ID is specified, is to display all images containing author info.</p>
@@ -296,22 +296,25 @@ function ct_print_reference_section()
                 <p>&nbsp;&nbsp;<strong>style</strong> <i>(optional)</i> - Table CSS style. Valid values
                     include "default", "mercury", "mars". The default value is "default".</p>
 
+                <p>&nbsp;&nbsp;<strong>include_columns</strong> <i>(optional)</i> - Table columns order and visibility.
+                    Valid values include "ident_nr", "author", "publisher", "copyright", "license".
+                    The default value is "" - show all columns in the default order.</p>
+                <br/>
                 <p><strong>Examples:</strong></p>
 
                 <p><code>[credit_tracker_table]</code></p>
 
                 <p>Generate table for all images with non-empty attribute 'author' and small (thumbnail) preview
                     image</p>
-
+                <br/>
                 <p><code>[credit_tracker_table id="11,22,33" size="medium" style="mercury"]</code></p>
 
                 <p>Generate table for with image ids (11, 22 and 33) and medium preview image. Table will be styled with
                     "mercury" CSS style</p>
+                <br/>
+                <p><code>[credit_tracker_table include_columns="ident_nr,copyright,license,author,publisher"]</code></p>
 
-                <p><code>[credit_tracker_table id="11,22,33" size="medium" style="mercury" ident_nr="0"]</code></p>
-
-                <p>Generate table for with image ids (11, 22 and 33) and medium preview image. Table will be styled with
-                    "mercury" CSS style and removed unnecessary columns</p>
+                <p>Generate table with the specified columns only and defined columns order</p>
             </td>
         </tr>
         </tbody>
@@ -322,63 +325,62 @@ function ct_print_reference_section()
 /**
  * Register and add settings
  */
-function ct_page_init()
+function credittracker_page_init()
 {
     register_setting(
-        'CT_OPTIONS_GROUP', // Option group
-        CT_OPTIONS, // Option name
-        'ct_sanitize' // Sanitize
+        'CREDITTRACKER_OPTIONS_GROUP', // Option group
+        CREDITTRACKER_OPTIONS, // Option name
+        'credittracker_sanitize' // Sanitize
     );
 
     add_settings_section(
-        'CT_COMMON_SETTINGS', // ID
-        __('Credit Tracker Settings', CT_SLUG), // Title
-        'ct_print_common_section_info', // Callback
-        CT_SLUG // Page
+        'CREDITTRACKER_COMMON_SETTINGS', // ID
+        __('Credit Tracker Settings', CREDITTRACKER_SLUG), // Title
+        'credittracker_print_common_section_info', // Callback
+        CREDITTRACKER_SLUG // Page
     );
 
     add_settings_section(
-        'CT_RETRIEVER_SETTINGS', // ID
-        __('Retriever Settings', CT_SLUG), // Title
-        'ct_print_retriever_section_info', // Callback
-        CT_SLUG // Page
+        'CREDITTRACKER_RETRIEVER_SETTINGS', // ID
+        __('Retriever Settings', CREDITTRACKER_SLUG), // Title
+        'credittracker_print_retriever_section_info', // Callback
+        CREDITTRACKER_SLUG // Page
     );
 
     add_settings_field(
         'ct_copyright_format',
-        __('Copyright format', CT_SLUG),
-        'ct_text_field_callback',
-        CT_SLUG,
-        'CT_COMMON_SETTINGS',
+        __('Copyright format', CREDITTRACKER_SLUG),
+        'credittracker_text_field_callback',
+        CREDITTRACKER_SLUG,
+        'CREDITTRACKER_COMMON_SETTINGS',
         array(
             'id' => 'ct_copyright_format',
-            'description' => __('Default copyright format (HTML allowed)<br/>Allowed placeholders: %ident_nr%, %source%, %author%, %publisher%, %license%, %link%<br/>...as well as standard attributes: %title%, %caption%', CT_SLUG),
+            'description' => __('Default copyright format (HTML allowed)<br/>Allowed placeholders: %ident_nr%, %source%, %author%, %publisher%, %license%, %link%<br/>...as well as standard attributes: %title%, %caption%', CREDITTRACKER_SLUG),
         )
     );
 
     add_settings_field(
         'ct_override_caption_shortcode',
-        __('Override shortcodes', CT_SLUG),
-        'ct_checkbox_field_callback',
-        CT_SLUG,
-        'CT_COMMON_SETTINGS',
+        __('Override shortcodes', CREDITTRACKER_SLUG),
+        'credittracker_checkbox_field_callback',
+        CREDITTRACKER_SLUG,
+        'CREDITTRACKER_COMMON_SETTINGS',
         array(
             'id' => 'ct_override_caption_shortcode',
-            'caption' => __('Override WordPress [caption] shortcode', CT_SLUG),
-            'description' => __('Replaces output of standard WordPress [caption] shortcode with improved version (add Image Microdata and Image Credit)', CT_SLUG),
+            'caption' => __('Override WordPress [caption] shortcode', CREDITTRACKER_SLUG),
+            'description' => __('Replaces output of standard WordPress [caption] shortcode with improved version (add Image Microdata and Image Credit)', CREDITTRACKER_SLUG),
         )
     );
 
-    
     add_settings_field(
         'ct_auth_flickr_apikey',
-        __('Flickr api_key', CT_SLUG),
-        'ct_text_field_callback',
-        CT_SLUG,
-        'CT_RETRIEVER_SETTINGS',
+        __('Flickr api_key', CREDITTRACKER_SLUG),
+        'credittracker_text_field_callback',
+        CREDITTRACKER_SLUG,
+        'CREDITTRACKER_RETRIEVER_SETTINGS',
         array(
             'id' => 'ct_auth_flickr_apikey',
-            'description' => __('To use the Flickr data retriever you need to have an Flickr API application key.' . ' <a href="https://www.flickr.com/services/api/misc.api_keys.html" target="_blank">See here</a>' . ' for more details.', CT_SLUG),
+            'description' => __('To use the Flickr data retriever you need to have an Flickr API application key.' . ' <a href="https://www.flickr.com/services/api/misc.api_keys.html" target="_blank">See here</a>' . ' for more details.', CREDITTRACKER_SLUG),
         )
     );
 }
@@ -388,11 +390,11 @@ function ct_page_init()
  *
  * @param array $input Contains all settings fields as array keys
  */
-function ct_sanitize($input)
+function credittracker_sanitize($input)
 {
     if (empty($input['ct_copyright_format'])) {
         if (is_admin()) {
-            add_settings_error(CT_OPTIONS, 'empty-copyright-format', 'Please specify copyright format.');
+            add_settings_error(CREDITTRACKER_OPTIONS, 'empty-copyright-format', 'Please specify copyright format.');
         }
     } else {
         $input['ct_copyright_format'] = $input['ct_copyright_format'];
@@ -407,37 +409,37 @@ function ct_sanitize($input)
 
 /**
  */
-function ct_settings_fields_hidden()
+function credittracker_settings_fields_hidden()
 {
-    ct_print_settings_field_hidden('ct_feature_retriever');
+    credittracker_print_settings_field_hidden('ct_feature_retriever');
 }
 
 /**
  */
-function ct_print_settings_field_hidden($id)
+function credittracker_print_settings_field_hidden($id)
 {
-    $value = ct_get_single_option($id);
-    echo "<input type='hidden' id='$id' name='CT_OPTIONS[$id]' value='$value' />";
+    $value = credittracker_get_single_option($id);
+    echo "<input type='hidden' id='$id' name='CREDITTRACKER_OPTIONS[$id]' value='$value' />";
 }
 
 /**
  */
-function ct_text_field_callback($args)
+function credittracker_text_field_callback($args)
 {
     $id = $args['id'];
     $description = $args['description'];
-    $value = ct_get_single_option($id);
-    echo "<input type='text' id='$id' name='CT_OPTIONS[$id]' value='$value' class='regular-text' />";
+    $value = credittracker_get_single_option($id);
+    echo "<input type='text' id='$id' name='CREDITTRACKER_OPTIONS[$id]' value='$value' class='regular-text' />";
     echo "<p class='description'>$description</p>";
 }
 
-function ct_checkbox_field_callback($args)
+function credittracker_checkbox_field_callback($args)
 {
     $id = $args['id'];
     $caption = $args['caption'];
     $description = $args['description'];
-    $value = ct_get_single_option($id);
-    echo "<input type='checkbox' id='$id' name='CT_OPTIONS[$id]' value='1' class='code' " . checked(1, $value, false) . " /> $caption";
+    $value = credittracker_get_single_option($id);
+    echo "<input type='checkbox' id='$id' name='CREDITTRACKER_OPTIONS[$id]' value='1' class='code' " . checked(1, $value, false) . " /> $caption";
     echo "<p class='description'>$description</p>";
 }
 
@@ -445,13 +447,13 @@ function ct_checkbox_field_callback($args)
  * Returns default options.
  * If you override the options here, be careful to use escape characters!
  */
-function ct_get_default_options()
+function credittracker_get_default_options()
 {
     $default_options = array(
         'ct_feature_retriever' => '0',
         'ct_copyright_format' => '&copy; %author%',
         'ct_auth_flickr_apikey' => '',
-        'ct_override_caption_shortcode' => '0',
+        'ct_override_caption_shortcode' => '0'
     );
     return $default_options;
 }
@@ -459,45 +461,45 @@ function ct_get_default_options()
 /**
  * Retrieves (and sanitises) options
  */
-function ct_get_options()
+function credittracker_get_options()
 {
-    $options = ct_get_default_options();
-    $stored_options = get_option(CT_OPTIONS);
+    $options = credittracker_get_default_options();
+    $stored_options = get_option(CREDITTRACKER_OPTIONS);
     if (!empty($stored_options)) {
-        ct_sanitize($stored_options);
+        credittracker_sanitize($stored_options);
         $options = wp_parse_args($stored_options, $options);
     }
-    update_option(CT_OPTIONS, $options);
+    update_option(CREDITTRACKER_OPTIONS, $options);
     return $options;
 }
 
 /**
  * Retrieves single option
  */
-function ct_get_single_option($name)
+function credittracker_get_single_option($name)
 {
-    $options = ct_get_options();
+    $options = credittracker_get_options();
     return $options[$name];
 }
 
 /**
  * Set single option value
  */
-function ct_set_single_option($name, $value)
+function credittracker_set_single_option($name, $value)
 {
-    $options = ct_get_options();
+    $options = credittracker_get_options();
     $options[$name] = $value;
-    update_option(CT_OPTIONS, $options);
+    update_option(CREDITTRACKER_OPTIONS, $options);
 }
 
 /**
  * Returns available sources meta
  */
-function ct_get_sources_names_array()
+function credittracker_get_sources_names_array()
 {
     $names = array();
 
-    foreach (ct_get_sources_array() as $k => $v) {
+    foreach (credittracker_get_sources_array() as $k => $v) {
         $names[$k] = $v['caption'];
     }
 
@@ -507,9 +509,9 @@ function ct_get_sources_names_array()
 /**
  * Returns source caption
  */
-function ct_get_source_caption($source)
+function credittracker_get_source_caption($source)
 {
-    $sources = ct_get_sources_array();
+    $sources = credittracker_get_sources_array();
     if (isset($sources[$source]) && !empty($sources[$source]['caption'])) {
         return $sources[$source]['caption'];
     } else {
@@ -520,9 +522,9 @@ function ct_get_source_caption($source)
 /**
  * Returns source copyright format
  */
-function ct_get_source_copyright($source)
+function credittracker_get_source_copyright($source)
 {
-    $sources = ct_get_sources_array();
+    $sources = credittracker_get_sources_array();
     if (isset($sources[$source]) && !empty($sources[$source]['copyright'])) {
         return call_user_func($sources[$source]['copyright']);
     }
@@ -531,9 +533,9 @@ function ct_get_source_copyright($source)
 /**
  * Returns source metadata
  */
-function ct_get_source_metadata($source, $number)
+function credittracker_get_source_metadata($source, $number)
 {
-    $sources = ct_get_sources_array();
+    $sources = credittracker_get_sources_array();
     if (isset($sources[$source]) && !empty($sources[$source]['retriever'])) {
         return call_user_func($sources[$source]['retriever'], $number);
     }
@@ -542,21 +544,21 @@ function ct_get_source_metadata($source, $number)
 /**
  * Validate allowed features against Labs64 Netlicensing
  */
-function ct_validate_callback()
+function credittracker_validate_callback()
 {
     // validate features
-    $nlic = new NetLicensing(CT_API_KEY);
-    $res = $nlic->validate('CT', ct_strip_url(get_site_url(), 1000), urlencode(get_site_url()));
+    $nlic = new NetLicensing(CREDITTRACKER_API_KEY);
+    $res = $nlic->validate('CT', credittracker_strip_url(get_site_url(), 1000), urlencode(get_site_url()));
 
     // NOTE: no NetLicensing response processing at the moment necessary; only product usage tracking functionality
 
     // update options
-    ct_set_single_option('ct_feature_retriever', '1');
+    credittracker_set_single_option('ct_feature_retriever', '1');
 
     // prepare return values
     $licenses = array(
         'netlicensing_response' => $res,
-        'ct_feature_retriever' => ct_get_single_option('ct_feature_retriever')
+        'ct_feature_retriever' => credittracker_get_single_option('ct_feature_retriever')
     );
     echo json_encode($licenses);
 
@@ -566,9 +568,9 @@ function ct_validate_callback()
 /**
  * Media data callback
  */
-function ct_get_media_data_callback()
+function credittracker_get_media_data_callback()
 {
-    $item = ct_get_source_metadata($_POST['source'], $_POST['ident_nr']);
+    $item = credittracker_get_source_metadata($_POST['source'], $_POST['ident_nr']);
 
     $mediadata = array(
         'source' => $_POST['source'],
@@ -587,53 +589,53 @@ function ct_get_media_data_callback()
 /**
  * Returns available sources meta
  */
-function ct_get_sources_array()
+function credittracker_get_sources_array()
 {
     $sources = array(
         'custom' => array(
-            'caption' => __('Custom', CT_SLUG),
+            'caption' => __('Custom', CREDITTRACKER_SLUG),
             'copyright' => '',
             'retriever' => ''
         ),
         'Fotolia' => array(
             'caption' => 'Fotolia',
-            'copyright' => 'ct_get_fotolia_copyright',
-            'retriever' => 'ct_get_fotolia_metadata'
+            'copyright' => 'credittracker_get_fotolia_copyright',
+            'retriever' => 'credittracker_get_fotolia_metadata'
         ),
         'iStockphoto' => array(
             'caption' => 'iStockphoto',
-            'copyright' => 'ct_get_istockphoto_copyright',
-            'retriever' => 'ct_get_istockphoto_metadata'
+            'copyright' => 'credittracker_get_istockphoto_copyright',
+            'retriever' => 'credittracker_get_istockphoto_metadata'
         ),
         'Shutterstock' => array(
             'caption' => 'Shutterstock',
-            'copyright' => 'ct_get_shutterstock_copyright',
-            'retriever' => 'ct_get_shutterstock_metadata'
+            'copyright' => 'credittracker_get_shutterstock_copyright',
+            'retriever' => 'credittracker_get_shutterstock_metadata'
         ),
         'Corbis_Images' => array(
             'caption' => 'Corbis Images',
-            'copyright' => 'ct_get_corbis_images_copyright',
-            'retriever' => 'ct_get_corbis_images_metadata'
+            'copyright' => 'credittracker_get_corbis_images_copyright',
+            'retriever' => 'credittracker_get_corbis_images_metadata'
         ),
         'Getty_Images' => array(
             'caption' => 'Getty Images',
-            'copyright' => 'ct_get_getty_images_copyright',
-            'retriever' => 'ct_get_getty_images_metadata'
+            'copyright' => 'credittracker_get_getty_images_copyright',
+            'retriever' => 'credittracker_get_getty_images_metadata'
         ),
         'pixelio' => array(
             'caption' => 'Pixelio',
-            'copyright' => 'ct_get_pixelio_copyright',
-            'retriever' => 'ct_get_pixelio_metadata'
+            'copyright' => 'credittracker_get_pixelio_copyright',
+            'retriever' => 'credittracker_get_pixelio_metadata'
         ),
         'flickr' => array(
             'caption' => 'Flickr',
-            'copyright' => 'ct_get_flickr_copyright',
-            'retriever' => 'ct_get_flickr_metadata'
+            'copyright' => 'credittracker_get_flickr_copyright',
+            'retriever' => 'credittracker_get_flickr_metadata'
         ),
         'freeimages' => array(
             'caption' => 'Freeimages',
-            'copyright' => 'ct_get_freeimages_copyright',
-            'retriever' => 'ct_get_freeimages_metadata'
+            'copyright' => 'credittracker_get_freeimages_copyright',
+            'retriever' => 'credittracker_get_freeimages_metadata'
         )
     );
     return $sources;
@@ -642,7 +644,7 @@ function ct_get_sources_array()
 /**
  * Fotolia: copyright
  */
-function ct_get_fotolia_copyright()
+function credittracker_get_fotolia_copyright()
 {
     return CTFotolia::COPYRIGHT;
 }
@@ -650,7 +652,7 @@ function ct_get_fotolia_copyright()
 /**
  * Fotolia: metadata
  */
-function ct_get_fotolia_metadata($number)
+function credittracker_get_fotolia_metadata($number)
 {
     $parser = new CTFotolia();
     return $parser->execute($number);
@@ -659,7 +661,7 @@ function ct_get_fotolia_metadata($number)
 /**
  * iStockphoto: copyright
  */
-function ct_get_istockphoto_copyright()
+function credittracker_get_istockphoto_copyright()
 {
     return CTIStockphoto::COPYRIGHT;
 }
@@ -667,7 +669,7 @@ function ct_get_istockphoto_copyright()
 /**
  * iStockphoto: metadata
  */
-function ct_get_istockphoto_metadata($number)
+function credittracker_get_istockphoto_metadata($number)
 {
     $parser = new CTIStockphoto();
     return $parser->execute($number);
@@ -676,7 +678,7 @@ function ct_get_istockphoto_metadata($number)
 /**
  * Shutterstock: copyright
  */
-function ct_get_shutterstock_copyright()
+function credittracker_get_shutterstock_copyright()
 {
     return CTShutterstock::COPYRIGHT;
 }
@@ -684,7 +686,7 @@ function ct_get_shutterstock_copyright()
 /**
  * Shutterstock: metadata
  */
-function ct_get_shutterstock_metadata($number)
+function credittracker_get_shutterstock_metadata($number)
 {
     $parser = new CTShutterstock();
     return $parser->execute($number);
@@ -693,7 +695,7 @@ function ct_get_shutterstock_metadata($number)
 /**
  * Corbis Images: copyright
  */
-function ct_get_corbis_images_copyright()
+function credittracker_get_corbis_images_copyright()
 {
     return '&copy; %author%/Corbis';
 }
@@ -701,7 +703,7 @@ function ct_get_corbis_images_copyright()
 /**
  * Corbis Images: metadata
  */
-function ct_get_corbis_images_metadata($number)
+function credittracker_get_corbis_images_metadata($number)
 {
     $item = array();
 
@@ -715,7 +717,7 @@ function ct_get_corbis_images_metadata($number)
 /**
  * Getty Images: copyright
  */
-function ct_get_getty_images_copyright()
+function credittracker_get_getty_images_copyright()
 {
     return '&copy; %author% / Getty Images';
 }
@@ -723,7 +725,7 @@ function ct_get_getty_images_copyright()
 /**
  * Getty Images: metadata
  */
-function ct_get_getty_images_metadata($number)
+function credittracker_get_getty_images_metadata($number)
 {
     $item = array();
 
@@ -737,7 +739,7 @@ function ct_get_getty_images_metadata($number)
 /**
  * Pixelio: copyright
  */
-function ct_get_pixelio_copyright()
+function credittracker_get_pixelio_copyright()
 {
     return CTPixelio::COPYRIGHT;
 }
@@ -745,7 +747,7 @@ function ct_get_pixelio_copyright()
 /**
  * Pixelio: metadata
  */
-function ct_get_pixelio_metadata($number)
+function credittracker_get_pixelio_metadata($number)
 {
     $parser = new CTPixelio();
     return $parser->execute($number);
@@ -754,7 +756,7 @@ function ct_get_pixelio_metadata($number)
 /**
  * Flickr: copyright
  */
-function ct_get_flickr_copyright()
+function credittracker_get_flickr_copyright()
 {
     return CTFlickr::COPYRIGHT;
 }
@@ -762,16 +764,16 @@ function ct_get_flickr_copyright()
 /**
  * Flickr: metadata
  */
-function ct_get_flickr_metadata($number)
+function credittracker_get_flickr_metadata($number)
 {
-    $parser = new CTFlickr(ct_get_single_option('ct_auth_flickr_apikey'));
+    $parser = new CTFlickr(credittracker_get_single_option('ct_auth_flickr_apikey'));
     return $parser->execute($number);
 }
 
 /**
  * Freeimages: copyright
  */
-function ct_get_freeimages_copyright()
+function credittracker_get_freeimages_copyright()
 {
     return CTFreeimages::COPYRIGHT;
 }
@@ -779,7 +781,7 @@ function ct_get_freeimages_copyright()
 /**
  * Freeimages: metadata
  */
-function ct_get_freeimages_metadata($number)
+function credittracker_get_freeimages_metadata($number)
 {
     $parser = new CTFreeimages();
     return $parser->execute($number);

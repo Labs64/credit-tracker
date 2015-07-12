@@ -163,7 +163,7 @@ class Credit_Tracker
      */
     public function load_plugin_textdomain()
     {
-        $domain = CT_SLUG;
+        $domain = CREDITTRACKER_SLUG;
         $locale = apply_filters('plugin_locale', get_locale(), $domain);
 
         load_textdomain($domain, trailingslashit(WP_LANG_DIR) . $domain . '/' . $domain . '-' . $locale . '.mo');
@@ -175,7 +175,7 @@ class Credit_Tracker
      */
     public function enqueue_styles()
     {
-        wp_enqueue_style(CT_SLUG . '-plugin-styles', plugins_url('css/ct-public.css', __FILE__), array(), CT_VERSION);
+        wp_enqueue_style(CREDITTRACKER_SLUG . '-plugin-styles', plugins_url('css/ct-public.css', __FILE__), array(), CREDITTRACKER_VERSION);
     }
 
     /**
@@ -183,19 +183,19 @@ class Credit_Tracker
      */
     public function enqueue_scripts()
     {
-        wp_enqueue_script(CT_SLUG . '-plugin-script', plugins_url('js/ct-public.js', __FILE__), array('jquery'), CT_VERSION);
+        wp_enqueue_script(CREDITTRACKER_SLUG . '-plugin-script', plugins_url('js/ct-public.js', __FILE__), array('jquery'), CREDITTRACKER_VERSION);
     }
 
     public function get_attachment_fields($form_fields, $post)
     {
         $selected_source = get_post_meta($post->ID, "credit-tracker-source", true);
-        $ct_retriever_enabled = ct_get_single_option('ct_feature_retriever');
+        $ct_retriever_enabled = credittracker_get_single_option('ct_feature_retriever');
 
         $form_fields["credit-tracker-ident_nr"] = array(
-            "label" => __('Ident-Nr.', CT_SLUG),
+            "label" => __('Ident-Nr.', CREDITTRACKER_SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-ident_nr", true),
-            "helps" => __("The original object number at the source", CT_SLUG),
+            "helps" => __("The original object number at the source", CREDITTRACKER_SLUG),
         );
 
         if ($ct_retriever_enabled == '1') {
@@ -203,52 +203,52 @@ class Credit_Tracker
             $link_activate = "";
         } else {
             $btn_state = 'disabled';
-            $link_activate = "<a href='" . admin_url('options-general.php?page=credit-tracker') . "'>" . __("activate", CT_SLUG) . "</a>";
+            $link_activate = "<a href='" . admin_url('options-general.php?page=credit-tracker') . "'>" . __("activate", CREDITTRACKER_SLUG) . "</a>";
         }
 
         // Note: only attachment (media edit) page is enabled at the moment for the media data retrieval
         $screen = get_current_screen();
         $ct_btn_allowed_screens = array("attachment");
         if (isset($screen) && in_array($screen->id, $ct_btn_allowed_screens)) {
-            $btn_retriever_code = "&nbsp;&nbsp;<button id='ct-mediadata' type='button' " . $btn_state . ">" . __("GET MEDIA DATA", CT_SLUG) . "</button>" . "&nbsp;" . $link_activate;
+            $btn_retriever_code = "&nbsp;&nbsp;<button id='ct-mediadata' type='button' " . $btn_state . ">" . __("GET MEDIA DATA", CREDITTRACKER_SLUG) . "</button>" . "&nbsp;" . $link_activate;
         } else {
             $btn_retriever_code = '';
         }
 
         $form_fields["credit-tracker-source"] = array(
-            "label" => __('Source', CT_SLUG),
+            "label" => __('Source', CREDITTRACKER_SLUG),
             "input" => "html",
             "value" => $selected_source,
-            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . ct_get_combobox_options(ct_get_sources_names_array(), $selected_source) . "</select>" . $btn_retriever_code,
-            "helps" => __("Source where to locate the original media", CT_SLUG),
+            "html" => "<select name='attachments[$post->ID][credit-tracker-source]' id='attachments-{$post->ID}-credit-tracker-source'>" . credittracker_get_combobox_options(credittracker_get_sources_names_array(), $selected_source) . "</select>" . $btn_retriever_code,
+            "helps" => __("Source where to locate the original media", CREDITTRACKER_SLUG),
         );
 
         $form_fields["credit-tracker-author"] = array(
-            "label" => __('Author', CT_SLUG),
+            "label" => __('Author', CREDITTRACKER_SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-author", true),
-            "helps" => __("Media author/owner", CT_SLUG),
+            "helps" => __("Media author/owner", CREDITTRACKER_SLUG),
         );
 
         $form_fields["credit-tracker-publisher"] = array(
-            "label" => __('Publisher', CT_SLUG),
+            "label" => __('Publisher', CREDITTRACKER_SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-publisher", true),
-            "helps" => __("Media publisher (e.g. image agency)", CT_SLUG),
+            "helps" => __("Media publisher (e.g. image agency)", CREDITTRACKER_SLUG),
         );
 
         $form_fields["credit-tracker-license"] = array(
-            "label" => __('License', CT_SLUG),
+            "label" => __('License', CREDITTRACKER_SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-license", true),
-            "helps" => __("Media license", CT_SLUG),
+            "helps" => __("Media license", CREDITTRACKER_SLUG),
         );
 
         $form_fields["credit-tracker-link"] = array(
-            "label" => __('Link', CT_SLUG),
+            "label" => __('Link', CREDITTRACKER_SLUG),
             "input" => "text",
             "value" => get_post_meta($post->ID, "credit-tracker-link", true),
-            "helps" => __("Media link", CT_SLUG),
+            "helps" => __("Media link", CREDITTRACKER_SLUG),
         );
 
         return $form_fields;
@@ -297,9 +297,9 @@ class Credit_Tracker
 
     function credit_tracker_attachment_columns($columns)
     {
-        $columns['credit-tracker-ident_nr'] = __('Ident-Nr.', CT_SLUG);
-        $columns['credit-tracker-source'] = __('Source', CT_SLUG);
-        $columns['credit-tracker-author'] = __('Author', CT_SLUG);
+        $columns['credit-tracker-ident_nr'] = __('Ident-Nr.', CREDITTRACKER_SLUG);
+        $columns['credit-tracker-source'] = __('Source', CREDITTRACKER_SLUG);
+        $columns['credit-tracker-author'] = __('Author', CREDITTRACKER_SLUG);
         return $columns;
     }
 
@@ -313,7 +313,7 @@ class Credit_Tracker
                 break;
             case 'credit-tracker-source':
                 $value = get_post_meta($post->ID, "credit-tracker-source", true);
-                echo ct_get_source_caption($value);
+                echo credittracker_get_source_caption($value);
                 break;
             case 'credit-tracker-author':
                 $value = get_post_meta($post->ID, "credit-tracker-author", true);

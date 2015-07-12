@@ -30,7 +30,7 @@ if (!defined('WPINC')) {
 /**
  * Plugin version, used for cache-busting of style and script file references.
  */
-define('CT_VERSION', '1.1.2');
+define('CREDITTRACKER_VERSION', '1.1.2');
 
 /**
  * Unique identifier for your plugin.
@@ -38,7 +38,7 @@ define('CT_VERSION', '1.1.2');
  * Use this value (not the variable name) as the text domain when internationalizing strings of text. It should
  * match the Text Domain file header in the main plugin file.
  */
-define('CT_SLUG', 'credit-tracker');
+define('CREDITTRACKER_SLUG', 'credit-tracker');
 
 // main
 require_once(plugin_dir_path(__FILE__) . 'credit-tracker-class.php');

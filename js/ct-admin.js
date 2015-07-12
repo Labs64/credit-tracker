@@ -22,8 +22,8 @@ jQuery(document).ready(function($) {
                     featText = 'ON';
                     featClass = 'label-on';
                 }
-                $("ul[id=ct_features] > [id=" + key + "] > span").text(featText);
-                $("ul[id=ct_features] > [id=" + key + "] > span").removeClass("label-off", "label-on").addClass(featClass);
+                $("ul[id=credittracker_features] > [id=" + key + "] > span").text(featText);
+                $("ul[id=credittracker_features] > [id=" + key + "] > span").removeClass("label-off", "label-on").addClass(featClass);
             });
         });
     });

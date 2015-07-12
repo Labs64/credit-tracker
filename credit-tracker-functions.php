@@ -12,8 +12,8 @@
  *
  * See also: https://codex.wordpress.org/Debugging_in_WordPress
  */
-if (!function_exists('ct_write_log')) {
-    function ct_write_log($log)
+if (!function_exists('credittracker_write_log')) {
+    function credittracker_write_log($log)
     {
         if (true === WP_DEBUG) {
             if (is_array($log) || is_object($log)) {
@@ -35,7 +35,7 @@ if (!function_exists('ct_write_log')) {
  *         'numberposts'  => -1               // max quantity of records to return; default = -1 (all)
  *     );
  */
-function ct_get_images($attr)
+function credittracker_get_images($attr)
 {
     $defaults = array(
         'size' => 'thumbnail',
@@ -93,7 +93,7 @@ function ct_get_images($attr)
 /**
  * Returns copyright string formatted according to the given format.
  */
-function ct_process_item_copyright($item, $string)
+function credittracker_process_item_copyright($item, $string)
 {
     $string = str_replace("%ident_nr%", $item['ident_nr'], $string);
     $string = str_replace("%source%", $item['source'], $string);
@@ -119,7 +119,7 @@ function ct_process_item_copyright($item, $string)
  * <option value=$key>$value</option>
  * <option value=$key selected="selected">$value</option>
  */
-function ct_get_combobox_options($options, $selected)
+function credittracker_get_combobox_options($options, $selected)
 {
     $ret = '';
     foreach ($options as $key => $value) {
@@ -138,7 +138,7 @@ function ct_get_combobox_options($options, $selected)
  * @param string $url
  * @return string
  */
-function ct_strip_url($url, $len = 20)
+function credittracker_strip_url($url, $len = 20)
 {
     $short_url = str_replace(array('http://', 'https://', 'www.'), '', $url);
     $short_url = preg_replace('/[^a-zA-Z0-9_-]/', '', $short_url);
