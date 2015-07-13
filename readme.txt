@@ -139,7 +139,8 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.1.3 =
-* TODO
+* Restore old plugin options
+* Fix table columns names and translations
 
 = 1.1.2 =
 * Implement 'Option to enable/disable credit tracker table columns' [#12](https://github.com/Labs64/credit-tracker/pull/12)

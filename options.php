@@ -10,7 +10,7 @@
  */
 
 
-define('CREDITTRACKER_OPTIONS', 'CT_OPTIONS');
+define('CREDITTRACKER_OPTIONS', 'CREDITTRACKER_OPTIONS');
 define('CREDITTRACKER_API_KEY', '31c7bc4e-90ff-44fb-9f07-b88eb06ed9dc');
 
 
@@ -469,7 +469,13 @@ function credittracker_get_default_options()
 function credittracker_get_options()
 {
     $options = credittracker_get_default_options();
+
     $stored_options = get_option(CREDITTRACKER_OPTIONS);
+    if (empty($stored_options)) {
+        // restore old options
+        $stored_options = get_option('CT_OPTIONS');
+    }
+
     if (!empty($stored_options)) {
         credittracker_sanitize($stored_options);
         $options = wp_parse_args($stored_options, $options);
