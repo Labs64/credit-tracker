@@ -3,7 +3,7 @@ Contributors: labs64
 Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 3.5.1
 Tested up to: 4.3
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,7 +96,7 @@ If you want to show the Credit Tracker on a specific page or set of pages on you
 
 This is a brief introductory video for Credit Tracker:
 
-[youtube https://youtu.be/w13fYXWK-lo]
+[youtube http://www.youtube.com/watch?v=w13fYXWK-lo]
 
 = How do I use both standard caption and media credit? =
 
@@ -141,6 +141,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 5. Custom Image Caption Shortcode to reflect Credit Information
 
 == Changelog ==
+
+= 1.1.5 =
+* TODO
 
 = 1.1.4 =
 * Adapt, test and approve plugin for WordPress 4.3
