@@ -106,7 +106,7 @@ function credittracker_enqueue_admin_scripts()
 function credittracker_create_admin_page()
 {
     ?>
-    <div class="wrap" xmlns="http://www.w3.org/1999/html">
+    <div class="wrap credit-tracker" xmlns="http://www.w3.org/1999/html">
         <a href="http://www.labs64.com" target="_blank" class="icon-labs64 icon32"></a>
 
         <h2><?php _e('Credit Tracker by Labs64', CREDITTRACKER_SLUG); ?></h2>
