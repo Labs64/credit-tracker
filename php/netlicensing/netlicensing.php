@@ -11,7 +11,7 @@ if (!class_exists('NetLicensing')) {
     class NetLicensing
     {
 
-        const NLIC_BASE_URL = 'https://netlicensing.labs64.com/core/v2/rest';
+        const NLIC_BASE_URL = 'https://go.netlicensing.io/core/v2/rest';
 
         private $curl = null;
 
