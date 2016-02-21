@@ -145,6 +145,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 = 1.1.6 =
 * Adapt, test and approve plugin for WordPress 4.4.2
 * Add 'link', 'source', 'title' and 'caption' to the 'credit_tracker_table' optional columns set
+* Add Wikimedia placeholder
 
 = 1.1.5 =
 * Fix CSS

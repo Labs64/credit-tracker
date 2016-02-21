@@ -647,6 +647,11 @@ function credittracker_get_sources_array()
             'caption' => 'Freeimages',
             'copyright' => 'credittracker_get_freeimages_copyright',
             'retriever' => 'credittracker_get_freeimages_metadata'
+        ),
+        'wikimedia' => array(
+            'caption' => 'Wikimedia',
+            'copyright' => 'credittracker_get_wikimedia_copyright',
+            'retriever' => 'credittracker_get_wikimedia_metadata'
         )
     );
     return $sources;
@@ -718,9 +723,11 @@ function credittracker_get_corbis_images_metadata($number)
 {
     $item = array();
 
-    $item['author'] = '...not implemented yet...';
+    $item['source'] = 'Corbis Images';
+    $item['author'] = '';
     $item['publisher'] = 'Corbis Images';
     $item['license'] = 'Royalty-free';
+    $item['link'] = 'http://www.corbisimages.com';
 
     return $item;
 }
@@ -740,9 +747,11 @@ function credittracker_get_getty_images_metadata($number)
 {
     $item = array();
 
-    $item['author'] = '...not implemented yet...';
+    $item['source'] = 'Getty Images';
+    $item['author'] = '';
     $item['publisher'] = 'Getty Images';
     $item['license'] = 'Royalty-free';
+    $item['link'] = 'http://www.gettyimages.com';
 
     return $item;
 }
@@ -796,6 +805,30 @@ function credittracker_get_freeimages_metadata($number)
 {
     $parser = new CTFreeimages();
     return $parser->execute($number);
+}
+
+/**
+ * Wikimedia: copyright
+ */
+function credittracker_get_wikimedia_copyright()
+{
+    return 'By %author% [Creative Commons], via Wikimedia Commons';
+}
+
+/**
+ * Wikimedia: metadata
+ */
+function credittracker_get_wikimedia_metadata($number)
+{
+    $item = array();
+
+    $item['source'] = 'Wikimedia';
+    $item['author'] = '';
+    $item['publisher'] = 'Wikimedia';
+    $item['license'] = 'Creative Commons';
+    $item['link'] = 'https://commons.wikimedia.org';
+
+    return $item;
 }
 
 ?>
