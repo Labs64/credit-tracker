@@ -212,7 +212,7 @@ function credittracker_print_features_section()
     <button id="ct-validate" type="button""><?php _e('Validate'); ?></button>
     <br/>
     <div style="font-style: italic; color: rgb(102, 102, 102); font-size: smaller;"><p>Powered by <a
-                href="http://netlicensing.io"
+                href="http://netlicensing.io/?ref=credit-tracker"
                 target="_blank">NetLicensing</a></p>
     </div>
 <?php

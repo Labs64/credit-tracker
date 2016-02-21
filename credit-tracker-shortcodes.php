@@ -21,7 +21,11 @@ function credit_tracker_table_shortcode($atts)
         'author' => __('Author', CREDITTRACKER_SLUG),
         'publisher' => __('Publisher', CREDITTRACKER_SLUG),
         'copyright' => __('Copyright', CREDITTRACKER_SLUG),
-        'license' => __('License', CREDITTRACKER_SLUG)
+        'license' => __('License', CREDITTRACKER_SLUG),
+        'source' => __('Source', CREDITTRACKER_SLUG),
+        'title' => __('Title', CREDITTRACKER_SLUG),
+        'caption' => __('Caption', CREDITTRACKER_SLUG),
+        'link' => __('Link', CREDITTRACKER_SLUG)
     );
     $columns_set = implode(",", array_keys($columns_set_i18n));
 
