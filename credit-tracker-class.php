@@ -300,6 +300,7 @@ class Credit_Tracker
         $columns['credit-tracker-ident_nr'] = __('Ident-Nr.', CREDITTRACKER_SLUG);
         $columns['credit-tracker-source'] = __('Source', CREDITTRACKER_SLUG);
         $columns['credit-tracker-author'] = __('Author', CREDITTRACKER_SLUG);
+        $columns['credit-tracker-publisher'] = __('Publisher', CREDITTRACKER_SLUG);
         return $columns;
     }
 
@@ -317,6 +318,10 @@ class Credit_Tracker
                 break;
             case 'credit-tracker-author':
                 $value = get_post_meta($post->ID, "credit-tracker-author", true);
+                echo $value;
+                break;
+            case 'credit-tracker-publisher':
+                $value = get_post_meta($post->ID, "credit-tracker-publisher", true);
                 echo $value;
                 break;
         }
