@@ -85,10 +85,12 @@ function credit_tracker_table_shortcode($atts)
             $ret .= '<td>' . '<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-thumbnail" alt="' . $image['alt'] . '">' . '</td>';
             foreach ($columns as $column) {
                 if (!empty($column)) {
-                    if ($column != 'copyright') {
-                        $ret .= '<td>' . $image[(string)$column] . '</td>';
-                    } else {
+                    if ($column == 'copyright') {
                         $ret .= '<td>' . credittracker_process_item_copyright($image, $ct_copyright_format) . '</td>';
+                    } else if ($column == 'source') {
+                        $ret .= '<td>' . credittracker_get_source_caption($image[(string)$column], false) . '</td>';
+                    } else {
+                        $ret .= '<td>' . $image[(string)$column] . '</td>';
                     }
                 }
             }

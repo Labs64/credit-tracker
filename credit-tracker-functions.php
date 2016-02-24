@@ -127,7 +127,7 @@ function credittracker_get_combobox_options($options, $selected)
         if ($key == $selected) {
             $ret .= ' selected="selected"';
         }
-        $ret .= '>' . $value . '</option>';
+        $ret .= '>' . (empty($value) ? '- ' . $key . ' -' : $value) . '</option>';
     }
     return $ret;
 }

@@ -520,13 +520,17 @@ function credittracker_get_sources_names_array()
 /**
  * Returns source caption
  */
-function credittracker_get_source_caption($source)
+function credittracker_get_source_caption($source, $useSource = false)
 {
     $sources = credittracker_get_sources_array();
     if (isset($sources[$source]) && !empty($sources[$source]['caption'])) {
         return $sources[$source]['caption'];
     } else {
-        return $source;
+        if ($useSource) {
+            return $source;
+        } else {
+            return '';
+        }
     }
 }
 
@@ -604,7 +608,7 @@ function credittracker_get_sources_array()
 {
     $sources = array(
         'custom' => array(
-            'caption' => __('Custom', CREDITTRACKER_SLUG),
+            'caption' => '',
             'copyright' => '',
             'retriever' => ''
         ),

@@ -143,7 +143,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.1.7 =
-* *TODO*
+* Improve custom source handling
 
 = 1.1.6 =
 * Adapt, test and approve plugin for WordPress 4.4.2

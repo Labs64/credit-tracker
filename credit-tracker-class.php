@@ -313,7 +313,7 @@ class Credit_Tracker
                 break;
             case 'credit-tracker-source':
                 $value = get_post_meta($post->ID, "credit-tracker-source", true);
-                echo credittracker_get_source_caption($value);
+                echo credittracker_get_source_caption($value, true);
                 break;
             case 'credit-tracker-author':
                 $value = get_post_meta($post->ID, "credit-tracker-author", true);
