@@ -268,14 +268,19 @@ function credittracker_print_reference_section()
 
                 <p><strong>Examples:</strong></p>
 
-                <p><code>[caption id="attachment_11" width="222"]...[/caption]</code></p>
+                <p><code>[caption id="attachment_11" width="111"]...[/caption]</code></p>
 
                 <p>Override [caption] shortcode</p>
                 <br/>
 
-                <p><code>[caption id="22" text="image caption"]...[/caption]</code></p>
+                <p><code>[caption id="11" text="image caption"]...[/caption]</code></p>
 
                 <p>Override [caption] shortcode and use <i>text</i> instead of the standard media property</p>
+                <br/>
+
+                <p><code>[caption id="11"]&lt;a href="%link%"&gt;&lt;img src="11.png" alt="%caption%" title="%copyright%"/&gt;&lt;/a&gt;[/caption]</code></p>
+
+                <p>Substitute media attribution within [caption] shortcode</p>
             </td>
         </tr>
         <tr valign="top">
@@ -373,7 +378,7 @@ function credittracker_page_init()
         array(
             'id' => 'ct_override_caption_shortcode',
             'caption' => __('Override WordPress [caption] shortcode', CREDITTRACKER_SLUG),
-            'description' => __('Replaces output of standard WordPress [caption] shortcode with improved version (add Image Microdata and Image Credit)', CREDITTRACKER_SLUG),
+            'description' => __('Replaces output of standard WordPress [caption] shortcode with improved version (add Image Microdata and Image Credit)<br/>Following placeholders can be used to substitute media attribution within [caption] shortcode: standard placeholders and %copyright%', CREDITTRACKER_SLUG),
         )
     );
 

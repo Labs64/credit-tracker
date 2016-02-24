@@ -147,6 +147,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 * Add Publisher column on media library list
 * Allow placeholders inside of 'caption' shortcode
 * Introduce new placeholder %copyright% inside of 'caption' shortcode
+* Improve shortcodes documentation
 
 = 1.1.6 =
 * Adapt, test and approve plugin for WordPress 4.4.2
