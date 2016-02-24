@@ -152,6 +152,8 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
         $ct_copyright = htmlspecialchars_decode(credittracker_process_item_copyright($image, $ct_copyright_format));
 
         $content = str_replace('<img', '<img itemprop="contentUrl"', $content);
+        $content = str_replace("%copyright%", $ct_copyright, $content);
+        $content = credittracker_process_item_copyright($image, $content);
 
         $style = '';
         if ((int)$width > 0) {
