@@ -661,6 +661,11 @@ function credittracker_get_sources_array()
             'caption' => 'Wikimedia',
             'copyright' => 'credittracker_get_wikimedia_copyright',
             'retriever' => 'credittracker_get_wikimedia_metadata'
+        ),
+        'unsplash' => array(
+            'caption' => 'Unsplash',
+            'copyright' => 'credittracker_get_unsplash_copyright',
+            'retriever' => 'credittracker_get_unsplash_metadata'
         )
     );
     return $sources;
@@ -838,6 +843,23 @@ function credittracker_get_wikimedia_metadata($number)
     $item['link'] = 'https://commons.wikimedia.org';
 
     return $item;
+}
+
+/**
+ * Unsplash: copyright
+ */
+function credittracker_get_unsplash_copyright()
+{
+    return CTUnsplash::COPYRIGHT;
+}
+
+/**
+ * Unsplash: metadata
+ */
+function credittracker_get_unsplash_metadata($number)
+{
+    $parser = new CTUnsplash();
+    return $parser->execute($number);
 }
 
 ?>

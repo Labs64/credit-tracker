@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: labs64
-Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, bildnachweis, impressum, imprint, microdata, NetLicensing
+Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, unsplash, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 3.5.1
 Tested up to: 4.4.2
 Stable tag: 1.1.8
@@ -143,7 +143,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.1.8 =
-* *TODO*
+* Enable Unsplash parser
 
 = 1.1.7 =
 * Improve custom source handling
