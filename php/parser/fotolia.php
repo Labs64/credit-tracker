@@ -11,7 +11,7 @@ class CTFotolia extends CTParser
 
     const COPYRIGHT = '&copy; %author% - Fotolia.com';
 
-    const BASE_URL = 'http://www.fotolia.com/id/';
+    const BASE_URL = 'https://www.fotolia.com/id/';
 
     protected function parse($number)
     {
@@ -29,9 +29,11 @@ class CTFotolia extends CTParser
         if ($html) {
             $xpath = new DOMXPath($doc);
 
-            $tags = $xpath->query("*/meta[@property='og:author']");
+            $tags = $xpath->query("*/meta[@name='twitter:title']");
             if (!is_null($tags) && $tags->length > 0) {
-                $item['author'] = $tags->item(0)->getAttribute('content');
+                $author = $tags->item(0)->getAttribute('content');
+                preg_match('/^.*© (.*):.*$/', $author, $out);
+                $item['author'] = $out[1];
             }
         }
 

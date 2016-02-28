@@ -16,18 +16,22 @@ add_filter('img_caption_shortcode', 'credit_tracker_caption_shortcode_filter', 1
 
 function credit_tracker_table_shortcode($atts)
 {
-    $columns_set_i18n = array(
+    $columns_set_default = array(
         'ident_nr' => __('Ident-Nr.', CREDITTRACKER_SLUG),
         'author' => __('Author', CREDITTRACKER_SLUG),
         'publisher' => __('Publisher', CREDITTRACKER_SLUG),
         'copyright' => __('Copyright', CREDITTRACKER_SLUG),
         'license' => __('License', CREDITTRACKER_SLUG),
+    );
+    $columns_set_optional = array(
         'source' => __('Source', CREDITTRACKER_SLUG),
         'title' => __('Title', CREDITTRACKER_SLUG),
         'caption' => __('Caption', CREDITTRACKER_SLUG),
         'link' => __('Link', CREDITTRACKER_SLUG)
     );
-    $columns_set = implode(",", array_keys($columns_set_i18n));
+    $columns_set_i18n = array_merge($columns_set_default, $columns_set_optional);
+
+    $columns_set = implode(",", array_keys($columns_set_default));
 
     extract(shortcode_atts(
             array(
@@ -62,7 +66,7 @@ function credit_tracker_table_shortcode($atts)
 
     foreach ($columns as $column) {
         if (!empty($column)) {
-            $column_name = __($columns_set_i18n[$column], CREDITTRACKER_SLUG);
+            $column_name = $columns_set_i18n[$column];
             if (empty($column_name)) {
                 $column_name = $column;
             }

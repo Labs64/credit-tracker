@@ -143,7 +143,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.1.9 =
-* *TODO*
+* Fix Unsplash.php filename
+* Optimize 'credit_tracker_table' shortcode columns handling
+* Update Fotolia parser
 
 = 1.1.8 =
 * Enable Unsplash parser
