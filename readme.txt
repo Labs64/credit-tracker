@@ -50,7 +50,7 @@ Developers can checkout and contribute to the source code on the Credit Tracker'
 
 * [Plugin Homepage](https://github.com/Labs64/credit-tracker "Plugin Homepage")
 * [Report a bug, or suggest an improvement](https://github.com/Labs64/credit-tracker/issues "Plugin Issue Tracking")
-* [Labs64 Blog](http://www.labs64.com/blog "Read Labs64 Blog")
+* [Labs64 Blog](http://netlicensing.io/blog/ "Read Blog")
 
 == Installation ==
 
