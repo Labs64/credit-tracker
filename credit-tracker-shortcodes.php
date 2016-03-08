@@ -62,7 +62,9 @@ function credit_tracker_table_shortcode($atts)
     $images = credittracker_get_images($request);
 
     $ret = '<table id="credit-tracker-table" class="credit-tracker-' . $style . '"><thead>';
-    $ret .= '<th>' . '&nbsp;' . '</th>';
+    if ($size !== 'hidden') {
+        $ret .= '<th>' . '&nbsp;' . '</th>';
+    }
 
     foreach ($columns as $column) {
         if (!empty($column)) {
@@ -86,7 +88,9 @@ function credit_tracker_table_shortcode($atts)
                 $ct_copyright_format = credittracker_get_single_option('ct_copyright_format');
             }
             $ret .= '<tr>';
-            $ret .= '<td>' . '<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-thumbnail" alt="' . $image['alt'] . '">' . '</td>';
+            if ($size !== 'hidden') {
+                $ret .= '<td>' . '<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-thumbnail" alt="' . $image['alt'] . '">' . '</td>';
+            }
             foreach ($columns as $column) {
                 if (!empty($column)) {
                     if ($column == 'copyright') {

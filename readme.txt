@@ -88,10 +88,10 @@ Once you have activated the plugin you can tinker with the settings to your hear
 
 If you want to show the Credit Tracker on a specific page or set of pages on your website then you can use the code below (provided that the plugin has already been installed and activated). The appearance of the Credit Tracker table can be fully customized by making a few simple changes to the embed code, the details of which are listed below. Inclusion of the table is of course entirely optional, have a play with the different sizes and styles to see what works for your site.
 
-`[credit_tracker_table id="11,22,33" size="thumbnail|medium|large|full" style="mercury"]`
+`[credit_tracker_table id="11,22,33" size="hidden|thumbnail|medium|large|full" style="mercury"]`
 
 * **id** *(optional)* - specify which images you want to list in the table (one or more). If no ID is specified, the default display is to show all images containing author info.
-* **size** *(optional)* - specify the image size to use for the thumbnail display within the credit tracker table. The choice of sizes includes "thumbnail", "medium", "large", "full" or numeric values (e.g. "50" or "100x50"). The default value is "thumbnail".
+* **size** *(optional)* - specify the image size to use for the thumbnail display within the credit tracker table. The choice of sizes includes "hidden", "thumbnail", "medium", "large", "full" or numeric values (e.g. "50" or "100x50"). Use "hidden" value to suppress thumbnail column. The default value is "thumbnail".
 * **style** *(optional)* - Specify the table style to suite your website. Valid values include "default", "mercury", "mars". If no value is set, the "default" style will be used.
 
 This is a brief introductory video for Credit Tracker:
@@ -143,7 +143,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.1.10 =
-* *TODO*
+* Introduce new value 'hidden' for the 'size' attribute at 'credit_tracker_table' - [#23](https://github.com/Labs64/credit-tracker/issues/23)
 
 = 1.1.9 =
 * Fix Unsplash.php filename
