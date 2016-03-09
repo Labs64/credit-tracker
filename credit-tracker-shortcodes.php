@@ -82,7 +82,7 @@ function credit_tracker_table_shortcode($atts)
     }
 
     foreach ($images as $image) {
-        if (!empty($image['author'])) {
+        if (!empty($image['author']) or !empty($image['publisher'])) {
             $ct_copyright_format = credittracker_get_source_copyright($image['source']);
             if (empty($ct_copyright_format)) {
                 $ct_copyright_format = credittracker_get_single_option('ct_copyright_format');
