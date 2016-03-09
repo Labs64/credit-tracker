@@ -296,7 +296,7 @@ function credittracker_print_reference_section()
                     default behavior, if no ID is specified, is to display all images containing author info.</p>
 
                 <p>&nbsp;&nbsp;<strong>size</strong> <i>(optional)</i> - Image size to use for the thumbnail
-                    display. Valid values include "hidden", "thumbnail", "medium", "large", "full" or numeric values (e.g. "50" or
+                    display. Valid values include "hidden", "linkonly", "thumbnail", "medium", "large", "full" or numeric values (e.g. "50" or
                     "100x50").
                     The default value is "thumbnail".</p>
 
