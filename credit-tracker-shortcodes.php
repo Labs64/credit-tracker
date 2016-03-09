@@ -89,7 +89,11 @@ function credit_tracker_table_shortcode($atts)
             }
             $ret .= '<tr>';
             if ($size == 'linkonly') {
-                $ret .= '<td>' . '<a href="' . $image['url'] . '" class="attachment-linkonly" alt="' . $image['alt'] . '">Picture</a>' . '</td>';
+                $imageName = $image['caption'];
+                if (empty($imageName)) {
+                    $imageName = $image['title'];
+                }
+                $ret .= '<td>' . '<a href="' . $image['url'] . '" class="attachment-linkonly" alt="' . $image['alt'] . '">' . $imageName . '</a>' . '</td>';
             } elseif ($size !== 'hidden') {
                 $ret .= '<td>' . '<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-thumbnail" alt="' . $image['alt'] . '">' . '</td>';
             }

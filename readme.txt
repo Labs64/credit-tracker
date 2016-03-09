@@ -143,7 +143,8 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.1.10 =
-* Introduce new value 'hidden' for the 'size' attribute at 'credit_tracker_table' - [#23](https://github.com/Labs64/credit-tracker/issues/23)
+* Introduce new values 'hidden' and 'linkonly' for the 'size' attribute at 'credit_tracker_table' - [#23](https://github.com/Labs64/credit-tracker/issues/23)
+* Either author or published needed to display credit info
 
 = 1.1.9 =
 * Fix Unsplash.php filename
