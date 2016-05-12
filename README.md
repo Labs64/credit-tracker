@@ -59,3 +59,4 @@ Anyone and everyone is welcome to contribute. Dozens of developers have helped m
 * WordPress plugin page: [http://wordpress.org/plugins/credit-tracker/](http://wordpress.org/plugins/credit-tracker/)
 * Source: [https://github.com/Labs64/credit-tracker](https://github.com/Labs64/credit-tracker)
 * Author: [Labs64](http://www.labs64.com)
+* Demand photos: [Photolancer Zone](http://photolancer.zone)
