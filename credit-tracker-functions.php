@@ -147,3 +147,31 @@ function credittracker_strip_url($url, $len = 20)
     }
     return $short_url;
 }
+
+/**
+ * Filters the post thumbnail markup to add the 'credit-tracker-author' information
+ * as figure/ficaption markup.
+ *
+ * @param string $html       The post thumbnail HTML
+ * @param $post_id           The post ID, currently unused.
+ * @param $post_thumbnail_id The post thumbnail ID, used to get the attachment meta fields.
+ *
+ * @return string The modified markup for post thumbnail, if it contains an author for crediting.
+ */
+function creddittracker_add_credit_to_post_thumbnail( $html, $post_id, $post_thumbnail_id )
+{
+    $author = get_post_meta( $post_thumbnail_id , 'credit-tracker-author', true );
+    // If the author (image credit) is not empty, render it in the HTML.
+    if ( ! empty( $author ) ) {
+        $html = sprintf(
+            '<figure>
+                %1$s
+                <figcaption>%2$s</figcaption>
+            </figure>',
+            $html,
+            esc_html( $author )
+        );
+    }
+    return $html;
+}
+add_filter( 'post_thumbnail_html', 'creddittracker_add_credit_to_post_thumbnail', 99, 3 );
