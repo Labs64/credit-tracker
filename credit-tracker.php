@@ -43,6 +43,7 @@ define('CREDITTRACKER_SLUG', 'credit-tracker');
 // main
 require_once(plugin_dir_path(__FILE__) . 'credit-tracker-class.php');
 require_once(plugin_dir_path(__FILE__) . 'credit-tracker-shortcodes.php');
+require_once(plugin_dir_path(__FILE__) . 'credit-tracker-widgets.php');
 require_once(plugin_dir_path(__FILE__) . 'credit-tracker-functions.php');
 require_once(plugin_dir_path(__FILE__) . 'options.php');
 // util
