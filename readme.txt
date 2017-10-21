@@ -2,7 +2,7 @@
 Contributors: labs64
 Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, unsplash, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 3.5.1
-Tested up to: 4.4.2
+Tested up to: 4.8.2
 Stable tag: 1.1.10
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -50,7 +50,7 @@ Developers can checkout and contribute to the source code on the Credit Tracker'
 
 * [Plugin Homepage](https://github.com/Labs64/credit-tracker "Plugin Homepage")
 * [Report a bug, or suggest an improvement](https://github.com/Labs64/credit-tracker/issues "Plugin Issue Tracking")
-* [Labs64 Blog](http://netlicensing.io/blog/ "Read Blog")
+* [Labs64 Blog](https://netlicensing.io/blog/ "Read Blog")
 
 == Installation ==
 
@@ -143,8 +143,11 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.1.10 =
+* Test and approve plugin for WordPress 4.8.2
 * Introduce new values 'hidden' and 'linkonly' for the 'size' attribute at 'credit_tracker_table' - [#23](https://github.com/Labs64/credit-tracker/issues/23)
 * Either author or published needed to display credit info
+* Use [credit_tracker_table] in a widget [#18](https://github.com/Labs64/credit-tracker/issues/18) by [Jaace](https://github.com/Jaace)
+* Add credit to the thumbnail [#9](https://github.com/Labs64/credit-tracker/issues/9) by [Jaace](https://github.com/Jaace)
 
 = 1.1.9 =
 * Fix Unsplash.php filename
@@ -171,7 +174,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 
 = 1.1.4 =
 * Adapt, test and approve plugin for WordPress 4.3
-* Update Labs64 NetLicensing URL - [netlicensing.io](http://netlicensing.io)
+* Update Labs64 NetLicensing URL - [netlicensing.io](https://netlicensing.io)
 
 = 1.1.3 =
 * Restore old plugin options

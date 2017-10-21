@@ -212,7 +212,7 @@ function credittracker_print_features_section()
     <button id="ct-validate" type="button""><?php _e('Validate'); ?></button>
     <br/>
     <div style="font-style: italic; color: rgb(102, 102, 102); font-size: smaller;"><p>Powered by <a
-                href="http://netlicensing.io/?ref=credit-tracker"
+                href="https://netlicensing.io/?utm_source=credit-tracker&utm_medium=wordpress_plugin&utm_campaign=credit-tracker&utm_content=wordpress_admin"
                 target="_blank">NetLicensing</a></p>
     </div>
 <?php
@@ -383,6 +383,19 @@ function credittracker_page_init()
     );
 
     add_settings_field(
+        'ct_override_caption_thumbnail',
+        __('Thumbnail', CREDITTRACKER_SLUG),
+        'credittracker_checkbox_field_callback',
+        CREDITTRACKER_SLUG,
+        'CREDITTRACKER_COMMON_SETTINGS',
+        array(
+            'id' => 'ct_override_caption_thumbnail',
+            'caption' => __('Add credit to the post thumbnail (featured image)', CREDITTRACKER_SLUG),
+            'description' => __('', CREDITTRACKER_SLUG),
+        )
+    );
+
+    add_settings_field(
         'ct_auth_flickr_apikey',
         __('Flickr api_key', CREDITTRACKER_SLUG),
         'credittracker_text_field_callback',
@@ -463,7 +476,8 @@ function credittracker_get_default_options()
         'ct_feature_retriever' => '0',
         'ct_copyright_format' => '&copy; %author%',
         'ct_auth_flickr_apikey' => '',
-        'ct_override_caption_shortcode' => '0'
+        'ct_override_caption_shortcode' => '0',
+        'ct_override_caption_thumbnail' => '0'
     );
     return $default_options;
 }

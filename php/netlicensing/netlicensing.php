@@ -20,7 +20,7 @@ if (!class_exists('NetLicensing')) {
          **/
         function __construct($apiKey)
         {
-            $user_agent = 'NetLicensing/PHP ' . PHP_VERSION . ' (http://netlicensing.io)' . '; ' . $_SERVER['HTTP_USER_AGENT'];
+            $user_agent = 'NetLicensing/PHP ' . PHP_VERSION . ' (https://netlicensing.io)' . '; ' . $_SERVER['HTTP_USER_AGENT'];
 
             $this->curl = new Curl();
             $this->curl->headers['Authorization'] = 'Basic ' . base64_encode("apiKey:" . $apiKey);
