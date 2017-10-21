@@ -22,7 +22,7 @@ class credit_tracker_table_widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'credit_tracker_table_widget',
-			__( 'Credit Tracker Table Widget', CREDITTRACKER_SLUG ),
+			__( 'Credit Tracker Table', CREDITTRACKER_SLUG ),
 			array(
 				'description' => __( 'Render the [credit_tracker_table] shortcode within this widget.', CREDITTRACKER_SLUG ),
 			)
