@@ -202,7 +202,8 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
  */
 function creddit_tracker_thumbnail( $html, $post_id, $post_thumbnail_id )
 {
-  if (!empty($post_thumbnail_id)) {
+  $ct_override_caption_thumbnail = credittracker_get_single_option('ct_override_caption_thumbnail');
+  if ((bool)$ct_override_caption_thumbnail and !empty($post_thumbnail_id)) {
     // Get the post_meta for the attachment post.
   	$image_post_meta = get_post_meta( $post_thumbnail_id );
 
