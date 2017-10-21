@@ -95,17 +95,23 @@ function credittracker_get_images($attr)
  */
 function credittracker_process_item_copyright($item, $string)
 {
-    $string = str_replace("%ident_nr%", $item['ident_nr'], $string);
-    $string = str_replace("%source%", $item['source'], $string);
-    $string = str_replace("%author%", $item['author'], $string);
-    $string = str_replace("%publisher%", $item['publisher'], $string);
-    $string = str_replace("%license%", $item['license'], $string);
-    $string = str_replace("%link%", $item['link'], $string);
+	$meta_fields = array(
+		'ident_nr',
+		'source',
+		'author',
+		'publisher',
+		'license',
+		'link',
+		'title',
+		'caption',
+	);
 
-    $string = str_replace("%title%", $item['title'], $string);
-    $string = str_replace("%caption%", $item['caption'], $string);
+	// Loop through the defined meta fields, updating the string if the field is set.
+	foreach( $meta_fields as $field ) {
+		$string = isset( $item[ $field ] ) ? str_replace( "%{$field}%", $item[ $field ], $string) : $string;
+	}
 
-    return $string;
+	return $string;
 }
 
 /**
