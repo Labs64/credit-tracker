@@ -7,3 +7,5 @@ Thumbs.db
 .buildpath
 .project
 .settings*
+!.gitkeep
+data/
