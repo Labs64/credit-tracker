@@ -160,18 +160,38 @@ function credittracker_strip_url($url, $len = 20)
  */
 function creddittracker_add_credit_to_post_thumbnail( $html, $post_id, $post_thumbnail_id )
 {
-    $author = get_post_meta( $post_thumbnail_id , 'credit-tracker-author', true );
-    // If the author (image credit) is not empty, render it in the HTML.
-    if ( ! empty( $author ) ) {
-        $html = sprintf(
-            '<figure>
-                %1$s
-                <figcaption>%2$s</figcaption>
-            </figure>',
-            $html,
-            esc_html( $author )
-        );
-    }
-    return $html;
+	// Get the post_meta for the attachment post.
+	$image_post_meta = get_post_meta( $post_thumbnail_id );
+
+	// Get the attachment meta for the attachment post.
+	$attachment_meta = wp_get_attachment_metadata( $post_thumbnail_id );
+
+	// Add title and caption to processed_meta array.
+	$processed_meta = array(
+		'title'   => $attachment_meta['image_meta']['title'],
+		'caption' => $attachment_meta['image_meta']['caption'],
+	);
+
+	// Modify the meta so that it matches what is expected in the `credittracker_process_item_copyright`
+	foreach ( $image_post_meta as $key => $meta ) {
+		$new_key = substr( $key, 15 );
+		$processed_meta[ $new_key ] = $meta[0];
+	}
+
+	// Get the correct copyright text, as set by user in site option, for this thumbnail.
+	$ct_copyright_format = credittracker_get_single_option('ct_copyright_format' );
+	$ct_copyright        = htmlspecialchars_decode( credittracker_process_item_copyright( $processed_meta, $ct_copyright_format ) );
+
+	if ( ! empty( $ct_copyright ) ) {
+		$html = sprintf(
+			'<figure>
+				%1$s
+				<figcaption>%2$s</figcaption>
+			</figure>',
+			$html,
+			esc_html( $ct_copyright )
+		);
+	}
+	return $html;
 }
 add_filter( 'post_thumbnail_html', 'creddittracker_add_credit_to_post_thumbnail', 99, 3 );
