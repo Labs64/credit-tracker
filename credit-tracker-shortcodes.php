@@ -13,6 +13,7 @@
 // add shortcodes
 add_shortcode('credit_tracker_table', 'credit_tracker_table_shortcode');
 add_filter('img_caption_shortcode', 'credit_tracker_caption_shortcode_filter', 10, 3);
+add_filter('post_thumbnail_html', 'creddit_tracker_thumbnail', 99, 3);
 
 function credit_tracker_table_shortcode($atts)
 {
@@ -97,7 +98,7 @@ function credit_tracker_table_shortcode($atts)
             } elseif ($size !== 'hidden') {
                 $ret .= '<td>' . '<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-thumbnail" alt="' . $image['alt'] . '">' . '</td>';
             }
-            
+
             foreach ($columns as $column) {
                 if (!empty($column)) {
                     if ($column == 'copyright') {
@@ -188,6 +189,54 @@ function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
     } else {
         return $val;
     }
+}
+
+/**
+ * Filters the post thumbnail markup to add the 'credit' information as figure/ficaption markup.
+ *
+ * @param string $html       The post thumbnail HTML
+ * @param $post_id           The post ID, currently unused.
+ * @param $post_thumbnail_id The post thumbnail ID, used to get the attachment meta fields.
+ *
+ * @return string The modified markup for post thumbnail, if it contains an author for crediting.
+ */
+function creddit_tracker_thumbnail( $html, $post_id, $post_thumbnail_id )
+{
+  if (!empty($post_thumbnail_id)) {
+    // Get the post_meta for the attachment post.
+  	$image_post_meta = get_post_meta( $post_thumbnail_id );
+
+  	// Get the attachment meta for the attachment post.
+  	$attachment_meta = wp_get_attachment_metadata( $post_thumbnail_id );
+
+  	// Add title and caption to processed_meta array.
+  	$processed_meta = array(
+  		'title'   => $attachment_meta['image_meta']['title'],
+  		'caption' => $attachment_meta['image_meta']['caption'],
+  	);
+
+  	// Modify the meta so that it matches what is expected in the `credittracker_process_item_copyright`
+  	foreach ( $image_post_meta as $key => $meta ) {
+  		$new_key = substr( $key, 15 );
+  		$processed_meta[ $new_key ] = $meta[0];
+  	}
+
+  	// Get the correct copyright text, as set by user in site option, for this thumbnail.
+  	$ct_copyright_format = credittracker_get_single_option('ct_copyright_format' );
+  	$ct_copyright        = htmlspecialchars_decode( credittracker_process_item_copyright( $processed_meta, $ct_copyright_format ) );
+
+  	if ( ! empty( $ct_copyright ) ) {
+  		$html = sprintf(
+  			'<figure>
+  				%1$s
+  				<figcaption class="credit-tracker-thumbnail">%2$s</figcaption>
+  			</figure>',
+  			$html,
+  			esc_html( $ct_copyright )
+  		);
+  	}
+  	return $html;
+  }
 }
 
 ?>
