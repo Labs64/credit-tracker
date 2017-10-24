@@ -243,6 +243,8 @@ function creddit_tracker_thumbnail( $html, $post_id, $post_thumbnail_id )
   		);
   	}
   	return $html;
+  } else {
+  	return $html;
   }
 }
 

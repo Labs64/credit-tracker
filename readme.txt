@@ -3,7 +3,7 @@ Contributors: labs64
 Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, unsplash, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 3.5.1
 Tested up to: 4.8.2
-Stable tag: 1.1.10
+Stable tag: 1.1.11
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -141,6 +141,10 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 5. Custom Image Caption Shortcode to reflect Credit Information
 
 == Changelog ==
+
+= 1.1.11 =
+* Fix missing standard post thumbnails if 'Add credit to the post thumbnail' set to off [#9](https://github.com/Labs64/credit-tracker/issues/9)
+* Add new attribute 'only_current_post' to 'credit_tracker_table' shortcode which allows only render images attached to the currently visible post by [Jaace](https://github.com/Jaace)
 
 = 1.1.10 =
 * Test and approve plugin for WordPress 4.8.2
