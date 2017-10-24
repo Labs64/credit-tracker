@@ -37,6 +37,7 @@ if (!function_exists('credittracker_write_log')) {
  */
 function credittracker_get_images($attr)
 {
+	global $post;
     $defaults = array(
         'size' => 'thumbnail',
         'include' => '0',
@@ -56,11 +57,17 @@ function credittracker_get_images($attr)
         'numberposts' => $numberposts
     );
 
+    // If the 'only_current_post' value is true, only get attachments for the displayed post for this table.
+    if ( true === $attr['only_current_post'] ) {
+		$attachments = get_attached_media( 'image', $post->ID );
+	} else {
+		$attachments = get_posts($args);
+	}
+
     $items = array();
     $item = array();
 
     // get all attachements
-    $attachments = get_posts($args);
     if (empty($attachments)) {
         return $items;
     }

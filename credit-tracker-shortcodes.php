@@ -39,9 +39,11 @@ function credit_tracker_table_shortcode($atts)
                 'id' => '',
                 'size' => 'thumbnail',
                 'style' => 'default',
-                'include_columns' => $columns_set
+                'include_columns' => $columns_set,
+                'only_current_post' => false,
             ), $atts)
     );
+
     if (empty($include_columns)) {
         $include_columns = $columns_set;
     }
@@ -58,8 +60,12 @@ function credit_tracker_table_shortcode($atts)
 
     $request = array(
         'size' => $size,
-        'include' => $id
+        'include' => $id,
     );
+
+
+    $request['only_current_post'] = isset( $atts['only_current_post'] ) ? boolval( $atts['only_current_post'] ) : false;
+
     $images = credittracker_get_images($request);
 
     $ret = '<table id="credit-tracker-table" class="credit-tracker-' . $style . '"><thead>';

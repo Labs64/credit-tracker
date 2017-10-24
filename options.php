@@ -303,9 +303,12 @@ function credittracker_print_reference_section()
                 <p>&nbsp;&nbsp;<strong>style</strong> <i>(optional)</i> - Table CSS style. Valid values
                     include "default", "mercury", "mars". The default value is "default".</p>
 
-                <p>&nbsp;&nbsp;<strong>include_columns</strong> <i>(optional)</i> - Table columns order and visibility.
+                <p>&nbsp&nbsp;<strong>include_columns</strong> <i>(optional)</i> - Table columns order and visibility.
                     Valid values include "ident_nr", "author", "publisher", "copyright", "license".
                     The default value is "" - show all columns in the default order.</p>
+                <p>&nbsp;&nbsp;<strong>only_current_post</strong> <i>(optional)</i> - If true, only render images attached to the currently visible post.
+                    Valid values include "true" or "false".
+                    The default value is "" - which defaults to "false".</p>
                 <br/>
 
                 <p><strong>Examples:</strong></p>
