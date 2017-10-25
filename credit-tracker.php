@@ -6,12 +6,12 @@
  * Description: A simple way to show credits for the images used on your website.
  * Author:      Labs64
  * Author URI:  http://www.labs64.com
- * Version:     1.1.11
+ * Version:     1.1.12
  * Text Domain: credit-tracker
  * Domain Path: /languages
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Requires at least: 3.5.1
+ * Requires at least: 4.0
  * Tested up to: 4.8.2
  *
  * @package   Credit_Tracker
@@ -30,7 +30,7 @@ if (!defined('WPINC')) {
 /**
  * Plugin version, used for cache-busting of style and script file references.
  */
-define('CREDITTRACKER_VERSION', '1.1.11');
+define('CREDITTRACKER_VERSION', '1.1.12');
 
 /**
  * Unique identifier for your plugin.

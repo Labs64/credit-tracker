@@ -1,9 +1,9 @@
 === Plugin Name ===
 Contributors: labs64
 Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, unsplash, bildnachweis, impressum, imprint, microdata, NetLicensing
-Requires at least: 3.5.1
+Requires at least: 4.0
 Tested up to: 4.8.2
-Stable tag: 1.1.11
+Stable tag: 1.1.12
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,8 +62,8 @@ We also recommend that you do not test this plugin at the same time as making an
 
 = Minimum Requirements =
 
-* WordPress 3.5 or greater
-* PHP version 5.2.4 or greater
+* WordPress 4.0 or greater
+* PHP version 5.6 or greater
 
 = via Upload (FTP, SCP etc.) =
 
@@ -118,7 +118,7 @@ Yep, it does.
 
 = Which WordPress versions are supported? =
 
-In order to get the most out of the plugin and use all of its features, you will need to be using WordPress 3.5 with PHP 5.2.4 as a minimum. Updates will continue to be released for the plugin as the main WordPress CMS is updated.
+In order to get the most out of the plugin and use all of its features, you will need to be using WordPress 4.0 with PHP 5.6 as a minimum. Updates will continue to be released for the plugin as the main WordPress CMS is updated.
 
 = Can I request new features and extensions to be included in future releases of the plugin? =
 
@@ -141,6 +141,10 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 5. Custom Image Caption Shortcode to reflect Credit Information
 
 == Changelog ==
+
+= 1.1.12 =
+* Set minimum requirements to Wordpress 4.0, PHP 5.6 and NetLicensing [2.3.8](https://www.labs64.de/confluence/display/NLICPUB/Release+Notes)
+* TODO
 
 = 1.1.11 =
 * Fix missing standard post thumbnails if 'Add credit to the post thumbnail' set to off [#9](https://github.com/Labs64/credit-tracker/issues/9)
