@@ -59,10 +59,10 @@ function credittracker_get_images($attr)
 
     // If the 'only_current_post' value is true, only get attachments for the displayed post for this table.
     if (isset($attr['only_current_post']) && true === $attr['only_current_post'] ) {
-		$attachments = get_attached_media( 'image', $post->ID );
-	} else {
-		$attachments = get_posts($args);
-	}
+      $attachments = get_attached_media( 'image', $post->ID );
+    } else {
+      $attachments = get_posts($args);
+    }
 
     $items = array();
     $item = array();

@@ -144,7 +144,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 
 = 1.1.12 =
 * Set minimum requirements to Wordpress 4.0, PHP 5.6 and NetLicensing [2.3.8](https://www.labs64.de/confluence/display/NLICPUB/Release+Notes)
-* TODO
+* Fix "Undefined index: only_current_post"
 
 = 1.1.11 =
 * Fix missing standard post thumbnails if 'Add credit to the post thumbnail' set to off [#9](https://github.com/Labs64/credit-tracker/issues/9)
