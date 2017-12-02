@@ -143,7 +143,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.1.13 =
-* *TODO*
+* Romanian translation by [DeliciousThemes](https://github.com/DeliciousThemes)
 
 = 1.1.12 =
 * Set minimum requirements to Wordpress 4.0, PHP 5.6 and NetLicensing [2.3.8](https://www.labs64.de/confluence/display/NLICPUB/Release+Notes)
@@ -298,6 +298,7 @@ Listed here are credits and special thanks to some of you who have helped us out
 * English - default, always included
 * French - by [Lilian Ricaud](http://www.lilianricaud.com "Lilian Ricaud")
 * German - by Michail Preissnerov
+* Romanian - by [DeliciousThemes](https://github.com/DeliciousThemes)
 
 *NOTE:* Please [contribute](https://github.com/Labs64/credit-tracker/tree/master/languages "contribute your language") your language to the plugin to make it even more useful.
 

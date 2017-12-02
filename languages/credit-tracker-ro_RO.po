@@ -1,0 +1,206 @@
+# Copyright (C) 2013 Labs64
+# This file is distributed under the same license as the Credit_Tracker package.
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.1.3\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/credit-tracker\n"
+"POT-Creation-Date: 2017-12-02 19:03+0200\n"
+"PO-Revision-Date: 2017-12-02 19:17+0200\n"
+"Language-Team: Labs64 <info@labs64.com >\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
+"esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!"
+"=0)))?2:1));\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Last-Translator: \n"
+"Language: ro_RO\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: credit-tracker-class.php:195 credit-tracker-class.php:300
+#: credit-tracker-shortcodes.php:20
+msgid "Ident-Nr."
+msgstr "Ident-Nr."
+
+#: credit-tracker-class.php:198
+msgid "The original object number at the source"
+msgstr "Numarul original de obiecte la sursa"
+
+#: credit-tracker-class.php:206
+msgid "activate"
+msgstr "activeaza"
+
+#: credit-tracker-class.php:213
+msgid "GET MEDIA DATA"
+msgstr "ADUNA INFORMATIILE MEDIA"
+
+#: credit-tracker-class.php:219 credit-tracker-class.php:301
+msgid "Source"
+msgstr "Sursa"
+
+#: credit-tracker-class.php:223
+msgid "Source where to locate the original media"
+msgstr "Sursa unde se poate localiza fisierul original"
+
+#: credit-tracker-class.php:227 credit-tracker-class.php:302
+#: credit-tracker-shortcodes.php:21
+msgid "Author"
+msgstr "Autor"
+
+#: credit-tracker-class.php:230
+msgid "Media author/owner"
+msgstr "Autorul/Detinatorul Sursei"
+
+#: credit-tracker-class.php:234 credit-tracker-shortcodes.php:22
+msgid "Publisher"
+msgstr "Editor"
+
+#: credit-tracker-class.php:237
+msgid "Media publisher (e.g. image agency)"
+msgstr "Editorul mass-media(ex: agentia de imagini)"
+
+#: credit-tracker-class.php:241 credit-tracker-shortcodes.php:24
+msgid "License"
+msgstr "Licenta"
+
+#: credit-tracker-class.php:244
+msgid "Media license"
+msgstr "Licenta de Media"
+
+#: credit-tracker-class.php:248
+msgid "Link"
+msgstr "legatura"
+
+#: credit-tracker-class.php:251
+msgid "Media link"
+msgstr "Legatura Mass-Media"
+
+#: credit-tracker-shortcodes.php:23
+msgid "Copyright"
+msgstr "Drepturi de Autor"
+
+#: credit-tracker-shortcodes.php:71
+msgid "No images found"
+msgstr "Nicio imagine gasita"
+
+#: options.php:42
+msgid "Settings"
+msgstr "Setari"
+
+#: options.php:55 options.php:56
+msgid "Credit Tracker"
+msgstr "Credit Tracker"
+
+#: options.php:112
+msgid "Credit Tracker by Labs64"
+msgstr "Credit Tracker de Labs64"
+
+#: options.php:172
+msgid "Some Image Data Retriever needs additional configuration"
+msgstr ""
+"Unele Surse de Informatii legate de Imagini au nevoie de configurari "
+"aditionale"
+
+#: options.php:181
+msgid "Image data retriever (Free)"
+msgstr "Sursa de informatii de imagini(Gratuita)"
+
+#: options.php:207
+msgid "Features"
+msgstr "Specificatii"
+
+#: options.php:208
+msgid "Available plugin features"
+msgstr "Specificatii disponibile pentru plugin"
+
+#: options.php:212
+msgid "Validate"
+msgstr "Valideaza"
+
+#: options.php:227
+msgid "Feedback"
+msgstr "Comentariu"
+
+#: options.php:229
+msgid ""
+"Did you find a bug? Have an idea for a plugin? Please help us improve this "
+"plugin"
+msgstr ""
+"Ai dat peste o problema? Ai o idee pentru un plugin? Te rugam sa ne ajuti "
+"sa imbunatatim acest plugin"
+
+#: options.php:233
+msgid "Report a bug, or suggest an improvement"
+msgstr "Raporteaza un bug, sau sugereaza o imbunatatire"
+
+#: options.php:235
+msgid "Like us on Facebook"
+msgstr "Da-ne un Like pe Facebook"
+
+#: options.php:237
+msgid "Read Labs64 Blog"
+msgstr "Citeste Blogul Labs64"
+
+#: options.php:248
+msgid "Shortcodes Reference"
+msgstr "Referinta Shortcoduri"
+
+#: options.php:343
+msgid "Credit Tracker Settings"
+msgstr "Setari Credit Tracker"
+
+#: options.php:350
+msgid "Retriever Settings"
+msgstr "Setari Retriever"
+
+#: options.php:357
+msgid "Copyright format"
+msgstr "Format Copyright"
+
+#: options.php:363
+msgid ""
+"Default copyright format (HTML allowed)<br/>Allowed placeholders: %ident_nr"
+"%, %source%, %author%, %publisher%, %license%, %link%<br/>...as well as "
+"standard attributes: %title%, %caption%"
+msgstr ""
+"Format Copyright standard (HTML permis)<br/>Permise  placeholdere: %ident_nr"
+"%, %source%, %author%, %publisher%, %license%, %link%<br/>...as well as "
+"standard attributes: %title%, %caption%"
+
+#: options.php:369
+msgid "Override shortcodes"
+msgstr "Inlocuieste shortcoduri"
+
+#: options.php:375
+msgid "Override WordPress [caption] shortcode"
+msgstr "Inlocuieste shortcodul WordPress[antet]"
+
+#: options.php:376
+msgid ""
+"Replaces output of standard WordPress [caption] shortcode with improved "
+"version (add Image Microdata and Image Credit)"
+msgstr ""
+"Inlocuieste rezultatul shortcodului standard WordPress [caption] cu "
+"versiunea imbunatatita (adauga Image Microdata si Image Credit)"
+
+#: options.php:382
+msgid "Flickr api_key"
+msgstr "Flickr api_key"
+
+#: options.php:388
+msgid ""
+"To use the Flickr data retriever you need to have an Flickr API application "
+"key. <a href=\"https://www.flickr.com/services/api/misc.api_keys.html\" "
+"target=\"_blank\">See here</a> for more details."
+msgstr ""
+"Pentru a folosi data retrieverul Flickr ai nevoie de un Flickr API "
+"application key. <a href=\"https://www.flickr.com/services/api/misc."
+"api_keys.html\" target=\"_blank\">Vezi aici</a> mai mutel informatii."
+
+#: options.php:601
+msgid "Custom"
+msgstr "Personalizat"
