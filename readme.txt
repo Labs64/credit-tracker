@@ -307,4 +307,4 @@ Listed here are credits and special thanks to some of you who have helped us out
 
 This is a collection of legal & law regulations and judicial decisions where Credit Tracker may be very useful in order to prevent financial damages for the publishers.
 
-* [Germany] Judicial Decision: Urteil des Amtsgerichts München vom 24.06.15, Aktenzeichen [142 C 11428/15](https://www.justiz.bayern.de/gericht/ag/m/presse/archiv/2015/04984/ "142 C 11428/15")
+* [Germany] Judicial Decision: Urteil des Amtsgerichts München vom 24.06.15, Aktenzeichen [142 C 11428/15](https://www.justiz.bayern.de/gerichte-und-behoerden/amtsgerichte/muenchen/presse/2015/62.php "142 C 11428/15")
