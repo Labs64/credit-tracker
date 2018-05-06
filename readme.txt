@@ -42,6 +42,7 @@ This plugin adds the following fields to all images in WordPress Media Library:
 
 * [Media Credits page at labs64.com](https://www.labs64.com/legal/media-credits/ "Media Credits")
 * [Media Credits page at clever-kids.eu](https://clever-kids.eu/bildnachweis/ "Bildnachweis")
+* [Media Credits page at adfluencer.io](https://adfluencer.io/media-credits/ "Media Credits")
 
 = Get Involved =
 
