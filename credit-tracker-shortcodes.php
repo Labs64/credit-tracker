@@ -12,7 +12,7 @@
 
 // add shortcodes
 add_shortcode('credit_tracker_table', 'credit_tracker_table_shortcode');
-add_filter('img_caption_shortcode', 'credit_tracker_caption_shortcode_filter', 10, 3);
+add_filter('img_caption_shortcode', 'credit_tracker_image_caption_shortcode_filter', 10, 3);
 add_filter('post_gallery', 'credit_tracker_gallery_caption_shortcode_filter', 10, 3);
 add_filter('post_thumbnail_html', 'creddit_tracker_thumbnail', 99, 3);
 
@@ -126,7 +126,7 @@ function credit_tracker_table_shortcode($atts)
 
 }
 
-function credit_tracker_caption_shortcode_filter($val, $attr, $content = null)
+function credit_tracker_image_caption_shortcode_filter($val, $attr, $content = null)
 {
     extract(shortcode_atts(
             array(
@@ -255,10 +255,10 @@ Major part of the code is simply a slightly modified copy of gallery_shortcode f
 Its modified lines are marked in the code*/
 function credit_tracker_gallery_caption_shortcode_filter($output, $attr, $instance)
 {
-	
+
     $ct_override_caption_shortcode = credittracker_get_single_option('ct_override_caption_shortcode');
     if ((bool)$ct_override_caption_shortcode) {
-		
+
 
 	static $instance = 0;
 	$instance++;
@@ -271,7 +271,7 @@ function credit_tracker_gallery_caption_shortcode_filter($output, $attr, $instan
 		$attr['include'] = $attr['ids'];
 	}
 
-	
+
 
 	$html5 = current_theme_supports( 'html5', 'gallery' );
 	$atts = shortcode_atts( array(
@@ -346,7 +346,7 @@ function credit_tracker_gallery_caption_shortcode_filter($output, $attr, $instan
 	 *                    Defaults to false if the theme supports HTML5 galleries.
 	 *                    Otherwise, defaults to true.
 	 */
-	
+
 		$gallery_style = "
 		<style type='text/css'>
 			#{$selector} {
@@ -366,7 +366,7 @@ function credit_tracker_gallery_caption_shortcode_filter($output, $attr, $instan
 			}
 			/* see gallery_shortcode() in wp-includes/media.php */
 		</style>\n\t\t";
-	
+
 
 	$size_class = sanitize_html_class( $atts['size'] );
 	$gallery_div = "<div id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} gallery-size-{$size_class}'>";
@@ -404,13 +404,13 @@ function credit_tracker_gallery_caption_shortcode_filter($output, $attr, $instan
 				$image_output
 			</{$icontag}>";
 		if ( $captiontag && trim($attachment->post_excerpt) ) {
-			
-			/*Modified part that outputs the caption text itself*/	
+
+			/*Modified part that outputs the caption text itself*/
 			$id_orig = $id;
 			if ($id) {
 				$id = esc_attr($id);
 			}
-			
+
 			// extract attachment id
 			preg_match("/\d+/", $id, $matches);
 			if (!empty($matches)) {
@@ -426,14 +426,14 @@ function credit_tracker_gallery_caption_shortcode_filter($output, $attr, $instan
 			if (empty($images)) {
 				return $val;
 			}
-			$image = reset($images);	
+			$image = reset($images);
 
 			// override image caption via 'text' attribute
 			if (!empty($text)) {
 				$image['caption'] = $text;
 			}
 
-			
+
 			$ct_copyright_format = credittracker_get_source_copyright($image['source']);
 			if (empty($ct_copyright_format)) {
 				$ct_copyright_format = credittracker_get_single_option('ct_copyright_format');
@@ -444,7 +444,7 @@ function credit_tracker_gallery_caption_shortcode_filter($output, $attr, $instan
 				" . $ct_copyright . "
 				</{$captiontag}>";
 		}
-		
+
 		/*identical to media.php of WP*/
 		$ret .= "</{$itemtag}>";
 		if ( ! $html5 && $columns > 0 && ++$i % $columns == 0 ) {
@@ -458,11 +458,11 @@ function credit_tracker_gallery_caption_shortcode_filter($output, $attr, $instan
 	}
 
 	$ret .= "</div>\n";
-    
-		
+
+
         return $ret;
 		/**/
-		
+
     } else {
         return $output;
     }
