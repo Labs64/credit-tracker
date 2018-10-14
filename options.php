@@ -285,6 +285,25 @@ function credittracker_print_reference_section()
         </tr>
         <tr valign="top">
             <th scope="row">
+                [gallery]
+            </th>
+            <td>
+                <p>Override WordPress [gallery] shortcode.</p>
+
+                <p><strong>Attributes:</strong></p>
+
+                <p>&nbsp;&nbsp;All standard [gallery] shortcode attributes can be used.</p>
+                <br/>
+
+                <p><strong>Examples:</strong></p>
+
+                <p><code>[gallery link="none" size="large" ids="8,7,5"]</code></p>
+
+                <p>Override [gallery] shortcode</p>
+            </td>
+        </tr>
+        <tr valign="top">
+            <th scope="row">
                 [credit_tracker_table]
             </th>
             <td>
@@ -380,8 +399,8 @@ function credittracker_page_init()
         'CREDITTRACKER_COMMON_SETTINGS',
         array(
             'id' => 'ct_override_caption_shortcode',
-            'caption' => __('Override WordPress [caption] shortcode', CREDITTRACKER_SLUG),
-            'description' => __('Replaces output of standard WordPress [caption] shortcode with improved version (add Image Microdata and Image Credit)<br/>Following placeholders can be used to substitute media attribution within [caption] shortcode: standard placeholders and %copyright%', CREDITTRACKER_SLUG),
+            'caption' => __('Override WordPress [caption]/[gallery] shortcode', CREDITTRACKER_SLUG),
+            'description' => __('Replaces output of standard WordPress [caption]/[gallery] shortcode with improved version (add Image Microdata and Image Credit)<br/>Following placeholders can be used to substitute media attribution within [caption] shortcode: standard placeholders and %copyright%', CREDITTRACKER_SLUG),
         )
     );
 

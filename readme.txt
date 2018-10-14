@@ -2,7 +2,7 @@
 Contributors: labs64
 Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, unsplash, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 4.0
-Tested up to: 4.8.2
+Tested up to: 4.9.8
 Stable tag: 1.1.13
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -106,6 +106,12 @@ By using an overridden version of the caption shortcode, you have also access to
 
 `&copy; <a href="%link%" target="__blank">%author%</a> - %caption%`
 
+= How do I add media information on WordPress gallery? =
+
+Media credit caption will be added to the standard WordPress gallery if *Override WordPress [caption]/[gallery] shortcode* is enabled. Place standard WordPress gallery shortcode in your post or page:
+
+`[gallery link="none" size="large" ids="8,7,5"]`
+
 = Do I have to manually update the Credit Tracker Table if I add/modify a media library entry? =
 
 Nope! If you add/edit/delete a media library entry, your 'credit_tracker_table' is automatically updated to reflect any changes you have made. Obviously, if the new entry is not already included in the images you want to list, it will not appear until you set the code to apply this change.
@@ -145,7 +151,10 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.1.13 =
+* Test and approve plugin for WordPress 4.9.8
 * Romanian translation by [DeliciousThemes](https://github.com/DeliciousThemes)
+* Support credit metadata on Gallery Captions [#15](https://github.com/Labs64/credit-tracker/issues/15) by [Peter B](https://github.com/idea--list)
+* Additional plugin showcases added - [Media Credits page at clever-kids.eu](https://clever-kids.eu/bildnachweis/ "Bildnachweis"), [Media Credits page at adfluencer.io](https://adfluencer.io/media-credits/ "Media Credits")
 
 = 1.1.12 =
 * Set minimum requirements to Wordpress 4.0, PHP 5.6 and NetLicensing [2.3.8](https://www.labs64.de/confluence/display/NLICPUB/Release+Notes)
