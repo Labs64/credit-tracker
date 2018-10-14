@@ -5,7 +5,7 @@
  * @package   Credit_Tracker
  * @author    Labs64 <info@labs64.com>
  * @license   GPL-2.0+
- * @link      http://www.labs64.com
+ * @link      https://www.labs64.com
  * @copyright 2013 Labs64
  */
 
@@ -34,7 +34,7 @@ class Credit_Tracker
         add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
 
-        // Define custom functionality. Read more about actions and filters: http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
+        // Define custom functionality. Read more about actions and filters: https://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
         add_filter('attachment_fields_to_edit', array($this, 'get_attachment_fields'), null, 2);
         add_filter('attachment_fields_to_save', array($this, 'save_attachment_fields'), null, 2);
 

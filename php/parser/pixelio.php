@@ -9,9 +9,9 @@
 class CTPixelio extends CTParser
 {
 
-    const COPYRIGHT = '&copy; %author% / <a href="http://www.pixelio.de" target="_blank">PIXELIO</a>';
+    const COPYRIGHT = '&copy; %author% / <a href="https://www.pixelio.de" target="_blank">PIXELIO</a>';
 
-    const BASE_URL = 'http://www.pixelio.de/media/';
+    const BASE_URL = 'https://www.pixelio.de/media/';
 
     protected function parse($number)
     {

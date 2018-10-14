@@ -5,19 +5,19 @@
  * Plugin URI:  https://github.com/Labs64/credit-tracker
  * Description: A simple way to show credits for the images used on your website.
  * Author:      Labs64
- * Author URI:  http://www.labs64.com
+ * Author URI:  https://www.labs64.com
  * Version:     1.1.13
  * Text Domain: credit-tracker
  * Domain Path: /languages
  * License:     GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  * Requires at least: 4.0
  * Tested up to: 4.9.8
  *
  * @package   Credit_Tracker
  * @author    Labs64 <info@labs64.com>
  * @license   GPL-2.0+
- * @link      http://www.labs64.com
+ * @link      https://www.labs64.com
  * @copyright 2013 Labs64
  */
 

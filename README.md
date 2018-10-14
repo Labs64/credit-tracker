@@ -4,12 +4,12 @@
 
 ---
 
-[![WordPress tested](http://img.shields.io/wordpress/v/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
-[![WordPress Plugin version](http://img.shields.io/wordpress/plugin/v/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
-[![WordPress Plugin Downloads](http://img.shields.io/wordpress/plugin/dt/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
-[![WordPress Plugin Rating](http://img.shields.io/wordpress/plugin/r/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
-[![License](http://img.shields.io/badge/license-GPLv2-red.svg?style=flat-square)](http://opensource.org/licenses/GPL-3.0)
-[![Stories in Ready](https://badge.waffle.io/labs64/credit-tracker.svg?label=ready&title=Ready)](http://waffle.io/labs64/credit-tracker)
+[![WordPress tested](https://img.shields.io/wordpress/v/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
+[![WordPress Plugin version](https://img.shields.io/wordpress/plugin/v/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
+[![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dt/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
+[![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/r/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
+[![License](https://img.shields.io/badge/license-GPLv2-red.svg?style=flat-square)](https://opensource.org/licenses/GPL-3.0)
+[![Stories in Ready](https://badge.waffle.io/labs64/credit-tracker.svg?label=ready&title=Ready)](https://waffle.io/labs64/credit-tracker)
 
 ---
 
@@ -51,7 +51,7 @@ This plugin adds the following fields to all images in WordPress Media Library:
 
 Choose one of the following options:
 
-1. Download the latest stable release from [WordPress plugin page](http://wordpress.org/plugins/credit-tracker/) or a custom build from [Credit Tracker GitHub repository](https://github.com/Labs64/credit-tracker).
+1. Download the latest stable release from [WordPress plugin page](https://wordpress.org/plugins/credit-tracker/) or a custom build from [Credit Tracker GitHub repository](https://github.com/Labs64/credit-tracker).
 2. Clone the git repo — `git clone https://github.com/Labs64/credit-tracker.git` or checkout the tagged release you'd like to use.
 
 
@@ -62,7 +62,7 @@ Anyone and everyone is welcome to contribute. Dozens of developers have helped m
 
 ## Related Links
 
-* WordPress plugin page: [http://wordpress.org/plugins/credit-tracker/](http://wordpress.org/plugins/credit-tracker/)
+* WordPress plugin page: [https://wordpress.org/plugins/credit-tracker/](https://wordpress.org/plugins/credit-tracker/)
 * Source: [https://github.com/Labs64/credit-tracker](https://github.com/Labs64/credit-tracker)
-* Author: [Labs64](http://www.labs64.com)
-* Demand photos: [Photolancer Zone](http://photolancer.zone)
+* Author: [Labs64](https://www.labs64.com)
+* Software License Management: [Labs64 NetLicensing](https://netlicensing.io)

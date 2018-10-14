@@ -22,7 +22,7 @@ echo
 # Set up some default values. Feel free to change these in your own script
 CURRENTDIR=`pwd`
 default_svnpath="$CURRENTDIR/../$PLUGINSLUG-svn"
-default_svnurl="http://plugins.svn.wordpress.org/$PLUGINSLUG"
+default_svnurl="https://plugins.svn.wordpress.org/$PLUGINSLUG"
 default_svnuser="labs64"
 default_plugindir="$CURRENTDIR"
 default_mainfile="$PLUGINSLUG.php"

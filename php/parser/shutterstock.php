@@ -11,7 +11,7 @@ class CTShutterstock extends CTParser
 
     const COPYRIGHT = '&copy; %author%/Shutterstock';
 
-    const BASE_URL = 'http://www.shutterstock.com/pic-';
+    const BASE_URL = 'https://www.shutterstock.com/pic-';
 
     protected function parse($number)
     {

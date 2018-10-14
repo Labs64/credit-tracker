@@ -5,7 +5,7 @@
  * @package   Credit_Tracker
  * @author    Labs64 <info@labs64.com>
  * @license   GPL-2.0+
- * @link      http://www.labs64.com
+ * @link      https://www.labs64.com
  * @copyright 2013 Labs64
  */
 
@@ -183,7 +183,7 @@ function credit_tracker_image_caption_shortcode_filter($val, $attr, $content = n
             $style = 'style="width: ' . (int)$width . 'px"';
         }
 
-        $ret = '<div id="' . $id_orig . '" class="wp-caption credit-tracker-caption ' . esc_attr($align) . '" itemscope itemtype="http://schema.org/ImageObject" ' . $style . '>';
+        $ret = '<div id="' . $id_orig . '" class="wp-caption credit-tracker-caption ' . esc_attr($align) . '" itemscope itemtype="https://schema.org/ImageObject" ' . $style . '>';
         $ret .= do_shortcode($content);
         $ret .= '<p class="wp-caption-text" itemprop="copyrightHolder">' . $ct_copyright . '</p>';
         $ret .= '<meta itemprop="name" content="' . $image['title'] . '">';

@@ -5,7 +5,7 @@
  * @package   Credit_Tracker
  * @author    Labs64 <info@labs64.com>
  * @license   GPL-2.0+
- * @link      http://www.labs64.com
+ * @link      https://www.labs64.com
  * @copyright 2013 Labs64
  */
 
@@ -106,8 +106,8 @@ function credittracker_enqueue_admin_scripts()
 function credittracker_create_admin_page()
 {
     ?>
-    <div class="wrap credit-tracker" xmlns="http://www.w3.org/1999/html">
-        <a href="http://www.labs64.com" target="_blank" class="icon-labs64 icon32"></a>
+    <div class="wrap credit-tracker" xmlns="https://www.w3.org/1999/html">
+        <a href="https://www.labs64.com" target="_blank" class="icon-labs64 icon32"></a>
 
         <h2><?php _e('Credit Tracker by Labs64', CREDITTRACKER_SLUG); ?></h2>
 
@@ -232,9 +232,9 @@ function credittracker_print_feedback_section()
             <a href="https://github.com/Labs64/credit-tracker/issues"
                target="_blank"><?php _e('Report a bug, or suggest an improvement', CREDITTRACKER_SLUG); ?></a>
         </li>
-        <li><a href="http://www.facebook.com/labs64" target="_blank"><?php _e('Like us on Facebook'); ?></a>
+        <li><a href="https://www.facebook.com/labs64" target="_blank"><?php _e('Like us on Facebook'); ?></a>
         </li>
-        <li><a href="http://www.labs64.com/blog" target="_blank"><?php _e('Read Labs64 Blog'); ?></a></li>
+        <li><a href="https://www.labs64.com/blog" target="_blank"><?php _e('Read Labs64 Blog'); ?></a></li>
     </ul>
 <?php
 }
@@ -777,7 +777,7 @@ function credittracker_get_corbis_images_metadata($number)
     $item['author'] = '';
     $item['publisher'] = 'Corbis Images';
     $item['license'] = 'Royalty-free';
-    $item['link'] = 'http://www.corbisimages.com';
+    $item['link'] = 'https://www.corbisimages.com';
 
     return $item;
 }
@@ -801,7 +801,7 @@ function credittracker_get_getty_images_metadata($number)
     $item['author'] = '';
     $item['publisher'] = 'Getty Images';
     $item['license'] = 'Royalty-free';
-    $item['link'] = 'http://www.gettyimages.com';
+    $item['link'] = 'https://www.gettyimages.com';
 
     return $item;
 }

@@ -11,7 +11,7 @@ class CTIStockphoto extends CTParser
 
     const COPYRIGHT = '&copy;iStockphoto.com/%author%';
 
-    const BASE_URL = 'http://www.istockphoto.com/id/';
+    const BASE_URL = 'https://www.istockphoto.com/id/';
 
     protected function parse($number)
     {

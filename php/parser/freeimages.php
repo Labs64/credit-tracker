@@ -9,9 +9,9 @@
 class CTFreeimages extends CTParser
 {
 
-    const COPYRIGHT = '&copy; %author% / <a href="http://www.freeimages.com" target="_blank">freeimages.com</a>';
+    const COPYRIGHT = '&copy; %author% / <a href="https://www.freeimages.com" target="_blank">freeimages.com</a>';
 
-    const BASE_URL = 'http://www.freeimages.com/photo/';
+    const BASE_URL = 'https://www.freeimages.com/photo/';
 
     protected function parse($number)
     {

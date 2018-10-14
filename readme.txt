@@ -5,7 +5,7 @@ Requires at least: 4.0
 Tested up to: 4.9.8
 Stable tag: 1.1.13
 License: GPL-2.0+
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 A simple way to show credits for the images used on your website.
 
@@ -98,7 +98,7 @@ If you want to show the Credit Tracker on a specific page or set of pages on you
 
 This is a brief introductory video for Credit Tracker:
 
-[youtube http://www.youtube.com/watch?v=w13fYXWK-lo]
+[youtube https://www.youtube.com/watch?v=w13fYXWK-lo]
 
 = How do I use both standard caption and media credit? =
 
@@ -244,7 +244,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 * Use standard attributes 'title', 'caption' at 'Copyright format'
 
 = 0.9.14 =
-* Fixed [bug](http://wordpress.org/support/topic/error-after-updating-to-0913) introduced with v0.9.13
+* Fixed [bug](https://wordpress.org/support/topic/error-after-updating-to-0913) introduced with v0.9.13
 
 = 0.9.13 (not-stable) =
 * Test and approve plugin for WordPress 3.9
@@ -307,7 +307,7 @@ Listed here are credits and special thanks to some of you who have helped us out
 
 = Translations =
 * English - default, always included
-* French - by [Lilian Ricaud](http://www.lilianricaud.com "Lilian Ricaud")
+* French - by [Lilian Ricaud](https://www.lilianricaud.com "Lilian Ricaud")
 * German - by Michail Preissnerov
 * Romanian - by [DeliciousThemes](https://github.com/DeliciousThemes)
 
