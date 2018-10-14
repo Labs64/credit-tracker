@@ -3,7 +3,7 @@ Contributors: labs64
 Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, unsplash, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 4.0
 Tested up to: 4.9.8
-Stable tag: 1.1.13
+Stable tag: 1.1.14
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -149,6 +149,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 5. Custom Image Caption Shortcode to reflect Credit Information
 
 == Changelog ==
+
+= 1.1.14 =
+* *TODO*
 
 = 1.1.13 =
 * Test and approve plugin for WordPress 4.9.8
