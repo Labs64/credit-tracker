@@ -240,7 +240,7 @@ function creddit_tracker_thumbnail( $html, $post_id, $post_thumbnail_id )
   				<figcaption class="credit-tracker-thumbnail">%2$s</figcaption>
   			</figure>',
   			$html,
-  			esc_html( $ct_copyright )
+  			$ct_copyright
   		);
   	}
   	return $html;
