@@ -12,7 +12,7 @@
  * License:     GPL-2.0+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  * Requires at least: 4.0
- * Tested up to: 4.9.8
+ * Tested up to: 5.0.2
  *
  * @package   Credit_Tracker
  * @author    Labs64 <info@labs64.com>
@@ -59,6 +59,7 @@ require_once(plugin_dir_path(__FILE__) . '/php/parser/flickr.php');
 require_once(plugin_dir_path(__FILE__) . '/php/parser/freeimages.php');
 require_once(plugin_dir_path(__FILE__) . '/php/parser/shutterstock.php');
 require_once(plugin_dir_path(__FILE__) . '/php/parser/unsplash.php');
+require_once(plugin_dir_path(__FILE__) . '/php/parser/depositphotos.php');
 
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
 register_activation_hook(__FILE__, array('Credit_Tracker', 'activate'));

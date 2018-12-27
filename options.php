@@ -702,6 +702,11 @@ function credittracker_get_sources_array()
             'caption' => 'Unsplash',
             'copyright' => 'credittracker_get_unsplash_copyright',
             'retriever' => 'credittracker_get_unsplash_metadata'
+        ),
+        'depositphotos' => array(
+            'caption' => 'Depositphotos',
+            'copyright' => 'credittracker_get_depositphotos_copyright',
+            'retriever' => 'credittracker_get_depositphotos_metadata'
         )
     );
     return $sources;
@@ -895,6 +900,23 @@ function credittracker_get_unsplash_copyright()
 function credittracker_get_unsplash_metadata($number)
 {
     $parser = new CTUnsplash();
+    return $parser->execute($number);
+}
+
+/**
+ * Depositphotos: copyright
+ */
+function credittracker_get_depositphotos_copyright()
+{
+    return CTDepositphotos::COPYRIGHT;
+}
+
+/**
+ * Depositphotos: metadata
+ */
+function credittracker_get_depositphotos_metadata($number)
+{
+    $parser = new CTDepositphotos();
     return $parser->execute($number);
 }
 

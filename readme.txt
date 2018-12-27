@@ -2,7 +2,7 @@
 Contributors: labs64
 Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, unsplash, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 4.0
-Tested up to: 4.9.8
+Tested up to: 5.0.2
 Stable tag: 1.1.14
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -41,8 +41,6 @@ This plugin adds the following fields to all images in WordPress Media Library:
 = Showcase =
 
 * [Media Credits page at labs64.com](https://www.labs64.com/legal/media-credits/ "Media Credits")
-* [Media Credits page at clever-kids.eu](https://clever-kids.eu/bildnachweis/ "Bildnachweis")
-* [Media Credits page at adfluencer.io](https://adfluencer.io/media-credits/ "Media Credits")
 
 = Get Involved =
 
@@ -151,13 +149,14 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 == Changelog ==
 
 = 1.1.14 =
-* *TODO*
+* Test and approve plugin for WordPress 5.0.2
+* Fix Unsplash author parse
+* Enable Depositphotos parser - [#41](https://github.com/Labs64/credit-tracker/issues/41)
 
 = 1.1.13 =
 * Test and approve plugin for WordPress 4.9.8
 * Romanian translation by [DeliciousThemes](https://github.com/DeliciousThemes)
 * Support credit metadata on Gallery Captions [#15](https://github.com/Labs64/credit-tracker/issues/15) by [Peter B](https://github.com/idea--list)
-* Additional plugin showcases added - [Media Credits page at clever-kids.eu](https://clever-kids.eu/bildnachweis/ "Bildnachweis"), [Media Credits page at adfluencer.io](https://adfluencer.io/media-credits/ "Media Credits")
 
 = 1.1.12 =
 * Set minimum requirements to Wordpress 4.0, PHP 5.6 and NetLicensing [2.3.8](https://www.labs64.de/confluence/display/NLICPUB/Release+Notes)

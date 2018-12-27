@@ -1,26 +1,26 @@
 <?php
 
 /**
- * Unsplash parser
+ * Depositphotos parser
  *
  * @package parser
  * @author Labs64 <info@labs64.com>
  **/
-class CTUnsplash extends CTParser
+class CTDepositphotos extends CTParser
 {
 
-    const COPYRIGHT = '&copy; %author% - unsplash.com';
+    const COPYRIGHT = '&copy; %author% /Depositphotos.com';
 
-    const BASE_URL = 'https://unsplash.com/photos/';
+    const BASE_URL = 'https://depositphotos.com/';
 
     protected function parse($number)
     {
         $url = self::BASE_URL . $number;
 
         $item = parent::parse($number);
-        $item['source'] = 'Unsplash';
-        $item['publisher'] = 'Unsplash';
-        $item['license'] = 'Creative Commons Zero (CC0 1.0)';
+        $item['source'] = 'Depositphotos';
+        $item['publisher'] = 'Depositphotos';
+        $item['license'] = 'Royalty-free';
         $item['link'] = $url;
 
         $doc = new DOMDocument();
@@ -34,11 +34,9 @@ class CTUnsplash extends CTParser
                 $item['link'] = $tags->item(0)->getAttribute('content');
             }
 
-            $tags = $xpath->query("*/meta[@property='og:title']");
+            $tags = $xpath->query("//span[@itemprop='name']");
             if (!is_null($tags) && $tags->length > 0) {
-                $author = $tags->item(0)->getAttribute('content');
-                preg_match('/^.*photo by (.*) on Unsplash$/', $author, $matches);
-                $item['author'] = $matches[1];
+                $item['author'] = $tags->item(1)->textContent;
             }
         }
 
