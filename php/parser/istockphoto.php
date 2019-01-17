@@ -9,9 +9,9 @@
 class CTIStockphoto extends CTParser
 {
 
-    const COPYRIGHT = '&copy;iStockphoto.com/%author%';
+    const COPYRIGHT = '&copy;iStock.com/%author%';
 
-    const BASE_URL = 'https://www.istockphoto.com/id/';
+    const BASE_URL = 'https://www.istockphoto.com/foto/';
 
     protected function parse($number)
     {
@@ -27,12 +27,8 @@ class CTIStockphoto extends CTParser
         $response = $this->curl($url);
         $html = @$doc->loadHTML(wp_remote_retrieve_body($response));
         if ($html) {
-            $xpath = new DOMXPath($doc);
-
-            $tags = $xpath->query("*/meta[@property='og:author']");
-            if (!is_null($tags) && $tags->length > 0) {
-                $item['author'] = $tags->item(0)->getAttribute('content');
-            }
+          preg_match('<a class="photographer".*href=".*portfolio\/(.*)\?mediatype=photography">', wp_remote_retrieve_body($response), $matches);
+          $item['author'] = $matches[1];
         }
 
         return $item;
