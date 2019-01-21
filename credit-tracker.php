@@ -60,6 +60,7 @@ require_once(plugin_dir_path(__FILE__) . '/php/parser/freeimages.php');
 require_once(plugin_dir_path(__FILE__) . '/php/parser/shutterstock.php');
 require_once(plugin_dir_path(__FILE__) . '/php/parser/unsplash.php');
 require_once(plugin_dir_path(__FILE__) . '/php/parser/depositphotos.php');
+require_once(plugin_dir_path(__FILE__) . '/php/parser/adobestock.php');
 
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
 register_activation_hook(__FILE__, array('Credit_Tracker', 'activate'));

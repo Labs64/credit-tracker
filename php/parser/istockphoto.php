@@ -9,7 +9,7 @@
 class CTIStockphoto extends CTParser
 {
 
-    const COPYRIGHT = '&copy;iStock.com/%author%';
+    const COPYRIGHT = '&copy; iStock.com/%author%';
 
     const BASE_URL = 'https://www.istockphoto.com/foto/';
 

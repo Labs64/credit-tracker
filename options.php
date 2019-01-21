@@ -707,6 +707,11 @@ function credittracker_get_sources_array()
             'caption' => 'Depositphotos',
             'copyright' => 'credittracker_get_depositphotos_copyright',
             'retriever' => 'credittracker_get_depositphotos_metadata'
+        ),
+        'Adobe_Stock' => array(
+            'caption' => 'Adobe Stock',
+            'copyright' => 'credittracker_get_adobestock_copyright',
+            'retriever' => 'credittracker_get_adobestock_metadata'
         )
     );
     return $sources;
@@ -919,5 +924,23 @@ function credittracker_get_depositphotos_metadata($number)
     $parser = new CTDepositphotos();
     return $parser->execute($number);
 }
+
+/**
+ * Adobe Stock: copyright
+ */
+function credittracker_get_adobestock_copyright()
+{
+    return CTAdobeStock::COPYRIGHT;
+}
+
+/**
+ * Adobe Stock: metadata
+ */
+function credittracker_get_adobestock_metadata($number)
+{
+    $parser = new CTAdobeStock();
+    return $parser->execute($number);
+}
+
 
 ?>
