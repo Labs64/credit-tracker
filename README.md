@@ -9,7 +9,6 @@
 [![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dt/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
 [![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/r/credit-tracker.svg?style=flat-square)](https://wordpress.org/plugins/credit-tracker/)
 [![License](https://img.shields.io/badge/license-GPLv2-red.svg?style=flat-square)](https://opensource.org/licenses/GPL-3.0)
-[![Stories in Ready](https://badge.waffle.io/labs64/credit-tracker.svg?label=ready&title=Ready)](https://waffle.io/labs64/credit-tracker)
 
 ---
 
