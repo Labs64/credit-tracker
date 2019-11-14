@@ -170,7 +170,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 * Support credit metadata on Gallery Captions [#15](https://github.com/Labs64/credit-tracker/issues/15) by [Peter B](https://github.com/idea--list)
 
 = 1.1.12 =
-* Set minimum requirements to Wordpress 4.0, PHP 5.6 and NetLicensing [2.3.8](https://www.labs64.de/confluence/display/NLICPUB/Release+Notes)
+* Set minimum requirements to Wordpress 4.0, PHP 5.6 and NetLicensing [2.3.8](https://netlicensing.io/wiki/netlicensing-2-3-8-final)
 * Fix "Undefined index: only_current_post"
 
 = 1.1.11 =
