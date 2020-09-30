@@ -42,6 +42,8 @@ function credit_tracker_table_shortcode($atts)
                 'style' => 'default',
                 'include_columns' => $columns_set,
                 'only_current_post' => false,
+	            'orderby' => 'post__in',
+	            'order' => 'DESC',
             ), $atts)
     );
 
@@ -62,6 +64,8 @@ function credit_tracker_table_shortcode($atts)
     $request = array(
         'size' => $size,
         'include' => $id,
+	    'orderby' => $orderby,
+	    'order' => $order,
     );
 
 

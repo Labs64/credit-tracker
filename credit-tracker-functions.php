@@ -41,19 +41,30 @@ function credittracker_get_images($attr)
     $defaults = array(
         'size' => 'thumbnail',
         'include' => '0',
-        'numberposts' => -1
+        'numberposts' => -1,
+	    'orderby' => 'post__in',
+	    'order' => 'DESC',
     );
 
     // merge defaults with user input
     $attr = wp_parse_args($attr, $defaults);
     extract($attr);
 
+    // User input sanity checking. Don't allow invalid values.
+	if ( 'date' != $orderby && 'post__in' != $orderby ) {
+		$orderby = 'post__in';
+	}
+	if ( 'asc' != $order && 'desc' != $order ) {
+		$order = 'DESC';
+	}
+
     $args = array(
         'include' => $include,
         'post_status' => 'inherit',
         'post_type' => 'attachment',
         'post_mime_type' => 'image',
-        'orderby' => 'post__in',
+        'orderby' => $orderby,
+        'order' => $order,
         'numberposts' => $numberposts
     );
 

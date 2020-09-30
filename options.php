@@ -328,6 +328,12 @@ function credittracker_print_reference_section()
                 <p>&nbsp;&nbsp;<strong>only_current_post</strong> <i>(optional)</i> - If true, only render images attached to the currently visible post.
                     Valid values include "true" or "false".
                     The default value is "" - which defaults to "false".</p>
+                <p>&nbsp;&nbsp;<strong>orderby</strong> <i>(optional)</i> - Which value to sort the table on.
+                    The only valid value for this field is "date".
+                    The default order value will be used if this is not provided.</p>
+                <p>&nbsp;&nbsp;<strong>order</strong> <i>(optional)</i> - Sort results ascending or descending.
+                    Valid values include "asc" or "desc".
+                    The default value is "desc" - no effect by default, sorts reverse chronologically when sorting by date.</p>
                 <br/>
 
                 <p><strong>Examples:</strong></p>
@@ -347,6 +353,11 @@ function credittracker_print_reference_section()
                 <p><code>[credit_tracker_table include_columns="ident_nr,copyright,license,author,publisher"]</code></p>
 
                 <p>Generate table with the specified columns only and defined columns order</p>
+                <br />
+
+                <p><code>[credit_tracker_table orderby="date" order="desc"]</code></p>
+
+                <p>Generate table sorted by date the image was added to the Media Library, showing most recent at the top.</p>
             </td>
         </tr>
         </tbody>
