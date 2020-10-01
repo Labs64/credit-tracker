@@ -12,7 +12,7 @@
  * License:     GPL-2.0+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  * Requires at least: 4.0
- * Tested up to: 5.0.3
+ * Tested up to: 5.5.1
  *
  * @package   Credit_Tracker
  * @author    Labs64 <info@labs64.com>

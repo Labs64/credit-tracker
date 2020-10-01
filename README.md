@@ -40,7 +40,7 @@ This plugin adds the following fields to all images in WordPress Media Library:
 
 ## Showcase
 
-* [Media Credits page at labs64.com](https://www.labs64.com/legal/media-credits/ "Media Credits")
+* [Media Credits page at labs64.com](https://www.labs64.com "Media Credits")
 
 ## Documentation
 
