@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: labs64
+Contributors: labs64, wpamitkumar
 Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, unsplash, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 4.0
 Tested up to: 5.5.1

@@ -15,7 +15,8 @@ table.credit-tracker-default {
 
 table.credit-tracker-default thead tr th {
     text-transform: uppercase;
-    background: #e2e2e2;
+	background: #e2e2e2;
+	cursor: pointer;
 }
 
 table.credit-tracker-default tfoot tr th, table.credit-tracker-default tfoot tr td {
