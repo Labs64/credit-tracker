@@ -1,9 +1,9 @@
 === Plugin Name ===
-Contributors: labs64, wpamitkumar
+Contributors: labs64
 Tags: credit, attribution, legal, copyright, owner, author, media library, media, image, photo, license, royalty-free, RF, Creative Commons, stock, attachment, flickr, fotolia, unsplash, bildnachweis, impressum, imprint, microdata, NetLicensing
 Requires at least: 4.0
 Tested up to: 5.5.1
-Stable tag: 1.1.17
+Stable tag: 1.1.18
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -147,6 +147,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/Labs64/credit
 5. Custom Image Caption Shortcode to reflect Credit Information
 
 == Changelog ==
+
+= 1.1.18 =
+* Added sorting for table columns - [#49](https://github.com/Labs64/credit-tracker/pull/49) by wpamitkumar
 
 = 1.1.17 =
 * Sort attribute credit_tracker_table - [#41](https://github.com/Labs64/credit-tracker/issues/46)
