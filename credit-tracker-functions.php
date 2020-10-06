@@ -72,7 +72,7 @@ function credittracker_get_images($attr)
     if (isset($attr['only_current_post']) && true === $attr['only_current_post'] ) {
       $attachments = get_attached_media( 'image', $post->ID );
     } else {
-      $attachments = get_posts($args);
+      $attachments = get_posts( apply_filters( 'credittracker_get_images_args', $args ) );
     }
 
     $items = array();
